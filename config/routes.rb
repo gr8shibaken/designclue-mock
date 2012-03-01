@@ -1,6 +1,6 @@
 Designclue::Application.routes.draw do
-  root :to => 'mock#index'
+  root :to => 'mock#top'
   namespace :mock do
-    get 'index'
+    get 'top'
   end
 end

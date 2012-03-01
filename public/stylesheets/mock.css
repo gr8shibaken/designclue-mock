@@ -1,0 +1,94 @@
+/*common*/
+body {
+  background: #333;
+}
+
+.white {
+  color: white;
+}
+
+.left {
+  float:left;
+}
+
+.right{
+  float:right;
+}
+
+.clear{
+  clear:both;
+}
+
+/*top page*/
+.category-header {
+  text-align: center;
+  font-size: 14pt;
+  color: Khaki;
+}
+.categories{
+  width: 560px;
+  margin: 20px auto 30px 190px;
+}
+
+.categories .category {
+  margin-right: 10px;
+  width: 130px;
+  height: 120px;
+  background: url(../images/mock/category/category.png) no-repeat;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14pt;
+  padding-top: 15px;
+}
+
+
+.contest-lane {
+  margin-bottom: 50px;
+}
+
+.contest-lane .header{
+}
+
+.contest-lane .header .top{
+  margin-bottom: 5px;
+}
+
+.contest-lane .header .top span.title{
+  font-size: 14pt;
+  color: Khaki;
+/*  text-decoration: underline;*/
+  margin-right: 20px;
+}
+
+.contest-lane .header .top img{
+  vertical-align: bottom;
+}
+.contest-lane .header .bottom{
+
+}
+
+.contest-lane .header .bottom span{
+  margin-right: 20px;
+  color: white;
+}
+
+.contest-lane .contents{
+  width: 800px;
+  margin: 15px auto 0px 80px;
+  
+}
+
+.contest-lane .contents i{
+  margin-top: 40px;
+}
+
+
+.posts li {
+  width: 140px;
+  height: 100px;
+}
+
+.posts li img {
+  display:block;
+  margin:auto;
+}

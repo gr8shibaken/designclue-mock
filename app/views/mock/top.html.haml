@@ -1,0 +1,72 @@
+= content_for :head do
+  = javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js'
+  %script
+    $(function() {
+    $("#posts1").jCarouselLite({
+    btnNext: "#next1",
+    btnPrev: "#prev1",
+    visible: 5
+    });
+    $("#posts2").jCarouselLite({
+    btnNext: "#next2",
+    btnPrev: "#prev2",
+    visible: 5
+    });
+    });
+
+.category-header
+.categories.pull-center
+  .category.left Logo
+  .category.left Icon
+  .category.left Flyer
+  .category.left Others
+  .clear
+.contest-lane
+  .header
+    .top
+      %span.category= image_tag '/images/mock/category/category.png', :size => '25x25'
+      %span.title Create the next logo for Erotic Encounters
+      %span.name= link_to "John Amcehfihcgaf Sharpeberg", "#"
+      %span.flag= image_tag '/images/mock/flag/it.png',:size => '20x20',:align => 'bottom'
+    .bottom
+      %i.icon-info-sign.icon-white
+      %span.white ¥ 500
+      %i.icon-time.icon-white
+      %span.white 残り 14 時間
+      %i.icon-file.icon-white
+      %span.white 231 
+      %i.icon-user.icon-white
+      %span.white 56
+  .contents
+    %i.icon-chevron-left.icon-white.left#prev1
+    #posts1.posts.left
+      %ul
+        - 10.times do |i|
+          %li= image_tag "/images/mock/logo/logo#{i+1}.jpg", :size => '100x100', :alt => ''
+    %i.icon-chevron-right.icon-white.left#next1
+    .clear
+
+.contest-lane
+  .header
+    .top
+      %span.category= image_tag '/images/mock/category/category.png', :size => '25x25'
+      %span.title Create the next logo for Erotic Encounters
+      %span.name= link_to "John Amcehfihcgaf Sharpeberg", "#"
+      %span.flag= image_tag '/images/mock/flag/it.png',:size => '20x20',:align => 'bottom'
+    .bottom
+      %i.icon-info-sign.icon-white
+      %span.white ¥ 500
+      %i.icon-time.icon-white
+      %span.white 残り 14 時間
+      %i.icon-file.icon-white
+      %span.white 231 
+      %i.icon-user.icon-white
+      %span.white 56
+  .contents
+    %i.icon-chevron-left.icon-white.left#prev2
+    #posts2.posts.left
+      %ul
+        - 10.times do |i|
+          %li= image_tag "/images/mock/logo/logo#{10-i}.jpg", :size => '100x100', :alt => ''
+    %i.icon-chevron-right.icon-white.left#next2
+    .clear
