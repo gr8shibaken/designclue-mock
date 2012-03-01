@@ -1,10 +1,6 @@
 /*common*/
 body {
-  background: #333;
-}
-
-.white {
-  color: white;
+  background: #CCC;
 }
 
 .left {
@@ -25,9 +21,10 @@ body {
   font-size: 14pt;
   color: Khaki;
 }
+
 .categories{
   width: 560px;
-  margin: 20px auto 30px 190px;
+  margin: 20px auto 10px 190px;
 }
 
 .categories .category {
@@ -43,7 +40,9 @@ body {
 
 
 .contest-lane {
-  margin-bottom: 50px;
+  padding-top: 20px;
+  border-top: 1px solid gray;
+  margin-bottom: 30px;
 }
 
 .contest-lane .header{
@@ -55,7 +54,6 @@ body {
 
 .contest-lane .header .top span.title{
   font-size: 14pt;
-  color: Khaki;
 /*  text-decoration: underline;*/
   margin-right: 20px;
 }
@@ -69,7 +67,6 @@ body {
 
 .contest-lane .header .bottom span{
   margin-right: 20px;
-  color: white;
 }
 
 .contest-lane .contents{
