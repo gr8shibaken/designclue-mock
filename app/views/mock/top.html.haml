@@ -1,5 +1,6 @@
 = content_for :head do
   = javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js'
+  = stylesheet_link_tag "/stylesheets/top.css"
   %script
     $(function() {
     $("#posts1").jCarouselLite({
@@ -13,7 +14,6 @@
     visible: 5
     });
     });
-
 .category-header
 
 .categories.pull-center

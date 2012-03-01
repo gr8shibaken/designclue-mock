@@ -1,0 +1,16 @@
+/*common*/
+body {
+  background: #CCC;
+}
+
+.left {
+  float:left;
+}
+
+.right{
+  float:right;
+}
+
+.clear{
+  clear:both;
+}
