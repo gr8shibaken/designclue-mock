@@ -1,0 +1,94 @@
+= content_for :head do
+  = javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js'
+  = stylesheet_link_tag "/stylesheets/top.css"
+  %script
+    $(function() {
+    $("#posts1").jCarouselLite({
+    btnNext: "#next1",
+    btnPrev: "#prev1",
+    visible: 6
+    });
+    $("#posts2").jCarouselLite({
+    btnNext: "#next2",
+    btnPrev: "#prev2",
+    visible: 6
+    });
+    });
+.subnavbar
+  .container
+    #button-container.left
+      - if signed_in
+        %a.btn{:'href'=>'#'}
+          %b + Add Lane
+      - else
+        %a.btn{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
+          %b + Add Lane
+    #info-container.left
+      %span= link_to '57 Contests', '#'
+      %span= link_to '1744 Designers', '#'
+    #link-container.left= link_to 'About', '#'
+    .clear
+.header-space
+- if !signed_in
+  .categories-container
+    .categories
+      .category.left Logo
+      .category.left Icon
+      .category.left Flyer
+      .category.left Others
+      .clear
+.contest-lane
+  .header
+    .top
+      %span.category= image_tag '/images/mock/category/category.png', :size => '25x25'
+      %span.title Create the next logo for Erotic Encounters
+      %span.name= link_to "John Amcehfihcgaf Sharpeberg", "#"
+      %span.flag= image_tag '/images/mock/flag/it.png',:size => '20x20',:align => 'bottom'
+    .bottom
+      %i.icon-info-sign
+      %span.white ¥ 500
+      %i.icon-time
+      %span.white 残り 14 時間
+      %i.icon-file
+      %span.white 231 
+      %i.icon-user
+      %span.white 56
+  .contents
+    %i.icon-chevron-left.left#prev1
+    #posts1.posts.left
+      %ul
+        - 10.times do |i|
+          %li= image_tag "/images/mock/logo/logo#{i+1}.jpg", :size => '98x98', :alt => ''
+    %i.icon-chevron-right.left#next1
+    #button-container.left
+      %p
+        %b + Add Design
+    .clear
+
+.contest-lane
+  .header
+    .top
+      %span.category= image_tag '/images/mock/category/category.png', :size => '25x25'
+      %span.title Create the next logo for PurpleCow
+      %span.name= link_to "Joe Ashdown", "#"
+      %span.flag= image_tag '/images/mock/flag/us.png',:size => '20x20',:align => 'bottom'
+    .bottom
+      %i.icon-info-sign
+      %span.white ¥ 500
+      %i.icon-time
+      %span.white 残り 14 時間
+      %i.icon-file
+      %span.white 231 
+      %i.icon-user
+      %span.white 56
+  .contents
+    %i.icon-chevron-left.left#prev2
+    #posts2.posts.left
+      %ul
+        - 10.times do |i|
+          %li= image_tag "/images/mock/logo/logo#{10-i}.jpg", :size => '98x98', :alt => ''
+    %i.icon-chevron-right.left#next2
+    #button-container.left
+      %p
+        %b + Add Design
+    .clear

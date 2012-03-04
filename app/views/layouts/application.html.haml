@@ -5,40 +5,24 @@
     %title= content_for?(:title) ? yield(:title) : "Designclue"
     = csrf_meta_tags
     = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
-    :css
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
     = javascript_include_tag "application"
     = javascript_include_tag "/javascripts/lib/bootstrap/bootstrap-dropdown.js"
+    = javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"
     = stylesheet_link_tag "application", :media => "all"
     = stylesheet_link_tag "/stylesheets/common.css"
+    :css
+      body {
+        padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
     %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
     %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
     %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
     %link{:href => "images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
     = yield :head
-
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{:href => "#"}Designclue
-          .container.nav-collapse
-            %ul.nav.pills.pull-right
-              %li.dropdown
-                %a.dropdown-toggle{:'data-toggle'=>"dropdown", :href => "#"}
-                  English
-                  %b.caret
-              %li.dropdown
-                %a.dropdown-toggle{:'data-toggle'=>"dropdown", :href => "#"}
-                  Shibata
-                  %b.caret
+    = render 'layouts/header'
     .container
       = yield
+      = render 'modals/login'
       / %footer
       /   %p &copy; PupleCow 2012 All rights reserved.

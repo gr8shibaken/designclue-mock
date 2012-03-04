@@ -1,0 +1,10 @@
+#loginModal.modal.hide.fade.in{:style => 'display:none;'}
+  .modal-header
+    %a.close{:'data-dismiss'=>"modal"}×
+    %h3 Sign in
+  .modal-body 
+    %input.span3{:type=>'text',:placeholder=>'UserName'}
+    %br
+    %input.span3{:type=>'text',:placeholder=>'PassWord'}
+  .modal-footer
+    %a.btn-primary.btn-large.pull-right{:href=>'/sessions/create'} Login
