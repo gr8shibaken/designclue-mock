@@ -6,10 +6,13 @@
     = csrf_meta_tags
     = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
     = javascript_include_tag "application"
-    = javascript_include_tag "/javascripts/lib/bootstrap/bootstrap-dropdown.js"
+    = javascript_include_tag "/libraries/bootstrap/js/bootstrap.js"
+    = javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"
     = javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"
     = stylesheet_link_tag "application", :media => "all"
     = stylesheet_link_tag "/stylesheets/common.css"
+    = stylesheet_link_tag "/libraries/bootstrap/css/bootstrap-responsive.css"
+    = stylesheet_link_tag "/libraries/bootstrap/css/bootstrap.css"
     :css
       body {
         padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */

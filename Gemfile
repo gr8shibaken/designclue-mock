@@ -5,8 +5,6 @@ gem 'rails', '3.2.1'
 gem 'haml'
 gem 'haml-rails'
 
-gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git"
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'
   gem 'coffee-rails', '~> 3.2.2'
