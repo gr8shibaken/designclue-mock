@@ -1,13 +1,36 @@
+#logo-area {
+  text-align: center;
+  font-size: 14pt;
+  color: white;
+  padding: 10px 0px;
+  width: 340px;
+}
+#logo-area a {
+  color: white;
+  text-decoration: none;
+}
+#search-area {
+  width: 300px;
+  height: 22px;
+  margin: 9px 0px;
+}
+#search-area input {
+  height: 16px;
+  margin: 0px;
+  padding: 3px 5px;
+  background: #CCC;
+}
+#user-area {
+  width: 170px;
+}
 .subnavbar {
   width: 100%;
   height: 40px;
   background: #F1F1F1;
-  position:fixed;
-  top: 40px;
-  left: 0px;
   border-bottom: 1px solid #BBB;
-}
-.subnavbar-fixed { 
+  z-index: 101;
+  position: absolute;
+  top: 40px;
 }
 .subnavbar .container {
   line-height: 40px;
@@ -17,15 +40,16 @@
 }
 #button-container {
   text-align: left;
-  width: 120px;
+  width: 200px;
 }
 #info-container {
   text-align: center;
-  width: 700px;
+  width: 540px;
+  font-size: 11pt;
 }
 #link-container {
   text-align: right;
-  width: 120px;
+  width: 200px;
 }
 .header-space {
   min-height: 50px;

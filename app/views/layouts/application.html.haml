@@ -9,8 +9,6 @@
     = javascript_include_tag "/libraries/bootstrap/js/bootstrap.js"
     = javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"
     = javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"
-    = javascript_include_tag "/libraries/bootstrap/js/bootstrap-scrollspy.js"
-    / = javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-scrollspy.js"
     = stylesheet_link_tag "application", :media => "all"
     = stylesheet_link_tag "/libraries/bootstrap/css/bootstrap-responsive.css"
     = stylesheet_link_tag "/libraries/bootstrap/css/bootstrap.css"
@@ -18,17 +16,27 @@
     = stylesheet_link_tag "/stylesheets/header.css"
     :css
       body {
-        padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */
-      } 
+        / padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    :javascript
+      $(window).scroll(function(){
+      	var scrTop = $(document).scrollTop();
+        if (scrTop < 40) {
+          $('.subnavbar').css('position','absolute').css('top','40px');
+        }
+        else {
+          $('.subnavbar').css('position','fixed').css('top','0px');        
+        }
+      });
     %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
     %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
     %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
     %link{:href => "images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
     = yield :head
-  %body{:'data-spy' => "scroll", :'data-target' => ".subnavbar", :'data-offset' => "0"}
+  %body
     = render 'layouts/header'
     .container
       = yield
       = render 'modals/login'
-      / %footer
-      /   %p &copy; PupleCow 2012 All rights reserved.
+      %footer.text-center
+        %p &copy; PupleCow 2012 All rights reserved.

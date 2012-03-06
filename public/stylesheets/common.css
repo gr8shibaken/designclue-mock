@@ -1,6 +1,10 @@
 body {
   background: #FEFEFE;
 }
+footer {
+  margin-top: 5px;
+}
+
 .left {
   float:left;
 }
@@ -9,6 +13,9 @@ body {
 }
 .clear{
   clear:both;
+}
+.text-center{
+  text-align:center;
 }
 /* overwrite bootstrap */
 .navbar-inner {
