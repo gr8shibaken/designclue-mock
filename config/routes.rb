@@ -8,6 +8,7 @@ Designclue::Application.routes.draw do
   end
   namespace :mock do
     get 'top'
+    get 'job_index'
   end
   
 end

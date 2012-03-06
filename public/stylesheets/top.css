@@ -1,42 +1,3 @@
-/*top page*/
-.subnavbar {
-  width: 100%;
-  height: 40px;
-  background: #F1F1F1;
-  position:fixed;
-  top: 40px;
-  left: 0px;
-  border-bottom: 1px solid #BBB;
-}
-
-.subnavbar .container {
-  line-height: 40px;
-}
-
-.subnavbar span {
-  margin-right: 20px;
-}
-
-#button-container {
-  text-align: left;
-  width: 120px;
-}
-
-#info-container {
-  text-align: center;
-  font-size: 11pt;
-  width: 700px;
-}
-
-#link-container {
-  text-align: right;
-  width: 120px;
-}
-
-.header-space {
-  min-height: 50px;
-}
-
 .categories-container {
   border-bottom: 1px solid #BBB;
 }
@@ -44,7 +5,6 @@
   width: 560px;
   margin: 20px auto 10px 190px;
 }
-
 .categories .category {
   margin-right: 10px;
   width: 130px;
@@ -55,43 +15,30 @@
   font-size: 14pt;
   padding-top: 15px;
 }
-
 .contest-lane {
   padding-top: 20px;
   border-bottom: 1px solid #BBB;
   padding-bottom: 30px;
 }
-
-
 .contest-lane .header .top{
   margin-bottom: 5px;
 }
-
 .contest-lane .header .top span.title{
   font-size: 14pt;
   margin-right: 20px;
 }
-
 .contest-lane .header .top img{
   vertical-align: bottom;
 }
-
 .contest-lane .header .top .span.name{
   margin-right: 10px;
 }
-
-.contest-lane .header .bottom{
-
-}
-
 .contest-lane .header .bottom span{
   margin-right: 20px;
 }
-
 .contest-lane .contents{
   margin-top: 15px;
 }
-
 .contest-lane .contents #button-container{
   margin-left: 20px;
   width: 99px;
@@ -102,23 +49,17 @@
   -moz-border-radius: 10px;
   border-radius: 10px;*/
 }
-
 .contest-lane .contents #button-container p{
   line-height: 100px;
   text-align: center;
 }
-
-
 .contest-lane .contents i{
   margin-top: 40px;
 }
-
-
 .posts li {
   width: 130px;
   height: 100px;
 }
-
 .posts li img {
   display:block;
   margin:auto;

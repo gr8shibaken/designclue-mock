@@ -14,29 +14,13 @@
     visible: 6
     });
     });
-.subnavbar
-  .container
-    #button-container.left
-      - if signed_in
-        %a.btn{:'href'=>'#'}
-          %b + Add Lane
-      - else
-        %a.btn{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
-          %b + Add Lane
-    #info-container.left
-      %span= link_to '57 Contests', '#'
-      %span= link_to '1744 Designers', '#'
-    #link-container.left= link_to 'About', '#'
+.categories-container
+  .categories
+    .category.left Logo
+    .category.left Icon
+    .category.left Flyer
+    .category.left Others
     .clear
-.header-space
-- if !signed_in
-  .categories-container
-    .categories
-      .category.left Logo
-      .category.left Icon
-      .category.left Flyer
-      .category.left Others
-      .clear
 .contest-lane
   .header
     .top

@@ -21,3 +21,18 @@
                 %li= link_to 'Sign out', '/sessions/destroy'
             - else
               %a{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'} Sign in
+.subnavbar
+  .container
+    #button-container.left
+      - if signed_in
+        %a.btn{:'href'=>'#'}
+          %b + Add Lane
+      - else
+        %a.btn{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
+          %b + Add Lane
+    #info-container.left
+      %span= link_to '57 Contests', '#'
+      %span= link_to '1744 Designers', '#'
+    #link-container.left= link_to 'About', '#'
+    .clear
+.header-space

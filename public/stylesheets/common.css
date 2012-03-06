@@ -1,16 +1,18 @@
-/*common*/
 body {
   background: #FEFEFE;
 }
-
 .left {
   float:left;
 }
-
 .right{
   float:right;
 }
-
 .clear{
   clear:both;
+}
+/* overwrite bootstrap */
+.navbar-inner {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }

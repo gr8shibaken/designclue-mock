@@ -1,0 +1,178 @@
+= content_for :head do
+  = javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js'
+  = stylesheet_link_tag "/stylesheets/job_index.css"
+  %script
+    $(function() {
+    $("#posts1").jCarouselLite({
+    btnNext: "#next1",
+    btnPrev: "#prev1",
+    visible: 5
+    });
+    $("#posts2").jCarouselLite({
+    btnNext: "#next2",
+    btnPrev: "#prev2",
+    visible: 5
+    });
+    });
+
+  :javascript   
+    $(function() {
+      $('#accordion dd').hide();
+      $('#accordion dt a').click(function(){
+        $('#accordion dd').slideUp();
+        $(this).parent().next().slideDown();
+        return false;
+      });
+    });
+
+    $(function() {
+      $("#accordion2").click(function(){
+        $(this).next().slideToggle("fast");
+      });
+    });
+
+    $(function() {
+      $("#accordion3").click(function(){
+        $(this).next().slideToggle("fast");
+      });
+    });
+
+    $(function() {
+      $("#accordion4").click(function(){
+        $(this).next().slideToggle("fast");
+      });
+    });
+
+    $(function() {
+      $("#accordion5").click(function(){
+        $(this).next().slideToggle("fast");
+      });
+    });
+
+    $(function() {
+      $("#accordion6").click(function(){
+        $(this).next().slideToggle("fast");
+      });
+    });
+
+.wrap
+  .sidebar
+    .menu
+      %a＋新しいコンテスト
+
+      %br
+      %br
+
+      #accordion1
+        %a.menu 条件検索
+        %br
+        %br
+        #accordion2
+          %a.submenu キーワード
+          = text_field_tag(:keyword, '',{:style=>'width:150px;'})
+        #accordion3
+          %a.submenu カテゴリ
+          = select_tag :category, [1,2,3],{:style=>'width:170px;'}
+        #accordion4
+          %a.submenu インダストリー
+          = select_tag :industry, [1,2,3] 
+        #accordion5
+          %a.submenu 賞金
+          .prize
+            %table
+              %tr
+                %td
+                  ¥
+                %td
+                  = text_field_tag(:prize_from, '',{:style=>'width:80px;'})  
+                %td
+                  〜¥
+                %td
+                  = text_field_tag(:prize_to, '',{:style=>'width:80px;'})
+        #accordion6
+          %a.submenu ロゴタイプ 
+          %table.logo-select-area
+            %tr
+              %td
+                = image_tag '/images/mock/logo-type/abstruct.png', :size => '100x100'
+                %br
+                = check_box_tag( :sample, 1 )
+                アブストラクト
+              %td
+                = image_tag '/images/mock/logo-type/brush.png', :size => '100x100'
+                %br
+                = check_box_tag( :sample, 1 )
+                筆文字
+            %tr
+              %td
+                = image_tag '/images/mock/logo-type/character.png', :size => '100x100'
+                %br
+                = check_box_tag( :sample, 1 )
+                キャラクター
+              %td
+                = image_tag '/images/mock/logo-type/emblem.png', :size => '100x100'
+                %br
+                = check_box_tag( :sample, 1 )
+                エンブレム
+            %tr
+              %td
+                = image_tag '/images/mock/logo-type/letterform.png', :size => '100x100'
+                %br
+                = check_box_tag( :sample, 1 )
+                レターフォーム
+              %td
+                = image_tag '/images/mock/logo-type/picturemark.png', :size => '100x100'
+                %br
+                = check_box_tag( :sample, 1 )
+                ピクチャーマーク
+            %tr
+              %td
+                = image_tag '/images/mock/logo-type/wordmark.png', :size => '100x100'
+                %br
+                = check_box_tag( :sample, 1 )
+                ワードマーク
+
+        .right
+          = submit_tag '検索'
+
+  .content-wrap
+    .category-header
+
+    .categories.pull-center
+      .category.left Logo
+      .category.left Icon
+      .category.left Flyer
+      .category.left Others
+      .clear
+
+    %br
+    %br
+    %br
+    %br
+    .index-title オープンコンテスト一覧
+    %table.ta1.center
+      %tbody
+        %tr
+          %th コンテストタイトル
+          %th クライアント
+          %th 時間
+          %th エントリー
+          %th 賞金
+          %th ステータス
+
+        %tr
+          %td purplecow
+          %td 
+          %td １日
+          %td 
+          %td ￥４０，０００
+          %td= image_tag '/images/mock/contest-type/_12d_icon_private.png', :size => '25x25'
+
+        %tr
+          %td コンテスト
+          %td 
+          %td １週間
+          %td 
+          %td ￥４０，０００
+          %td= image_tag '/images/mock/contest-type/_12d_icon_manymore.png', :size => '25x25'
+
