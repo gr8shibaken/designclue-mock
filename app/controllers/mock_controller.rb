@@ -6,4 +6,6 @@ class MockController < ApplicationController
   end
   def job_detail
   end
+  def job_post_1 
+  end
 end
