@@ -29,7 +29,7 @@
   .container
     #button-container.left
       - if signed_in
-        %a.btn{:'href'=>'#'}
+        %a.btn{:'href'=> '/mock/job_post_1'}
           %b + 新しいコンテスト
       - else
         %a.btn{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
