@@ -18,6 +18,16 @@
 
 
 .container-fluid
+  %ul.breadcrumb
+    %li.active
+      %a{:href => "#"} 1.Contest detail
+      %span.divider /
+    %li 
+      %a{:href => "#"} 2.Design Brief
+      %span.divider /
+    %li 
+      %a{:href =>"#"} 3.Payment
+
   .row-fluid
     .span8
       .wrap
@@ -156,10 +166,8 @@
                     %hr
 
         .right
-          .btn
-            = link_to '次へ', '/mock/job_post_2' 
-            .icon-forward
-              %i
+          .pager
+            %a{:href => '/mock/job_post_2'} Next
         %br
 
     .span4
