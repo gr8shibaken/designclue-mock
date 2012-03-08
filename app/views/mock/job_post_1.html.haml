@@ -1,0 +1,173 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/job_post_1.css"
+
+  :javascript
+    $(function() {
+      $('[id^="category_1"]').click(function(){
+        $("#contents1").css("display", "block");
+        $('#contents2').css("display", "none");
+      });
+    }); 
+
+    $(function() {
+      $('[id^="category_2"]').click(function(){
+        $("#contents2").css("display", "block");
+        $('#contents1').css("display", "none");
+      });
+    }); 
+
+
+.container-fluid
+  .row-fluid
+    .span8
+      .wrap
+        %h3
+          １、カテゴリを選択
+        %br
+        %br
+        %table.table.table-bordered
+          - 4.times do |i|
+            %tr
+              - 2.times do |j|
+                %td
+                  - if i==0 && j==0
+                    = radio_button_tag( :category, "1_1", true )
+                    = '------------'
+                  - else
+                    = radio_button_tag( :category, "#{j+1}_#{i+1}" )
+                    = '------------'
+        %a more categories... 
+        %br
+        %br
+        %br
+
+        %h3
+          ２、コンテスト形式を選択
+        %br
+        .contents-group
+          #contents1
+            %table.table
+              %tr
+                %td
+                  = radio_button_tag(:plan1, 1)
+                  %br
+                  スタートアップ
+                  %hr
+                  ¥20,000~ 
+                  %hr
+                  %br
+                  %hr
+                %td
+                  = radio_button_tag(:plan1, 1, true)
+                  %br
+                  ベーシック
+                  %hr
+                  ¥20,000~
+                  %hr
+                  %br
+                  %hr
+                  %br
+                  %hr
+                %td
+                  = radio_button_tag(:plan1, 1)
+                  %br
+                  プレミアム
+                  %hr
+                  ¥20,000~
+                  %hr
+                  %br
+                  %hr
+                  %br
+                  %hr
+                  %br
+                  %hr
+          #contents2
+            %table.table
+              %tr
+                %td
+                  = radio_button_tag(:plan2, 1)
+                  %br
+                  スタートアップ
+                  %hr
+                  ¥20,000〜
+                  %hr
+                  %br
+                %td
+                  = radio_button_tag(:plan2, 1, true)
+                  %br
+                  ベーシック
+                  %hr
+                  ¥20,000〜
+                  %hr
+                  %br
+                %td
+                  = radio_button_tag(:plan2, 1)
+                  %br
+                  プレミアム
+                  %hr
+                  ¥20,000〜
+                  %hr
+                  %br
+                %td
+                  = radio_button_tag(:plan, 1)
+                  %br
+                  エグゼクティブ 
+                  %hr
+                  ¥20,000〜
+                  %hr
+                  %br
+ 
+        %h3
+          ３、オプションを選択
+        %br
+          .option-group
+            #option
+              %table.table
+                %tr
+                  %td
+                    = check_box_tag(:option, 1)
+                    オプション１
+                    %hr
+                    ¥20,000〜
+                    %hr
+                    %br
+                    %hr
+                  %td
+                    = check_box_tag(:option, 1,true)
+                    オプション２
+                    %hr
+                    ¥20,000〜
+                    %hr
+                    %br
+                    %hr
+                    %br
+                    %hr
+                  %td
+                    = check_box_tag(:option, 1)
+                    オプション３
+                    %hr
+                    ¥20,000〜
+                    %hr
+                    %br
+                    %hr
+                    %br
+                    %hr
+                    %br
+                    %hr
+
+        .right
+          .btn
+            = link_to '次へ', '/mock/job_post_2' 
+            .icon-forward
+              %i
+        %br
+
+    .span4
+      .sidebar-wrap
+        %br
+        %br
+        %br
+        .explanation-area.well
+          説明エリア 
+        .amount-area.well
+          total amount ¥100,000

@@ -1,0 +1,47 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/job_post_2.css"
+
+.container-fluid
+  .row-fluid
+    .span8
+      .wrap
+        %h3
+          ４、ロゴ表記名
+          %br
+          - 2.times do |i|
+            -2.times do |j|
+              - if i==0 && j==0 
+                aaa
+              - else
+                = "#{i}"
+                = "#{j}"
+              %br
+
+        %h3
+          ５、期限
+        %h3
+          ６、インダストリー
+        %h3
+          ７、用途
+        %h3
+          ８、フォーマット
+        %h3
+          ９、カラー
+        .left
+          .btn
+            .icon-backward
+              %i
+            = link_to '戻る', '/mock/job_post_1' 
+        .right
+          .btn
+            = link_to '次へ', '/mock/job_post_2' 
+            .icon-forward
+              %i
+        %br
+
+    .span4
+      .sidebar-wrap
+        %br
+        %br
+        %br
+        説明エリア 
