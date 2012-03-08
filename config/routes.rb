@@ -13,6 +13,7 @@ Designclue::Application.routes.draw do
     get 'job_post_1'
     get 'job_post_2'
     get 'designer_index'
+    get 'designer_detail'
   end
 
 end

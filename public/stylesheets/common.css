@@ -22,10 +22,17 @@ footer {
 .bottom {
   vertical-align: bottom;
 }
-
-
 .text-center{
   text-align:center;
+}
+.font14 {
+  font-size: 14pt;
+}
+.font11 {
+  font-size: 11pt;
+}
+.font10 {
+  font-size: 10pt;
 }
 /* overwrite bootstrap */
 .navbar-inner {
@@ -33,3 +40,4 @@ footer {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+

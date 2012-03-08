@@ -10,4 +10,6 @@ class MockController < ApplicationController
   end
   def designer_index
   end
+  def designer_detail
+  end
 end

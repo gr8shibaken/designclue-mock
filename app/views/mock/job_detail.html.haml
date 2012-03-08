@@ -17,7 +17,7 @@
               =image_tag "/images/mock/flyer/flyer#{i%8+1}.jpg",:size => '132x132', :class=>'flyer'
               .designer-info
                 %span.number= '#'"#{18-i}"
-                %span.name= link_to 'Kensuke', '#'
+                %span.name= link_to 'Kensuke', mock_designer_detail_path
                 %span.flag.right=image_tag '/images/mock/flag/jp.png',:size => '15x15'
                 .clear
           .clear
@@ -30,9 +30,9 @@
             %tr
               %td
                 .profile-image
-                  = image_tag "/images/mock/designer/designer2.png",:size => '120x120'
+                  = image_tag "/images/mock/designer/designer2.png",:size => '120x120', :onclick=>"location.href='/mock/designer_detail'"
                 .profile{:style=> 'width:120px;'}
-                  %span.name= link_to 'Kensuke', '#'
+                  %span.name= link_to 'Kensuke', mock_designer_detail_path
                   %span.flag.right=image_tag '/images/mock/flag/jp.png',:size => '15x15'
               %td
                 - array = Array.new(8) {|i| i+1}

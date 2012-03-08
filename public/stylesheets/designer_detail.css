@@ -1,0 +1,29 @@
+#profile-area{
+  width: 700px;
+  padding: 20px 100px;
+}
+#profile-area #profile-detail {
+  height: 90px;
+  width: 300px;
+  padding: 30px;
+}
+.posts li {
+  width: 160px;
+  height: 130px;
+}
+.posts li img {
+  display:block;
+  margin:auto;
+  border: 1px solid #CCC;
+}
+#portfolio #logo-area{
+  width: 690px;
+  margin-top: 8px;
+}
+
+.favorite {
+  width: 175px;
+  height: 175px;
+  margin: 5px;
+  float: left;
+}
