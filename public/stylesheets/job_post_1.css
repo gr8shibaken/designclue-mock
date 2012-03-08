@@ -1,0 +1,70 @@
+.wrap {
+  border: solid 1px #CCC;
+  padding: 10px;
+  height: 1150px;
+}
+
+.sidebar-wrap {
+  border: solid 1px #CCC;
+  padding: 10px;
+  height: 1150px;
+}
+
+.contents-group {
+}
+
+#contents1 {
+  display: block;
+}
+
+#contents1 table{
+  border-collapse: separate;
+  border-spacing: 15px;
+}
+
+#contents1 td{
+  border: 1px solid #CCC;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#contents1 img{
+ position: relative;
+ top: 10px;
+ left: -5px;
+}
+
+#contents2 {
+  display: none;
+}
+
+#contents2 table{
+  border-collapse: separate;
+  border-spacing: 15px;
+}
+
+#contents2 td{
+  border: 1px solid #CCC;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#contents2 img{
+ position: relative;
+ top: 10px;
+ left: -5px;
+}
+
+#option table{
+  border-collapse: separate;
+  border-spacing: 15px;
+}
+
+#option td{
+  border: 1px solid #CCC;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.amount-area {
+}
