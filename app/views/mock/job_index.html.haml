@@ -102,18 +102,18 @@
   %table.table.table-striped.text-center
     %tbody
       %tr.center
-        %th コンテストタイトル
-        %th クライアント
-        %th 時間
-        %th エントリー
-        %th 賞金
-        %th ステータス
+        %th{:style=>'text-align:center;'} コンテストタイトル
+        %th{:style=>'text-align:center;'} クライアント
+        %th{:style=>'text-align:center;'} 時間
+        %th{:style=>'text-align:center;'} エントリー
+        %th{:style=>'text-align:center;'} 賞金
+        %th{:style=>'text-align:center;'} ステータス
       - 9.times do |i|
         %tr
-          %td= link_to "コンテスト#{i+1}",mock_job_detail_path
-          %td 
-          %td １週間
-          %td 
-          %td ¥40,000
-          %td.status= image_tag "/images/mock/contest-type/_12d_icon_#{i.even? ? 'manymore' : 'private'}.png", :size => '20x20'
+          %td{:style=>'text-align:center;'}= link_to "コンテスト#{i+1}",mock_job_detail_path
+          %td{:style=>'text-align:center;'} 
+          %td{:style=>'text-align:center;'} １週間
+          %td{:style=>'text-align:center;'} 
+          %td{:style=>'text-align:center;'} ¥40,000
+          %td.status{:style=>'text-align:center;'}= image_tag "/images/mock/contest-type/_12d_icon_#{i.even? ? 'manymore' : 'private'}.png", :size => '20x20'
 .clear

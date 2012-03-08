@@ -1,0 +1,106 @@
+= content_for :head do
+  = javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js'
+  = stylesheet_link_tag "/stylesheets/designer_index.css"
+  :javascript
+      $(function() {
+        $(".head").click(function(){
+          $(this).next().slideToggle("fast");
+        });
+        $("#posts1").jCarouselLite({
+          btnNext: "#next1",
+          btnPrev: "#prev1",
+          visible: 6
+        });
+      });
+#designer-area
+  .title
+    %h3 Designers
+  .contents
+    %i.icon-chevron-left.left#prev1
+    #posts1.posts.left
+      %ul
+        - 10.times do |i|
+          %li= image_tag "/images/mock/designer/designer2.png", :size => '98x98', :alt => ''
+    %i.icon-chevron-right.left#next1
+    .clear
+.sidebar
+  %h4.content-title 条件検索
+  %form
+    .condition
+      .head
+        ▼ キーワード
+      .contents
+        %input.span3{:type=>'text'}
+    .condition
+      .head
+        ▼ 作品数
+      .contents
+        %input{:type=>'text', :style=> 'width:85px;'}
+        &nbsp;〜&nbsp;
+        %input{:type=>'text', :style=> 'width:85px;'}
+    .condition
+      .head
+        ▼ 参加コンテスト数
+      .contents
+        %input{:type=>'text', :style=> 'width:85px;'}
+        &nbsp;〜&nbsp;
+        %input{:type=>'text', :style=> 'width:85px;'}
+    .condition
+      .head
+        ▼ 勝星
+      .contents
+        %select
+          %option 1
+          %option 2
+          %option　3
+          %option　4
+          %option　5 〜 9
+          %option　10 〜 14
+          %option　15 〜 19
+          %option　20 〜
+    .condition
+      .head
+        ▼ スキル
+      .contents
+        - 6.times do |i|
+          .skill.left
+            = check_box_tag( :sample, i+1 )
+            = "スキル#{i+1}"
+        .clear
+    .right
+      %a.btn.btn-info
+        検索
+.content-wrap
+  %h4.content-title デザイナー一覧
+  %table.table.table-striped.text-center
+    %tbody
+      %tr
+        %th{:style=>'text-align:center;'} デザイナー名
+        %th{:style=>'text-align:center;'}
+          作品数
+          %span{:style=>'font-size: 6pt;'}▲▼
+        %th{:style=>'text-align:center;'}
+          参加コンテスト数
+          %span{:style=>'font-size: 6pt;'}▲▼
+        %th{:style=>'text-align:center;'}
+          勝星
+          %span{:style=>'font-size: 6pt;'}▲▼
+        %th{:style=>'text-align:center;'}
+          ランキング
+          %span{:style=>'font-size: 6pt;'}▲▼
+      - 9.times do |i|
+        %tr
+          %td{:style=>'text-align:center;'}
+            %div
+              .left{:style=>'margin-left:15px;'}= image_tag "/images/mock/designer/designer2.png", :size => '50x50', :alt => ''
+              .left{:style=>'height:50px;vertical-align:middle;'}
+                %div{:style=>'line-height:50px;margin:0px 10px;'}
+                  =link_to 'Kensuke', '#'
+              .left{:style=>'height:20px;vertical-align:middle;padding-top:15px;'}
+                = image_tag "/images/mock/flag/jp.png", :size => '20x20', :alt => ''
+              .clear
+          %td{:style=>'vertical-align:middle;text-align:center;'} 494 
+          %td{:style=>'vertical-align:middle;text-align:center;'} 100
+          %td{:style=>'vertical-align:middle;text-align:center;'} 3
+          %td{:style=>'vertical-align:middle;text-align:center;'} 10
+.clear

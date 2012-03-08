@@ -8,4 +8,6 @@ class MockController < ApplicationController
   end
   def job_post_1 
   end
+  def designer_index
+  end
 end

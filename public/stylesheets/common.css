@@ -4,7 +4,6 @@ body {
 footer {
   margin-top: 5px;
 }
-
 .left {
   float:left;
 }
@@ -14,6 +13,17 @@ footer {
 .clear{
   clear:both;
 }
+.top {
+  vertical-align: top;
+}
+.middle {
+  vertical-align: middle;
+}
+.bottom {
+  vertical-align: bottom;
+}
+
+
 .text-center{
   text-align:center;
 }
