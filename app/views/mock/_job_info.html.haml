@@ -1,0 +1,19 @@
+%p
+  %input#designfile{:type=>'file', :name=>'design-file', :style=>'display:none;'}
+#info-area.font10
+  %span= image_tag '/images/mock/flag/jp.png',:size => '20x20',:align => 'bottom'
+  %span.space.font11 Kose
+  %i.icon-flag
+  %span.space ネイルサロン
+  %i.icon-tag
+  %span.space フライヤーデザイン
+  %i.icon-info-sign
+  %span.space ¥32,000
+  %i.icon-time
+  %span 残り 6 時間
+  %span.space{:style=>'color:gray'}
+    &nbsp;
+    (日本時間 2012年2月24日18:00)
+  %a.btn.right{:onClick => "$('#designfile').click();"}
+    %b + 新しいデザイン
+  .clear

@@ -40,16 +40,11 @@
   margin-top: 15px;
 }
 .contest-lane .contents #button-container{
-  margin-left: 20px;
   width: 99px;
   height: 99px;
-  background: #CCC;
-  border: 1px solid #BBB;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;*/
+  vertical-align: center;
 }
-.contest-lane .contents #button-container p{
+.contest-lane .contents #button-container a{
   line-height: 100px;
   text-align: center;
 }

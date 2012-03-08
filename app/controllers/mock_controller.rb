@@ -4,4 +4,6 @@ class MockController < ApplicationController
   def job_index
     @category = params[:category]
   end
+  def job_detail
+  end
 end
