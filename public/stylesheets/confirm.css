@@ -3,6 +3,14 @@
   height: 2200px;
 }
 
+.span ul li {
+  color: darkgray;
+}
+
+.span ul li.active{
+  color: dodgerblue;
+}
+
 .content-wrap {
   border: solid 1px #CCC;
   padding: 10px;
