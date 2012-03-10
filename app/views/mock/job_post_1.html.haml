@@ -4,178 +4,271 @@
   :javascript
     $(function() {
       $('[id^="category_1"]').click(function(){
-        $("#contents1").css("display", "block");
-        $('#contents2').css("display", "none");
+        $("#prize_pattern1").css("display", "block");
+        $('#prize_pattern2').css("display", "none");
+        $('#prize_pattern3').css("display", "none");
       });
     }); 
 
     $(function() {
       $('[id^="category_2"]').click(function(){
-        $("#contents2").css("display", "block");
-        $('#contents1').css("display", "none");
+        $("#prize_pattern2").css("display", "block");
+        $('#prize_pattern1').css("display", "none");
+        $('#prize_pattern3').css("display", "none");
       });
     }); 
 
+    $(function() {
+      $('[id^="category_3"]').click(function(){
+        $("#prize_pattern3").css("display", "block");
+        $('#prize_pattern1').css("display", "none");
+        $('#prize_pattern2').css("display", "none");
+      });
+    }); 
 
-.container-fluid
+.wrap
   %ul.breadcrumb
-    %li.active
-      %a{:href => "#"} 1.Contest detail
-      %span.divider /
+    %li
+    %a{:href => "/mock/job_post_1"} 1. カテゴリ/プラン選択
+    %span.divider ｜
+    %li.active 
+    %a{:href => "#"} 2. コンテスト情報入力
+    %span.divider ｜
     %li 
-      %a{:href => "#"} 2.Design Brief
-      %span.divider /
+    %a{:href =>"#"} 3. 内容確認
+    %span.divider ｜
     %li 
-      %a{:href =>"#"} 3.Payment
+    %a{:href =>"#"} 4. 決済
 
-  .row-fluid
-    .span8
-      .wrap
-        %h3
-          １、カテゴリを選択
-        %br
-        %br
-        %table.table.table-bordered
-          - 4.times do |i|
-            %tr
-              - 2.times do |j|
-                %td
-                  - if i==0 && j==0
-                    = radio_button_tag( :category, "1_1", true )
-                    = '------------'
-                  - else
-                    = radio_button_tag( :category, "#{j+1}_#{i+1}" )
-                    = '------------'
+  .content-wrap.left
+    %h3 1. カテゴリ/プラン選択
+    .input-area
+      %h5 カテゴリ選択 *
+      .select-category
+        %table.table
+          %tr
+            %td= radio_button_tag( :category, "1_1", true )+'ロゴ'
+            %td ¥20,000
+            %td= radio_button_tag( :category, "3_1" )+'名刺'
+            %td ¥15,000
+          %tr
+            %td= radio_button_tag( :category, "1_2")+'イラストレーション'
+            %td  ¥20,000
+            %td= radio_button_tag( :category, "3_2" )+'ブックカバー'
+            %td  ¥15,000
+          %tr
+            %td= radio_button_tag( :category, "2_1")+'フライヤー'
+            %td  ¥35,000
+            %td= radio_button_tag( :category, "3_3" )+'バナー'
+            %td  ¥15,000
+          %tr
+            %td= radio_button_tag( :category, "1_3")+'iPhone/Androidアイコン'
+            %td  ¥20,000
+            %td= radio_button_tag( :category, "3_4" )+'その他'
+            %td  ¥15,000
         %a more categories... 
-        %br
-        %br
-        %br
+      
+    .input-area.select-plan
+      %h5 プラン選択 *
+      .plan-select#prize_pattern1
+        %table.table
+          %tr
+            %td= radio_button_tag(:plan1, 1)+'スタートアッププラン'
+            %td= radio_button_tag(:plan1, 2, true)+'ベーシックプラン'
+            %td= radio_button_tag(:plan1, 3)+'プレミアムプラン'
+          %tr
+            %td 
+              %h3賞金 ¥20,000 
+              %h3掲載フィー ¥2,500
+            %td 
+              %h3賞金  ¥30,000 
+              %h3掲載フィー  ¥3,000
+            %td 
+              %h3賞金  ¥50,000 
+              %h3掲載フィー  ¥4,000
+          %tr
+            %td
+              期待されるクリエイター数
+              %br
+              15人 
+            %td
+              期待されるクリエイター数
+              %br
+              30人 
+            %td
+              期待されるクリエイター数
+              %br
+              50人 
+          %tr
+            %td 著作権の保証
+            %td 著作権の保証
+            %td 著作権の保証
+          %tr
+            %td 
+            %td 返金保証
+            %td 返金保証
+          %tr
+            %td 
+            %td ハイライト表示
+            %td ハイライト表示
+          %tr
+            %td 
+            %td
+            %td メールマガジン
+          %tr
+            %td 
+            %td 
+            %td ソーシャルプロモーション
+      .plan-select#prize_pattern2
+        %table.table
+          %tr
+            %td= radio_button_tag(:plan2, 1)+'スタートアッププラン'
+            %td= radio_button_tag(:plan2, 2, true)+'ベーシックプラン'
+            %td= radio_button_tag(:plan2, 3)+'プレミアムプラン'
+          %tr
+            %td 
+              %h3賞金  ¥35,000 
+              %h3掲載フィー  ¥4,000
+            %td 
+              %h3賞金  ¥50,000 
+              %h3掲載フィー  ¥5,000
+            %td 
+              %h3賞金  ¥65,000 
+              %h3掲載フィー  ¥5,500
+          %tr
+            %td
+              期待されるクリエイター数
+              %br
+              15人 
+            %td
+              期待されるクリエイター数
+              %br
+              30人 
+            %td
+              期待されるクリエイター数
+              %br
+              50人 
+          %tr
+            %td 著作権の保証
+            %td 著作権の保証
+            %td 著作権の保証
+          %tr
+            %td 
+            %td 返金保証
+            %td 返金保証
+          %tr
+            %td 
+            %td ハイライト表示
+            %td ハイライト表示
+          %tr
+            %td 
+            %td
+            %td メールマガジン
+          %tr
+            %td 
+            %td 
+            %td ソーシャルプロモーション
+      .plan-select#prize_pattern3
+        %table.table
+          %tr
+            %td= radio_button_tag(:plan3, 1)+'スタートアッププラン'
+            %td= radio_button_tag(:plan3, 2, true)+'ベーシックプラン'
+            %td= radio_button_tag(:plan3, 3)+'プレミアムプラン'
+          %tr
+            %td 
+              %h3賞金  ¥15,000 
+              %h3掲載フィー  ¥1,800
+            %td 
+              %h3賞金  ¥20,000 
+              %h3掲載フィー  ¥2,000
+            %td 
+              %h3賞金  ¥35,000 
+              %h3掲載フィー  ¥3,000
+          %tr
+            %td
+              期待されるクリエイター数
+              %br
+              15人 
+            %td
+              期待されるクリエイター数
+              %br
+              30人 
+            %td
+              期待されるクリエイター数
+              %br
+              50人 
+          %tr
+            %td 著作権の保証
+            %td 著作権の保証
+            %td 著作権の保証
+          %tr
+            %td 
+            %td 返金保証
+            %td 返金保証
+          %tr
+            %td 
+            %td ハイライト表示
+            %td ハイライト表示
+          %tr
+            %td 
+            %td
+            %td メールマガジン
+          %tr
+            %td 
+            %td 
+            %td ソーシャルプロモーション
 
-        %h3
-          ２、コンテスト形式を選択
-        %br
-        .contents-group
-          #contents1
-            %table.table
-              %tr
-                %td
-                  = radio_button_tag(:plan1, 1)
-                  %br
-                  スタートアップ
-                  %hr
-                  ¥20,000~ 
-                  %hr
-                  %br
-                  %hr
-                %td
-                  = radio_button_tag(:plan1, 1, true)
-                  %br
-                  ベーシック
-                  %hr
-                  ¥20,000~
-                  %hr
-                  %br
-                  %hr
-                  %br
-                  %hr
-                %td
-                  = radio_button_tag(:plan1, 1)
-                  %br
-                  プレミアム
-                  %hr
-                  ¥20,000~
-                  %hr
-                  %br
-                  %hr
-                  %br
-                  %hr
-                  %br
-                  %hr
-          #contents2
-            %table.table
-              %tr
-                %td
-                  = radio_button_tag(:plan2, 1)
-                  %br
-                  スタートアップ
-                  %hr
-                  ¥20,000〜
-                  %hr
-                  %br
-                %td
-                  = radio_button_tag(:plan2, 1, true)
-                  %br
-                  ベーシック
-                  %hr
-                  ¥20,000〜
-                  %hr
-                  %br
-                %td
-                  = radio_button_tag(:plan2, 1)
-                  %br
-                  プレミアム
-                  %hr
-                  ¥20,000〜
-                  %hr
-                  %br
-                %td
-                  = radio_button_tag(:plan, 1)
-                  %br
-                  エグゼクティブ 
-                  %hr
-                  ¥20,000〜
-                  %hr
-                  %br
- 
-        %h3
-          ３、オプションを選択
-        %br
-          .option-group
-            #option
-              %table.table
-                %tr
-                  %td
-                    = check_box_tag(:option, 1)
-                    オプション１
-                    %hr
-                    ¥20,000〜
-                    %hr
-                    %br
-                    %hr
-                  %td
-                    = check_box_tag(:option, 1,true)
-                    オプション２
-                    %hr
-                    ¥20,000〜
-                    %hr
-                    %br
-                    %hr
-                    %br
-                    %hr
-                  %td
-                    = check_box_tag(:option, 1)
-                    オプション３
-                    %hr
-                    ¥20,000〜
-                    %hr
-                    %br
-                    %hr
-                    %br
-                    %hr
-                    %br
-                    %hr
+    .input-area
+      %h5 オプション選択
+      #option
+        %table.table
+          %tr
+            %td
+              = check_box_tag(:option, 1)
+              クローズオプション
+              %hr
+              ＋¥2,000
+              %hr
+              = '-未登録ユーザーは'
+              %br
+              閲覧不可となる
+              %hr
+              = '-閲覧する為に'
+              %br
+              秘密保持契約が必要とする
+            %td
+              = check_box_tag(:option, 1)
+              シークレットオプション
+              %hr
+              ＋¥5,000
+              %hr
+              = '-デザインは完全非公開となる'
+              %hr
+              = '-企業名を隠して募集できる'
+              %hr
+              = '-承認されたデザイナーのみ'
+              %br
+              詳細閲覧可能となる
+            %td
+              = check_box_tag(:option, 1)
+              急募オプション
+              %hr
+              ＋¥5,000
+              %hr
+              = '-急募ステイタスが表示される'
+              %hr
+              = '-トップページに表示される'
+              %hr
 
-        .right
-          .pager
-            %a{:href => '/mock/job_post_2'} Next
-        %br
+    .right
+      .pager
+        %a{:href => '/mock/job_post_2'} Next
 
-    .span4
-      .sidebar-wrap
-        %br
-        %br
-        %br
-        .explanation-area.well
-          説明エリア 
-        .amount-area.well
-          total amount ¥100,000
+  .sidebar-wrap.right
+    %br
+    %br
+    %br
+    .explanation-area.well
+      説明エリア 
+    .amount-area.well
+      total amount ¥100,000

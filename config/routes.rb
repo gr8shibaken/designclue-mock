@@ -11,6 +11,8 @@ Designclue::Application.routes.draw do
     get 'job_index'
     get 'job_post_1'
     get 'job_post_2'
+    get 'confirm'
+    get 'payment'
   end
   
 end
