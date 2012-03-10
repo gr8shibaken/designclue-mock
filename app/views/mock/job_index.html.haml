@@ -29,7 +29,7 @@
     .condition
       .head
         ▼ キーワード
-      .contents
+      .contents{:style=>'display:block;'}
         %input.span3{:type=>'text'}
     .condition
       .head
@@ -102,10 +102,10 @@
   %table.table.table-striped.text-center
     %tbody
       %tr.center
-        %th{:style=>'text-align:center;width:210px;'} コンテストタイトル
+        %th{:style=>'text-align:center;width:210px;'} タイトル
         %th{:style=>'text-align:center;'} クライアント
-        %th{:style=>'text-align:center;'} 時間
-        %th{:style=>'text-align:center;'} エントリー
+        %th{:style=>'text-align:center;'} 残り時間
+        %th{:style=>'text-align:center;'} デザイン数
         %th{:style=>'text-align:center;'} 賞金
         %th{:style=>'text-align:center;'} ステータス
       - 4.times do |i|
@@ -113,7 +113,7 @@
         %tr
           %td{:style=>'text-align:center;'}= link_to contest.title , mock_job_detail_path(:id => contest.id)
           %td{:style=>'text-align:center;'}= contest.client
-          %td{:style=>'text-align:center;'} １週間
+          %td{:style=>'text-align:center;'}= "#{contest.time}時間"
           %td{:style=>'text-align:center;'}= contest.design 
           %td{:style=>'text-align:center;'}= "¥#{contest.price}"
           %td.status{:style=>'text-align:center;'}= image_tag "/images/mock/contest-type/_12d_icon_#{i.even? ? 'manymore' : 'private'}.png", :size => '20x20'

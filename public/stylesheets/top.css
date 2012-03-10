@@ -9,10 +9,10 @@
   margin-right: 10px;
   width: 130px;
   height: 120px;
-  background: url(../images/mock/category/category.png) no-repeat;
+  background: url(../images/mock/category/category_back.png) no-repeat;
   text-align: center;
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 12pt;
 }
 .contest-lane {
   padding-top: 20px;

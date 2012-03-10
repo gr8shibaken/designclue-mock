@@ -32,21 +32,37 @@
 .categories-container
   .categories
     .category.left
-      %a{:href => '/mock/job_index?category=Logo', :style=>"color:black;"}
-        %div{:style => 'width:120px;height:105px;padding-top:15px;'}
-          Logo
+      %a{:href => '/mock/job_index?category=Logo', :style=>'color:black;'}
+        %div{:style => 'width:120px;height:30px;padding-top:15px;'}
+          ロゴ
+        %div{:style => 'width:120px;height:40px;text-align:center;'}
+          =image_tag '/images/mock/category/category_mark.png', :size=>'30x30'
+        %div{:style => 'width:120px;height:35px;font-size:10pt;'}
+          ¥20,000〜
     .category.left
-      %a{:href => '/mock/job_index?category=Icon', :style=>"color:black;"}
-        %div{:style => 'width:120px;height:105px;padding-top:15px;'}
-          Icon
+      %a{:href => '/mock/job_index?category=Illust', :style=>"color:black;"}
+        %div{:style => 'width:120px;height:30px;padding-top:15px;'}
+          イラスト
+        %div{:style => 'width:120px;height:40px;text-align:center;'}
+          =image_tag '/images/mock/category/category_mark.png', :size=>'30x30'
+        %div{:style => 'width:120px;height:35px;font-size:10pt;'}
+          ¥20,000〜
     .category.left
       %a{:href => '/mock/job_index?category=Flyer', :style=>"color:black;"}
-        %div{:style => 'width:120px;height:105px;padding-top:15px;'}
-          Flyer
+        %div{:style => 'width:120px;height:30px;padding-top:15px;'}
+          フライヤー
+        %div{:style => 'width:120px;height:40px;text-align:center;'}
+          =image_tag '/images/mock/category/category_mark.png', :size=>'30x30'
+        %div{:style => 'width:120px;height:35px;font-size:10pt;'}
+          ¥35,000〜
     .category.left
       %a{:href => '/mock/job_index?category=Other', :style=>"color:black;"}
-        %div{:style => 'width:120px;height:105px;padding-top:15px;'}
-          Others
+        %div{:style => 'width:120px;height:30px;padding-top:15px;'}
+          その他
+        %div{:style => 'width:120px;height:40px;text-align:center;'}
+          =image_tag '/images/mock/category/category_mark.png', :size=>'30x30'
+        %div{:style => 'width:120px;height:35px;font-size:10pt;'}
+          ¥15,000〜
     .clear
 - 4.times do |id|
   .contest-lane

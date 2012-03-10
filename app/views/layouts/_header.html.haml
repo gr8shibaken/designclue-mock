@@ -7,7 +7,7 @@
         %span.icon-bar
       .container.nav-collapse
         #search-area.pull-left
-          %input.input-medium.search-query{:type => "text", :placeholder => "Search"}
+        / %input.input-medium.search-query{:type => "text", :placeholder => "Search"}
         #logo-area.pull-left
           %a{:href => '/sessions/new'} Designclue
         #user-area.pull-right
@@ -29,14 +29,14 @@
   .container
     #button-container.left
       - if signed_in
-        %a.btn{:'href'=> '/mock/job_post_1'}
+        %a.btn.btn-info{:'href'=> '/mock/job_post_1'}
           %b + 新しいコンテスト
       - else
         %a.btn{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
           %b + 新しいコンテスト
     #info-container.left
       %span= link_to '57 Contests', mock_job_index_path
-      %span= link_to '1744 Designers', mock_designer_index_path
+      %span= link_to '1744 Creators', mock_designer_index_path
       %span= link_to '13573 Designes', '#' 
     #link-container.left= link_to 'About', '#'
     .clear
