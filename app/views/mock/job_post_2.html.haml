@@ -1,45 +1,314 @@
 = content_for :head do
+  = javascript_include_tag '/javascripts/lib/jquery-plugin/jqModal.js'
   = stylesheet_link_tag "/stylesheets/job_post_2.css"
+  = stylesheet_link_tag "/stylesheets/jqModal.css"
 
-.container-fluid
+:javascript
+  $(function() {  
+    //$('#dialog').jqm();  
+    $('#dialog').jqm({ modal: true });    
+  });
+
+  $(function() {  
+    $("#add_design_1").click(function(){
+      $('#design_1').css("display", "inline");
+    });
+    $("#add_design_2").click(function(){
+      $('#design_2').css("display", "inline");
+    });
+    $("#add_design_3").click(function(){
+      $('#design_3').css("display", "inline");
+    });
+    $("#add_design_4").click(function(){
+      $('#design_4').css("display", "inline");
+    });
+  });
+
+#dialog.jqmWindow
+  %a.jqmClose.right{:href => "#"} Close
+  %hr
+  追加するデザインを選んでください。
+  %table.jqmClose
+    %tr
+      %td#add_design_1= image_tag "/images/mock/logo/logo1.jpg", :size => '100x100'
+      %td#add_design_2= image_tag "/images/mock/logo/logo2.jpg", :size => '100x100'
+      %td#add_design_3= image_tag "/images/mock/logo/logo3.jpg", :size => '100x100'
+      %td#add_design_4= image_tag "/images/mock/logo/logo4.jpg", :size => '100x100'
+
+.wrap
   %ul.breadcrumb
     %li
-      %a{:href => "'/mock/job_post_1"} 1.Contest detail
-      %span.divider /
+      %a{:href => "/mock/job_post_1"} 1. カテゴリ/プラン選択
+      %span.divider ｜
     %li.active 
-      %a{:href => "#"} 2.Design Brief
-      %span.divider /
+      %a{:href => "#"} 2. コンテスト情報入力
+      %span.divider ｜
     %li 
-      %a{:href =>"#"} 3.Payment
+      %a{:href =>"#"} 3. 内容確認
+      %span.divider ｜
+    %li 
+      %a{:href =>"#"} 4. 決済
 
-  .row-fluid
-    .span8
-      .wrap
-        %h3
-          ４、ロゴ表記名
-          %br
+  .content-wrap.left
+    %h3
+      2. コンテスト情報入力
 
-        %h3
-          ５、期限
-        %h3
-          ６、インダストリー
-        %h3
-          ７、用途
-        %h3
-          ８、フォーマット
-        %h3
-          ９、カラー
-        .left
-          .pager
-            %a{:href => '/mock/job_post_1'} Previous
-        .right
-          .pager
-            %a{:href => '/mock/job_post_3'} Next
-        %br
-    .span4
-      .sidebar-wrap
-        %br
-        %br
-        %br
-        .explanation-area.well
-          説明エリア 
+    %form
+      %fieldset
+        .form-vertical   
+          .input-area
+            %h5 ロゴ表記名 *
+            .logoname-select
+              %input{:type=>'text', :style => 'width:400px'}   
+
+          .input-area
+            %h5 サブ表記名
+            .subname-select
+              %p（キャッチコピーやスローガン等を入れる場合）
+              %input{:type=>'text', :style => 'width:400px'}   
+
+          .input-area
+            %h5 期限 *
+            .timelimit-select
+              %select{:style => 'width:200px'}
+                %option 2days
+                %option 5days
+                %option 10days
+                %option 15days
+         
+          .input-area
+            %h5 インダストリー * 
+            .industry-select
+              %p 業界 > 業種
+              .form-inline
+                %select{:style => 'width:250px'}
+                  %option ------------ 
+                  %option 自営業
+                  %option 非営利団体
+                  %option 情報通信業
+                  %option ソフトウェア業
+                  %option インターネット附随サービス業
+                  %option 音楽・映像情報制作
+                  %option サービス業
+                  %option エンターテイメント業
+                  %option アパレル業
+                  %option 卸売業/小売業
+                  %option 教育業
+                  %option 士業
+                  %option 不動産業
+                  %option 飲食店業
+                  %option 宿泊業
+                  %option 金融業/保険業
+
+                %label 
+                = "> "
+                %select{:style => 'width:250px'}
+                  %option ------------ 
+                  %option ソーシャルゲーム開発/提供
+                  %option フューチャーフォンアプリ開発/提供
+                  %option スマートフォンアプリ開発/提供
+                  %option ソフトウェア開発/提供
+                  %option ホームページ制作
+                  %option ポータルサイト運営
+                  %option コンテンツプロバイダー
+                  %option ウェブコンテンツ
+                  %option クラウドサービス
+                  %option インターネット通信販売
+                  %option インターネット決済
+                  %option セキュリティサービス
+                  %option 広告販売販売
+          
+          .input-area
+            .form-vertical
+              %h5 用途 *
+              .purpose-select
+                %label.radio= radio_button_tag( :category, "1", true )+'web, online' 
+                %label.radio= radio_button_tag( :category, "1")+'Printing' 
+                %label.radio= radio_button_tag( :category, "1")+'グッズ、パッケージ'
+                %label.radio= radio_button_tag( :category, "1")+'看板'
+                %label.radio= radio_button_tag( :category, "1")+'その他'
+          
+          .input-area
+            %h5 納品フォーマット *
+            %table.table-bordered.table-striped.format-select
+              %tr
+                %th Open format
+                %th Online
+                %th Print
+                %th Others
+              %tr
+                %td= check_box_tag( :sample, 1 )+' PSD (photoshop)'
+                %td= check_box_tag( :sample, 1 )+' jpg'
+                %td= check_box_tag( :sample, 1 )+' PDF'
+                %td= check_box_tag( :sample, 1 )+' Other'
+              %tr
+                %td= check_box_tag( :sample, 1 )+' EPS'
+                %td= check_box_tag( :sample, 1 )+' gif'
+                %td
+                %td
+              %tr
+                %td= check_box_tag( :sample, 1 )+' AI (illustrator)'
+                %td= check_box_tag( :sample, 1 )+' png'
+                %td
+                %td
+              %tr
+                %td= check_box_tag( :sample, 1 )+' indesign'
+                %td
+                %td
+                %td
+                .clear
+          
+          .input-area
+            %h5 主なカラー *
+            .color-select
+              = radio_button_tag(:color_select, 1, true)
+              代表的な色から選ぶ
+              .selectsample
+                - 3.times do
+                  %select{:style => 'width:200px'}
+                    %option ------------ 
+                    %option レッド 
+                    %option オレンジ
+                    %option イエロー
+                    %option グリーン
+                    %option ブルー
+                    %option パープル
+                    %option ブラウン
+                    %option ホワイト
+                    %option ブラック
+                  %br
+              = radio_button_tag(:color_select, 1)
+              詳細な色を設定する
+              .freeinput
+                - 3.times do
+                  .form-inline
+                    %i= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
+                    %label #
+                    %input{:type=>'text', :style => 'width:100px', :placeholder => "cccc00"}   
+          
+          .input-area.parts-select
+            %h5 入れて欲しいパーツ・モノ *
+            %p（単語で記入してください）
+            %form.form-inline
+              %input{:type=>'text', :style => 'width:150px' }   
+              %input{:type=>'text', :style => 'width:150px' }   
+              %input{:type=>'text', :style => 'width:150px' }   
+              
+
+          .input-area
+            %h5 イメージメーター * 
+            %table
+              %tr
+                %td 男性的 
+                %td.form-inline
+                  %input{:type=>'range', :style => 'width:200px'}   
+                  女性的 
+              %tr
+                %td イノベーティブ
+                %td.form-inline
+                  %input{:type=>'range', :style => 'width:200px'}   
+                  コンサバティブ
+              %tr
+                %td シンプル
+                %td.form-inline
+                  %input{:type=>'range', :style => 'width:200px'}   
+                  複合的 
+              %tr
+                %td 単色
+                %td.form-inline
+                  %input{:type=>'range', :style => 'width:200px'}   
+                  カラフル
+              %tr
+                %td ヤング
+                %td.form-inline
+                  %input{:type=>'range', :style => 'width:200px'}   
+                  オールド
+              %tr
+                %td 高級
+                %td.form-inline
+                  %input{:type=>'range', :style => 'width:200px'}   
+                  日常
+          
+          .input-area
+            %h5 ロゴタイプ *
+            .logo-select-area
+              %table
+                %tr
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/ワードマーク.jpg', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    ワードマーク 
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/ピクチャーマーク.jpg', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    ピクチャーマーク
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/抽象スタイル.jpg', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    抽象スタイル
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/頭文字マーク.jpg', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    頭文字マーク
+                %tr
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/エンブレム.jpg', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    エンブレム
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/キャラクター.jpg', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    キャラクター
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/筆文字スタイル.jpg', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    筆文字スタイル
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/Web2.0スタイル.jpg', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    web2.0スタイル
+              
+          .input-area
+            %h5 クリッピングデザイン *
+    
+            .modal.fade#Modal
+              .modal-header
+                header
+              .modal-body
+                body
+              .modal-footer
+                footer
+
+
+            .clipping-area
+              %table
+                %tr
+                  %td#design_1= image_tag '/images/mock/logo/logo1.jpg', :size => '90x90'
+                  %td#design_2= image_tag '/images/mock/logo/logo2.jpg', :size => '90x90'
+                  %td#design_3= image_tag '/images/mock/logo/logo3.jpg', :size => '90x90'
+                  %td#design_4= image_tag '/images/mock/logo/logo4.jpg', :size => '90x90'
+                  %td.add-clipping.jqModal{:href => "#"}
+                    %p
+                      %b + Add Design
+          
+          .input-area
+            %h5 参照URL 
+            .URL-select
+              %p（自社サイトや競合サイトがある場合は記入してください）
+              %input{:type=>'text', :style => 'width:300px', :placeholder => "http://"}   
+          
+          .input-area
+            %h5 補足説明
+            %textarea{:style => 'width:500px'}   
+
+    .left
+      .pager
+        %a{:href => '/mock/job_post_1'} Previous
+    .right
+      .pager
+        %a{:href => '/mock/confirm'} Next
+    
+  .sidebar-wrap.right
+    .explanation-area.well
+      説明エリア 
+

@@ -1,58 +1,63 @@
 .wrap {
+  width: 1050px;
+  height: 1700px;
+}
+
+.content-wrap {
   border: solid 1px #CCC;
   padding: 10px;
-  height: 1150px;
+  width: 700px;
+  height: 1350px;
 }
 
 .sidebar-wrap {
   border: solid 1px #CCC;
   padding: 10px;
-  height: 1150px;
+  width: 300px;
+  height: 1350px;
 }
 
-.contents-group {
+.input-area {
+  margin-top: 30px;
 }
 
-#contents1 {
+.select-category table{
+  margin: 10px;
+  width: 690px;
+}
+
+.select-category td{
+  padding: 10px;
+  width: 200px;
+}
+
+#prize_pattern1 {
   display: block;
 }
 
-#contents1 table{
-  border-collapse: separate;
-  border-spacing: 15px;
-}
-
-#contents1 td{
-  border: 1px solid #CCC;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#contents1 img{
- position: relative;
- top: 10px;
- left: -5px;
-}
-
-#contents2 {
+#prize_pattern2 {
   display: none;
 }
 
-#contents2 table{
+#prize_pattern3 {
+  display: none;
+}
+
+.plan-select {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.plan-select table{
   border-collapse: separate;
-  border-spacing: 15px;
+  border-spacing: 15px 0px;
+  empty-cells: hide;
 }
 
-#contents2 td{
+.plan-select td{
   border: 1px solid #CCC;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#contents2 img{
- position: relative;
- top: 10px;
- left: -5px;
+  height: 30px;
+  padding: 15px;
 }
 
 #option table{

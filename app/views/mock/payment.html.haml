@@ -1,0 +1,12 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/payment.css"
+
+.wrap
+  .content-wrap.left
+    .left
+      .pager
+        %a{:href => '/mock/confirm'} Previous
+    .right
+      .pager
+        %a{:href => '/mock/top'} complete 
+  .sidebar-wrap.right
