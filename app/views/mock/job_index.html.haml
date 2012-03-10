@@ -19,8 +19,8 @@
     %i.icon-chevron-left.left#prev1
     #posts1.posts.left
       %ul
-        - 10.times do |i|
-          %li= image_tag "/images/mock/logo/logo#{i+1}.jpg", :size => '98x98', :alt => ''
+        - 8.times do |i|
+          %li= image_tag "/images/mock/contests/1-#{i+1}-square.jpg", :size => '98x98', :alt => ''
     %i.icon-chevron-right.left#next1
     .clear
 .sidebar
@@ -102,18 +102,19 @@
   %table.table.table-striped.text-center
     %tbody
       %tr.center
-        %th{:style=>'text-align:center;'} コンテストタイトル
+        %th{:style=>'text-align:center;width:210px;'} コンテストタイトル
         %th{:style=>'text-align:center;'} クライアント
         %th{:style=>'text-align:center;'} 時間
         %th{:style=>'text-align:center;'} エントリー
         %th{:style=>'text-align:center;'} 賞金
         %th{:style=>'text-align:center;'} ステータス
-      - 9.times do |i|
+      - 4.times do |i|
+        - contest = Mock::Contest.find(i+1)
         %tr
-          %td{:style=>'text-align:center;'}= link_to "コンテスト#{i+1}",mock_job_detail_path
-          %td{:style=>'text-align:center;'} 
+          %td{:style=>'text-align:center;'}= link_to contest.title , mock_job_detail_path(:id => contest.id)
+          %td{:style=>'text-align:center;'}= contest.client
           %td{:style=>'text-align:center;'} １週間
-          %td{:style=>'text-align:center;'} 
-          %td{:style=>'text-align:center;'} ¥40,000
+          %td{:style=>'text-align:center;'}= contest.design 
+          %td{:style=>'text-align:center;'}= "¥#{contest.price}"
           %td.status{:style=>'text-align:center;'}= image_tag "/images/mock/contest-type/_12d_icon_#{i.even? ? 'manymore' : 'private'}.png", :size => '20x20'
 .clear

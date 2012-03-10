@@ -11,9 +11,9 @@
       });
       $(".showsidebar").click(function(){
         $('#gararry').show();
-        $("#posts1").jCarouselLite({
-          btnNext: "#next1",
-          btnPrev: "#prev1",
+        $("#posts10").jCarouselLite({
+          btnNext: "#next10",
+          btnPrev: "#prev10",
           visible: 4,
           vertical: true
         });
@@ -26,19 +26,21 @@
 .tab-content
   .tab-pane.active#aboutme
     #profile-area
-      #profile-image.left= image_tag '/images/mock/designer/designer2.png', :size=>'145x145'
+      #profile-image.left= image_tag "/images/mock/designer/designer#{@designer.id}.png", :size=>'145x145'
       #profile-detail.left
         #attributes{:style=>'vertical-align:middle;'}
-          .left{:style=>'font-size:15pt;font-weight:bold;height:30px;line-height:30px;'}Joe Ashdown
-          .left{:style=>'margin:0px 10px;'}= image_tag '/images/mock/flag/jp.png', :size=>'30x30'
+          .left{:style=>'font-size:15pt;font-weight:bold;height:30px;line-height:30px;'}= @designer.name
+          .left{:style=>'margin:0px 10px;'}= image_tag "/images/mock/flag/#{@designer.flag}.png", :size=>'30x30'
           .left= image_tag '/images/mock/icon/mail.png', :size=>'35x35'
           .clear
         #infomation.font11
-          %div{:style=>'margin-bottom:5px;'} Rankig #123
-          %div= link_to 'www.purplecow.com'
+          %div{:style=>'margin-bottom:5px;'}
+            Rankig #
+            =@designer.ranking
+          %div= link_to 'www.purplecow.com', "/mock/designer_detail?id=#{@designer.id}"
       .clear
     %h4 参加コンテスト
-    %div{:style=>'margin:10px;'} 232コンテストに参加して、90作品を提出し、3勝しました。
+    %div{:style=>'margin:10px;'}= "#{@designer.contest}コンテストに参加して、#{@designer.product}作品を提出し、#{@designer.win}勝しました。"
     
     %table.table.table-striped{:style=>'width:700px;'}
       %tr
@@ -80,8 +82,8 @@
   #gararry.right{:style=>'display:hidden;width:240px;'}
     %div
       %div{:style=>'margin-left:50px;'}
-        %i.icon-chevron-up#next1
-      #posts1.posts
+        %i.icon-chevron-up#next10
+      #posts10.posts
         %ul
           %li
             .left= image_tag '/images/mock/logo/logo12.jpg', :size => '120x120'
@@ -96,5 +98,5 @@
                   %b{:style=>'font-size:11pt;'} +
               .clear
       %div{:style=>'margin-left:50px;'}
-        %i.icon-chevron-down#prev1
+        %i.icon-chevron-down#prev10
   .clear

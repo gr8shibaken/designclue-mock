@@ -1,0 +1,80 @@
+- id: 1
+  title: "Keynoter Webサービス　ロゴデザイン"
+  price: "30,000"
+  time: "6"
+  client: "Hiroki Yamamoto"
+  flag: "jp"
+  name: "Keynoter"
+  subname:
+  industory: "Webサービス"
+  usage: "Web, Online"
+  format: "PSD, AI, JPG"
+  color: "レッド、イエロー"
+  parts: "アポストロフィ"
+  type:
+  favarite:
+  url: "www.keynoter.jp"
+  description:
+  logo: 22
+  design: 53
+  designer: 12
+- id: 2
+  title: "Electro Pop Party ナイトイベント　フライヤーデザイン"
+  price: "35,000"
+  time: "12"
+  client: "Joe Adson"
+  flag: "gb"
+  name: "Electro Pop Party"
+  subname: "Despedio de Aroi"
+  industory: "ナイトイベント"
+  usage: "Print"
+  format: "PSD, AI, JPG"
+  color: "レッド、イエロー、ブルー"
+  parts: "美人な女性"
+  type: 
+  favarite:
+  url: "www.electropop.jp"
+  description:
+  logo: 8
+  design: 46
+  designer: 18
+- id: 3
+  title: "Velo City Night カフェ　ロゴデザイン"
+  price: "50,000"
+  time: "18"
+  client: "CristalY"
+  flag: "jp"
+  name: "Velo City Night"
+  subname:
+  industory: "カフェレンストラン"
+  usage: "看板"
+  format: "PSD, AI, JPG"
+  color: "グリーン、ブルー"
+  parts: "自転車"
+  type: 
+  favarite:
+  url: "www.cafe-zenon.jp"
+  description:
+  logo: 15
+  design: 79
+  designer: 22
+- id: 4
+  title: "NSF　サッカーチーム　ロゴデザイン"
+  price: "50,000"
+  time: "12"
+  client: "DBeckham"
+  flag: "es"
+  name: "NSF"
+  subname: "Gropiusstaot"
+  industory: "サッカーチーム"
+  usage: "Web,Online,Print"
+  format: "PSD, AI, JPG"
+  color: "グリーン、ブルー"
+  parts: "レッド、ブラック"
+  type: 
+  favarite:
+  url: "www.nsffootball.com"
+  description:
+  logo: 19
+  design: 38
+  designer: 9

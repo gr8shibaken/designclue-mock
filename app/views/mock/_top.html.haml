@@ -13,66 +13,67 @@
           btnPrev: "#prev2",
           visible: 6
         });
+        $("#posts3").jCarouselLite({
+          btnNext: "#next3",
+          btnPrev: "#prev3",
+          visible: 6
+        });
+        $("#posts4").jCarouselLite({
+          btnNext: "#next4",
+          btnPrev: "#prev4",
+          visible: 6
+        });
       });
+      function trans(job,app) {
+        var aid = job+'-'+app
+        url = '/mock/job_application?id='+aid
+        location.href = url;
+      }
 .categories-container
   .categories
-    .category.left{:onClick => "location.href='/mock/job_index?category=Logo'"} Logo
-    .category.left{:onClick => "location.href='/mock/job_index?category=Icon'"} Icon
-    .category.left{:onClick => "location.href='/mock/job_index?category=Flyer'"} Flyer
-    .category.left{:onClick => "location.href='/mock/job_index?category=Others'"} Others
+    .category.left
+      %a{:href => '/mock/job_index?category=Logo', :style=>"color:black;"}
+        %div{:style => 'width:120px;height:105px;padding-top:15px;'}
+          Logo
+    .category.left
+      %a{:href => '/mock/job_index?category=Icon', :style=>"color:black;"}
+        %div{:style => 'width:120px;height:105px;padding-top:15px;'}
+          Icon
+    .category.left
+      %a{:href => '/mock/job_index?category=Flyer', :style=>"color:black;"}
+        %div{:style => 'width:120px;height:105px;padding-top:15px;'}
+          Flyer
+    .category.left
+      %a{:href => '/mock/job_index?category=Other', :style=>"color:black;"}
+        %div{:style => 'width:120px;height:105px;padding-top:15px;'}
+          Others
     .clear
-.contest-lane
-  .header
-    .top
-      %span.category= image_tag '/images/mock/category/category.png', :size => '20x20'
-      %span.title Create the next logo for Erotic Encounters
-      %span.name= link_to "John Amcehfihcgaf Sharpeberg", "#"
-      %span.flag= image_tag '/images/mock/flag/it.png',:size => '20x20',:align => 'bottom'
-    .bottom
-      %i.icon-info-sign
-      %span.white ¥ 500
-      %i.icon-time
-      %span.white 残り 14 時間
-      %i.icon-file
-      %span.white 231 
-      %i.icon-user
-      %span.white 56
-  .contents
-    %i.icon-chevron-left.left#prev1
-    #posts1.posts.left
-      %ul
-        - 10.times do |i|
-          %li= image_tag "/images/mock/logo/logo#{i+1}.jpg", :size => '98x98', :alt => ''
-    %i.icon-chevron-right.left#next1
-    #button-container.right
-      %a.btn{:style=> 'width:90px; height:90px'}
-        %b + Add Design
-    .clear
-
-.contest-lane
-  .header
-    .top
-      %span.category= image_tag '/images/mock/category/category.png', :size => '20x20'
-      %span.title Create the next logo for PurpleCow
-      %span.name= link_to "Joe Ashdown", "#"
-      %span.flag= image_tag '/images/mock/flag/us.png',:size => '20x20',:align => 'bottom'
-    .bottom
-      %i.icon-info-sign
-      %span.white ¥ 500
-      %i.icon-time
-      %span.white 残り 14 時間
-      %i.icon-file
-      %span.white 231 
-      %i.icon-user
-      %span.white 56
-  .contents
-    %i.icon-chevron-left.left#prev2
-    #posts2.posts.left
-      %ul
-        - 10.times do |i|
-          %li= image_tag "/images/mock/logo/logo#{10-i}.jpg", :size => '98x98', :alt => ''
-    %i.icon-chevron-right.left#next2
-    #button-container.right
-      %a.btn{:style=> 'width:90px; height:90px'}
-        %b + Add Design
-    .clear
+- 4.times do |id|
+  .contest-lane
+    - contest = Mock::Contest.find(id+1)
+    .header
+      .top
+        %span.category= image_tag '/images/mock/category/category.png', :size => '20x20'
+        %span.title=link_to contest.title, mock_job_detail_path(:id => id+1)
+        %span.name= link_to contest.client, "#"
+        %span.flag= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
+      .bottom
+        %i.icon-info-sign
+        %span.white= "¥#{contest.price}"
+        %i.icon-time
+        %span.white= "残り#{contest.time}時間"
+        %i.icon-file
+        %span.white= contest.design
+        %i.icon-user
+        %span.white= contest.designer
+    .contents
+      %i.icon-chevron-left.left{:id => "prev#{id+1}"}
+      .posts.left{:id => "posts#{id+1}"}
+        %ul
+          - contest.logo.times do |i|
+            %li= image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => '', :onclick => "trans(#{id+1},#{i+1})"
+      %i.icon-chevron-right.left{:id => "next#{id+1}"}
+      #button-container.right
+        %a.btn{:style=> 'width:90px; height:90px'}
+          %b + Add Design
+      .clear

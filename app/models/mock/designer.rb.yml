@@ -1,0 +1,56 @@
+- id: 1
+  name: fringy
+  flag: es
+  product: 494
+  contest: 100
+  win: 12
+  ranking: 1 
+- id: 2
+  name: Joe Ashdown
+  flag: us
+  product: 382
+  contest: 87
+  win: 8
+  ranking: 2
+- id: 3
+  name: Daniel Gremm
+  flag: de
+  product: 527
+  contest: 145
+  win: 6
+  ranking: 3
+- id: 4
+  name: Araceli Marquina
+  flag: it
+  product: 297
+  contest: 68
+  win: 5
+  ranking: 4
+- id: 5
+  name: Hiro Yamamoto
+  flag: jp
+  product: 192
+  contest: 46
+  win: 4
+  ranking: 5
+- id: 6
+  name: Uegasart
+  flag: us
+  product: 201
+  contest: 102
+  win: 3
+  ranking: 6
+- id: 7
+  name: Seven Zero
+  flag: ru
+  product: 69
+  contest: 26
+  win: 2
+  ranking: 7
+- id: 8
+  name: MONO
+  flag: tr
+  product: 38
+  contest: 6
+  win: 1
+  ranking: 8

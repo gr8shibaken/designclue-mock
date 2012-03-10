@@ -12,6 +12,10 @@
           visible: 6
         });
       });
+      function trans(id) {
+        url = '/mock/designer_detail?id='+id
+        location.href = url;
+      }
 #designer-area
   .title
     %h3 Designers
@@ -19,8 +23,10 @@
     %i.icon-chevron-left.left#prev1
     #posts1.posts.left
       %ul
-        - 10.times do |i|
-          %li= image_tag "/images/mock/designer/designer2.png", :size => '98x98', :alt => ''
+        - 8.times do |i|
+          %li
+            %a{:href=>"/mock/designer_detail?id=#{i+1}"}
+              = image_tag "/images/mock/designer/designer#{i+1}.png", :size => '98x98', :alt => ''
     %i.icon-chevron-right.left#next1
     .clear
 .sidebar
@@ -88,19 +94,19 @@
         %th{:style=>'text-align:center;'}
           ランキング
           %span{:style=>'font-size: 6pt;'}▲▼
-      - 9.times do |i|
-        %tr
-          %td{:style=>'text-align:center;'}
-            %div
-              .left{:style=>'margin-left:15px;'}= image_tag "/images/mock/designer/designer2.png", :size => '50x50', :alt => ''
-              .left{:style=>'height:50px;vertical-align:middle;'}
-                %div{:style=>'line-height:50px;margin:0px 10px;'}
-                  =link_to 'Kensuke', mock_designer_detail_path
-              .left{:style=>'height:20px;vertical-align:middle;padding-top:15px;'}
-                = image_tag "/images/mock/flag/jp.png", :size => '20x20', :alt => ''
-              .clear
-          %td{:style=>'vertical-align:middle;text-align:center;'} 494 
-          %td{:style=>'vertical-align:middle;text-align:center;'} 100
-          %td{:style=>'vertical-align:middle;text-align:center;'} 3
-          %td{:style=>'vertical-align:middle;text-align:center;'} 10
+        - Mock::Designer.all.each do |d|
+          %tr
+            %td{:style=>'text-align:center;'}
+              %div
+                .left{:style=>'margin-left:15px;'}= image_tag "/images/mock/designer/designer#{d.id}.png", :size => '50x50', :alt => ''
+                .left{:style=>'height:50px;vertical-align:middle;'}
+                  %div{:style=>'line-height:50px;margin:0px 10px;'}
+                    =link_to d.name, mock_designer_detail_path(:id => d.id)
+                .right{:style=>'height:20px;vertical-align:middle;padding-top:15px;'}
+                  = image_tag "/images/mock/flag/#{d.flag}.png", :size => '20x20', :alt => ''
+                .clear
+            %td{:style=>'vertical-align:middle;text-align:center;'}= d.product
+            %td{:style=>'vertical-align:middle;text-align:center;'}= d.contest
+            %td{:style=>'vertical-align:middle;text-align:center;'}= d.win
+            %td{:style=>'vertical-align:middle;text-align:center;'}= d.ranking
 .clear
