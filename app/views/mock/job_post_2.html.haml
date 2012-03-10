@@ -11,16 +11,16 @@
 
   $(function() {  
     $("#add_design_1").click(function(){
-      $('#design_1').css("display", "inline");
+      $("#add_design_1").prependTo("#change-area");
     });
     $("#add_design_2").click(function(){
-      $('#design_2').css("display", "inline");
+      $("#add_design_2").prependTo("#change-area");
     });
     $("#add_design_3").click(function(){
-      $('#design_3').css("display", "inline");
+      $("#add_design_3").prependTo("#change-area");
     });
     $("#add_design_4").click(function(){
-      $('#design_4').css("display", "inline");
+      $("#add_design_4").prependTo("#change-area");
     });
   });
 
@@ -28,26 +28,27 @@
   %a.jqmClose.right{:href => "#"} Close
   %hr
   追加するデザインを選んでください。
-  %table.jqmClose
+  %table
     %tr
       %td#add_design_1= image_tag "/images/mock/logo/logo1.jpg", :size => '100x100'
       %td#add_design_2= image_tag "/images/mock/logo/logo2.jpg", :size => '100x100'
       %td#add_design_3= image_tag "/images/mock/logo/logo3.jpg", :size => '100x100'
       %td#add_design_4= image_tag "/images/mock/logo/logo4.jpg", :size => '100x100'
-
+  %hr
+  .btn-small.btn-primary.right.jqmClose 完了 
 .wrap
   %ul.breadcrumb
     %li
-      %a{:href => "/mock/job_post_1"} 1. カテゴリ/プラン選択
+      1. カテゴリ/プラン選択
       %span.divider ｜
     %li.active 
-      %a{:href => "#"} 2. コンテスト情報入力
+      2. コンテスト情報入力
       %span.divider ｜
     %li 
-      %a{:href =>"#"} 3. 内容確認
+      3. 内容確認
       %span.divider ｜
-    %li 
-      %a{:href =>"#"} 4. 決済
+    %li
+      4. 決済
 
   .content-wrap.left
     %h3
@@ -79,7 +80,10 @@
           .input-area
             %h5 インダストリー * 
             .industry-select
-              %p 業界 > 業種
+              .industry1
+                業種1
+              .industry2
+                業種2
               .form-inline
                 %select{:style => 'width:250px'}
                   %option ------------ 
@@ -138,17 +142,17 @@
                 %th Others
               %tr
                 %td= check_box_tag( :sample, 1 )+' PSD (photoshop)'
-                %td= check_box_tag( :sample, 1 )+' jpg'
+                %td= check_box_tag( :sample, 1 )+' JPG'
                 %td= check_box_tag( :sample, 1 )+' PDF'
                 %td= check_box_tag( :sample, 1 )+' Other'
               %tr
                 %td= check_box_tag( :sample, 1 )+' EPS'
-                %td= check_box_tag( :sample, 1 )+' gif'
+                %td= check_box_tag( :sample, 1 )+' GIF'
                 %td
                 %td
               %tr
                 %td= check_box_tag( :sample, 1 )+' AI (illustrator)'
-                %td= check_box_tag( :sample, 1 )+' png'
+                %td= check_box_tag( :sample, 1 )+' PNG'
                 %td
                 %td
               %tr
@@ -186,14 +190,14 @@
                     %label #
                     %input{:type=>'text', :style => 'width:100px', :placeholder => "cccc00"}   
           
-          .input-area.parts-select
+          .input-area
             %h5 入れて欲しいパーツ・モノ *
-            %p（単語で記入してください）
-            %form.form-inline
-              %input{:type=>'text', :style => 'width:150px' }   
-              %input{:type=>'text', :style => 'width:150px' }   
-              %input{:type=>'text', :style => 'width:150px' }   
-              
+            .parts-select
+              %p（単語で記入してください）
+              %form.form-inline
+                %input{:type=>'text', :style => 'width:150px' }   
+                %input{:type=>'text', :style => 'width:150px' }   
+                %input{:type=>'text', :style => 'width:150px' }   
 
           .input-area
             %h5 イメージメーター * 
@@ -235,41 +239,41 @@
               %table
                 %tr
                   %td
-                    %p.image= image_tag '/images/mock/logo-type/ワードマーク.jpg', :size => '100x100'
+                    %p.image= image_tag '/images/mock/logo-type/wordmark.jpg', :size => '100x100'
                     = check_box_tag( :sample, 1 )
                     ワードマーク 
                   %td
-                    %p.image= image_tag '/images/mock/logo-type/ピクチャーマーク.jpg', :size => '100x100'
+                    %p.image= image_tag '/images/mock/logo-type/picturemark.jpg', :size => '100x100'
                     = check_box_tag( :sample, 1 )
                     ピクチャーマーク
                   %td
-                    %p.image= image_tag '/images/mock/logo-type/抽象スタイル.jpg', :size => '100x100'
+                    %p.image= image_tag '/images/mock/logo-type/abstruct.jpg', :size => '100x100'
                     = check_box_tag( :sample, 1 )
                     抽象スタイル
                   %td
-                    %p.image= image_tag '/images/mock/logo-type/頭文字マーク.jpg', :size => '100x100'
+                    %p.image= image_tag '/images/mock/logo-type/letterform.jpg', :size => '100x100'
                     = check_box_tag( :sample, 1 )
                     頭文字マーク
                 %tr
                   %td
-                    %p.image= image_tag '/images/mock/logo-type/エンブレム.jpg', :size => '100x100'
+                    %p.image= image_tag '/images/mock/logo-type/emblem.jpg', :size => '100x100'
                     = check_box_tag( :sample, 1 )
                     エンブレム
                   %td
-                    %p.image= image_tag '/images/mock/logo-type/キャラクター.jpg', :size => '100x100'
+                    %p.image= image_tag '/images/mock/logo-type/character.jpg', :size => '100x100'
                     = check_box_tag( :sample, 1 )
                     キャラクター
                   %td
-                    %p.image= image_tag '/images/mock/logo-type/筆文字スタイル.jpg', :size => '100x100'
+                    %p.image= image_tag '/images/mock/logo-type/brush.jpg', :size => '100x100'
                     = check_box_tag( :sample, 1 )
                     筆文字スタイル
                   %td
-                    %p.image= image_tag '/images/mock/logo-type/Web2.0スタイル.jpg', :size => '100x100'
+                    %p.image= image_tag '/images/mock/logo-type/Web2.0.jpg', :size => '100x100'
                     = check_box_tag( :sample, 1 )
                     web2.0スタイル
               
           .input-area
-            %h5 クリッピングデザイン *
+            %h5 お気に入りデザイン *
     
             .modal.fade#Modal
               .modal-header
@@ -282,11 +286,7 @@
 
             .clipping-area
               %table
-                %tr
-                  %td#design_1= image_tag '/images/mock/logo/logo1.jpg', :size => '90x90'
-                  %td#design_2= image_tag '/images/mock/logo/logo2.jpg', :size => '90x90'
-                  %td#design_3= image_tag '/images/mock/logo/logo3.jpg', :size => '90x90'
-                  %td#design_4= image_tag '/images/mock/logo/logo4.jpg', :size => '90x90'
+                %tr#change-area
                   %td.add-clipping.jqModal{:href => "#"}
                     %p
                       %b + Add Design

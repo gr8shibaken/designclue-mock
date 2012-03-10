@@ -1,6 +1,102 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/confirm.css"
+
 .container-fluid
-  .span8
-    %h3 confirm page
+  .span
+    %ul.breadcrumb
+      %li
+        1. カテゴリ/プラン選択
+        %span.divider ｜
+      %li 
+        2. コンテスト情報入力
+        %span.divider ｜
+      %li.active 
+        3. 内容確認
+        %span.divider ｜
+      %li
+        4. 決済
+
+    %h3 内容確認
+    .tab-content
+      .tab-pane#english
+      .tab-pane.active#japanese
+        %table.table.table-striped
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b カテゴリ
+            %td ロゴデザイン
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b プラン名 
+            %td ベーシックプラン
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b オプション 
+            %td シークレットオプション
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b ロゴ表記名
+            %td Campfire
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b サブ表記名
+            %td Micro Patron Platform
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b インダストリー 
+            %td ウェブコンテンツ
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b 用途
+            %td Web,Online
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b 納品フォーマット
+            %td PSD, AI, JPG
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b 主なカラー
+            %td レッド、イエロー
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b 好みのパーツ
+            %td 炎
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b イメージメーター
+            %td
+              =image_tag '/images/mock/image-meter/image-meter.jpg'
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b ロゴタイプ
+            %td
+              .logo-type.text-center.left
+                .image
+                  =image_tag '/images/mock/logo-type/web2.0.jpg', :size=>'120x120'
+                .description
+                  %span Web2.0
+              .logo-type.text-center.left
+                .image
+                  =image_tag '/images/mock/logo-type/picturemark.jpg', :size=>'120x120'
+                .description
+                  %span ピクチャーマーク
+              .clear
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b お気に入りロゴ
+            %td
+              - array = [1,2,3,4,5,6,7,8].sample(3)
+              =image_tag "/images/mock/logo/logo#{array[0]}.jpg", :size=>'120x120', :class=>'flyer'
+              =image_tag "/images/mock/logo/logo#{array[1]}.jpg", :size=>'120x120', :class=>'flyer'
+              =image_tag "/images/mock/logo/logo#{array[2]}.jpg", :size=>'120x120', :class=>'flyer'
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b 参照URL
+            %td www.kickstarter.com
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b 補足説明
+            %td 
     .left
       .pager
         %a{:href => '/mock/job_post_2'} Previous

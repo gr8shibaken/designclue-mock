@@ -3,7 +3,16 @@
   height: 1200px;
 }
 
+.wrap ul li {
+  color: darkgray;
+}
+
+.wrap ul li.active{
+  color: dodgerblue;
+}
+
 .content-wrap {
+  background-color:whitesmoke;
   border: solid 1px #CCC;
   padding: 10px;
   width: 700px;
@@ -17,3 +26,48 @@
   height: 700px;
 }
 
+.paypal {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.paypal h4{
+  text-align: left;
+  margin-top: -1.4em;
+  margin-left: 3.5em;
+}
+
+.paypal .icon{
+  position: absolute;
+  margin-top: -1.7em;
+  margin-left: 1.5em;
+}
+
+.creditcard {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.creditcard h4{
+  text-align: left;
+  margin-top: -1.4em;
+  margin-left: 3.5em;
+}
+
+.creditcard i{
+  position: absolute;
+  margin-top: -1.7em;
+  margin-left: 1.5em;
+}
+
+.input-area {
+  margin-top: 20px;
+}
+
+.cancel-button {
+  margin-left: 150px;
+}
+
+.post-button {
+  margin-left: 20px;
+}

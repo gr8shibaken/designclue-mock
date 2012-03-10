@@ -28,17 +28,17 @@
 
 .wrap
   %ul.breadcrumb
+    %li.active
+      1. カテゴリ/プラン選択
+      %span.divider ｜
+    %li 
+      2. コンテスト情報入力
+      %span.divider ｜
+    %li 
+      3. 内容確認
+      %span.divider ｜
     %li
-    %a{:href => "/mock/job_post_1"} 1. カテゴリ/プラン選択
-    %span.divider ｜
-    %li.active 
-    %a{:href => "#"} 2. コンテスト情報入力
-    %span.divider ｜
-    %li 
-    %a{:href =>"#"} 3. 内容確認
-    %span.divider ｜
-    %li 
-    %a{:href =>"#"} 4. 決済
+      4. 決済
 
   .content-wrap.left
     %h3 1. カテゴリ/プラン選択
@@ -72,6 +72,8 @@
       %h5 プラン選択 *
       .plan-select#prize_pattern1
         %table.table
+          %label
+            %h4 most popular
           %tr
             %td= radio_button_tag(:plan1, 1)+'スタートアッププラン'
             %td= radio_button_tag(:plan1, 2, true)+'ベーシックプラン'
@@ -227,7 +229,7 @@
               = check_box_tag(:option, 1)
               クローズオプション
               %hr
-              ＋¥2,000
+              %h3 ＋¥2,000
               %hr
               = '-未登録ユーザーは'
               %br
@@ -240,7 +242,7 @@
               = check_box_tag(:option, 1)
               シークレットオプション
               %hr
-              ＋¥5,000
+              %h3 ＋¥5,000
               %hr
               = '-デザインは完全非公開となる'
               %hr
@@ -253,7 +255,7 @@
               = check_box_tag(:option, 1)
               急募オプション
               %hr
-              ＋¥5,000
+              %h3 ＋¥5,000
               %hr
               = '-急募ステイタスが表示される'
               %hr
@@ -265,10 +267,56 @@
         %a{:href => '/mock/job_post_2'} Next
 
   .sidebar-wrap.right
-    %br
-    %br
-    %br
-    .explanation-area.well
-      説明エリア 
-    .amount-area.well
-      total amount ¥100,000
+    .explanation-area
+      .well
+        %i.icon-info-sign
+        information
+        %br
+        ●期待されるクリエイター数
+        %br
+        プラン毎で、過去のコンテストから、参加するクリエイターの平均人数です。
+        %br
+        %br
+        ●著作権の保護
+        %br
+        勝者のデザインの著作権はすべてあなたの権利となります。
+        %br
+        %br
+        ●返金保証
+        %br
+        コンテスト終了後、気に入るデザインがない場合には、掲載フィーと決済手数料を差し引いた金額の返金を要求することができます。しかしこの選択を有効化するとクリエイターの投稿数は減る恐れがあります。
+        %br
+        %br
+        ●ハイライト表示
+        %br
+        通常とは違ったハイライトカラーで表示され、注目度が上がります。
+        %br
+        %br
+        ●メールマガジン
+        %br
+        DesignClueが定期的にクリエイターに送付するメールマガジンに当コンテストをアピールします。投稿率がぐっとアップします。
+        %br
+        %br
+        ●ソーシャルプロモーション
+        %br
+        DesignClueのFacebookページとTwitterアカウントより、当コンテストが新しく投稿されたことを知らせます。 
+    .amount-area
+      %h3 Your choice
+    .cart-area.well
+      %h4 ロゴデザイン
+      %table.table
+        %tr
+          %td
+            ベーシックプラン
+            %br
+            （決済手数料 9%含む）
+          %td ¥30,000 
+        %tr
+          %td 掲載フィー
+          %td ¥3,000 
+        %tr
+          %td シークレットオプション
+          %td ¥5,000
+        %tr
+          %td 合計
+          %td ¥38,000

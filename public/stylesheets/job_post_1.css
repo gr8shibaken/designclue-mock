@@ -3,6 +3,14 @@
   height: 1700px;
 }
 
+.wrap ul li {
+  color: darkgray;
+}
+
+.wrap ul li.active{
+  color: dodgerblue;
+}
+
 .content-wrap {
   border: solid 1px #CCC;
   padding: 10px;
@@ -59,7 +67,9 @@
   height: 30px;
   padding: 15px;
 }
-
+.plan-select label{
+  margin-left: 250px;
+}
 #option table{
   border-collapse: separate;
   border-spacing: 15px;
@@ -72,4 +82,21 @@
 }
 
 .amount-area {
+  margin-left: 10px;
+  position: absolute;
+  bottom: -45px;
+}
+
+.explanation-area {
+  margin-left: 10px;
+  width: 280px;
+  position: absolute;
+  top: 450px;
+}
+
+.cart-area {
+  margin-left: 10px;
+  width: 240px;
+  position: absolute;
+  bottom: -300px;
 }

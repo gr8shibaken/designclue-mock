@@ -3,6 +3,14 @@
   height: 2200px;
 }
 
+.wrap ul li {
+  color: darkgray;
+}
+
+.wrap ul li.active{
+  color: dodgerblue;
+}
+
 .content-wrap {
   border: solid 1px #CCC;
   padding: 10px;
@@ -26,9 +34,14 @@
   margin-left: 10px;
 }
 
+.subname-select {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
 .subname-select p{
   text-align: left;
-  margin-top: -1.4em;
+  margin-top: -1.8em;
   margin-left: 5em;
 }
 
@@ -47,6 +60,15 @@
   margin-left: 10px;
 }
 
+.industry-select .industry1{
+  margin-left: 10px;
+}
+
+.industry-select .industry2{
+  margin-top: -18px;
+  margin-left: 280px;
+}
+
 .format-select {
   margin-top: 5px;
   margin-left: 10px;
@@ -54,7 +76,10 @@
 
 .format-select td{
   width: 120px;
-  padding-left: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right:20px;
 }
 
 .color-select {
@@ -80,6 +105,8 @@
 }
 
 .parts-select {
+  margin-top: 5px;
+  margin-left: 10px;
 }
 
 .parts-select h2{
@@ -126,6 +153,22 @@
 }
 
 #design_4 {
+  display: none;
+}
+
+#design_5 {
+  display: none;
+}
+
+#design_6 {
+  display: none;
+}
+
+#design_7 {
+  display: none;
+}
+
+#design_8 {
   display: none;
 }
 
