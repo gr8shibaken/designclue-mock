@@ -1,0 +1,150 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/job_detail.css"
+%ul.nav.nav-tabs.font11
+  %li.active= link_to 'Design Entries', '#entries', {:'data-toggle'=> 'tab'}
+  %li= link_to 'Design Brief', '#brief', {:'data-toggle'=> 'tab'}
+.tab-content
+  .tab-pane.active#entries
+    = render 'mock/job_info'
+    %ul.nav.nav-tabs.font11
+      %li.active= link_to '52 Designes', '#designes', {:'data-toggle'=> 'tab'}
+      %li= link_to '12 Designers', '#designers', {:'data-toggle'=> 'tab'}
+    .tab-content
+      .tab-pane.active#designes
+        #designes-area
+          - 24.times do |i|
+            .design.left
+              =image_tag "/images/mock/flyer/flyer#{i%8+1}.jpg",:size => '132x132', :class=>'flyer'
+              .designer-info
+                %span.number= '#'"#{18-i}"
+                %span.name= link_to 'Kensuke', mock_designer_detail_path
+                %span.flag.right=image_tag '/images/mock/flag/jp.png',:size => '15x15'
+                .clear
+          .clear
+      .tab-pane#designers
+        %table.table
+          %tr
+            %th{:style=>'width:180px;'} Designer
+            %th Entries Design
+          - 5.times do |i|
+            %tr
+              %td
+                .profile-image
+                  = image_tag "/images/mock/designer/designer2.png",:size => '120x120', :onclick=>"location.href='/mock/designer_detail'"
+                .profile{:style=> 'width:120px;'}
+                  %span.name= link_to 'Kensuke', mock_designer_detail_path
+                  %span.flag.right=image_tag '/images/mock/flag/jp.png',:size => '15x15'
+              %td
+                - array = Array.new(8) {|i| i+1}
+                - display = i.odd? ? array.sample(4) : array.sample(5) 
+                - display.each do |d|
+                  .left{:style=>'margin-right: 10px;'}
+                    = image_tag "/images/mock/flyer/flyer#{d}.jpg",:size => '118x118', :class=>'flyer'
+                .clear
+  .tab-pane#brief
+    = render 'mock/job_info'
+    %ul.nav.nav-tabs.font11
+      %li.active= link_to 'English', '#english', {:'data-toggle'=> 'tab'}
+      %li= link_to '日本語', '#japanese', {:'data-toggle'=> 'tab'}
+      %li= link_to '  한국어', '#hungle', {:'data-toggle'=> 'tab'}
+    .tab-content
+      .tab-pane.active#english
+        %table.table.table-striped
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b Busuiness Name
+            %td
+              Kose
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b Copy
+            %td
+              Beautiful for your life
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b Industory
+            %td
+              Nail Salon
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b Use Application
+            %td
+              Web / Placard
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b Predicable
+            %td
+              Sole proprietor
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b Flyler Type
+            %td
+              .logo-type.text-center.left
+                .image
+                  =image_tag '/images/mock/logo-type/abstruct.png', :size=>'120x120'
+                .description
+                  %span Web2.0
+              .logo-type.text-center.left
+                .image
+                  =image_tag '/images/mock/logo-type/picturemark.png', :size=>'120x120'
+                .description
+                  %span Picture Mark
+              .clear
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b Clipped Flyers
+            %td
+              =image_tag '/images/mock/flyer/flyer1.jpg', :size=>'120x120', :class=>'flyer'
+              =image_tag '/images/mock/flyer/flyer2.jpg', :size=>'120x120', :class=>'flyer'
+              =image_tag '/images/mock/flyer/flyer1.jpg', :size=>'120x120', :class=>'flyer'
+      .tab-pane#japanese
+        %table.table.table-striped
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b ビジネスネーム
+            %td
+              Kose
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b キャッチコピー
+            %td
+              あなたの生活を美しく
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b 業界・産業
+            %td
+              ネイルサロン
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b 用途
+            %td
+              Web / ポスター
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b 属性
+            %td
+              個人事業主
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b フライヤータイプ
+            %td
+              .logo-type.text-center.left
+                .image
+                  =image_tag '/images/mock/logo-type/abstruct.png', :size=>'120x120'
+                .description
+                  %span Web2.0
+              .logo-type.text-center.left
+                .image
+                  =image_tag '/images/mock/logo-type/picturemark.png', :size=>'120x120'
+                .description
+                  %span ピクチャーマーク
+              .clear
+          %tr
+            %td{:style => 'width: 180px;'}
+              %b Clipped フライヤー
+            %td
+              =image_tag '/images/mock/flyer/flyer1.jpg', :size=>'120x120', :class=>'flyer'
+              =image_tag '/images/mock/flyer/flyer2.jpg', :size=>'120x120', :class=>'flyer'
+              =image_tag '/images/mock/flyer/flyer1.jpg', :size=>'120x120', :class=>'flyer'
+      .tab-pane#hungle
+    

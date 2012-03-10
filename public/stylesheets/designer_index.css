@@ -1,0 +1,61 @@
+#designer-area .contents{
+  width: 810px;
+  margin: 20px 65px 30px 65px;
+}
+#designer-area .contents i{
+  margin-top: 40px;
+}
+.posts li {
+  width: 130px;
+  height: 100px;
+}
+.posts li img {
+  display:block;
+  margin:auto;
+}
+.sidebar {
+  float: left;
+  margin-right: 10px;
+  width: 240px;
+  min-height: 500px;
+  border: solid 1px #CCC;
+  padding: 10px;
+}
+.content-wrap {
+  float: left;
+  padding: 10px;
+  width: 641px;
+  min-height: 500px;
+  border: solid 1px #CCC;
+}
+.content-title {
+  margin-bottom: 20px;
+}
+.sidebar .condition {
+  vertical-align: bottom;
+}
+
+.sidebar .condition {
+  margin-bottom: 15px;
+}
+.sidebar .condition .head {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.sidebar .condition .contents {
+  display: none;
+  margin-left: 10px;
+}
+
+.skill {
+  width: 100px;
+  margin: 5px;
+}
+
+.logo-select-area {
+  font-size: 7pt;
+}
+
+.logo-select-area .image {
+  height: 70px;
+}

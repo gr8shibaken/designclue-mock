@@ -1,0 +1,100 @@
+= content_for :head do
+  = javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js'
+  = stylesheet_link_tag "/stylesheets/designer_detail.css"
+  :javascript
+    $(document).ready(function(){
+      $('#gararry').hide();
+    });
+    $(function() {  
+      $(".hidesidebar").click(function(){
+        $('#gararry').hide();
+      });
+      $(".showsidebar").click(function(){
+        $('#gararry').show();
+        $("#posts1").jCarouselLite({
+          btnNext: "#next1",
+          btnPrev: "#prev1",
+          visible: 4,
+          vertical: true
+        });
+      });
+    });
+%ul.nav.nav-tabs.font11
+  %li.active.hidesidebar= link_to 'About Me', '#aboutme', {:'data-toggle'=> 'tab'}
+  %li.showsidebar= link_to 'Portfolio', '#portfolio', {:'data-toggle'=> 'tab'}
+  %li.hidesidebar= link_to 'Favorite', '#favorite', {:'data-toggle'=> 'tab'}
+.tab-content
+  .tab-pane.active#aboutme
+    #profile-area
+      #profile-image.left= image_tag '/images/mock/designer/designer2.png', :size=>'145x145'
+      #profile-detail.left
+        #attributes{:style=>'vertical-align:middle;'}
+          .left{:style=>'font-size:15pt;font-weight:bold;height:30px;line-height:30px;'}Joe Ashdown
+          .left{:style=>'margin:0px 10px;'}= image_tag '/images/mock/flag/jp.png', :size=>'30x30'
+          .left= image_tag '/images/mock/icon/mail.png', :size=>'35x35'
+          .clear
+        #infomation.font11
+          %div{:style=>'margin-bottom:5px;'} Rankig #123
+          %div= link_to 'www.purplecow.com'
+      .clear
+    %h4 参加コンテスト
+    %div{:style=>'margin:10px;'} 232コンテストに参加して、90作品を提出し、3勝しました。
+    
+    %table.table.table-striped{:style=>'width:700px;'}
+      %tr
+        %th{:style=>'text-align:center;'} Date
+        %th{:style=>'text-align:center;'} Title
+        %th{:style=>'text-align:center;'} Design Number
+        %th{:style=>'text-align:center;'} Win
+      - 10.times do |i|
+        %tr
+          %td{:style=>'text-align:center;vertical-align:middle;'} 2011.01.21
+          %td{:style=>'text-align:center;vertical-align:middle;'} Logo Webサービス PurpleCow
+          %td{:style=>'text-align:center;vertical-align:middle;'}
+            =link_to '#12', '#'
+            =link_to '#13', '#'
+            =link_to '#14', '#'
+          %td{:style=>'text-align:center;vertical-align:middle;'}
+            - if i%3 == 0
+              =image_tag '/images/mock/icon/crown.png', :style=>'height:20px;'
+    .text-center{:style=>'margin:20px 0px 20px'}
+      =link_to '<', '#', :style=>'margin: 0px 5px;'
+      - 13.times do |i|
+        =link_to i+1, '#', :style=>'margin: 0px 5px;'
+      =link_to '>', '#', :style=>'margin: 0px 5px;'
+  .tab-pane#portfolio{:style=>'float:left;width:700px;'}
+    .left{:style => 'margin-bottom: 20px;'}
+      #logo-area
+        =image_tag '/images/mock/logo-origin/1.jpg', :style=>'width:100%;'
+      %div.font14{:style=>'margin-top:10px;vertical-align:bottom;'}
+        .left{:style=>'height:20px;'}
+          Old School Type
+        .right
+          %a.btn
+            %b{:style=>'font-size:11pt;'} + Add Favorite
+        .clear
+  .tab-pane#favorite
+    - 20.times do |i|
+      .favorite= image_tag "/images/mock/flyer/flyer#{i%8+1}.jpg", :size => '175x175'
+    .clear
+  #gararry.right{:style=>'display:hidden;width:240px;'}
+    %div
+      %div{:style=>'margin-left:50px;'}
+        %i.icon-chevron-up#next1
+      #posts1.posts
+        %ul
+          %li
+            .left= image_tag '/images/mock/logo/logo12.jpg', :size => '120x120'
+            .left{:style=>'margin-left:5px;margin-top:50px;'}
+              %a.btn
+                %b{:style=>'font-size:11pt;'} +
+          - 8.times do |i|
+            %li
+              .left= image_tag "/images/mock/flyer/flyer#{i+1}.jpg", :size => '120x120', :alt => ''
+              .left{:style=>'margin-left:5px;margin-top:50px;'}
+                %a.btn
+                  %b{:style=>'font-size:11pt;'} +
+              .clear
+      %div{:style=>'margin-left:50px;'}
+        %i.icon-chevron-down#prev1
+  .clear

@@ -29,14 +29,14 @@
   .container
     #button-container.left
       - if signed_in
-        %a.btn{:'href'=>'#'}
+        %a.btn{:'href'=> '/mock/job_post_1'}
           %b + 新しいコンテスト
       - else
         %a.btn{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
           %b + 新しいコンテスト
     #info-container.left
       %span= link_to '57 Contests', mock_job_index_path
-      %span= link_to '1744 Designers', '#'
+      %span= link_to '1744 Designers', mock_designer_index_path
     #link-container.left= link_to 'About', '#'
     .clear
 .header-space
