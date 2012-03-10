@@ -20,7 +20,9 @@
     #posts1.posts.left
       %ul
         - 8.times do |i|
-          %li= image_tag "/images/mock/contests/1-#{i+1}-square.jpg", :size => '98x98', :alt => ''
+          %li
+            %a{:href=>"/mock/job_application?id=1-#{i+1}"}
+              = image_tag "/images/mock/contests/1-#{i+1}-square.jpg", :size => '98x98', :alt => ''
     %i.icon-chevron-right.left#next1
     .clear
 .sidebar

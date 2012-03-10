@@ -1,1 +1,85 @@
-Under Constraction
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/job_application.css"
+  :javascript
+      $(function() {
+        $("#feedbackbtn").click(function(){
+          $("#feedbackDialog").show("slow");
+        });
+        $(".feedbackhide").click(function(){
+          $("#feedbackDialog").hide("slow");
+          $("#feedbackadd").show("slow");
+        });
+        $("#feedbackContainer").click(function(){
+          $("#feedbackDialog").hide("slow");
+        });
+      });
+
+#contest-info
+  .left{:style=>'margin-right:5px;'}= image_tag '/images/mock/category/category.png', :size => '20x20'
+  .left.font11= @contest.title
+  .clear
+#application
+  - designer = Mock::Designer.all.sample(1).first
+  %div{:style=>'margin-top:7px;'}
+    .left
+      %a.btn.btn-warning#feedbackbtn
+        %b
+          フィードバックを入れる
+    .right{:style=>'margin-top:10px;'}
+      .left デザイン#
+      .left{:style=>'margin-right:10px;'}= @current
+      .left{:style=>'margin-right:5px;'} from
+      .left{:style=>'margin-right:5px;'}= link_to designer.name, mock_designer_detail_path(:id=>designer.id)
+      .left{:style=>'margin-right:10px;'}=image_tag "/images/mock/flag/#{designer.flag}.png", :size=>'18x18'
+      .left{:style=>'color:gray;margin-right:30px;'} (2012.03.13)
+      .clear
+    .clear
+  %div{:style=>'margin-top:10px;'}
+    %a{:href => "/mock/job_application?id=#{@prev}"}
+      %i.icon-chevron-left.left#prev1
+    .left#product
+      #feedbackDialog
+        #feedbackDialogBg
+        #feedbackContainer
+          #feedbackArea
+            #feedbackSquare
+            #triangle
+              =image_tag '/images/mock/icon/triangle.png', :size=>'12x12'
+            %div{:style=>'height:150px; overflow-y:scroll;width: 260px;'}
+              - Mock::Feedback.all.each do |feedback|
+                %div{:style=>'background:white;border-top:1px solid #DDD; padding: 3px;'}
+                  %a.feedbackhide{:style=>'color:#222;'}
+                    = feedback.description
+      #image
+        = image_tag "/images/mock/contests/#{@id}.jpg", :size => '500x375', :style=>'border: 1px solid #CCC;'
+    %a{:href => "/mock/job_application?id=#{@next}"}
+      %i.icon-chevron-right.left#next1
+    .clear
+  %div{:style=>'margin:5px 35px 10px 0px;text-align:right;'}
+    .right
+      %div
+        %a.btn
+          %b + Add Favorite
+      %div{:style=>'font-size:11px;color:gray;margin-top:3px;'}
+        22人がFavoriteに入れました
+    .clear
+#feedback-index  
+  %p
+    %h4 フィードバック
+  %div{:style=>"margin-left:10px;"}  
+    %table.table.table-striped
+      - feedbacks = Mock::Feedback.all.sample(5)
+      - feedbacks.each_with_index do |feedback,index|
+        %tr
+          %td="2012.3.#{14+index}"
+          %td="クライアントは#{feedback.description}と言いました。"
+      %tr#feedbackadd{:style=>'display:none;'}
+        %td 2012.3.19
+        %td= "クライアントは#{Mock::Feedback.all.sample(1).first.description}と言いました。"
+  %p
+    %h4 評価
+  %div{:style=>"margin-left:10px;"}
+    %script{:type=>"text/javascript", :src=>"http://SetRating.com/SetRating.js"}
+    %script{:type=>"text/javascript"}
+      SetRatingWidget("star")   
+.clear

@@ -24,11 +24,6 @@
           visible: 6
         });
       });
-      function trans(job,app) {
-        var aid = job+'-'+app
-        url = '/mock/job_application?id='+aid
-        location.href = url;
-      }
 .categories-container
   .categories
     .category.left
@@ -71,7 +66,7 @@
       .top
         %span.category= image_tag '/images/mock/category/category.png', :size => '20x20'
         %span.title=link_to contest.title, mock_job_detail_path(:id => id+1)
-        %span.name= link_to contest.client, "#"
+        %span.name= contest.client
         %span.flag= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
       .bottom
         %i.icon-info-sign
@@ -87,7 +82,9 @@
       .posts.left{:id => "posts#{id+1}"}
         %ul
           - contest.logo.times do |i|
-            %li= image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => '', :onclick => "trans(#{id+1},#{i+1})"
+            %li
+              %a{:href=>"/mock/job_application?id=#{id+1}-#{i+1}"}
+                = image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98'
       %i.icon-chevron-right.left{:id => "next#{id+1}"}
       #button-container.right
         %a.btn{:style=> 'width:90px; height:90px'}
