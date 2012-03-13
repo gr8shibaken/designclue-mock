@@ -88,3 +88,9 @@
 .header-space {
   min-height: 50px;
   }
+#hoge{
+  /*
+  display: inline;
+  */
+  display: none;
+}
