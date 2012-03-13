@@ -19,36 +19,59 @@
   border-bottom: 1px solid #BBB;
   padding-bottom: 30px;
 }
-.contest-lane .header .top{
+.contest-lane .main-area{
+}
+.contest-lane .label-area{
+}
+.contest-lane .main-area .header .category-area{
+  width: 45px;
+  padding-top: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+  }
+.contest-lane .main-area .header .time-area{
+}
+.contest-lane .main-area .header .time-area span{
+  font-size: 20pt;
+  color: red;
+}
+.contest-lane .main-area .header .top{
   margin-bottom: 5px;
 }
-.contest-lane .header .symbol span.icon{
-  position: absolute;
-  margin-top: -10px;
-  margin-left: -60px;
-}
-.contest-lane .header .top span.title{
+.contest-lane .main-area .header .top span a.title{
   font-size: 13pt;
   margin-right: 20px;
 }
-.contest-lane .header .top span a.title{
+.contest-lane .main-area .header .top span.title{
   font-size: 13pt;
   margin-right: 20px;
 }
-.contest-lane .header .top span a.name{
-  margin-right: 10px;
+.contest-lane .main-area .header .bottom{
+  width: 650px;
+  margin-left: 15px;
+  margin-bottom: 5px;
 }
-.contest-lane .header .top img{
+.contest-lane .main-area .header .bottom span a.name{
+  margin-left: 10px;
+  font-size: 12pt;
+}
+.contest-lane .main-area .header .bottom span.name{
+  margin-left: 10px;
+  font-size: 12pt;
+}
+.contest-lane .main-area .header .bottom img{
   vertical-align: bottom;
 }
-.contest-lane .header .top .span.name{
-  margin-right: 10px;
-}
-.contest-lane .header .bottom span{
+.contest-lane .main-area .header .bottom span{
   margin-right: 20px;
 }
 .contest-lane .contents{
-  margin-top: 15px;
+  margin: 5px;
+  border: 1px solid #fff;
+}
+.contest-lane .contents .lane{
+  margin-top: 50px;
 }
 .contest-lane .contents #button-container{
   width: 99px;

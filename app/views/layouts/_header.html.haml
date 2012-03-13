@@ -25,19 +25,36 @@
                   %li= link_to 'Sign out', '/sessions/destroy'
               - else
                 %a{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'} Sign in
+            %li.dropdown
+              %a.dropdown-toggle{:'data-toggle'=>"dropdown", :href => "#"}
+                初めての方
+                %b.caret
 .subnavbar
   .container
     #button-container.left
-      - if signed_in
-        %a.btn.btn-info{:'href'=> '/mock/job_post_1'}
-          %b + 新しいコンテスト
-      - else
-        %a.btn{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
-          %b + 新しいコンテスト
     #info-container.left
       %span= link_to '57 Contests', mock_job_index_path
       %span= link_to '1744 Creators', mock_designer_index_path
       %span= link_to '13573 Designes', '#' 
-    #link-container.left= link_to 'About', '#'
+    #link-container.left
+      - if signed_in
+        %a.btn.btn-danger{:'href'=> '/mock/job_post_1'}
+          %b デザインを依頼する 
+      - else
+        %a.btn.btn-danger{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
+          %b デザインを依頼する
     .clear
+
+.guideboard.alert
+  .container
+    .close-area
+      %a#guide-close= '×'
+    .message-area
+      %p= '「世界中にデザインを依頼しよう！」'
+      %p= '「世界中にデザインを依頼しよう！」'
+    .button-area
+      %a.btn.btn-info.left{:href => '#'}= '新規登録'
+      %a.btn.btn-info.left{:href => '#'}= '初めての方'
+      .clear
+
 .header-space

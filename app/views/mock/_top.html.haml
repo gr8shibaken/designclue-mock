@@ -67,29 +67,34 @@
 - 4.times do |id|
   .contest-lane
     - contest = Mock::Contest.find(id+1)
-    .header
-      .top
-        %span.category= image_tag '/images/mock/category/category.png', :size => '20x20'
-        %span.title=link_to contest.title, mock_job_detail_path(:id => id+1)
-        %span.name= link_to contest.client, "#"
-        %span.flag= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
-      .bottom
-        %i.icon-info-sign
-        %span.white= "¥#{contest.price}"
-        %i.icon-time
-        %span.white= "残り#{contest.time}時間"
-        %i.icon-file
-        %span.white= contest.design
-        %i.icon-user
-        %span.white= contest.designer
-    .contents
-      %i.icon-chevron-left.left{:id => "prev#{id+1}"}
-      .posts.left{:id => "posts#{id+1}"}
-        %ul
-          - contest.logo.times do |i|
-            %li= image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => '', :onclick => "trans(#{id+1},#{i+1})"
-      %i.icon-chevron-right.left{:id => "next#{id+1}"}
-      #button-container.right
-        %a.btn{:style=> 'width:90px; height:90px'}
-          %b + Add Design
-      .clear
+    .label-area
+    .main-area
+      .header
+        .category-area.left
+          .category
+            %span.category= image_tag '/images/mock/category/category.png', :size => '40x40'
+        .top.left
+          %span.title=link_to contest.title, mock_job_detail_path(:id => id+1)
+          %i.icon-time
+          %span 残り：
+        .time-area.left
+          %span.white= "#{contest.time}時間"
+        .bottom.left
+          %span.name= link_to contest.client, "#"
+          %span.flag= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
+          %i.icon-file
+          %span.white= contest.design
+          %i.icon-user
+          %span.white= contest.designer
+      .contents
+        .lane
+          %i.icon-chevron-left.left{:id => "prev#{id+1}"}
+          .posts.left{:id => "posts#{id+1}"}
+            %ul
+              - contest.logo.times do |i|
+                %li= image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => '', :onclick => "trans(#{id+1},#{i+1})"
+          %i.icon-chevron-right.left{:id => "next#{id+1}"}
+          #button-container.right
+            %a.btn{:style=> 'width:90px; height:90px'}
+              %b + Add Design
+        .clear
