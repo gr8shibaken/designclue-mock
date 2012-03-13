@@ -3,11 +3,18 @@
   :javascript
       $(function() {
         $("#feedbackbtn").click(function(){
+          $("#feedbackComment").hide();
           $("#feedbackDialog").show("slow");
         });
         $(".feedbackhide").click(function(){
-          $("#feedbackDialog").hide("slow");
-          $("#feedbackadd").show("slow");
+          var val = $(this).attr('alt');
+          $('#commentDetail').html(val);
+          var detail = 'クライアントは'+val+'と言いました。'
+          $('#feedbackaddDetail').html(detail);
+          $("#feedbackComment").show();
+          $("#feedbackDialog").hide("slow",function(){
+            $("#feedbackadd").show("fast");
+          });
         });
         $("#feedbackContainer").click(function(){
           $("#feedbackDialog").hide("slow");
@@ -48,8 +55,15 @@
             %div{:style=>'height:150px; overflow-y:scroll;width: 260px;'}
               - Mock::Feedback.all.each do |feedback|
                 %div{:style=>'background:white;border-top:1px solid #DDD; padding: 3px;'}
-                  %a.feedbackhide{:style=>'color:#222;'}
-                    = feedback.description
+                  %a.feedbackhide{:style=>'color:#222;', :alt=>"#{feedback.description}"}= feedback.description
+      #feedbackComment
+        #feedbackCommentBg
+        #feedbackCommentContainer
+          #feedbackCommentArea
+            #feedbackCommentSquare
+            #triangle
+              =image_tag '/images/mock/icon/triangle-gray.png', :size=>'12x12'
+            #commentDetail
       #image
         = image_tag "/images/mock/contests/#{@id}.jpg", :size => '500x375', :style=>'border: 1px solid #CCC;'
     %a{:href => "/mock/job_application?id=#{@next}"}
@@ -75,11 +89,15 @@
           %td="クライアントは#{feedback.description}と言いました。"
       %tr#feedbackadd{:style=>'display:none;'}
         %td 2012.3.19
-        %td= "クライアントは#{Mock::Feedback.all.sample(1).first.description}と言いました。"
+        %td#feedbackaddDetail
+        / = "クライアントは#{Mock::Feedback.all.sample(1).first.description}と言いました。"
   %p
     %h4 評価
   %div{:style=>"margin-left:10px;"}
-    %script{:type=>"text/javascript", :src=>"http://SetRating.com/SetRating.js"}
-    %script{:type=>"text/javascript"}
-      SetRatingWidget("star")   
+    - 5.times do |i|
+      %a{:href=>'#'}
+        = image_tag "http://www.setrating.com/images/star1.png"
+    / %script{:type=>"text/javascript", :src=>"http://SetRating.com/SetRating.js"}
+    /     %script{:type=>"text/javascript"}
+    /       SetRatingWidget("star")   
 .clear

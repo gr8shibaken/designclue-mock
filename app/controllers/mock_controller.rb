@@ -4,10 +4,10 @@ class MockController < ApplicationController
   def job_index
     @category = params[:category]
   end
-  def job_detail    
+  def job_detail
     @contest = Mock::Contest.find(params[:id])
   end
-  def job_post_1 
+  def job_post_1
   end
   def designer_index
   end
@@ -17,7 +17,7 @@ class MockController < ApplicationController
   def job_application
     @id = params[:id]
     @contest = Mock::Contest.find(@id.first)
-    logo_id = @id[2..@id.length-1].to_i
+    logo_id = @id[2...@id.length].to_i
     next_id = (logo_id+1 == @contest.logo) ? @contest.logo : (logo_id+1)%(@contest.logo)
     prev_id = (logo_id-1 == 0) ? @contest.logo : (logo_id-1)%(@contest.logo)
     @next = @id.first+'-'+next_id.to_s
@@ -25,5 +25,11 @@ class MockController < ApplicationController
     @current = logo_id
   end
   def garally
+    @works = Mock::Work.all.sample(20)
+  end
+  def mypage
+    @category = params[:category]
+    p '----'
+    p @category
   end
 end
