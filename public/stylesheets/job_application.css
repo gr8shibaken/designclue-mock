@@ -1,0 +1,110 @@
+#contest-info {
+  vertical-align:bottom;
+  padding-bottom:5px;
+  border-bottom:1px solid #CCC;
+  margin-bottom: 15px;
+}
+#application {
+  width: 570px;
+  float: left;
+  margin-right: 30px;
+}
+#feedback-index {
+  width: 340px;
+  float: left;
+}
+i{
+  margin:160px 10px 0px 10px;
+}
+#product {
+  width: 502px;
+  height: 377px;
+  position: relative;
+}
+
+#feedbackDialog {
+  display: none;
+  position: absolute;
+  width: 502px;
+  height: 377px;
+  z-index: 100;
+}
+#feedbackDialogBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.7;
+  z-index: 101;
+}
+
+#feedbackContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 102;
+}
+#feedbackArea {
+  position: relative;
+  top: 150px;
+  left: 130px;
+  width: 300px;
+}
+#feedbackSquare {
+  margin-left: 50px;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #AAA;
+}
+#triangle {
+  margin-left: 70px;
+  width: 12px;
+  height: 12px;
+  /*  border-bottom: 10px solid white;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;*/
+}
+#feedbackComment {
+  display: none;
+  position: absolute;
+  width: 502px;
+  height: 377px;
+  z-index: 90;
+}
+#feedbackCommentBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+/*  background: black;
+  opacity: 0.2;
+  z-index: 91;
+*/}
+
+#feedbackCommentContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 92;
+}
+#feedbackCommentArea {
+  position: relative;
+  top: 150px;
+  left: 130px;
+  width: 300px;
+}
+#feedbackCommentSquare {
+  margin-left: 50px;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #AAA;
+}
+
+#commentDetail {
+  padding: 5px;
+  width: 250px;
+  height: 20px;
+  background: #CCC;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}

@@ -18,6 +18,8 @@ Designclue::Application.routes.draw do
     get 'designer_index'
     get 'designer_detail'
     get 'job_application'
+    get 'garally'
+    get 'mypage'
   end
 
 end

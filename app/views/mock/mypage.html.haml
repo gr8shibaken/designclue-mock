@@ -1,0 +1,155 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/mypage.css"
+  :javascript
+    $(document).ready(function(){
+      if ("#{@category}" == "") {
+        $('#infomation').addClass('active');
+        $('#infomation-li').addClass('active');
+      } else {
+        var target = '#'+"#{@category}";
+        var targetList = target+'-li'
+        $(target).addClass('active');
+        $(targetList).addClass('active');
+      }
+    });
+.left{:style=>'width:170px;'}
+  %div{:style=>'margin-bottom:20px;'}
+    %h3 My Page
+  %ul.nav.nav-tabs.nav-stacked
+    %li#infomation-li
+      %a{:href=>'#infomation', :'data-toggle'=> 'tab'}
+        %i.icon-info-sign
+        %span{:style=>'margin-left:3px;'}お知らせ
+    %li#message-li
+      %a{:href=>'#message', :'data-toggle'=> 'tab'}
+        %i.icon-envelope
+        %span{:style=>'margin-left:3px;'}メッセージ
+    %li#contest-li
+      %a{:href=>'#contest', :'data-toggle'=> 'tab'}
+        %i.icon-list-alt
+        %span{:style=>'margin-left:3px;'}コンテスト管理
+    %li#design-li
+      %a{:href=>'#design', :'data-toggle'=> 'tab'}
+        %i.icon-picture
+        %span{:style=>'margin-left:3px;'}デザイン管理
+    %li#profile-li
+      %a{:href=>'#profile', :'data-toggle'=> 'tab'}
+        %i.icon-user
+        %span{:style=>'margin-left:3px;'}プロフィール
+    %li#favorite-li
+      %a{:href=>'#favorite', :'data-toggle'=> 'tab'}
+        %i.icon-heart
+        %span{:style=>'margin-left:3px;'}お気に入り
+.left{:style=>'width:740px;margin-left:30px;'}
+  .tab-content
+    .tab-pane#infomation
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 お知らせ
+      %div
+        %table.table.table-striped.custom
+          %tr
+            %th 種類
+            %th 差出人
+            %th タイトル
+          %tr
+            %td
+              .left{:style=>'width:20px;'}
+                %i.icon-flag
+              .left
+                メッセージ
+              .clear
+            %td Designclue
+            %td コンテストを開催してみませんか？
+          %tr
+            %td
+              .left{:style=>'width:20px;'}
+                &nbsp;
+              .left
+                メッセージ
+              .clear
+            %td Designclue
+            %td ご登録ありがとうございます        
+    .tab-pane#message
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 メッセージ
+      %div
+        %table.table.table-striped.custom
+          %tr
+            %th 日付
+            %th 差出人
+            %th タイトル
+          %tr
+            %td　12/03/12
+            %td Designclue
+            %td コンテストを開催してみませんか？
+          %tr
+            %td　12/03/12
+            %td Designclue
+            %td ご登録ありがとうございます
+    .tab-pane#contest
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 コンテスト管理
+      %div
+        %table.table.table-striped.custom
+          %tr
+            %th 
+            %th タイトル
+            %th カテゴリ
+            %th デザイン数
+            %th 賞金
+            %th 期日
+            %th ステータス
+            %th
+          - Mock::Contest.all.each_with_index do |contest,index|
+            %tr
+              %td
+                %i.icon-remove
+              %td{:style=>'width:240px;'}= link_to contest.title, "/mock/job_detail?id=#{contest.id}"
+              %td ロゴ
+              %td= contest.design
+              %td= "¥#{contest.price}"
+              %td= "12/#{4-index}/10"
+              %td= "#{index == 0 ? '開催中' : '終了'}"
+              %td
+                %a.btn 編集
+            
+    .tab-pane#design
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 デザイン管理
+      %div
+        - works = Mock::Work.all.sample(5)
+        %table.table.table-striped.custom
+          %tr
+            %th 
+            %th ID #
+            %th ステータス
+            %th デザイナー
+            %th 次のステップ
+          - works.each_with_index do |work,index|
+            %tr
+              %td{:style=>'width:60px;'}
+                %a{:href=>"/mock/job_application?id=#{work.id}"}
+                  = image_tag "/images/mock/contests/#{work.id}-square.jpg", :size=>'50x50'
+              %td{:style=>'vertical-align:middle;'}= "##{rand(40)+1}"
+              %td{:style=>'vertical-align:middle;'}
+                - if index == 0
+                  完了
+                - elsif index == 1
+                  なし
+                - else
+                  残り2
+              %td{:style=>'vertical-align:middle;'}
+                - designer = Mock::Designer.all.sample(1).first
+                =link_to designer.name, "/mock/designer_detail?id=#{designer.id}"
+              %td{:style=>'vertical-align:middle;'}
+                - if index == 0
+                  = "-"
+                - else
+                  %a.btn Request
+    .tab-pane#profile
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 プロフィール
+    .tab-pane#favorite      
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 お気に入り
+.clear

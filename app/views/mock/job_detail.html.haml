@@ -5,6 +5,11 @@
       url = '/mock/designer_detail?id='+id
       location.href = url;
     }
+    function job_trans(job,app) {
+      var aid = job+'-'+app
+      url = '/mock/job_application?id='+aid
+      location.href = url;
+    }
 %ul.nav.nav-tabs.font11
   %li.active= link_to 'デザイン一覧', '#entries', {:'data-toggle'=> 'tab'}
   %li= link_to 'コンテスト詳細', '#brief', {:'data-toggle'=> 'tab'}
@@ -19,7 +24,8 @@
         #designes-area
           - @contest.logo.times do |i|
             .design.left
-              =image_tag "/images/mock/contests/#{@contest.id}-#{i+1}-square.jpg",:size => '132x132', :class=>'flyer'
+              %a{:href=>"/mock/job_application?id=#{@contest.id}-#{i+1}"}
+                =image_tag "/images/mock/contests/#{@contest.id}-#{i+1}-square.jpg",:size => '132x132', :class=>'flyer'
               .designer-info
                 %span.number= '#'"#{i+1}"
                 - designer = Mock::Designer.find(i%8+1)
@@ -37,7 +43,8 @@
             %tr
               %td
                 .profile-image
-                  = image_tag "/images/mock/designer/designer#{i%8+1}.png",:size => '120x120', :onclick=>"trans(#{designer.id})"
+                  %a{:href=>"/mock/designer_detail?id=#{designer.id}"}
+                    = image_tag "/images/mock/designer/designer#{i%8+1}.png",:size => '120x120'
                 .profile{:style=> 'width:120px;'}
                   %span.name= link_to designer.name, mock_designer_detail_path(:id => designer.id)
                   %span.flag.right=image_tag "/images/mock/flag/#{designer.flag}.png",:size => '15x15'
@@ -46,7 +53,8 @@
                 - display = i.odd? ? array.sample(4) : array.sample(5) 
                 - display.each do |d|
                   .left{:style=>'margin-right: 10px;'}
-                    = image_tag "/images/mock/contests/#{@contest.id}-#{d}-square.jpg",:size => '118x118', :class=>'flyer', :onclick=>"location.href='/mock/product'"
+                    %a{:href=>"/mock/job_application?id=#{@contest.id}-#{d}"}
+                      = image_tag "/images/mock/contests/#{@contest.id}-#{d}-square.jpg",:size => '118x118', :class=>'flyer'
                 .clear
   .tab-pane#brief
     = render 'mock/job_info'

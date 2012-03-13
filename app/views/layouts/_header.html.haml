@@ -14,21 +14,39 @@
           %ul.nav.pills
             %li.dropdown
               %a.dropdown-toggle{:'data-toggle'=>"dropdown", :href => "#"}
-                English
+                Japanese
                 %b.caret
+              %ul.dropdown-menu
+                %li= link_to 'English', '#'
+                %li= link_to 'Korean','#'
+              
             %li.dropdown
               - if signed_in 
                 %a.dropdown-toggle{:'data-toggle'=>"dropdown", :href => "#"}
                   Shibata
                   %b.caret
                 %ul.dropdown-menu
-                  %li= link_to 'Sign out', '/sessions/destroy'
+                  %li= link_to 'お知らせ', '/mock/mypage?category=infomation'
+                  %li= link_to 'メッセージ', '/mock/mypage?category=message'
+                  %li= link_to 'コンテスト管理', '/mock/mypage?category=contest'
+                  %li= link_to 'デザイン管理', '/mock/mypage?category=design'
+                  %li= link_to 'プロフィール', '/mock/mypage?category=profile'
+                  %li{:style=>'border-bottom:1px solid #CCC;'}= link_to 'お気に入り', '/mock/mypage?category=favorite'
+                  %li= link_to 'ログアウト', '/sessions/destroy'
               - else
                 %a{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'} Sign in
             %li.dropdown
               %a.dropdown-toggle{:'data-toggle'=>"dropdown", :href => "#"}
-                初めての方
+                About
                 %b.caret
+              %ul.dropdown-menu
+                %li= link_to 'はじめての方', '#'
+                %li{:style=>'border-bottom:1px solid #CCC;'}= link_to '利用ガイド','#'
+                %li= link_to '著作権','#'
+                %li= link_to '決済方法','#'
+                %li= link_to '利用規約','#'
+                %li= link_to '運営会社','#'
+                .clear
 .subnavbar
   .container
     #button-container.left
@@ -43,7 +61,6 @@
       - else
         %a.btn.btn-danger{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
           %b デザインを依頼する
-    .clear
 
 .guideboard.alert
   .container

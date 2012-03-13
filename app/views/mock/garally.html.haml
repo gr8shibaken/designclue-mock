@@ -1,0 +1,24 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/garally.css"
+
+#tagArea
+  .tagArea{:style=>'margin-right:40px;'}
+    .tagHeader
+      %h4 タグ
+    .tagContainer
+      - 15.times do |i|
+        %a.btn.round{:href=>'/mock/garally'}="タグ#{i+1}"
+
+  .tagArea
+    .tagHeader
+      %h4 価格タグ
+    .tagContainer
+      - 5.times do |i|
+        %a.btn.round{:href=>'/mock/garally'}="¥#{i+1}0,000"
+  .clear
+#garallyArea
+  - @works.each do |work|
+    .work
+      %a{:href=>"/mock/job_application?id=#{work.id}"}
+        = image_tag "/images/mock/contests/#{work.id}-square.jpg"
+  .clear
