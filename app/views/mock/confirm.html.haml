@@ -43,6 +43,10 @@
             %td Micro Patron Platform
           %tr
             %td{:style => 'width: 180px;'}
+              %b 募集期間 
+            %td 10日間（2012年　3月　15日　18：53）
+          %tr
+            %td{:style => 'width: 180px;'}
               %b インダストリー 
             %td ウェブコンテンツ
           %tr
@@ -97,9 +101,6 @@
             %td{:style => 'width: 180px;'}
               %b 補足説明
             %td 
-    .left
-      .pager
-        %a{:href => '/mock/job_post_2'} Previous
-    .right
-      .pager
-        %a{:href => '/mock/payment'} Next
+    .btn-area
+      %a.previous.btn.btn-inverse{:href => '/mock/job_post_2'}= '戻る'
+      %a.next.btn.btn-inverse{:href => '/mock/payment'}= '決済へ'

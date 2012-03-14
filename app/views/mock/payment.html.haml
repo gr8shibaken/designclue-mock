@@ -68,8 +68,7 @@
         %h5 暗証番号 *
         .code
           %input{:type=>'password', :style => 'width:100px'}   
-    %span.cancel-button.pager
-      %a{:href => '/mock/top'} キャンセル
-    %span.post-button.pager
-      %a{:href => '/mock/posted_top'} 投稿する 
+    .btn-area
+      %a.previous.btn.btn-inverse{:href => '/mock/top'}= 'キャンセル'
+      %a.next.btn.btn-inverse{:href => '/mock/posted_top'}= '投稿する'
   .sidebar-wrap.right

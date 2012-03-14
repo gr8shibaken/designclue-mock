@@ -29,25 +29,21 @@
           $('.subnavbar').css('position','fixed').css('top','0px');        
         }
       });
-      $(function(){ 
-        var winwidth = $(window).width();
-        var boardwidth = 400;
-        $('.guideboard').css("left", ((winwidth/2)-(boardwidth/2)));
-        if ($('.guideboard').css("display")=="none"){
-          $('.guideboard').animate( {height: "toggle"}, "slow");
-        }
-      });
-      $(function(){  
-        $("#guide-close").click(function(){
-          $('.guideboard').animate( {height: "toggle", opacity: "toggle"}, "slow");
+    - if !signed_in
+      :javascript
+        $(function(){ 
+          var winwidth = $(window).width();
+          var boardwidth = 400;
+          $('.guideboard').css("left", ((winwidth/2)-(boardwidth/2)));
+          if ($('.guideboard').css("display")=="none"){
+            $('.guideboard').animate( {height: "toggle"}, "slow");
+          }
         });
-      });
-      $(function(){
-        var i=1;
-        if(i){
-          $("#hoge").css( {display: "inline"});
-        }
-      });
+        $(function(){  
+          $("#guide-close").click(function(){
+            $('.guideboard').animate( {height: "toggle", opacity: "toggle"}, "slow");
+          });
+        });
     %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
     %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
     %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/

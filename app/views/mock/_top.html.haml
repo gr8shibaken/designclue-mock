@@ -71,9 +71,9 @@
         .top.left
           %span.title=link_to contest.title, mock_job_detail_path(:id => id+1)
           %i.icon-time
-          %span 残り：
+          %span 残り
         .time-area.left
-          %span.white= "#{contest.time}時間"
+          %span.remain-time= "#{contest.time}時間"
         .bottom.left
           %span.name= link_to contest.client, "#"
           %span.flag= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'

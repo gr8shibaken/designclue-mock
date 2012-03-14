@@ -43,33 +43,33 @@
   .content-wrap.left
     %h3 1. カテゴリ/プラン選択
     .input-area
-      %h5 カテゴリ選択 *
+      %h5 あなたはどのデザインが必要ですか？ *
       .select-category
         %table.table
           %tr
-            %td= radio_button_tag( :category, "1_1", true )+'ロゴ'
-            %td ¥20,000
-            %td= radio_button_tag( :category, "3_1" )+'名刺'
-            %td ¥15,000
+            %td.category-name= radio_button_tag( :category, "1_1", true )+'ロゴ'
+            %td.prize ¥20,000
+            %td.category-name= radio_button_tag( :category, "3_1" )+'名刺'
+            %td.prize ¥15,000
           %tr
-            %td= radio_button_tag( :category, "1_2")+'イラストレーション'
-            %td  ¥20,000
-            %td= radio_button_tag( :category, "3_2" )+'ブックカバー'
-            %td  ¥15,000
+            %td.category-name= radio_button_tag( :category, "1_2")+'イラストレーション'
+            %td.prize  ¥20,000
+            %td.category-name= radio_button_tag( :category, "3_2" )+'ブックカバー'
+            %td.prize  ¥15,000
           %tr
-            %td= radio_button_tag( :category, "2_1")+'フライヤー'
-            %td  ¥35,000
-            %td= radio_button_tag( :category, "3_3" )+'バナー'
-            %td  ¥15,000
+            %td.category-name= radio_button_tag( :category, "2_1")+'フライヤー'
+            %td.prize  ¥35,000
+            %td.category-name= radio_button_tag( :category, "3_3" )+'バナー'
+            %td.prize  ¥15,000
           %tr
-            %td= radio_button_tag( :category, "1_3")+'iPhone/Androidアイコン'
-            %td  ¥20,000
-            %td= radio_button_tag( :category, "3_4" )+'その他'
-            %td  ¥15,000
+            %td.category-name= radio_button_tag( :category, "1_3")+'iPhone/Androidアイコン'
+            %td.prize  ¥20,000
+            %td.category-name= radio_button_tag( :category, "3_4" )+'その他'
+            %td.prize  ¥15,000
         %a more categories... 
       
     .input-area.select-plan
-      %h5 プラン選択 *
+      %h5 お好みの料金プランはどれですか？ *
       .plan-select#prize_pattern1
         %table.table
           %label
@@ -221,7 +221,7 @@
             %td ソーシャルプロモーション
 
     .input-area
-      %h5 オプション選択
+      %h5 オプションは必要ですか？
       #option
         %table.table
           %tr
@@ -262,9 +262,7 @@
               = '-トップページに表示される'
               %hr
 
-    .right
-      .pager
-        %a{:href => '/mock/job_post_2'} Next
+    %a.btn-area.btn.btn-inverse{:href => '/mock/job_post_2'}= '次へ'
 
   .sidebar-wrap.right
     .explanation-area
@@ -300,7 +298,7 @@
         ●ソーシャルプロモーション
         %br
         DesignClueのFacebookページとTwitterアカウントより、当コンテストが新しく投稿されたことを知らせます。 
-    .amount-area
+    .yourchoice-area
       %h3 Your choice
     .cart-area.well
       %h4 ロゴデザイン

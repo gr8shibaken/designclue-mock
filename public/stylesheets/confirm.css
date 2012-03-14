@@ -2,114 +2,92 @@
   width: 1050px;
   height: 2200px;
 }
-
 .span ul li {
   color: darkgray;
 }
-
 .span ul li.active{
   color: dodgerblue;
 }
-
 .content-wrap {
   border: solid 1px #CCC;
   padding: 10px;
   width: 700px;
   height: 2000px;
 }
-
 .sidebar-wrap {
   border: solid 1px #CCC;
   padding: 10px;
   width: 300px;
   height: 2000px;
 }
-
 .input-area {
   margin-top: 30px;
 }
-
 .logoname-select {
   margin-top: 5px;
   margin-left: 10px;
 }
-
 .subname-select p{
   text-align: left;
   margin-top: -1.4em;
   margin-left: 5em;
 }
-
 .timelimit-select {
   margin-top: 5px;
   margin-left: 10px;
 }
-
 .purpose-select {
   margin-top: 5px;
   margin-left: 10px;
 }
-
 .industry-select {
   margin-top: 5px;
   margin-left: 10px;
 }
-
 .format-select {
   margin-top: 5px;
   margin-left: 10px;
 }
-
 .format-select td{
   width: 120px;
   padding-left: 30px;
 }
-
 .color-select {
   margin-top: 5px;
   margin-left: 10px;
 }
-
 .color-select .selectsample {
   margin-top: 5px;
   padding: 5px;
 }
-
 .color-select .freeinput {
   margin-top: 5px;
   padding: 5px;
 }
-
 .color-select .freeinput i{
   margin: 0;
   padding: 0;
   line-height: 0;
   text-align: bottom;
 }
-
 .parts-select {
 }
-
 .parts-select h2{
   float: left;
 }
-
 .parts-select p{
   text-align: left;
   margin-top: -1.4em;
   margin-left: 13em;
 }
-
 .logo-select-area table{
   border-collapse: separate;
   border-spacing: 15px;
 }
-
 .clipping-area table{
   border-collapse: separate;
   border-spacing: 10px;
 }
-
 .clipping-area td{
   padding-right: 10px;
 }
@@ -120,30 +98,30 @@
   background: #CCC;
   border: 1px solid #BBB;
 }
-
 #design_1 {
   display: none;
 }
-
 #design_2 {
   display: none;
 }
-
 #design_3 {
   display: none;
 }
-
 #design_4 {
   display: none;
 }
-
 .clipping-area.add-clipping p{
   line-height: 10px;
   text-align: center;
 }
-
 .URL-select p{
   text-align: left;
   margin-top: -1.4em;
   margin-left: 4em;
+}
+.btn-area .previous{
+  margin-left: 180px;
+}
+.btn-area .next{
+  margin-left: 80px;
 }

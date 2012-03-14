@@ -1,67 +1,60 @@
 .wrap {
-  width: 1050px;
+  width: 1000px;
   height: 1700px;
 }
-
 .wrap ul li {
   color: darkgray;
 }
-
 .wrap ul li.active{
   color: dodgerblue;
 }
-
 .content-wrap {
   border: solid 1px #CCC;
   padding: 10px;
-  width: 700px;
+  width: 650px;
   height: 1350px;
 }
-
 .sidebar-wrap {
   border: solid 1px #CCC;
   padding: 10px;
-  width: 300px;
+  width: 290px;
   height: 1350px;
 }
-
 .input-area {
   margin-top: 30px;
 }
-
 .select-category table{
-  margin: 10px;
-  width: 690px;
+  margin: 5px;
+  width: 600px;
 }
-
 .select-category td{
-  padding: 10px;
-  width: 200px;
 }
-
+.select-category .category-name{
+  padding: 10px;
+  width: 180px;
+}
+.select-category .prize{
+  padding: 10px;
+  width: 80px;
+}
 #prize_pattern1 {
   display: block;
 }
-
 #prize_pattern2 {
   display: none;
 }
-
 #prize_pattern3 {
   display: none;
 }
-
 .plan-select {
   margin-top: 5px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
-
 .plan-select table{
   border-collapse: separate;
   border-spacing: 15px 0px;
   empty-cells: hide;
 }
-
 .plan-select td{
   border: 1px solid #CCC;
   height: 30px;
@@ -74,29 +67,24 @@
   border-collapse: separate;
   border-spacing: 15px;
 }
-
 #option td{
   border: 1px solid #CCC;
   padding-left: 10px;
   padding-right: 10px;
 }
-
-.amount-area {
-  margin-left: 10px;
-  position: absolute;
-  bottom: -45px;
+.btn-area{
+  margin-left: 580px;
 }
-
 .explanation-area {
-  margin-left: 10px;
+  margin-top: 300px;
+  margin-left: 5px;
   width: 280px;
-  position: absolute;
-  top: 450px;
 }
-
+.yourchoice-area {
+  margin-top: 70px;
+  margin-left: 5px;
+}
 .cart-area {
-  margin-left: 10px;
+  margin-left: 5px;
   width: 240px;
-  position: absolute;
-  bottom: -300px;
 }

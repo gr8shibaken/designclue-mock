@@ -68,15 +68,22 @@
 .guideboard .container .close-area{
   text-align: right;
 }
+.guideboard .container .close-area a{
+  font-size: 16pt;
+}
 .guideboard .container .message-area p{
   font-size: 12pt;
+  text-align: center;
   color: black;
 }
 .guideboard .container .button-area{
   margin-left: 40px;
 }
+.guideboard .container .button-area a{
+  margin-top: 10px;
+}
 .guideboard .container .button-area .btn{
-  margin-left: 10px;
+  margin-left: 50px;
 }
 .header-space {
   min-height: 50px;

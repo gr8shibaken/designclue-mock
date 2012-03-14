@@ -31,12 +31,20 @@
   padding-bottom: 0px;
   }
 .contest-lane .main-area .header .time-area{
-}
-.contest-lane .main-area .header .time-area span{
-  font-size: 20pt;
+/*
+  height: 40px;
+*/
+  padding-top: 3px;
+/*
+  border: 1px solid #0BB;
+*/
+  }
+.contest-lane .main-area .header .time-area .remain-time{
+  font-size: 16pt;
   color: red;
 }
 .contest-lane .main-area .header .top{
+  margin-left: 15px;
   margin-bottom: 5px;
 }
 .contest-lane .main-area .header .top span a.title{
