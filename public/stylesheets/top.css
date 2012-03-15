@@ -89,6 +89,7 @@
 .contest-lane .contents #button-container a{
   line-height: 100px;
   text-align: center;
+  font-size: 8pt;
 }
 .contest-lane .contents i{
   margin-top: 40px;

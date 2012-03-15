@@ -40,4 +40,7 @@ footer {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+.upload-window{
+  visibility: hidden;
+}
 

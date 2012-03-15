@@ -90,8 +90,8 @@
                 %li= image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => '', :onclick => "trans(#{id+1},#{i+1})"
           %i.icon-chevron-right.left{:id => "next#{id+1}"}
           #button-container.right
-            %a.btn{:style=> 'width:90px; height:90px'}
-              %b + Add Design
+            %a.btn.design-upload{:style=> 'width:90px; height:90px'}
+              %b ＋デザインを投稿 
         .clear
 
 .guideboard.alert
@@ -107,4 +107,3 @@
         %b= 'はじめての方'
       %a.btn.btn-info.left{:href => '#'}= '会員登録'
       .clear
-

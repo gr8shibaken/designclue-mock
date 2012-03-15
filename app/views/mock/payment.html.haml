@@ -26,12 +26,10 @@
           %h5 メールアドレス *
           .mailaddress
             %input{:type=>'text', :style => 'width:300px'}   
-
         .input-area
           %h5 パスワード *
           .password
             %input{:type=>'password', :style => 'width:100px'}   
-        
         .inputarea
           %a= image_tag "/images/mock/payment/paypal-button.png", :size => '100x30'
 
@@ -47,7 +45,6 @@
                 %input{:type=>'text', :style => 'width:40px'}   
                 %label -
               %input{:type=>'text', :style => 'width:40px'}   
-
         .input-area
           %h5 有効期限 *
           .term
@@ -63,6 +60,11 @@
                 %option ---- 
                 %option 2014
                 %option 2015 
+        .input-area
+          %h5 名義人 *
+          .name
+            .form-inline
+              %input{:type=>'text', :style => 'width:80px'}   
         .input-area
           %h5 暗証番号 *
           .code

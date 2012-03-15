@@ -29,6 +29,11 @@
           $('.subnavbar').css('position','fixed').css('top','0px');        
         }
       });
+      $(function() {
+        $(".design-upload").click(function(){
+          $("#uploadwindow").click();
+        });
+      });
     - if !signed_in
       :javascript
         $(function(){ 
@@ -56,3 +61,6 @@
       = render 'modals/login'
       %footer.text-center
         %p &copy; PurpleCow 2012 All rights reserved.
+
+        .upload-window
+          %input#uploadwindow{:type => 'file'}
