@@ -16,59 +16,66 @@
       4. 決済
 
   .content-wrap.left
-    %h3 決済方法を選択してください
-    .paypal
-      =radio_button_tag( :checkout, "")
-      %h4 Paypal決済
-      %i.icon= image_tag "/images/mock/payment/paypalicon.png", :size => '30x30'
-      .input-area
-        %h5 メールアドレス *
-        .mailaddress
-          %input{:type=>'text', :style => 'width:300px'}   
+    .checkout-area
+      %h3 決済方法を選択してください
+      .paypal
+        =radio_button_tag( :checkout, "")
+        %h4 Paypal決済
+        %i.icon= image_tag "/images/mock/payment/paypalicon.png", :size => '30x30'
+        .input-area
+          %h5 メールアドレス *
+          .mailaddress
+            %input{:type=>'text', :style => 'width:300px'}   
 
-      .input-area
-        %h5 パスワード *
-        .password
-          %input{:type=>'password', :style => 'width:100px'}   
+        .input-area
+          %h5 パスワード *
+          .password
+            %input{:type=>'password', :style => 'width:100px'}   
         
-      .inputarea
-        %a= image_tag "/images/mock/payment/paypal-button.png", :size => '100x30'
+        .inputarea
+          %a= image_tag "/images/mock/payment/paypal-button.png", :size => '100x30'
 
-    .creditcard
-      = radio_button_tag( :checkout, "", true )
-      %h4 クレジットカード決済
-      %i= image_tag "/images/mock/payment/crediticon.png", :size => '30x30'
-      .input-area
-        %h5 カード番号 *
-        .cardnumber
-          .form-inline
-            - 3.times do
+      .creditcard
+        = radio_button_tag( :checkout, "", true )
+        %h4 クレジットカード決済
+        %i= image_tag "/images/mock/payment/crediticon.png", :size => '30x30'
+        .input-area
+          %h5 カード番号 *
+          .cardnumber
+            .form-inline
+              - 3.times do
+                %input{:type=>'text', :style => 'width:40px'}   
+                %label -
               %input{:type=>'text', :style => 'width:40px'}   
-              %label -
-            %input{:type=>'text', :style => 'width:40px'}   
 
-      .input-area
-        %h5 有効期限 *
-        .term
-          .form-inline   
-            %label{:style => 'width:50px'}=" 月" 
-            %label{:style => 'width:50px'}=" 年"
-          .form-inline   
-            %select{:style => 'width:50px'}
-              %option --
-              - 12.times do |i|
-                %option="#{i+1}" 
-            %select{:style => 'width:70px'}
-              %option ---- 
-              %option 2012 
-              %option 2013
-              %option 2014
-              %option 2015 
-      .input-area
-        %h5 暗証番号 *
-        .code
-          %input{:type=>'password', :style => 'width:100px'}   
+        .input-area
+          %h5 有効期限 *
+          .term
+            .form-inline   
+              %label{:style => 'width:50px'}=" 月" 
+              %label{:style => 'width:50px'}=" 年"
+            .form-inline   
+              %select{:style => 'width:50px'}
+                %option --
+                - 12.times do |i|
+                  %option="#{i+1}" 
+              %select{:style => 'width:70px'}
+                %option ---- 
+                %option 2014
+                %option 2015 
+        .input-area
+          %h5 暗証番号 *
+          .code
+            %input{:type=>'password', :style => 'width:100px'}   
+    .agreement-area
+      %h3 サービス利用規約 
+      .description
+        1. 本規約は、弊社が提供する本サイトを利用するユーザとの関係を定めるものとします。また、本規約は本サイトの利用に関して生ずる、ランサーとクライアントの間、会員間等、すべての法律関係に適用されるものとします。また、弊社は、ユーザへの了解を得ることなく本規約を変更できるものとします。規約の変更・追加によりユーザに生じた一切の損害について、直接損害か間接損害か、予見できたか否かを問わず、一切の責任を負いません。変更後の規約は本サイト上に表示・告知した時点より効力を生じるものとし、ユーザは定期的に本規約の最新の内容を確認する義務を負うものとします。
+        2. 本規約中、ランサーとクライアントの間の法律関係を定める規定については、同当事者間で別途合意がない限り、会員間取引及び同当事者間の法律関係に適用されるものとします。
+        3. 本規約中、ランサーとクライアントの間の法律関係を定める規定、及びランサー又はクライアントと弊社、他の会員又は第三者との法律関係を定める規定については、当該ランサー及びクライアントは、いずれも、消費者契約法2条2項にいう事業者の立場としてこれに同意するものとします。
+        4. 本規約の他、本サイトに関する利用ガイドは本規約を構成するものとし、会員が本サイトを利用するときは利用ガイドを遵守する義務を負います。 
+      = check_box_tag( :sample, 1 )+' 同意する'
     .btn-area
       %a.previous.btn.btn-inverse{:href => '/mock/top'}= 'キャンセル'
       %a.next.btn.btn-inverse{:href => '/mock/posted_top'}= '投稿する'
-  .sidebar-wrap.right
+  .sidebar-wrap.left
