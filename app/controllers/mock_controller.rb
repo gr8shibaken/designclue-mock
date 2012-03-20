@@ -1,5 +1,7 @@
 class MockController < ApplicationController
   def top
+    @posted = params[:posted]
+    @navigation = true
   end
   def job_index
     @category = params[:category]
@@ -29,7 +31,5 @@ class MockController < ApplicationController
   end
   def mypage
     @category = params[:category]
-    p '----'
-    p @category
   end
 end

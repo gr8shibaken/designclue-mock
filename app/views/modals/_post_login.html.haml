@@ -1,0 +1,18 @@
+:javascript
+  $(function(){
+    $('#postLoginBtn').click(function(){
+      var userName = $('#postUserName').val();
+      url = '/sessions/create?callback=post&user_name='+userName;
+      location.href = url;
+    });
+  });
+#postLoginModal.modal.hide.fade.in{:style => 'display:none;'}
+  .modal-header
+    %a.close{:'data-dismiss'=>"modal"}×
+    %h3 Sign in
+  .modal-body 
+    %input#postUserName.span3{:type=>'text',:placeholder=>'UserName'}
+    %br
+    %input.span3{:type=>'text',:placeholder=>'PassWord'}
+  .modal-footer
+    %a#postLoginBtn.btn-primary.btn-large.pull-right Login

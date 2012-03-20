@@ -1,0 +1,6 @@
+- id: 1
+  name: shibata
+  type: client
+- id: 2
+  name: joe
+  type: creator

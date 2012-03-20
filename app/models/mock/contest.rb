@@ -1,11 +1,12 @@
 module Mock
   class Contest
-    attr_reader :id,:title,:price,:time,:client,:flag,:name,:subname,:industory,
+    attr_reader :id,:title,:category,:price,:time,:client,:flag,:name,:subname,:industory,
                 :usage,:format,:color,:parts,:type,:favarite,:url,:description,:logo,:design,:designer
-    def initialize(id,title,price,time,client,flag,name,subname,industory,usage,format,color,
+    def initialize(id,title,category,price,time,client,flag,name,subname,industory,usage,format,color,
                    parts,type,favarite,url,description,logo,design,designer)
       @id         = id
       @title      = title
+      @category   = category
       @price      = price
       @time       = time
       @client     = client
@@ -37,7 +38,7 @@ end
 CONTESTS = []
 YAML.load_file("#{__FILE__}.yml").each_with_index{|value,index|
   CONTESTS << Mock::Contest.new(
-    value['id'],value['title'],value['price'],value['time'],value['client'],value['flag'],value['name'],
+    value['id'],value['title'],value['category'],value['price'],value['time'],value['client'],value['flag'],value['name'],
     value['subname'],value['industory'],value['usage'],value['format'],value['color'],value['parts'],
     value['type'],value['favorite'],value['url'],value['description'],value['logo'],value['design'],value['designer']
     )

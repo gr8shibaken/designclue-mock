@@ -1,78 +1,78 @@
-.categories-container {
-  border-bottom: 1px solid #BBB;
-}
-.categories{
-  width: 560px;
-  margin: 20px auto 10px 190px;
+.categories {
+  width: 700px;
+  margin: auto;
 }
 .categories .category {
-  margin-right: 10px;
-  width: 130px;
-  height: 120px;
-  background: url(../images/mock/category/category_back.png) no-repeat;
   text-align: center;
+  padding: 10px;
+  margin: 5px;
+  width: 140px;
+  height: 80px;
+  border: 2px solid #08C;
+}
+
+.categories .category .title {
+  font-size: 11pt;
   font-weight: bold;
-  font-size: 12pt;
+  color: #08C;
+  margin-bottom: 5px;
+}
+.order-button-area {
+  margin: 5px;
+  width: 164px;
+  text-align: center;
+  float: left;
+}
+
+.order-button {
+  width: 140px;
 }
 .contest-lane {
-  padding-top: 20px;
-  border-bottom: 1px solid #BBB;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
-.contest-lane .main-area{
+.contest-header {
+  background: #BBB;
+  margin: 5px 3px 0px 3px;
+  height: 20px;
+  text-align: center;
+  font-weight: bold;
+  padding: 3px;
 }
-.contest-lane .label-area{
+.contest-detail {
+  background: #DDD;
+  margin: 0px 3px;
+  vertical-align: middle;
+  height: 20px;
+  padding: 3px;
+  text-align: center;
 }
-.contest-lane .main-area .header .category-area{
-  width: 45px;
-  padding-top: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 0px;
-  }
-.contest-lane .main-area .header .time-area{
-/*
-  height: 40px;
-*/
-  padding-top: 3px;
-/*
-  border: 1px solid #0BB;
-*/
-  }
-.contest-lane .main-area .header .time-area .remain-time{
-  font-size: 16pt;
-  color: red;
+.contest-title {
+  width: 330px;
+  float: left;
 }
-.contest-lane .main-area .header .top{
-  margin-left: 15px;
-  margin-bottom: 5px;
+.contest-client {
+  width: 140px;
+  float: left;
 }
-.contest-lane .main-area .header .top span a.title{
-  font-size: 13pt;
-  margin-right: 20px;
+.contest-category {
+  float: left;
+  width: 75px;
 }
-.contest-lane .main-area .header .top span.title{
-  font-size: 13pt;
-  margin-right: 20px;
+.contest-design {
+  width: 75px;
+  float: left;
 }
-.contest-lane .main-area .header .bottom{
-  width: 650px;
-  margin-left: 15px;
-  margin-bottom: 5px;
+.contest-time {
+  width: 75px;
+  float: left;  
 }
-.contest-lane .main-area .header .bottom span a.name{
-  margin-left: 10px;
-  font-size: 12pt;
+.contest-prize {
+  width: 75px;
+  float: left;
 }
-.contest-lane .main-area .header .bottom span.name{
-  margin-left: 10px;
-  font-size: 12pt;
-}
-.contest-lane .main-area .header .bottom img{
-  vertical-align: bottom;
-}
-.contest-lane .main-area .header .bottom span{
-  margin-right: 20px;
+.contest-status {
+  width: 75px;
+  float: left;
 }
 .contest-lane .contents{
   margin: 5px;
@@ -89,50 +89,16 @@
 .contest-lane .contents #button-container a{
   line-height: 100px;
   text-align: center;
-  font-size: 8pt;
 }
 .contest-lane .contents i{
   margin-top: 40px;
 }
 .posts li {
-  width: 130px;
+  width: 127px;
   height: 100px;
 }
 .posts li img {
   display:block;
   margin:auto;
   border: 1px solid #CCC;
-}
-.guideboard {
-  width: 350px;
-  height: 120px;
-  z-index: 100;
-  position: absolute;
-  top: 75px;
-  display: none;
-  }
-.guideboard .container {
-  margin-top: 0px;
-  padding-top: 5px;
-  width: 350px;
-}
-.guideboard .container .close-area{
-  text-align: right;
-}
-.guideboard .container .close-area a{
-  font-size: 16pt;
-}
-.guideboard .container .message-area p{
-  font-size: 12pt;
-  text-align: center;
-  color: black;
-}
-.guideboard .container .button-area{
-  margin-left: 40px;
-}
-.guideboard .container .button-area a{
-  margin-top: 10px;
-}
-.guideboard .container .button-area .btn{
-  margin-left: 50px;
 }

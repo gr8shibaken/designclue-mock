@@ -6,104 +6,127 @@
         $("#posts1").jCarouselLite({
           btnNext: "#next1",
           btnPrev: "#prev1",
-          visible: 6
+          visible: 7
         });
         $("#posts2").jCarouselLite({
           btnNext: "#next2",
           btnPrev: "#prev2",
-          visible: 6
+          visible: 7
         });
         $("#posts3").jCarouselLite({
           btnNext: "#next3",
           btnPrev: "#prev3",
-          visible: 6
+          visible: 7
         });
         $("#posts4").jCarouselLite({
           btnNext: "#next4",
           btnPrev: "#prev4",
-          visible: 6
+          visible: 7
         });
       });
 .categories-container
+  %h3 人気カテゴリー
   .categories
     .category.left
-      %a{:href => '/mock/job_index?category=Logo', :style=>'color:black;'}
-        %div{:style => 'width:120px;height:30px;padding-top:15px;'}
-          ロゴ
-        %div{:style => 'width:120px;height:40px;text-align:center;'}
-          =image_tag '/images/mock/category/category_mark.png', :size=>'30x30'
-        %div{:style => 'width:120px;height:35px;font-size:10pt;'}
-          ¥20,000〜
+      .title ロゴデザイン
+      .image= image_tag '/images/mock/category/logo.png', :size=>'50x50' 
     .category.left
-      %a{:href => '/mock/job_index?category=Illust', :style=>"color:black;"}
-        %div{:style => 'width:120px;height:30px;padding-top:15px;'}
-          イラスト
-        %div{:style => 'width:120px;height:40px;text-align:center;'}
-          =image_tag '/images/mock/category/category_mark.png', :size=>'30x30'
-        %div{:style => 'width:120px;height:35px;font-size:10pt;'}
-          ¥20,000〜
+      .title イラストレーション
+      .image= image_tag '/images/mock/category/illustration.png', :size=>'50x50' 
     .category.left
-      %a{:href => '/mock/job_index?category=Flyer', :style=>"color:black;"}
-        %div{:style => 'width:120px;height:30px;padding-top:15px;'}
-          フライヤー
-        %div{:style => 'width:120px;height:40px;text-align:center;'}
-          =image_tag '/images/mock/category/category_mark.png', :size=>'30x30'
-        %div{:style => 'width:120px;height:35px;font-size:10pt;'}
-          ¥35,000〜
+      .title 名刺デザイン
+      .image= image_tag '/images/mock/category/businesscard.png', :size=>'50x50' 
     .category.left
-      %a{:href => '/mock/job_index?category=Other', :style=>"color:black;"}
-        %div{:style => 'width:120px;height:30px;padding-top:15px;'}
-          その他
-        %div{:style => 'width:120px;height:40px;text-align:center;'}
-          =image_tag '/images/mock/category/category_mark.png', :size=>'30x30'
-        %div{:style => 'width:120px;height:35px;font-size:10pt;'}
-          ¥15,000〜
+      .title フライヤー
+      .image= image_tag '/images/mock/category/flyer.png', :size=>'50x50'
     .clear
-- 4.times do |id|
+    .order-button-area
+      %a.btn.btn-inverse.order-button{:href=>'/mock/job_post_1'}
+        %div
+          %b Order Now
+        %div{:style=>'color:#08C;'}
+          ¥20,000〜
+    .order-button-area
+      %a.btn.btn-inverse.order-button{:href=>'/mock/job_post_1'}
+        %div
+          %b Order Now
+        %div{:style=>'color:#08C;'}
+          ¥20,000〜
+    .order-button-area
+      %a.btn.btn-inverse.order-button{:href=>'/mock/job_post_1'}
+        %div
+          %b Order Now
+        %div{:style=>'color:#08C;'}
+          ¥20,000〜
+    .order-button-area
+      %a.btn.btn-inverse.order-button{:href=>'/mock/job_post_1'}
+        %div
+          %b Order Now
+        %div{:style=>'color:#08C;'}
+          ¥35,000〜
+    .clear
+%br
+%h3 開催中のコンテスト
+%div
+  .contest-title.contest-header コンテストタイトル
+  .contest-client.contest-header クライアント
+  .contest-category.contest-header カテゴリー
+  .contest-design.contest-header デザイン数
+  .contest-time.contest-header 残り時間
+  .contest-prize.contest-header 賞金
+  .contest-status.contest-header ステータス
+  .clear
+- if @posted
   .contest-lane
-    - contest = Mock::Contest.find(id+1)
+    - contest = Mock::Contest.find(1)
     .label-area
     .main-area
       .header
-        .category-area.left
-          .category
-            %span.category= image_tag '/images/mock/category/category.png', :size => '40x40'
-        .top.left
-          %span.title=link_to contest.title, mock_job_detail_path(:id => id+1)
-          %i.icon-time
-          %span 残り
-        .time-area.left
-          %span.remain-time= "#{contest.time}時間"
-        .bottom.left
-          %span.name= link_to contest.client, "#"
-          %span.flag= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
-          %i.icon-file
-          %span.white= contest.design
-          %i.icon-user
-          %span.white= contest.designer
+        .contest-title.contest-detail
+          %a.title Campfire ウェブコンテンツ ロゴデザイン 
+        .contest-client.contest-detail
+          .left kensuke shibata
+          .left= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
+          .clear
+        .contest-category.contest-detail
+          %span ロゴ
+        .contest-design.contest-detail
+          %span 0
+        .contest-time.contest-detail
+          %span 1時間
+        .contest-prize.contest-detail
+          %span　¥30,000
+        .contest-status.contest-detail
+          = image_tag "/images/mock/contest-type/_12d_icon_manymore.png", :size => '20x20'
       .contents
         .lane
-          %i.icon-chevron-left.left{:id => "prev#{id+1}"}
-          .posts.left{:id => "posts#{id+1}"}
-            %ul
-              - contest.logo.times do |i|
-                %li= image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => '', :onclick => "trans(#{id+1},#{i+1})"
-          %i.icon-chevron-right.left{:id => "next#{id+1}"}
-          #button-container.right
-            %a.btn.design-upload{:style=> 'width:90px; height:90px'}
-              %b ＋デザインを投稿 
         .clear
-
-.guideboard.alert
-  .container
-    .close-area
-      %a#guide-close= '×'
-    .message-area
-      %h3
-        %p= '世界中にデザインを依頼しよう！'
-      %p= ' ハイクオリティ　グローバル　リスクフリー'
-    .button-area
-      %a.left{:href => '#'}
-        %b= 'はじめての方'
-      %a.btn.btn-info.left{:href => '#'}= '会員登録'
+- 4.times do |id|
+  .contest-lane
+    - contest = Mock::Contest.find(id+1)
+    .header
+      .contest-title.contest-detail
+        %span= link_to contest.title, mock_job_detail_path(:id => id+1)
+      .contest-client.contest-detail
+        .left{:style=>'width:110px;text-align:center;'}= contest.client
+        .right{:style=>'width:30px;'}= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
+        .clear
+      .contest-category.contest-detail
+        %span= contest.category 
+      .contest-design.contest-detail
+        %span= contest.design
+      .contest-time.contest-detail
+        %span= "#{contest.time}時間"
+      .contest-prize.contest-detail
+        %span= contest.price
+      .contest-status.contest-detail
+        = image_tag "/images/mock/contest-type/_12d_icon_#{contest.id.even? ? 'manymore' : 'private'}.png", :size => '20x20'
+    .contents
+      .lane
+        %i.icon-chevron-left.left{:id => "prev#{id+1}"}
+        .posts.left{:id => "posts#{id+1}"}
+          %ul
+            - contest.logo.times do |i|
+              %li= image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => '', :onclick => "trans(#{id+1},#{i+1})"
+        %i.icon-chevron-right.left{:id => "next#{id+1}"}
       .clear

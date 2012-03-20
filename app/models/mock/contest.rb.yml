@@ -1,5 +1,6 @@
 - id: 1
   title: "Keynoter Webサービス　ロゴデザイン"
+  category: "ロゴ"
   price: "30,000"
   time: "6"
   client: "Hiroki Yamamoto"
@@ -20,6 +21,7 @@
   designer: 12
 - id: 2
   title: "Electro Pop Party ナイトイベント　フライヤーデザイン"
+  category: "フライヤー"
   price: "35,000"
   time: "12"
   client: "Joe Adson"
@@ -40,6 +42,7 @@
   designer: 18
 - id: 3
   title: "Velo City Night カフェ　ロゴデザイン"
+  category: "ロゴ"
   price: "50,000"
   time: "18"
   client: "CristalY"
@@ -60,6 +63,7 @@
   designer: 22
 - id: 4
   title: "NSF　サッカーチーム　ロゴデザイン"
+  category: "ロゴ"
   price: "50,000"
   time: "12"
   client: "DBeckham"

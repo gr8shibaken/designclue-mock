@@ -261,9 +261,10 @@
               %hr
               = '-トップページに表示される'
               %hr
-
-    %a.btn-area.btn.btn-inverse{:href => '/mock/job_post_2'}= '次へ'
-
+    - if signed_in
+      %a.btn-area.btn.btn-inverse{:href => '/mock/job_post_2'}= '次へ'
+    - else
+      %a.btn-area.btn.btn-inverse{:'data-controls-modal'=>'postLoginModal',:'data-backdrop'=>'true'} 次へ
   .sidebar-wrap.right
     .explanation-area
       .well

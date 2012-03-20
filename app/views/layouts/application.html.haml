@@ -10,6 +10,7 @@
     = javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"
     = javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"
     = javascript_include_tag "/libraries/bootstrap/js/bootstrap-tab.js"
+    = javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js'
     = stylesheet_link_tag "application", :media => "all"
     = stylesheet_link_tag "/libraries/bootstrap/css/bootstrap-responsive.css"
     = stylesheet_link_tag "/libraries/bootstrap/css/bootstrap.css"
@@ -34,21 +35,6 @@
           $("#uploadwindow").click();
         });
       });
-    - if !signed_in
-      :javascript
-        $(function(){ 
-          var winwidth = $(window).width();
-          var boardwidth = 400;
-          $('.guideboard').css("left", ((winwidth/2)-(boardwidth/2)));
-          if ($('.guideboard').css("display")=="none"){
-            $('.guideboard').animate( {height: "toggle"}, "slow");
-          }
-        });
-        $(function(){  
-          $("#guide-close").click(function(){
-            $('.guideboard').animate( {height: "toggle", opacity: "toggle"}, "slow");
-          });
-        });
     %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
     %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
     %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
@@ -59,6 +45,7 @@
     .container
       = yield
       = render 'modals/login'
+      = render 'modals/post_login'
       %footer.text-center
         %p &copy; PurpleCow 2012 All rights reserved.
 

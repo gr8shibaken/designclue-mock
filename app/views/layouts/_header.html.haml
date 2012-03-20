@@ -1,3 +1,11 @@
+:javascript
+  $(function() {
+    $("#info-nav").jCarouselLite({
+      visible: 1,
+      auto: 10000,
+      speed: 1000,
+    });
+  });
 .navbar
   .navbar-inner
     .container
@@ -21,9 +29,9 @@
                 %li= link_to 'Korean','#'
               
             %li.dropdown
-              - if signed_in 
+              - if signed_in
                 %a.dropdown-toggle{:'data-toggle'=>"dropdown", :href => "#"}
-                  Shibata
+                  = current_user.name
                   %b.caret
                 %ul.dropdown-menu
                   %li= link_to 'お知らせ', '/mock/mypage?category=infomation'
@@ -51,15 +59,66 @@
   .container
     #button-container.left
     #info-container.left
-      %span= link_to '57 Contests', mock_job_index_path
-      %span= link_to '1744 Creators', mock_designer_index_path
-      %span= link_to '13573 Designes', mock_garally_path 
+      %span= link_to 'コンテストを探す', mock_job_index_path
+      %span= link_to 'クリエイターを探す', mock_designer_index_path 
     #link-container.left
-      - if signed_in
-        %a.btn.btn-danger{:'href'=> '/mock/job_post_1'}
-          %b デザインを依頼する
-      - else
-        %a.btn.btn-danger{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'}
-          %b デザインを依頼する
-
+      %a.btn.btn-danger{:href=> '/mock/job_post_1'}
+        %b デザインを依頼する
+.header-space
+- if @navigation && !signed_in
+  .initial-navigation
+    .container
+      #info-nav
+        %ul
+          %li
+            .info-container
+              .info-area{:style=>'height:165px;'}
+                .text-center{:style=>'font-size:20pt;margin-bottom:40px; padding-top:10px;'}
+                  世界中にデザインを依頼しよう！
+                .text-center{:style=>'font-size:18pt;margin-bottom:30px;'}
+                  カスタムデザイン,　グローバルオーダー,　リスクフリー
+                .text-center{:style=>'color:blue'}
+                  %span{:style=>'font-size:13pt;'} クリエイター数
+                  %span{:style=>'font-size:18pt;'} 1744
+                  %span &nbsp;&nbsp;&nbsp;&nbsp;
+                  %span{:style=>'font-size:13pt;'} 開催中
+                  %span{:style=>'font-size:18pt;'} 31
+                  %span{:style=>'font-size:13pt;'} コンテスト
+              .button-area.text-center
+                .text-center
+                  %a.btn.btn-danger{:style=>'width:220px;font-size:13pt;',:href=> '/mock/job_post_1'}
+                    %b デザインを依頼する
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  %a.btn.btn-info{:style=>'width:220px;font-size:13pt;'}
+                    %b 募集中のコンテストを見る
+          %li
+            .info-container
+              .info-area.text-center{:style=>'height:165px;'}
+                .text-center{:style=>'font-size:18pt;margin-bottom:15px;'}
+                  designcloudは、コンテスト型クラウドソーシングサービスです。
+                .text-center{:style=>'font-size:18pt;margin-bottom:15px;'}
+                  自分だけのコンテストを開催して、世界中からデザインを集めよう！
+                %table{:style=>'margin:auto;'}
+                  %tr
+                    %td{:style=>'width:200px;font-size:11pt;'} Step1
+                    %td{:style=>'width:200px;font-size:11pt;'} Step2
+                    %td{:style=>'width:200px;font-size:11pt;'} Step3
+                    %td{:style=>'width:200px;font-size:11pt;'} Step4
+                  %tr
+                    %td 母国語でデザイン募集を記載
+                    %td 100のデザインが集まる
+                    %td 母国語でフィードバックする
+                    %td 最優秀デザインを選ぶ
+                  %tr
+                    %td= image_tag '/images/mock/step/step1.png', :size=>'50x50'
+                    %td= image_tag '/images/mock/step/step2.png', :size=>'50x50'
+                    %td= image_tag '/images/mock/step/step3.png', :size=>'50x50'
+                    %td= image_tag '/images/mock/step/step4.png', :size=>'50x50'  
+              .button-area.text-center
+                %a.btn.btn-warning{:style=>'width:220px;font-size:13pt;'}
+                  %b はじめての方
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                %a.btn.btn-success{:style=>'width:220px;font-size:13pt;'}
+                  %b 会員登録
+            
 .header-space

@@ -52,6 +52,24 @@
   text-align: right;
   width: 200px;
 }
+.initial-navigation {
+  background: -moz-linear-gradient(top, #00A051, #3EB370);
+  background: -webkit-gradient(linear, left top, left bottom, from(#00A051), to(#3EB370));
+  height :230px;
+  width: 100%;
+  border-bottom:1px solid #AAA;
+  color: white;
+}
+
+#info-nav li {
+  width: 100%;
+  height: 230px;
+}
+
+#info-nav .info-container {
+  padding: 20px 0px 10px 0px;
+}
+
 .header-space {
-  min-height: 50px;
+  min-height: 22px;
 }
