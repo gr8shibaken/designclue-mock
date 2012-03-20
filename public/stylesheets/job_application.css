@@ -1,9 +1,18 @@
 #contest-info {
-  vertical-align:bottom;
+  vertical-align:middle;
   padding-bottom:5px;
   border-bottom:1px solid #CCC;
   margin-bottom: 15px;
 }
+
+#contest-info .space {
+  margin-right: 20px;
+}
+
+#contest-info img {
+  vertical-align: bottom;
+}
+
 #application {
   width: 570px;
   float: left;

@@ -22,9 +22,30 @@
       });
 
 #contest-info
-  .left{:style=>'margin-right:5px;'}= image_tag '/images/mock/category/category.png', :size => '20x20'
-  .left.font11= @contest.title
-  .clear
+  %div
+    .left.space.font12{:style=>'padding-top:7px;'}
+      = @contest.title
+      &nbsp;&nbsp;
+      = Mock::Category.find(@contest.category).name
+    .left.font11
+      = image_tag '/images/mock/icon/client.png', :size=>'25x25'
+      &nbsp;
+      = @contest.client
+      &nbsp;
+      = image_tag "/images/mock/flag/#{@contest.flag}.png",:size => '20x20'
+    .clear
+  %div{:style=>'margin-top:10px;'}
+    .left.space.font11
+      = image_tag '/images/mock/icon/money.png', :size=>'25x25'
+      &nbsp;
+      = "¥#{@contest.price}"
+    .left.font11
+      = image_tag '/images/mock/icon/time.png', :size=>'25x25'
+      &nbsp;
+      残り
+      %span{:style=>'color:red;font-size:14pt;'}= "#{@contest.time}時間"
+    .clear
+
 #application
   - designer = Mock::Designer.all.sample(1).first
   %div{:style=>'margin-top:7px;'}

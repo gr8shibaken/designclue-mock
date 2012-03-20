@@ -1,5 +1,5 @@
 #info-area.font10
-  %div.left
+  .left
     %div
       .left.space.font12{:style=>'padding-top:7px;'}
         = @contest.title
@@ -23,7 +23,7 @@
         残り
         %span{:style=>'color:red;font-size:14pt;'}= "#{@contest.time}時間"
       .clear
-  %div.right
+  .right
     - if !signed_in or current_user.type == 'creator' 
       %div
         %a.btn.btn-warning{:style=>'width:150px;',:onClick => "$('#designfile').click();"}

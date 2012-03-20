@@ -57,7 +57,7 @@
                       = image_tag "/images/mock/contests/#{@contest.id}-#{d}-square.jpg",:size => '118x118', :class=>'flyer'
                 .clear
   .tab-pane#brief
-    = render 'mock/job_info'
+    = render 'mock/job_info', {:buttons => 'hoge'}
     %ul.nav.nav-tabs.font11
       %li.active= link_to '日本語', '#japanese', {:'data-toggle'=> 'tab'}
       %li= link_to 'English', '#english', {:'data-toggle'=> 'tab'}
