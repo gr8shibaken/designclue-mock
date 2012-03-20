@@ -4,7 +4,7 @@ class MockController < ApplicationController
     @navigation = true
   end
   def job_index
-    @category = params[:category]
+    @category = Mock::Category.find(params[:category])
   end
   def job_detail
     @contest = Mock::Contest.find(params[:id])

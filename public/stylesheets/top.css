@@ -1,3 +1,7 @@
+hr {
+  border-top:1px solid #BBB;
+}
+
 .categories {
   width: 700px;
   margin: auto;
@@ -28,7 +32,7 @@
   width: 140px;
 }
 .contest-lane {
-  padding-bottom: 20px;
+  padding-bottom: 0px;
 }
 .contest-header {
   background: #BBB;
@@ -47,16 +51,16 @@
   text-align: center;
 }
 .contest-title {
-  width: 330px;
+  width: 260px;
   float: left;
 }
 .contest-client {
-  width: 140px;
+  width: 135px;
   float: left;
 }
 .contest-category {
   float: left;
-  width: 75px;
+  width: 135px;
 }
 .contest-design {
   width: 75px;

@@ -1,24 +1,33 @@
-%p
-  %input#designfile{:type=>'file', :name=>'design-file', :style=>'display:none;'}
 #info-area.font10
   %div.left
     %div
-      %span= image_tag '/images/mock/category/category.png', :size => '20x20'
-      %span.space.font11= @contest.title
-      %i.icon-info-sign
-      %span.space= "¥#{@contest.price}"
-      %i.icon-time
-      %span= "残り#{@contest.time}時間"
-      %span.space{:style=>'color:gray'}
+      .left.space.font12{:style=>'padding-top:7px;'}
+        = @contest.title
+        &nbsp;&nbsp;
+        = Mock::Category.find(@contest.category).name
+      .left.font11
+        = image_tag '/images/mock/icon/client.png', :size=>'25x25'
         &nbsp;
-        (日本時間 2012年2月24日18:00)
-    %div{:style=>'margin-top: 5px;'}
-      %span= @contest.client
-      %span= image_tag "/images/mock/flag/jp.png",:size => '15x15'
+        = @contest.client
+        &nbsp;
+        = image_tag "/images/mock/flag/#{@contest.flag}.png",:size => '20x20'
+      .clear
+    %div{:style=>'margin-top:10px;'}
+      .left.space.font11
+        = image_tag '/images/mock/icon/money.png', :size=>'25x25'
+        &nbsp;
+        = "¥#{@contest.price}"
+      .left.font11
+        = image_tag '/images/mock/icon/time.png', :size=>'25x25'
+        &nbsp;
+        残り
+        %span{:style=>'color:red;font-size:14pt;'}= "#{@contest.time}時間"
+      .clear
   %div.right
-    %div
-      %a.btn.btn-warning{:style=>'width:150px;',:onClick => "$('#designfile').click();"}
-        %b.design-upload + デザインを投稿
+    - if !signed_in or current_user.type == 'creator' 
+      %div
+        %a.btn.btn-warning{:style=>'width:150px;',:onClick => "$('#designfile').click();"}
+          %b.design-upload + デザインを投稿
     %div{:style=>'margin-top:5px;'}
       %a.btn{:style=>'width:150px;'}
         ウォッチリストに追加

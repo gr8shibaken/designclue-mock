@@ -1,0 +1,16 @@
+- id: 1
+  name: "ロゴデザイン"
+  price: "20,000"
+  image: "/images/mock/category/logo.png"
+- id: 2
+  name: "イラストレーション"
+  price: "20,000"
+  image: "/images/mock/category/illustration.png"
+- id: 3
+  name: "名刺デザイン"
+  price: "20,000"
+  image: "/images/mock/category/businesscard.png"
+- id: 4
+  name: "フライヤー"
+  price: "35,000"
+  image: "/images/mock/category/flyer.png"

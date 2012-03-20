@@ -12,19 +12,30 @@
           visible: 6
         });
       });
+- if @category
+  - if [2,3].index(@category.id)
+    - contests = Mock::Contest.find_by_category(1)
+  - else
+    - contests = Mock::Contest.find_by_category(@category.id)
+- else
+  - contests = Mock::Contest.all
 #contest-area
-  .title
-    %h3= "#{@category ? @category : 'All'} Contests"
-  .contents
-    %i.icon-chevron-left.left#prev1
-    #posts1.posts.left
-      %ul
-        - 8.times do |i|
-          %li
-            %a{:href=>"/mock/job_application?id=1-#{i+1}"}
-              = image_tag "/images/mock/contests/1-#{i+1}-square.jpg", :size => '98x98', :alt => ''
-    %i.icon-chevron-right.left#next1
-    .clear
+  .title{:style => 'margin-bottom:20px;'}
+    %h3= "#{@category ? @category.name : '全ての'} コンテスト"
+  / .contents
+  /   %i.icon-chevron-left.left#prev1
+  /   #posts1.posts.left
+  /     %ul
+  /       - images = []
+  /       - contests.each do |contest|
+  /         - contest.logo.times do |i|
+  /           - images.push("#{contest.id}-#{i+1}")
+  /       - images.sort_by{rand}.each do |image|
+  /         %li
+  /           %a{:href=>"/mock/job_application?id=#{image}"}
+  /             = image_tag "/images/mock/contests/#{image}-square.jpg", :size => '98x98', :alt => ''
+  /   %i.icon-chevron-right.left#next1
+  /   .clear
 .sidebar
   %h4.content-title 条件検索
   %form
@@ -100,7 +111,7 @@
       %a.btn.btn-info
         検索
 .content-wrap
-  %h4.content-title オープンコンテスト一覧
+  %h4.content-title= "#{@category ? @category.name : '全ての'}コンテスト一覧"
   %table.table.table-striped.text-center
     %tbody
       %tr.center
@@ -110,13 +121,12 @@
         %th{:style=>'text-align:center;'} デザイン数
         %th{:style=>'text-align:center;'} 賞金
         %th{:style=>'text-align:center;'} ステータス
-      - 4.times do |i|
-        - contest = Mock::Contest.find(i+1)
+      - contests.each_with_index do |contest,index|
         %tr
           %td{:style=>'text-align:center;'}= link_to contest.title , mock_job_detail_path(:id => contest.id)
           %td{:style=>'text-align:center;'}= contest.client
           %td{:style=>'text-align:center;'}= "#{contest.time}時間"
           %td{:style=>'text-align:center;'}= contest.design 
           %td{:style=>'text-align:center;'}= "¥#{contest.price}"
-          %td.status{:style=>'text-align:center;'}= image_tag "/images/mock/contest-type/_12d_icon_#{i.even? ? 'manymore' : 'private'}.png", :size => '20x20'
+          %td.status{:style=>'text-align:center;'}= image_tag "/images/mock/contest-type/_12d_icon_#{index.even? ? 'manymore' : 'private'}.png", :size => '20x20'
 .clear

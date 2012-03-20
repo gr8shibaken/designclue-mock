@@ -23,47 +23,23 @@
           btnPrev: "#prev4",
           visible: 7
         });
+        
       });
 .categories-container
   %h3 人気カテゴリー
   .categories
-    .category.left
-      .title ロゴデザイン
-      .image= image_tag '/images/mock/category/logo.png', :size=>'50x50' 
-    .category.left
-      .title イラストレーション
-      .image= image_tag '/images/mock/category/illustration.png', :size=>'50x50' 
-    .category.left
-      .title 名刺デザイン
-      .image= image_tag '/images/mock/category/businesscard.png', :size=>'50x50' 
-    .category.left
-      .title フライヤー
-      .image= image_tag '/images/mock/category/flyer.png', :size=>'50x50'
+    - Mock::Category.all.each do |category|
+      .category.left
+        %a{:href => "/mock/job_index?category=#{category.id}"}
+          .title= category.name
+          .image= image_tag category.image, :size=>'50x50'
     .clear
-    .order-button-area
-      %a.btn.btn-inverse.order-button{:href=>'/mock/job_post_1'}
-        %div
-          %b Order Now
-        %div{:style=>'color:#08C;'}
-          ¥20,000〜
-    .order-button-area
-      %a.btn.btn-inverse.order-button{:href=>'/mock/job_post_1'}
-        %div
-          %b Order Now
-        %div{:style=>'color:#08C;'}
-          ¥20,000〜
-    .order-button-area
-      %a.btn.btn-inverse.order-button{:href=>'/mock/job_post_1'}
-        %div
-          %b Order Now
-        %div{:style=>'color:#08C;'}
-          ¥20,000〜
-    .order-button-area
-      %a.btn.btn-inverse.order-button{:href=>'/mock/job_post_1'}
-        %div
-          %b Order Now
-        %div{:style=>'color:#08C;'}
-          ¥35,000〜
+    - Mock::Category.all.each do |category|
+      .order-button-area
+        %a.btn.btn-inverse.order-button{:href=>"/mock/job_post_1?category=#{category.id}"}
+          %div
+            %b Order Now
+          %div{:style=>'color:#08C;'}= "¥#{category.price}〜"
     .clear
 %br
 %h3 開催中のコンテスト
@@ -101,6 +77,7 @@
       .contents
         .lane
         .clear
+  %hr
 - 4.times do |id|
   .contest-lane
     - contest = Mock::Contest.find(id+1)
@@ -109,10 +86,10 @@
         %span= link_to contest.title, mock_job_detail_path(:id => id+1)
       .contest-client.contest-detail
         .left{:style=>'width:110px;text-align:center;'}= contest.client
-        .right{:style=>'width:30px;'}= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
+        .right{:style=>'width:25px;'}= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
         .clear
       .contest-category.contest-detail
-        %span= contest.category 
+        %span= Mock::Category.find(contest.category).name
       .contest-design.contest-detail
         %span= contest.design
       .contest-time.contest-detail
@@ -127,6 +104,9 @@
         .posts.left{:id => "posts#{id+1}"}
           %ul
             - contest.logo.times do |i|
-              %li= image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => '', :onclick => "trans(#{id+1},#{i+1})"
+              %li
+                %a{:href=>"/mock/job_application?id=#{id+1}-#{i+1}"}
+                  = image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => ''
         %i.icon-chevron-right.left{:id => "next#{id+1}"}
       .clear
+  %hr

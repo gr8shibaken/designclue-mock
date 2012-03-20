@@ -32,6 +32,9 @@ module Mock
     def self.find(id)
       CONTESTS[id.to_i-1]
     end
+    def self.find_by_category(id)
+      CONTESTS.select{|contest| contest.category == id}
+    end
   end
 end
 

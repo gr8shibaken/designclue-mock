@@ -29,9 +29,10 @@
   - designer = Mock::Designer.all.sample(1).first
   %div{:style=>'margin-top:7px;'}
     .left
-      %a.btn.btn-warning#feedbackbtn
-        %b
-          フィードバックを入れる
+      - if signed_in && current_user.type == "client"
+        %a.btn.btn-warning#feedbackbtn
+          %b
+            フィードバックを入れる
     .right{:style=>'margin-top:10px;'}
       .left デザイン#
       .left{:style=>'margin-right:10px;'}= @current
