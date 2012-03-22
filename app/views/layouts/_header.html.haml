@@ -48,8 +48,8 @@
                 About
                 %b.caret
               %ul.dropdown-menu
-                %li= link_to 'はじめての方', '#'
-                %li{:style=>'border-bottom:1px solid #CCC;'}= link_to '利用ガイド','#'
+                %li= link_to 'はじめての方', mock_how_it_works_path
+                %li{:style=>'border-bottom:1px solid #CCC;'}= link_to '利用ガイド', mock_userguide_1_path
                 %li= link_to '著作権','#'
                 %li= link_to '決済方法','#'
                 %li= link_to '利用規約','#'
@@ -115,7 +115,7 @@
                     %td= image_tag '/images/mock/step/step3.png', :size=>'50x50'
                     %td= image_tag '/images/mock/step/step4.png', :size=>'50x50'  
               .button-area.text-center
-                %a.btn.btn-warning{:style=>'width:220px;font-size:13pt;'}
+                %a.btn.btn-warning{:href=>'/mock/how_it_works',:style=>'width:220px;font-size:13pt;'}
                   %b はじめての方
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 %a.btn.btn-success{:style=>'width:220px;font-size:13pt;'}

@@ -1,0 +1,42 @@
+.wrap {
+  width: 850px;
+  height: 1200px;
+  margin: auto;
+  border: solid 1px #CCC;
+  padding: 10px;
+}
+.index-area{
+  margin-left: 300px;
+}
+.title{
+  margin-bottom: 5px;
+}
+.content-area{
+  margin-top: 15px;
+}
+.subtitle{
+  font-size: 14pt;
+}
+.description-area{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: solid 1px #CCC;
+  /*
+  background-color: menu;
+*/
+}
+.description-area .explain-text{
+  font-size: 12pt;
+  padding: 10px;
+}
+.img{
+  text-align: center;
+}
+.btn-area{
+}
+.btn-area .previous{
+  margin-left: 280px;
+}
+.btn-area .next{
+  margin-left: 80px;
+}

@@ -1,0 +1,45 @@
+.wrap {
+  width: 850px;
+  height: 1200px;
+  margin: auto;
+  border: solid 1px #CCC;
+  padding: 10px;
+}
+.title{
+  margin-bottom: 5px;
+}
+.subtitle{
+}
+.description-area{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: menu;
+}
+.description-area p{
+  padding: 15px;
+}
+.description-area table{
+  margin:auto;
+  width:670px;
+}
+.description-area table td{
+  padding: 5px;
+}
+.description-area .btn{
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 35px;
+  text-align: center;
+}
+.img{
+  text-align: center;
+}
+.btn-area{
+  margin-top: 50px;
+}
+.btn-area .previous{
+  margin-left: 280px;
+}
+.btn-area .next{
+  margin-left: 80px;
+}

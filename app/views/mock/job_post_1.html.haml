@@ -25,6 +25,11 @@
         $('#prize_pattern2').css("display", "none");
       });
     }); 
+    
+    $(function() {
+      $(".explain-popover").popover({
+      });
+    }); 
 
 .wrap
   %ul.breadcrumb
@@ -43,13 +48,13 @@
   .content-wrap.left
     %h3 1. カテゴリ/プラン選択
     .input-area
-      %h5 あなたはどのデザインが必要ですか？ *
+      %h5 あなたはどのデザインが必要ですか？ ＊
       .select-category
         %table.table
           %tr
-            %td.category-name= radio_button_tag( :category, "1_1", true )+'ロゴ'
+            %td.category-name= radio_button_tag( :category, "1_1", true )+'ロゴデザイン'
             %td.prize ¥20,000
-            %td.category-name= radio_button_tag( :category, "3_1" )+'名刺'
+            %td.category-name= radio_button_tag( :category, "3_1" )+'名刺デザイン'
             %td.prize ¥15,000
           %tr
             %td.category-name= radio_button_tag( :category, "1_2")+'イラストレーション'
@@ -57,7 +62,7 @@
             %td.category-name= radio_button_tag( :category, "3_2" )+'ブックカバー'
             %td.prize  ¥15,000
           %tr
-            %td.category-name= radio_button_tag( :category, "2_1")+'フライヤー'
+            %td.category-name= radio_button_tag( :category, "2_1")+'フライヤーデザイン'
             %td.prize  ¥35,000
             %td.category-name= radio_button_tag( :category, "3_3" )+'バナー'
             %td.prize  ¥15,000
@@ -68,10 +73,25 @@
             %td.prize  ¥15,000
         %a more categories... 
       
+    - creator_title='期待されるクリエイター数'
+    - copyright_title='著作権の保証'
+    - repay_title='返金保証'
+    - highlight_title='ハイライト表示'
+    - mailmagazine_title='メールマガジン'
+    - socialpromotion_title='ソーシャルプロモーション'
+    - creator_15='このプランの場合、過去の統計より、designclueに登録している13573人のクリエイターから、15-30人の参加が予測されます。'
+    - creator_30='このプランの場合、過去の統計より、designclueに登録している13573人のクリエイターから、30-45人の参加が予測されます。'
+    - creator_50='このプランの場合、過去の統計より、designclueに登録している13573人のクリエイターから、50-60人の参加が予測されます。'
+    - copyright='賞金を支払う優秀者のデザインの著作権はすべてあなたが権利を有します。ただデザイナー側には著作者人格権を有します。'
+    - repay='コンテスト終了後、気に入るデザインがない場合には、掲載フィーと決済手数料を差し引いた金額の返金を要求することができます。しかしこの選択を有効化するとクリエイターの投稿数は減る恐れがあります。'
+    - highlight='通常とは違ったハイライトカラーで表示され、注目度が上がります。'
+    - mailmagazine='DesignClueが定期的にクリエイターに送付するメールマガジンに当コンテストをアピールします。投稿率がぐっとアップします。'
+    - socialpromotion='DesignClueのFacebookページとTwitterアカウントより、当コンテストが新しく投稿されたことを知らせます。'
+
     .input-area.select-plan
-      %h5 お好みの料金プランはどれですか？ *
+      %h5 お好みの料金プランはどれですか？ ＊
       .plan-select#prize_pattern1
-        %table.table
+        %table
           %label
             %h4 most popular
           %tr
@@ -81,48 +101,54 @@
           %tr
             %td 
               %h3賞金 ¥20,000 
+              %h5（決済手数料9%含む）
+              %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー ¥2,500
             %td 
               %h3賞金  ¥30,000 
+              %h5（決済手数料9%含む）
+              %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥3,000
             %td 
               %h3賞金  ¥50,000 
+              %h5（決済手数料9%含む）
+              %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥4,000
           %tr
-            %td
-              期待されるクリエイター数
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+              #{creator_title}
               %br
               15人 
-            %td
-              期待されるクリエイター数
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_30}" }
+              #{creator_title}
               %br
               30人 
-            %td
-              期待されるクリエイター数
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_50}" }
+              #{creator_title}
               %br
               50人 
           %tr
-            %td 著作権の保証
-            %td 著作権の保証
-            %td 著作権の保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } #{copyright_title}
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } #{copyright_title}
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } #{copyright_title}
           %tr
             %td 
-            %td 返金保証
-            %td 返金保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
           %tr
             %td 
-            %td ハイライト表示
-            %td ハイライト表示
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
           %tr
             %td 
             %td
-            %td メールマガジン
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" } メールマガジン
           %tr
             %td 
             %td 
-            %td ソーシャルプロモーション
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" } ソーシャルプロモーション
       .plan-select#prize_pattern2
-        %table.table
+        %table
           %tr
             %td= radio_button_tag(:plan2, 1)+'スタートアッププラン'
             %td= radio_button_tag(:plan2, 2, true)+'ベーシックプラン'
@@ -130,48 +156,54 @@
           %tr
             %td 
               %h3賞金  ¥35,000 
+              %h5（決済手数料9%含む）
+              %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥4,000
             %td 
               %h3賞金  ¥50,000 
+              %h5（決済手数料9%含む）
+              %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥5,000
             %td 
               %h3賞金  ¥65,000 
+              %h5（決済手数料9%含む）
+              %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥5,500
           %tr
-            %td
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
               期待されるクリエイター数
               %br
               15人 
-            %td
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_30}" }
               期待されるクリエイター数
               %br
               30人 
-            %td
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_50}" }
               期待されるクリエイター数
               %br
               50人 
           %tr
-            %td 著作権の保証
-            %td 著作権の保証
-            %td 著作権の保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
           %tr
             %td 
-            %td 返金保証
-            %td 返金保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
           %tr
             %td 
-            %td ハイライト表示
-            %td ハイライト表示
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
           %tr
             %td 
             %td
-            %td メールマガジン
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" } メールマガジン
           %tr
             %td 
             %td 
-            %td ソーシャルプロモーション
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" } ソーシャルプロモーション
       .plan-select#prize_pattern3
-        %table.table
+        %table
           %tr
             %td= radio_button_tag(:plan3, 1)+'スタートアッププラン'
             %td= radio_button_tag(:plan3, 2, true)+'ベーシックプラン'
@@ -179,126 +211,108 @@
           %tr
             %td 
               %h3賞金  ¥15,000 
+              %h5（決済手数料9%含む）
+              %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥1,800
             %td 
               %h3賞金  ¥20,000 
+              %h5（決済手数料9%含む）
+              %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥2,000
             %td 
               %h3賞金  ¥35,000 
+              %h5（決済手数料9%含む）
+              %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥3,000
           %tr
-            %td
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
               期待されるクリエイター数
               %br
               15人 
-            %td
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_30}" }
               期待されるクリエイター数
               %br
               30人 
-            %td
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_50}" }
               期待されるクリエイター数
               %br
               50人 
           %tr
-            %td 著作権の保証
-            %td 著作権の保証
-            %td 著作権の保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
           %tr
             %td 
-            %td 返金保証
-            %td 返金保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
           %tr
             %td 
-            %td ハイライト表示
-            %td ハイライト表示
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
           %tr
             %td 
             %td
-            %td メールマガジン
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" } メールマガジン
           %tr
             %td 
             %td 
-            %td ソーシャルプロモーション
+            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" } ソーシャルプロモーション
+
+    .input-area
+      %h5 公開範囲はどうしますか？
+      #scope
+        %table
+          %tr
+            %td= radio_button_tag(:scope, 1, true)+'標準設定'
+            %td= radio_button_tag(:scope, 1,)+'クローズ設定'
+            %td= radio_button_tag(:scope, 1,)+'シークレット設定'
+          %tr
+            %td
+              %h3{:style=>'text-align:center;'} Free
+            %td
+              %h3{:style=>'text-align:center;'} +¥2,000
+            %td
+              %h3{:style=>'text-align:center;'} +¥5,000
+          %tr
+            %td= 'すべてのユーザーに公開'
+            %td= '非会員ユーザーには非公開'
+            %td= '非会員ユーザーには非公開'
+          %tr
+            %td
+            %td= '閲覧するには秘密保持へ同意が必要'
+            %td= '閲覧するには秘密保持へ同意が必要'
+          %tr
+            %td
+            %td
+            %td= 'デザインは締切まで完全非公開'
 
     .input-area
       %h5 オプションは必要ですか？
       #option
-        %table.table
+        %table
+          %tr
+            %td= check_box_tag(:option, 1)+'早期終了オプション'
+            %td= check_box_tag(:option, 1)+'急募オプション'
           %tr
             %td
-              = check_box_tag(:option, 1)
-              クローズオプション
-              %hr
-              %h3 ＋¥2,000
-              %hr
-              = '-未登録ユーザーは'
-              %br
-              閲覧不可となる
-              %hr
-              = '-閲覧する為に'
-              %br
-              秘密保持契約が必要とする
+              %h3{:style=>'text-align:center;'} +¥2,000
             %td
-              = check_box_tag(:option, 1)
-              シークレットオプション
-              %hr
-              %h3 ＋¥5,000
-              %hr
-              = '-デザインは完全非公開となる'
-              %hr
-              = '-企業名を隠して募集できる'
-              %hr
-              = '-承認されたデザイナーのみ'
-              %br
-              詳細閲覧可能となる
+              %h3{:style=>'text-align:center;'} +¥3,000
+          %tr
+            %td= '終了時刻前に募集を締め切ることができる'
+            %td= '急募ステイタスが表示される'
+          %tr
+            %td= 'レスポンスの早いクリエイターが集まることが期待されます'
+            %td= 'トップページに表示される'
+          %tr
             %td
-              = check_box_tag(:option, 1)
-              急募オプション
-              %hr
-              %h3 ＋¥5,000
-              %hr
-              = '-急募ステイタスが表示される'
-              %hr
-              = '-トップページに表示される'
-              %hr
+            %td= '開始3日間で100のデザインが応募されることが期待されます'
     - if signed_in
       %a.btn-area.btn.btn-inverse{:href => '/mock/job_post_2'}= '次へ'
     - else
       %a.btn-area.btn.btn-inverse{:'data-controls-modal'=>'postLoginModal',:'data-backdrop'=>'true'} 次へ
   .sidebar-wrap.right
     .explanation-area
-      .well
-        %i.icon-info-sign
-        information
-        %br
-        ●期待されるクリエイター数
-        %br
-        プラン毎で、過去のコンテストから、参加するクリエイターの平均人数です。
-        %br
-        %br
-        ●著作権の保護
-        %br
-        勝者のデザインの著作権はすべてあなたの権利となります。
-        %br
-        %br
-        ●返金保証
-        %br
-        コンテスト終了後、気に入るデザインがない場合には、掲載フィーと決済手数料を差し引いた金額の返金を要求することができます。しかしこの選択を有効化するとクリエイターの投稿数は減る恐れがあります。
-        %br
-        %br
-        ●ハイライト表示
-        %br
-        通常とは違ったハイライトカラーで表示され、注目度が上がります。
-        %br
-        %br
-        ●メールマガジン
-        %br
-        DesignClueが定期的にクリエイターに送付するメールマガジンに当コンテストをアピールします。投稿率がぐっとアップします。
-        %br
-        %br
-        ●ソーシャルプロモーション
-        %br
-        DesignClueのFacebookページとTwitterアカウントより、当コンテストが新しく投稿されたことを知らせます。 
     .yourchoice-area
       %h3 Your choice
     .cart-area.well
@@ -314,7 +328,7 @@
           %td 掲載フィー
           %td ¥3,000 
         %tr
-          %td シークレットオプション
+          %td シークレット設定
           %td ¥5,000
         %tr
           %td 合計

@@ -1,0 +1,56 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/how_it_works.css"
+
+.wrap
+  %h3.title はじめての方
+  %h4.subtitle designclueとは？
+  .description-area
+    %p{:style=>'font-size:12pt;'}
+      言語を気にせず、世界中からデザイン候補を募集でき、数多く集まったデザイン候補を実際に確認して、最も気に入るデザインを選ぶことができるコンテスト型のオンライン・デザイン・クラウドソーシングサービスです。
+    .img= image_tag '/images/mock/how_it_works/globalcrowdsource.bmp', :size=>'400x300'
+  %h4.subtitle 出来上がりまで？
+  .description-area
+    %table{:style=>'margin:auto;'}
+      %tr
+        %td{:style=>'width:200px;font-size:12pt;text-align:center;'} Step1
+        %td{:style=>'width:200px;font-size:12pt;text-align:center;'} Step2
+        %td{:style=>'width:200px;font-size:12pt;text-align:center;'} Step3
+        %td{:style=>'width:200px;font-size:12pt;text-align:center;'} Step4
+      %tr
+        %td 母国語でデザイン募集を記載する。記載された内容が他言語化され、世界中から注目されます。
+        %td 平均100のデザインが世界中から集まります。
+        %td 母国語でフィードバックし、さらに改善されたデザインが集まります。
+        %td 締切後、投稿されたデザインから最優秀デザインを選び、対価を支払います。
+      %tr
+        %td.img= image_tag '/images/mock/step/step1.png', :size=>'50x50'
+        %td.img= image_tag '/images/mock/step/step2.png', :size=>'50x50'
+        %td.img= image_tag '/images/mock/step/step3.png', :size=>'50x50'
+        %td.img= image_tag '/images/mock/step/step4.png', :size=>'50x50'
+  %h4.subtitle designclueの特長？
+  .description-area
+    %table.table.table-striped.left
+      %tr
+        %td.img= image_tag '/images/mock/how_it_works/globe.png', :size=>'50x50'
+        %td 世界中からデザインが集まってくるので、投稿される作品も多く、バラエティ豊かなデザインから選ぶことができます。
+        %td
+          .btn= '詳細'
+      %tr
+        %td.img= image_tag '/images/mock/how_it_works/star_full.png', :size=>'50x50'
+        %td 実際に出てきたデザインを見てから選ぶことができるので、1対1でお願いする場合より、気に入るデザインを見つけやすいです。
+        %td
+          .btn= '詳細'
+      %tr
+        %td.img= image_tag '/images/mock/how_it_works/users_comments.png', :size=>'50x50'
+        %td 母国語でOKなので安心。他言語化の機能を備えており、依頼開始から支払完了まで母国語のみで取引いただけます。
+        %td
+          .btn= '詳細'
+      %tr
+        %td.img= image_tag '/images/mock/how_it_works/security.png', :size=>'50x50'
+        %td 返金保証制度があるので、安心して依頼できます。もしコンテスト終了後気に入る作品が無かった場合は、取り下げ可能です。
+        %td
+          .btn= '詳細'
+    .img.right= image_tag '/images/mock/how_it_works/strongpoint.bmp', :size=>'170x200'
+  .btn-area
+    %a.previous.btn.btn-info{:href => '/mock/userguide_1'}= '利用ガイドへ進む'
+    %a.next.btn.btn-danger{:href => '/mock/job_post_1'}= '依頼へ進む'
+

@@ -58,17 +58,17 @@
       %fieldset
         .form-vertical   
           .input-area
-            %h5 ロゴの表記名は何ですか？ *
+            %h5 ロゴの表記名は何ですか？ ＊
             .logoname-select
-              %input{:type=>'text', :style => 'width:400px'}   
+              %input{:type=>'text', :style => 'width:400px', :placeholder => "例：designclue"}   
 
           .input-area
             %h5 ロゴにキャッチコピーやサブ名称を入れる場合はご記入ください
             .subname-select
-              %input{:type=>'text', :style => 'width:400px'}   
+              %input{:type=>'text', :style => 'width:400px', :placeholder => "例：Cross Border Communications for Your Business"}   
 
           .input-area
-            %h5 募集期間は何日間ですか？ *
+            %h5 募集期間は何日間ですか？ ＊
             .timelimit-select
               %select{:style => 'width:200px'}
                 %option ------------ 
@@ -83,7 +83,7 @@
               %span= "終了日時: #{Time.now.strftime("%m")}月#{Time.now.strftime("%d")}日#{Time.now.strftime("%H")}時#{Time.now.strftime("%M")}分" 
          
           .input-area
-            %h5 あなたのビジネスは何ですか？ * 
+            %h5 あなたのビジネスは何ですか？ ＊ 
             .industry-select
               .industry1
                 業種1
@@ -129,7 +129,7 @@
           
           .input-area
             .form-vertical
-              %h5 利用用途は何ですか？ *
+              %h5 利用用途は何ですか？ ＊
               .purpose-select
                 %label.radio= radio_button_tag( :category, "1", true )+'web, online' 
                 %label.radio= radio_button_tag( :category, "1")+'Printing' 
@@ -138,7 +138,7 @@
                 %label.radio= radio_button_tag( :category, "1")+'その他'
           
           .input-area
-            %h5 希望する納品フォーマットを選んでください。 *
+            %h5 希望する納品フォーマットを選んでください。 ＊
             %table.table-bordered.table-striped.format-select
               %tr
                 %th Open format
@@ -168,7 +168,7 @@
                 .clear
           
           .input-area
-            %h5 デザインの主な色は何色ですか？ *
+            %h5 デザインの主な色は何色ですか？ ＊
             .color-select
               = radio_button_tag(:color_select, 1, true)
               代表的な色から選ぶ
@@ -196,15 +196,15 @@
                     %input{:type=>'text', :style => 'width:100px', :placeholder => "cccc00"}   
           
           .input-area
-            %h5 できれば入れて欲しいパーツ・モノは何ですか？ *
+            %h5 できれば入れて欲しいパーツ・モノは何ですか？ ＊
             .parts-select
               %form.form-inline
-                %input{:type=>'text', :style => 'width:150px' }   
-                %input{:type=>'text', :style => 'width:150px' }   
-                %input{:type=>'text', :style => 'width:150px' }   
+                %input{:type=>'text', :style => 'width:150px', :placeholder => "炎" }   
+                %input{:type=>'text', :style => 'width:150px', :placeholder => "翼" }   
+                %input{:type=>'text', :style => 'width:150px', :placeholder => "サイコロ" }   
 
           .input-area
-            %h5 イメージメーターで表現してください。（これを見てデザイナーはあなたの好みを分析します。） * 
+            %h5 イメージメーターで表現してください。（これを見てデザイナーはあなたの好みを分析します。） ＊ 
             %table
               %tr
                 %td 男性的 
@@ -238,7 +238,7 @@
                   日常
           
           .input-area
-            %h5 どのような系統のロゴが良いですか？ *
+            %h5 どのような系統のロゴが良いですか？ ＊
             .logo-select-area
               %table
                 %tr
@@ -277,14 +277,11 @@
                     web2.0スタイル
               
           .input-area
-            %h5 サンプルからあなたの好きなロゴを選んでください。（これを見てデザイナーはあなたの好みを分析します。） *
+            %h5 お気に入りのデザインがあればファイルを添付してください
     
             .clipping-area
-              %table
-                %tr#change-area
-                  %td.add-clipping.jqModal{:href => "#"}
-                    %p
-                      %b + Add Design
+              %a.image.design-upload{:style=>'width:150px;',:onClick => "$('#designfile').click();"}
+                = image_tag '/images/mock/upload-button/upload_file.png', :size => '100x100'
           
           .input-area
             %h5 参照すべきURLがありますか？（自社サイトや競合サイトなど） 

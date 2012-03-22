@@ -1,6 +1,6 @@
 .wrap {
   width: 1000px;
-  height: 1700px;
+  height: 1850px;
 }
 .wrap ul li {
   color: darkgray;
@@ -12,13 +12,13 @@
   border: solid 1px #CCC;
   padding: 10px;
   width: 650px;
-  height: 1350px;
+  height: 1750px;
 }
 .sidebar-wrap {
   border: solid 1px #CCC;
   padding: 10px;
   width: 290px;
-  height: 1350px;
+  height: 1750px;
 }
 .input-area {
   margin-top: 30px;
@@ -51,11 +51,13 @@
   margin-left: 5px;
 }
 .plan-select table{
+  table-layout: fixed;
   border-collapse: separate;
   border-spacing: 15px 0px;
   empty-cells: hide;
 }
-.plan-select td{
+.plan-select table td{
+  width: 160px;
   border: 1px solid #CCC;
   height: 30px;
   padding: 15px;
@@ -63,14 +65,31 @@
 .plan-select label{
   margin-left: 250px;
 }
-#option table{
+#scope table{
+  table-layout: fixed;
   border-collapse: separate;
-  border-spacing: 15px;
+  border-spacing: 15px 0px;
+  empty-cells: hide;
+}
+#scope td{
+  width: 160px;
+  border: 1px solid #CCC;
+  height: 30px;
+  padding: 15px;
+}
+#option {
+}
+#option table{
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 15px 0px;
+  empty-cells: hide;
 }
 #option td{
+  width: 160px;
   border: 1px solid #CCC;
-  padding-left: 10px;
-  padding-right: 10px;
+  height: 30px;
+  padding: 15px;
 }
 .btn-area{
   margin-left: 580px;
@@ -81,7 +100,7 @@
   width: 280px;
 }
 .yourchoice-area {
-  margin-top: 70px;
+  margin-top: 1400px;
   margin-left: 5px;
 }
 .cart-area {

@@ -19,6 +19,9 @@ Designclue::Application.routes.draw do
     get 'job_application'
     get 'garally'
     get 'mypage'
+    get 'how_it_works'
+    get 'userguide_1'
+    get 'userguide_2'
   end
 
 end
