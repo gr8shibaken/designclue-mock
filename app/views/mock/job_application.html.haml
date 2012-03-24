@@ -24,7 +24,7 @@
 #contest-info
   %div
     .left.space.font12{:style=>'padding-top:7px;'}
-      = @contest.title
+      %a{:href => "/mock/job_detail?id=#{@contest.id}"}= @contest.title
       &nbsp;&nbsp;
       = Mock::Category.find(@contest.category).name
     .left.font11

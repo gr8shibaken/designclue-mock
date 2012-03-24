@@ -68,7 +68,7 @@
           %span ロゴ
         .contest-design.contest-detail
           %span 0
-        .contest-time.contest-detail
+        .contest-time.contest-detail.remain-time
           %span 1時間
         .contest-prize.contest-detail
           %span　¥30,000
@@ -89,10 +89,10 @@
         .right{:style=>'width:25px;'}= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
         .clear
       .contest-category.contest-detail
-        %span= Mock::Category.find(contest.category).name
+        %a{:href => "/mock/job_index?category=#{contest.category}"}= Mock::Category.find(contest.category).name
       .contest-design.contest-detail
         %span= contest.design
-      .contest-time.contest-detail
+      .contest-time.contest-detail.remain-time
         %span= "#{contest.time}時間"
       .contest-prize.contest-detail
         %span= contest.price

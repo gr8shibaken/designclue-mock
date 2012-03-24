@@ -1,41 +1,13 @@
 = content_for :head do
   = javascript_include_tag '/javascripts/lib/jquery-plugin/jqModal.js'
   = stylesheet_link_tag "/stylesheets/job_post_2.css"
-  = stylesheet_link_tag "/stylesheets/jqModal.css"
 
-:javascript
-  $(function() {  
-    //$('#dialog').jqm();  
-    $('#dialog').jqm({ modal: true });    
-  });
+  :javascript
+    $(function() {
+      $(".explain-popover").popover({
+      });
+    }); 
 
-  $(function() {  
-    $("#add_design_1").click(function(){
-      $("#add_design_1").prependTo("#change-area");
-    });
-    $("#add_design_2").click(function(){
-      $("#add_design_2").prependTo("#change-area");
-    });
-    $("#add_design_3").click(function(){
-      $("#add_design_3").prependTo("#change-area");
-    });
-    $("#add_design_4").click(function(){
-      $("#add_design_4").prependTo("#change-area");
-    });
-  });
-
-#dialog.jqmWindow
-  %a.jqmClose.right{:href => "#"} Close
-  %hr
-  追加するデザインを選んでください。
-  %table
-    %tr
-      %td#add_design_1= image_tag "/images/mock/logo/logo1.jpg", :size => '100x100'
-      %td#add_design_2= image_tag "/images/mock/logo/logo2.jpg", :size => '100x100'
-      %td#add_design_3= image_tag "/images/mock/logo/logo3.jpg", :size => '100x100'
-      %td#add_design_4= image_tag "/images/mock/logo/logo4.jpg", :size => '100x100'
-  %hr
-  .btn-small.btn-primary.right.jqmClose 完了 
 .wrap
   %ul.breadcrumb
     %li
@@ -137,31 +109,61 @@
                 %label.radio= radio_button_tag( :category, "1")+'看板'
                 %label.radio= radio_button_tag( :category, "1")+'その他'
           
+          - openformat_title=' Openformat'
+          - psd_title=' PSD(photoshop)'
+          - eps_title=' EPS'
+          - ai_title=' AI(illustrator)'
+          - indesign_title=' InDesign'
+          - jpg_title=' JPG'
+          - gif_title=' GIF'
+          - png_title=' PNG'
+          - pdf_title=' PDF'
+          - other_title=' その他'
+          - openformat_explain='オープンフォーマットは、変更またはさらなる処理のために特に適しています。それぞれ適切なツールで個々のデザインを加工・変更するために使用することができることができます。'
+          - psd_explain='Adobe Photoshopのグラフィックドキュメントのことです。PSDはレイヤー、チャンネル、スマートオブジェクトの数を可能にするため、他のフォーマットと比較して、ストレージサイズがかなり大きいです。特にWebサイトのテンプレートとして使用されています。'
+          - eps_explain='EPSは、PostScriptによって記述されたベクタ形式の画像データを保存するためのファイル形式です。ロゴの作成に特に適している。 EPSファイルは、多かれ少なかれ、自己完結しており、別のPostScriptドキュメント内に配置することができます。また、彼らはデバイス非依存であり、したがって、異なるハードウェアプラットフォーム（Windows、Macなど）のアプリケーションで見ることができます。'
+          - ai_explain='Adobe Illustratorファイルで、ベクトルベースのグラフィックスです。ピクセルグラフィックとは対照的に、品質の損失なしで可能な限り最高の解像度で表示され、最高の解像度で印刷することができます。'
+          - indesign_explain='InDesignファイルは、チラシ、広告、パンフレットなど多くの印刷プロジェクトを作成するためのレイアウトファイルです。ドキュメント内の複数のページやレイヤーを作成することができます。'
+          - jpg_explain='JPEG画像は、ピクセルベースのグラフィックで、Webグラフィックと写真のようなイメージのために特に適しています。彼らはハードの色でテキストやグラフィックスには適さない。 JPEGは画像圧縮のために特に効率的です。'
+          - gif_explain='GIFグラフィックスインターチェンジ形式で、低色深度を持つ画像（フレーム当たり最大256の異なる色）に特に便利です。したがって、写真の形式は不向きである。しかし、GIFファイルはブラウザがアニメーション化することができる、ファイル内の複数のフレームを持つことができます。これはバナーと小さい画像に有利なことができます。'
+          - png_explain='PNGは、アルファチャネルを介して透明度をサポートし、また、異なる色深度をサポートしています。 PNGはGIF形式の改良開発ですが、アニメーションをサポートしていません。'
+          - pdf_explain='Portable Document Formatのことです。すべてのプラットフォーム上で、元のフォイルに忠実に生成されたレイアウトを表示します。'
+          - other_explain='CDR、MPEG、PSB、tifファイルなどの形式があります。'
           .input-area
             %h5 希望する納品フォーマットを選んでください。 ＊
             %table.table-bordered.table-striped.format-select
               %tr
-                %th Open format
+                %th.explain-popover{:rel=>'popover',:'data-title'=>"#{openformat_title}",:'data-content'=>"#{openformat_explain}" }
+                  = "#{openformat_title}"
                 %th Online
                 %th Print
                 %th Others
               %tr
-                %td= check_box_tag( :sample, 1 )+' PSD (photoshop)'
-                %td= check_box_tag( :sample, 1 )+' JPG'
-                %td= check_box_tag( :sample, 1 )+' PDF'
-                %td= check_box_tag( :sample, 1 )+' Other'
+                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{psd_title}",:'data-content'=>"#{psd_explain}" }
+                  = check_box_tag( :sample, 1 )+"#{psd_title}"
+                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{jpg_title}",:'data-content'=>"#{jpg_explain}" }
+                  = check_box_tag( :sample, 1 )+"#{jpg_title}"
+                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{pdf_title}",:'data-content'=>"#{pdf_explain}" }
+                  = check_box_tag( :sample, 1 )+"#{pdf_title}"
+                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{other_title}",:'data-content'=>"#{other_explain}" }
+                  = check_box_tag( :sample, 1 )+"#{other_title}"
               %tr
-                %td= check_box_tag( :sample, 1 )+' EPS'
-                %td= check_box_tag( :sample, 1 )+' GIF'
+                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{eps_title}",:'data-content'=>"#{eps_explain}" }
+                  = check_box_tag( :sample, 1 )+"#{eps_title}"
+                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{gif_title}",:'data-content'=>"#{gif_explain}" }
+                  = check_box_tag( :sample, 1 )+"#{gif_title}"
                 %td
                 %td
               %tr
-                %td= check_box_tag( :sample, 1 )+' AI (illustrator)'
-                %td= check_box_tag( :sample, 1 )+' PNG'
+                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{ai_title}",:'data-content'=>"#{ai_explain}" }
+                  = check_box_tag( :sample, 1 )+"#{ai_title}"
+                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{png_title}",:'data-content'=>"#{png_explain}" }
+                  = check_box_tag( :sample, 1 )+"#{png_title}"
                 %td
                 %td
               %tr
-                %td= check_box_tag( :sample, 1 )+' indesign'
+                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{indesign_title}",:'data-content'=>"#{indesign_explain}" }
+                  = check_box_tag( :sample, 1 )+"#{indesign_title}"
                 %td
                 %td
                 %td

@@ -70,6 +70,9 @@ hr {
   width: 75px;
   float: left;  
 }
+.remain-time{
+  color: red;
+}
 .contest-prize {
   width: 75px;
   float: left;
