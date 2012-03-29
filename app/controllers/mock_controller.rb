@@ -31,5 +31,6 @@ class MockController < ApplicationController
   end
   def mypage
     @category = params[:category]
+    @works = Mock::Work.all.sample(20)
   end
 end

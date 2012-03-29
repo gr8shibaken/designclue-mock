@@ -34,13 +34,23 @@
                   = current_user.name
                   %b.caret
                 %ul.dropdown-menu
-                  %li= link_to 'お知らせ', '/mock/mypage?category=infomation'
-                  %li= link_to 'メッセージ', '/mock/mypage?category=message'
-                  %li= link_to 'コンテスト管理', '/mock/mypage?category=contest'
-                  %li= link_to 'デザイン管理', '/mock/mypage?category=design'
-                  %li= link_to 'プロフィール', '/mock/mypage?category=profile'
-                  %li{:style=>'border-bottom:1px solid #CCC;'}= link_to 'お気に入り', '/mock/mypage?category=favorite'
-                  %li= link_to 'ログアウト', '/sessions/destroy'
+                  - if current_user.type == 'client'
+                    %li= link_to 'お知らせ', '/mock/mypage?category=infomation'
+                    %li= link_to 'メッセージ', '/mock/mypage?category=message'
+                    %li= link_to 'コンテスト管理', '/mock/mypage?category=contest'
+                    %li= link_to 'デザイン管理', '/mock/mypage?category=design'
+                    %li= link_to 'プロフィール', '/mock/mypage?category=profile'
+                    %li{:style=>'border-bottom:1px solid #CCC;'}= link_to 'お気に入り', '/mock/mypage?category=favorite'
+                    %li= link_to 'ログアウト', '/sessions/destroy'
+                  - else
+                    %li= link_to 'お知らせ', '/mock/mypage?category=infomation'
+                    %li= link_to 'メッセージ', '/mock/mypage?category=message'
+                    %li= link_to 'マイワークス', '/mock/mypage?category=myworks'
+                    %li= link_to 'ポートフォリオ', '/mock/mypage?category=portfolio'
+                    %li= link_to 'プロフィール', '/mock/mypage?category=profile'
+                    %li= link_to 'ウォッチリスト', '/mock/mypage?category=watchlist'
+                    %li{:style=>'border-bottom:1px solid #CCC;'}= link_to 'お気に入り', '/mock/mypage?category=favorite'
+                    %li= link_to 'ログアウト', '/sessions/destroy'
               - else
                 %a{:'data-controls-modal'=>'loginModal',:'data-backdrop'=>'true'} Sign in
             %li.dropdown

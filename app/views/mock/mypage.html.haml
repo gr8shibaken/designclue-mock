@@ -24,22 +24,44 @@
       %a{:href=>'#message', :'data-toggle'=> 'tab'}
         %i.icon-envelope
         %span{:style=>'margin-left:3px;'}メッセージ
-    %li#contest-li
-      %a{:href=>'#contest', :'data-toggle'=> 'tab'}
-        %i.icon-list-alt
-        %span{:style=>'margin-left:3px;'}コンテスト管理
-    %li#design-li
-      %a{:href=>'#design', :'data-toggle'=> 'tab'}
-        %i.icon-picture
-        %span{:style=>'margin-left:3px;'}デザイン管理
-    %li#profile-li
-      %a{:href=>'#profile', :'data-toggle'=> 'tab'}
-        %i.icon-user
-        %span{:style=>'margin-left:3px;'}プロフィール
-    %li#favorite-li
-      %a{:href=>'#favorite', :'data-toggle'=> 'tab'}
-        %i.icon-heart
-        %span{:style=>'margin-left:3px;'}お気に入り
+    - if current_user.type == 'client'
+      %li#contest-li
+        %a{:href=>'#contest', :'data-toggle'=> 'tab'}
+          %i.icon-list-alt
+          %span{:style=>'margin-left:3px;'}コンテスト管理
+      %li#design-li
+        %a{:href=>'#design', :'data-toggle'=> 'tab'}
+          %i.icon-picture
+          %span{:style=>'margin-left:3px;'}デザイン管理
+      %li#profile-li
+        %a{:href=>'#profile', :'data-toggle'=> 'tab'}
+          %i.icon-user
+          %span{:style=>'margin-left:3px;'}プロフィール
+      %li#favorite-li
+        %a{:href=>'#favorite', :'data-toggle'=> 'tab'}
+          %i.icon-heart
+          %span{:style=>'margin-left:3px;'}お気に入り
+    - else
+      %li#myworks-li
+        %a{:href=>'#myworks', :'data-toggle'=> 'tab'}
+          %i.icon-pencil
+          %span{:style=>'margin-left:3px;'}マイワークス
+      %li#portfolio-li
+        %a{:href=>'#portfolio', :'data-toggle'=> 'tab'}
+          %i.icon-list-alt
+          %span{:style=>'margin-left:3px;'}ポートフォリオ
+      %li#profile-li
+        %a{:href=>'#profile', :'data-toggle'=> 'tab'}
+          %i.icon-user
+          %span{:style=>'margin-left:3px;'}プロフィール
+      %li#watchlist-li
+        %a{:href=>'#watchlist', :'data-toggle'=> 'tab'}
+          %i.icon-time
+          %span{:style=>'margin-left:3px;'}ウォッチリスト
+      %li#favorite-li
+        %a{:href=>'#favorite', :'data-toggle'=> 'tab'}
+          %i.icon-heart
+          %span{:style=>'margin-left:3px;'}お気に入り
 .left{:style=>'width:740px;margin-left:30px;'}
   .tab-content
     .tab-pane#infomation
@@ -59,7 +81,11 @@
                 メッセージ
               .clear
             %td Designclue
-            %td コンテストを開催してみませんか？
+            %td
+              - if current_user.type == 'client'
+                コンテストを開催してみませんか？
+              - else
+                デザインを投稿してみませんか？
           %tr
             %td
               .left{:style=>'width:20px;'}
@@ -81,7 +107,11 @@
           %tr
             %td　12/03/12
             %td Designclue
-            %td コンテストを開催してみませんか？
+            %td
+              - if current_user.type == 'client'
+                コンテストを開催してみませんか？
+              - else
+                デザインを投稿してみませんか？
           %tr
             %td　12/03/12
             %td Designclue
@@ -152,4 +182,65 @@
     .tab-pane#favorite      
       %div{:style=>'margin:9px 0px 20px 0px;'}
         %h4 お気に入り
+    .tab-pane#myworks
+      .category-title
+        %h4 マイワークス
+      .category-content
+        %div.tabbable
+          %ul.nav.nav-tabs
+            %li.active
+              %a{:href=>'#contest_index','data-toggle'=>'tab'}= "マイコンテスト"
+            %li
+              %a{:href=>'#design_index','data-toggle'=>'tab'}= "マイデザイン"
+          .tab-content
+            .tab-pane.wrap.active#contest_index
+              %h5 参加コンテスト
+              %table.table.table-striped{:style=>'width:700px;'}
+                %tr
+                  %th{:colspan=>'2',:style=>'text-align:center;'} コンテスト名 
+                  %th{:width=>190,:style=>'text-align:center;'} 作品 No.
+                  %th{:width=>190,:style=>'text-align:center;'} ステータス 
+                - 5.times do |i|
+                  %tr
+                    %td{:style=>'text-align:center;'}
+                      %a.sample-work
+                        = image_tag "/images/mock/contests/#{i+1}-1-square.jpg"
+                    %td{:style=>'text-align:center;vertical-align:middle;'} Logo Webサービス PurpleCow
+                    %td{:style=>'text-align:center;vertical-align:middle;'}
+                      =link_to '#12', '#'
+                      =link_to '#13', '#'
+                      =link_to '#14', '#'
+                    %td{:style=>'text-align:center;vertical-align:middle;'}
+                      - if i<2
+                        = '募集中（残り3時間）'
+                      - else
+                        = '終了'
+              .text-center{:style=>'margin:20px 0px 20px'}
+                =link_to '<', '#', :style=>'margin: 0px 5px;'
+                - 13.times do |i|
+                  =link_to i+1, '#', :style=>'margin: 0px 5px;'
+                =link_to '>', '#', :style=>'margin: 0px 5px;'
+            .tab-pane.wrap#design_index
+              %h5 投稿したデザイン
+              - @works.each do |work|
+                .design.left
+                  .thumbnail-work
+                    %a{:href=>"/mock/job_application?id=#{work.id}"}
+                      = image_tag "/images/mock/contests/#{work.id}-square.jpg"
+                    = check_box_tag(:open,1)+"公開する"
+              .clear
+              .text-center{:style=>'margin:20px 0px 20px'}
+                =link_to '<', '#', :style=>'margin: 0px 5px;'
+                - 13.times do |i|
+                  =link_to i+1, '#', :style=>'margin: 0px 5px;'
+                =link_to '>', '#', :style=>'margin: 0px 5px;'
+
+    .tab-pane#portfolio
+      .category-title
+        %h4 ポートフォリオ
+      .category-content
+    .tab-pane#watchlist
+      .category-title
+        %h4 ウォッチリスト
+      .category-content
 .clear

@@ -1,6 +1,41 @@
+.category-title{
+  margin:9px 0px 20px 0px;
+}
+.category-content{
+  margin-top:10px;
+}
 table.custom {
   border-right: 1px solid #DDD;
   border-left: 1px solid #DDD;
   border-bottom: 1px solid #DDD;
+}
+/*
+.tab-pane .wrap {
+  border-right: 1px solid #DDD;
+  border-left: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+*/
+.sample-work {
+  width: 55px;
+  height: 55px;
+  margin: 5px;
+  border: 1px solid #CCC;
+  float: left;
+}
+.thumbnail-work {
+  width: 75px;
+  height: 75px;
+  margin: 5px;
+  border: 1px solid #CCC;
+  float: left;
+}
+.design {
+  padding: 5px;
+  margin: 5px;
+  height: 100px;
+  width: 120px;
 }
 
