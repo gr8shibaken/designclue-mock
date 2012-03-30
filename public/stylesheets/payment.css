@@ -27,12 +27,12 @@
   padding-top: 10px;
   padding-left: 30px;
   width: 600px;
-  height: 200px;
+  height: 300px;
 }
 .content-wrap .agreement-area .description{
   overflow: scroll;
-  width: 550px;
-  height: 100px;
+  width: 570px;
+  height: 200px;
   margin-top:10px;
   margin-bottom:10px;
   background-color: white;
@@ -42,7 +42,7 @@
   border: solid 1px #CCC;
   padding: 10px;
   width: 250px;
-  height: 865px;
+  height: 965px;
 }
 .paypal {
   margin-top: 20px;
