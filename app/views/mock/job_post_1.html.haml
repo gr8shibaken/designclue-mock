@@ -73,27 +73,28 @@
             %td.prize  ¥15,000
         %a more categories... 
       
-    - creator_title='期待されるクリエイター数'
-    - copyright_title='著作権の保証'
-    - repay_title='返金保証'
-    - highlight_title='ハイライト表示'
-    - mailmagazine_title='メールマガジン'
-    - socialpromotion_title='ソーシャルプロモーション'
-    - creator_15='このプランの場合、過去の統計より、designclueに登録している13573人のクリエイターから、15-30人の参加が予測されます。'
-    - creator_30='このプランの場合、過去の統計より、designclueに登録している13573人のクリエイターから、30-45人の参加が予測されます。'
-    - creator_50='このプランの場合、過去の統計より、designclueに登録している13573人のクリエイターから、50-60人の参加が予測されます。'
-    - copyright='賞金を支払う優秀者のデザインの著作権はすべてあなたが権利を有します。ただデザイナー側には著作者人格権を有します。'
-    - repay='コンテスト終了後、気に入るデザインがない場合には、掲載フィーと決済手数料を差し引いた金額の返金を要求することができます。しかしこの選択を有効化するとクリエイターの投稿数は減る恐れがあります。'
-    - highlight='通常とは違ったハイライトカラーで表示され、注目度が上がります。'
-    - mailmagazine='DesignClueが定期的にクリエイターに送付するメールマガジンに当コンテストをアピールします。投稿率がぐっとアップします。'
-    - socialpromotion='DesignClueのFacebookページとTwitterアカウントより、当コンテストが新しく投稿されたことを知らせます。'
+    - tooltip_data = Mock::Tooltip.tooltip_read
+    - creator_title        =tooltip_data["titles"]["creator_title"]
+    - copyright_title      =tooltip_data["titles"]["copyright_title"]
+    - repay_title          =tooltip_data["titles"]["repay_title"]
+    - highlight_title      =tooltip_data["titles"]["highlight_title"]
+    - mailmagazine_title   =tooltip_data["titles"]["mailmagazine_title"]
+    - socialpromotion_title=tooltip_data["titles"]["socialpromotion_title"]
+    - creator_15           =tooltip_data["explains"]["creator_15"]
+    - creator_30           =tooltip_data["explains"]["creator_30"]
+    - creator_50           =tooltip_data["explains"]["creator_50"]
+    - copyright            =tooltip_data["explains"]["copyright"]
+    - repay                =tooltip_data["explains"]["repay"]
+    - highlight            =tooltip_data["explains"]["highlight"]
+    - mailmagazine         =tooltip_data["explains"]["mailmagazine"]
+    - socialpromotion      =tooltip_data["explains"]["socialpromotion"]
 
     .input-area.select-plan
       %h5 お好みの料金プランはどれですか？ ＊
       .plan-select#prize_pattern1
         %table
           %label
-            %h4 most popular
+            %h4 most popular !!
           %tr
             %td= radio_button_tag(:plan1, 1)+'スタートアッププラン'
             %td= radio_button_tag(:plan1, 2, true)+'ベーシックプラン'
@@ -115,40 +116,54 @@
               %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥4,000
           %tr
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+            %td
               #{creator_title}
               %br
               15人 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_30}" }
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+            %td
               #{creator_title}
               %br
               30人 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_50}" }
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_30}" }
+            %td
               #{creator_title}
               %br
               50人 
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_50}" }
           %tr
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } #{copyright_title}
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } #{copyright_title}
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } #{copyright_title}
-          %tr
-            %td 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
+            - 3.times do
+              %td
+                #{copyright_title}
+                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" }
           %tr
             %td 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
+            -2.times do
+              %td
+                #{repay_title}
+                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" }
+          %tr
+            %td 
+            -2.times do
+              %td
+                #{highlight_title}
+                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" }
           %tr
             %td 
             %td
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" } メールマガジン
+            %td
+              #{mailmagazine_title}  
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" }
           %tr
             %td 
             %td 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" } ソーシャルプロモーション
+            %td
+              #{socialpromotion_title}  
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" }
       .plan-select#prize_pattern2
         %table
+          %label
+            %h4 most popular !!
           %tr
             %td= radio_button_tag(:plan2, 1)+'スタートアッププラン'
             %td= radio_button_tag(:plan2, 2, true)+'ベーシックプラン'
@@ -170,40 +185,54 @@
               %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥5,500
           %tr
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
-              期待されるクリエイター数
+            %td
+              #{creator_title}
               %br
               15人 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_30}" }
-              期待されるクリエイター数
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+            %td
+              #{creator_title}
               %br
               30人 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_50}" }
-              期待されるクリエイター数
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+            %td
+              #{creator_title}
               %br
               50人 
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
           %tr
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
-          %tr
-            %td 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
+            - 3.times do
+              %td
+                #{copyright_title}
+                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" }
           %tr
             %td 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
+            -2.times do
+              %td
+                #{repay_title}
+                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" }
+          %tr
+            %td 
+            -2.times do
+              %td
+                #{highlight_title}
+                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" }
           %tr
             %td 
             %td
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" } メールマガジン
+            %td
+              #{mailmagazine_title}  
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" }
           %tr
             %td 
             %td 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" } ソーシャルプロモーション
+            %td
+              #{socialpromotion_title}  
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" }
       .plan-select#prize_pattern3
         %table
+          %label
+            %h4 most popular !!
           %tr
             %td= radio_button_tag(:plan3, 1)+'スタートアッププラン'
             %td= radio_button_tag(:plan3, 2, true)+'ベーシックプラン'
@@ -225,38 +254,50 @@
               %h5{:style=>'text-align:center;'}＋
               %h3掲載フィー  ¥3,000
           %tr
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
-              期待されるクリエイター数
+            %td
+              #{creator_title}
               %br
               15人 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_30}" }
-              期待されるクリエイター数
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+            %td
+              #{creator_title}
               %br
               30人 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_50}" }
-              期待されるクリエイター数
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+            %td
+              #{creator_title}
               %br
               50人 
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
           %tr
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" } 著作権の保証
-          %tr
-            %td 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" } 返金保証
+            - 3.times do
+              %td
+                #{copyright_title}
+                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" }
           %tr
             %td 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" } ハイライト表示
+            -2.times do
+              %td
+                #{repay_title}
+                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" }
+          %tr
+            %td 
+            -2.times do
+              %td
+                #{highlight_title}
+                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" }
           %tr
             %td 
             %td
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" } メールマガジン
+            %td
+              #{mailmagazine_title}  
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" }
           %tr
             %td 
             %td 
-            %td.explain-popover{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" } ソーシャルプロモーション
+            %td
+              #{socialpromotion_title}  
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" }
 
     .input-area
       %h5 公開範囲はどうしますか？
@@ -314,15 +355,15 @@
   .sidebar-wrap.right
     .explanation-area
     .yourchoice-area
-      %h3 Your choice
+    %h3 Your Choice
     .cart-area.well
-      %h4 ロゴデザイン
+      %h4ロゴデザイン
       %table.table
         %tr
           %td
-            ベーシックプラン
+            ='ベーシックプラン'
             %br
-            （決済手数料 9%含む）
+            ='（決済手数料含む）'
           %td ¥30,000 
         %tr
           %td 掲載フィー

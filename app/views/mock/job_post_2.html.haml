@@ -109,26 +109,27 @@
                 %label.radio= radio_button_tag( :category, "1")+'看板'
                 %label.radio= radio_button_tag( :category, "1")+'その他'
           
-          - openformat_title=' Openformat'
-          - psd_title=' PSD(photoshop)'
-          - eps_title=' EPS'
-          - ai_title=' AI(illustrator)'
-          - indesign_title=' InDesign'
-          - jpg_title=' JPG'
-          - gif_title=' GIF'
-          - png_title=' PNG'
-          - pdf_title=' PDF'
-          - other_title=' その他'
-          - openformat_explain='オープンフォーマットは、変更またはさらなる処理のために特に適しています。それぞれ適切なツールで個々のデザインを加工・変更するために使用することができることができます。'
-          - psd_explain='Adobe Photoshopのグラフィックドキュメントのことです。PSDはレイヤー、チャンネル、スマートオブジェクトの数を可能にするため、他のフォーマットと比較して、ストレージサイズがかなり大きいです。特にWebサイトのテンプレートとして使用されています。'
-          - eps_explain='EPSは、PostScriptによって記述されたベクタ形式の画像データを保存するためのファイル形式です。ロゴの作成に特に適している。 EPSファイルは、多かれ少なかれ、自己完結しており、別のPostScriptドキュメント内に配置することができます。また、彼らはデバイス非依存であり、したがって、異なるハードウェアプラットフォーム（Windows、Macなど）のアプリケーションで見ることができます。'
-          - ai_explain='Adobe Illustratorファイルで、ベクトルベースのグラフィックスです。ピクセルグラフィックとは対照的に、品質の損失なしで可能な限り最高の解像度で表示され、最高の解像度で印刷することができます。'
-          - indesign_explain='InDesignファイルは、チラシ、広告、パンフレットなど多くの印刷プロジェクトを作成するためのレイアウトファイルです。ドキュメント内の複数のページやレイヤーを作成することができます。'
-          - jpg_explain='JPEG画像は、ピクセルベースのグラフィックで、Webグラフィックと写真のようなイメージのために特に適しています。彼らはハードの色でテキストやグラフィックスには適さない。 JPEGは画像圧縮のために特に効率的です。'
-          - gif_explain='GIFグラフィックスインターチェンジ形式で、低色深度を持つ画像（フレーム当たり最大256の異なる色）に特に便利です。したがって、写真の形式は不向きである。しかし、GIFファイルはブラウザがアニメーション化することができる、ファイル内の複数のフレームを持つことができます。これはバナーと小さい画像に有利なことができます。'
-          - png_explain='PNGは、アルファチャネルを介して透明度をサポートし、また、異なる色深度をサポートしています。 PNGはGIF形式の改良開発ですが、アニメーションをサポートしていません。'
-          - pdf_explain='Portable Document Formatのことです。すべてのプラットフォーム上で、元のフォイルに忠実に生成されたレイアウトを表示します。'
-          - other_explain='CDR、MPEG、PSB、tifファイルなどの形式があります。'
+          - tooltip_data = Mock::Tooltip.tooltip_read
+          - openformat_title  =tooltip_data["titles"]["openformat_title"]
+          - psd_title         =tooltip_data["titles"]["psd_title"]
+          - eps_title         =tooltip_data["titles"]["eps_title"]
+          - ai_title          =tooltip_data["titles"]["ai_title"]
+          - indesign_title    =tooltip_data["titles"]["indesign_title"]
+          - jpg_title         =tooltip_data["titles"]["jpg_title"]
+          - gif_title         =tooltip_data["titles"]["gif_title"]
+          - png_title         =tooltip_data["titles"]["png_title"]
+          - pdf_title         =tooltip_data["titles"]["pdf_title"]
+          - other_title       =tooltip_data["titles"]["other_title"]
+          - openformat_explain=tooltip_data["explains"]["other_explain"]
+          - psd_explain       =tooltip_data["explains"]["psd_explain"]
+          - eps_explain       =tooltip_data["explains"]["eps_explain"]
+          - ai_explain        =tooltip_data["explains"]["ai_explain"]
+          - indesign_explain  =tooltip_data["explains"]["indesign_explain"]
+          - jpg_explain       =tooltip_data["explains"]["jpg_explain"]
+          - gif_explain       =tooltip_data["explains"]["gif_explain"]
+          - png_explain       =tooltip_data["explains"]["png_explain"]
+          - pdf_explain       =tooltip_data["explains"]["pdf_explain"]
+          - other_explain     =tooltip_data["explains"]["other_explain"]
           .input-area
             %h5 希望する納品フォーマットを選んでください。 ＊
             %table.table-bordered.table-striped.format-select
@@ -139,31 +140,40 @@
                 %th Print
                 %th Others
               %tr
-                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{psd_title}",:'data-content'=>"#{psd_explain}" }
+                %td
                   = check_box_tag( :sample, 1 )+"#{psd_title}"
-                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{jpg_title}",:'data-content'=>"#{jpg_explain}" }
+                  .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{psd_title}",:'data-content'=>"#{psd_explain}" }
+                %td
                   = check_box_tag( :sample, 1 )+"#{jpg_title}"
-                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{pdf_title}",:'data-content'=>"#{pdf_explain}" }
+                  .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{jpg_title}",:'data-content'=>"#{jpg_explain}" }
+                %td
                   = check_box_tag( :sample, 1 )+"#{pdf_title}"
-                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{other_title}",:'data-content'=>"#{other_explain}" }
+                  .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{pdf_title}",:'data-content'=>"#{pdf_explain}" }
+                %td
                   = check_box_tag( :sample, 1 )+"#{other_title}"
+                  .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{other_title}",:'data-content'=>"#{other_explain}" }
               %tr
-                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{eps_title}",:'data-content'=>"#{eps_explain}" }
+                %td
                   = check_box_tag( :sample, 1 )+"#{eps_title}"
-                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{gif_title}",:'data-content'=>"#{gif_explain}" }
+                  .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{eps_title}",:'data-content'=>"#{eps_explain}" }
+                %td
                   = check_box_tag( :sample, 1 )+"#{gif_title}"
+                  .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{gif_title}",:'data-content'=>"#{gif_explain}" }
                 %td
                 %td
               %tr
-                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{ai_title}",:'data-content'=>"#{ai_explain}" }
+                %td
                   = check_box_tag( :sample, 1 )+"#{ai_title}"
-                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{png_title}",:'data-content'=>"#{png_explain}" }
+                  .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{ai_title}",:'data-content'=>"#{ai_explain}" }
+                %td
                   = check_box_tag( :sample, 1 )+"#{png_title}"
+                  .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{png_title}",:'data-content'=>"#{png_explain}" }
                 %td
                 %td
               %tr
-                %td.explain-popover{:rel=>'popover',:'data-title'=>"#{indesign_title}",:'data-content'=>"#{indesign_explain}" }
+                %td
                   = check_box_tag( :sample, 1 )+"#{indesign_title}"
+                  .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{indesign_title}",:'data-content'=>"#{indesign_explain}" }
                 %td
                 %td
                 %td
@@ -193,9 +203,9 @@
               .freeinput
                 - 3.times do
                   .form-inline
-                    %i= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
+                    %i.left= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
                     %label #
-                    %input{:type=>'text', :style => 'width:100px', :placeholder => "cccc00"}   
+                    %input{:type=>'text',:style=>'width:100px; margin-bottom:5px;',:placeholder=>"cccc00"}   
           
           .input-area
             %h5 できれば入れて欲しいパーツ・モノは何ですか？ ＊
@@ -299,6 +309,5 @@
       %a.next.btn.btn-inverse{:href => '/mock/confirm'}= '確認へ'
     
   .sidebar-wrap.right
-    .explanation-area.well
-      説明エリア 
+    .explanation-area
 

@@ -1,29 +1,15 @@
 = content_for :head do
   = javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js'
   = stylesheet_link_tag "/stylesheets/top.css"
-  :javascript
+
+  - 6.times do |id|
+    :javascript
       $(function() {
-        $("#posts1").jCarouselLite({
-          btnNext: "#next1",
-          btnPrev: "#prev1",
+        $("#posts#{id+1}").jCarouselLite({
+          btnNext: "#next#{id+1}",
+          btnPrev: "#prev#{id+1}",
           visible: 7
         });
-        $("#posts2").jCarouselLite({
-          btnNext: "#next2",
-          btnPrev: "#prev2",
-          visible: 7
-        });
-        $("#posts3").jCarouselLite({
-          btnNext: "#next3",
-          btnPrev: "#prev3",
-          visible: 7
-        });
-        $("#posts4").jCarouselLite({
-          btnNext: "#next4",
-          btnPrev: "#prev4",
-          visible: 7
-        });
-        
       });
 .categories-container
   %h3 人気カテゴリー
@@ -78,7 +64,7 @@
         .lane
         .clear
   %hr
-- 4.times do |id|
+- 6.times do |id|
   .contest-lane
     - contest = Mock::Contest.find(id+1)
     .header

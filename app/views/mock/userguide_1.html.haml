@@ -4,12 +4,12 @@
 .wrap
   %h3.title 利用ガイド
   .index-area
+    %span{:style=>"margin-right:20px;"}
+      %a{:href=>"#for_client"}= 'クライアントの方'
     %span
-      %a= 'クライアントの方'
-    %span
-      %a= 'クリエイターの方'
+      %a{:href=>"#for_creator"}= 'クリエイターの方'
   .content-area
-    .subtitle クライアント編
+    .subtitle#for_client クライアント編
     .description-area
       .explain-text
         STEP1 トップページの”デザインを依頼する”ボタンより、依頼フォーマットへ進みます。
@@ -19,6 +19,6 @@
         STEP2 依頼するデザインカテゴリーを選択した後、プラン選択へ進みます。
       .img= image_tag '/images/mock/userguide/guide2.png', :size=>'600x300'
   .content-area
-    .subtitle クリエイター編
+    .subtitle#for_creator クリエイター編
     coming soon...
 
