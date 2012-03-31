@@ -10,9 +10,15 @@
   .modal-header
     %a.close{:'data-dismiss'=>"modal"}×
     %h3 Sign in
-  .modal-body 
+  .modal-body{:style=>'margin-bottom:10px;'} 
+    %a#signupBtn.btn.btn-primary.pull-right 新規アカウントを作成
     %input#postUserName.span3{:type=>'text',:placeholder=>'UserName'}
     %br
     %input.span3{:type=>'text',:placeholder=>'PassWord'}
+    %br
+    .pull-left= check_box_tag(:option, 1)+'パスワードを保存する'
   .modal-footer
-    %a#postLoginBtn.btn-primary.btn-large.pull-right Login
+    .left
+      %a#postLoginBtn.btn.btn-primary ログイン
+    .right
+      %a パスワードを忘れた方へ

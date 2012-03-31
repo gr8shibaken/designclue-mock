@@ -227,13 +227,15 @@
                   .thumbnail-work
                     %a{:href=>"/mock/job_application?id=#{work.id}"}
                       = image_tag "/images/mock/contests/#{work.id}-square.jpg"
-                    = check_box_tag(:open,1)+"公開する"
+                    = check_box_tag(:open,1,true)+"公開する"
               .clear
               .text-center{:style=>'margin:20px 0px 20px'}
                 =link_to '<', '#', :style=>'margin: 0px 5px;'
                 - 13.times do |i|
                   =link_to i+1, '#', :style=>'margin: 0px 5px;'
                 =link_to '>', '#', :style=>'margin: 0px 5px;'
+              .btn{:style=>'margin-left:530px;'}
+                公開設定を保存する
 
     .tab-pane#portfolio
       .category-title
