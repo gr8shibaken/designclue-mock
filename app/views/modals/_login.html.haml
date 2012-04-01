@@ -11,7 +11,8 @@
     %a.close{:'data-dismiss'=>"modal"}×
     %h3 Sign in
   .modal-body{:style=>'margin-bottom:10px;'} 
-    %a#signupBtn.btn.btn-primary.pull-right 新規アカウントを作成
+    %a#signupBtn.btn.btn-primary.pull-right{:href=>'/users/new'} 新規アカウントを作成
+    %br
     %input#userName.span3{:type=>'text',:placeholder=>'UserName'}
     %br
     %input.span3{:type=>'text',:placeholder=>'PassWord'}

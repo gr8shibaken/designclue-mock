@@ -31,10 +31,10 @@
             %li.dropdown
               - if signed_in
                 %a.dropdown-toggle{:'data-toggle'=>"dropdown", :href => "#"}
-                  = current_user.name
+                  = current_user.username
                   %b.caret
                 %ul.dropdown-menu
-                  - if current_user.type == 'client'
+                  - if current_user.usertype == 'client'
                     %li= link_to 'お知らせ', '/mock/mypage?category=infomation'
                     %li= link_to 'メッセージ', '/mock/mypage?category=message'
                     %li= link_to 'コンテスト管理', '/mock/mypage?category=contest'

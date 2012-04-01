@@ -1,18 +1,31 @@
-%p#notice= notice
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/users.css"
+.wrap
+  %p#notice= notice
 
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Password:
-  = @user.password
-%p
-  %b Nationality:
-  = @user.nationality
-%p
-  %b Type:
-  = @user.type
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+  %table.table
+    %tr
+      %td{:width=>150} アカウントタイプ：
+      %td= @user.usertype
+    %tr
+      %td ユーザー名:
+      %td= @user.username
+    %tr
+      %td パスワード:
+      %td= @user.password
+    %tr
+      %td メールアドレス:
+      %td= @user.email
+    %tr
+      %td 国籍:
+      %td= @user.nationality
+    %tr
+      %td 姓:
+      %td= @user.lastname
+    %tr
+      %td 名:
+      %td= @user.firstname
+  %h4 世界中にデザインを募集しよう！！ 
+  .btn-area
+    %a.btn.btn-info{:href=>'/mock/job_post_1'}='デザインを依頼する'
+    %a.btn.btn-info{:href=>'/mock/designer_index'}='クリエイターを探す'

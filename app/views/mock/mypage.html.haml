@@ -24,7 +24,7 @@
       %a{:href=>'#message', :'data-toggle'=> 'tab'}
         %i.icon-envelope
         %span{:style=>'margin-left:3px;'}メッセージ
-    - if current_user.type == 'client'
+    - if current_user.usertype == 'client'
       %li#contest-li
         %a{:href=>'#contest', :'data-toggle'=> 'tab'}
           %i.icon-list-alt
@@ -82,7 +82,7 @@
               .clear
             %td Designclue
             %td
-              - if current_user.type == 'client'
+              - if current_user.usertype == 'client'
                 コンテストを開催してみませんか？
               - else
                 デザインを投稿してみませんか？
@@ -108,7 +108,7 @@
             %td　12/03/12
             %td Designclue
             %td
-              - if current_user.type == 'client'
+              - if current_user.usertype == 'client'
                 コンテストを開催してみませんか？
               - else
                 デザインを投稿してみませんか？

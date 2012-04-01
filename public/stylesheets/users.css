@@ -1,0 +1,17 @@
+.wrap{
+  margin:auto;
+  width: 600px;
+  height: 650px;
+}
+.select-type{
+  margin: 10px 0px 10px 0px;
+  padding: 10px 0px 10px 10px;
+  border: solid 1px #CCC;
+}
+.input-area{
+  padding: 10px 0px 10px 10px;
+  border: solid 1px #CCC;
+}
+.btn-area{
+  margin-top: 10px;
+}

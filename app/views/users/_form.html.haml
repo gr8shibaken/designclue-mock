@@ -1,22 +1,44 @@
 = form_for @user do |f|
-  -if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :password
-    = f.text_field :password
-  .field
-    = f.label :nationality
-    = f.text_field :nationality
-  .field
-    = f.label :type
-    = f.text_field :type
-  .actions
-    = f.submit 'Save'
+  .wrap
+    -if @user.errors.any?
+      #error_explanation{:style=>'color:red;'}
+        %h2= "#{pluralize(@user.errors.count, "error")} "
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+    %h3 新規アカウント登録
+    .select-type
+      %h5 アカウントタイプを選んでください。
+      .field
+        = f.radio_button(:usertype,'client',{:checked=>true})+" クライアント"
+        = f.radio_button(:usertype,'creator')+" クリエイター"
+    .input-area
+      %h5 必要事項を記入してください。
+      %table{:style=>'margin:10px 0px 10px 10px;'}
+        %tr
+          %td ユーザー名*
+          %td.field
+            = f.text_field :username
+        %tr
+          %td メールアドレス*
+          %td.field
+            = f.email_field :email
+        %tr
+          %td パスワード*
+          %td.field
+            = f.password_field :password
+        %tr
+          %td 国籍*
+          %td.field
+            = f.select(:nationality, ['米国','日本','韓国','北朝鮮','イギリス','フランス','イタリア','ドイツ'])
+        %tr
+          %td 姓
+          %td.field
+            = f.text_field :lastname
+        %tr
+          %td 名
+          %td.field
+            = f.text_field :firstname
+      =check_box_tag("agree",1)+" DesignClueの利用規約とプライバシーポリシーに同意する"
+      .actions{:style=>"margin:10px 0 0 150px;"}
+        = f.submit '登録', :class=>"btn",:class=>"btn-info"

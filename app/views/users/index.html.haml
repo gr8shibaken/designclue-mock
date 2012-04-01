@@ -5,17 +5,17 @@
     %th Name
     %th Password
     %th Nationality
-    %th Type
+    %th Usertype
     %th
     %th
     %th
 
   - @users.each do |user|
     %tr
-      %td= user.name
+      %td= user.username
       %td= user.password
       %td= user.nationality
-      %td= user.type
+      %td= user.usertype
       %td= link_to 'Show', user
       %td= link_to 'Edit', edit_user_path(user)
       %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
