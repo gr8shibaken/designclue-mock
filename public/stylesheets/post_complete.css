@@ -1,0 +1,28 @@
+.wrap {
+  margin: auto;
+  width: 800px;
+  height: 400px;
+}
+.wrap ul li {
+  color: darkgray;
+}
+.wrap ul li.active{
+  color: dodgerblue;
+}
+.message-area{
+  margin: 150px 0 150px 0;
+  text-align: center;
+}
+.btn-area{
+  margin-top: 10px;
+}
+.btn-area .previous{
+  margin-left: 180px;
+}
+.btn-area .next{
+  margin-left: 80px;
+}
+.cart-area {
+  margin-left: 5px;
+  width: 440px;
+}

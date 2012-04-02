@@ -33,344 +33,326 @@
 
 .wrap
   %ul.breadcrumb
-    %li.active
-      1. カテゴリ/プラン選択
-      %span.divider ｜
-    %li 
-      2. コンテスト情報入力
-      %span.divider ｜
-    %li 
-      3. 内容確認
-      %span.divider ｜
-    %li
-      4. 決済
-
-  .content-wrap.left
-    %h3 1. カテゴリ/プラン選択
-    .input-area
-      %h5 あなたはどのデザインが必要ですか？ ＊
-      .select-category
-        %table.table
-          %tr
-            %td.category-name= radio_button_tag( :category, "1_1", true )+'ロゴデザイン'
-            %td.prize ¥20,000
-            %td.category-name= radio_button_tag( :category, "3_1" )+'名刺デザイン'
-            %td.prize ¥15,000
-          %tr
-            %td.category-name= radio_button_tag( :category, "1_2")+'イラストレーション'
-            %td.prize  ¥20,000
-            %td.category-name= radio_button_tag( :category, "3_2" )+'ブックカバー'
-            %td.prize  ¥15,000
-          %tr
-            %td.category-name= radio_button_tag( :category, "2_1")+'フライヤーデザイン'
-            %td.prize  ¥35,000
-            %td.category-name= radio_button_tag( :category, "3_3" )+'バナー'
-            %td.prize  ¥15,000
-          %tr
-            %td.category-name= radio_button_tag( :category, "1_3")+'iPhone/Androidアイコン'
-            %td.prize  ¥20,000
-            %td.category-name= radio_button_tag( :category, "3_4" )+'その他'
-            %td.prize  ¥15,000
-        %a more categories... 
-      
-    - tooltip_data = Mock::Tooltip.tooltip_read
-    - creator_title        =tooltip_data["titles"]["creator_title"]
-    - copyright_title      =tooltip_data["titles"]["copyright_title"]
-    - repay_title          =tooltip_data["titles"]["repay_title"]
-    - highlight_title      =tooltip_data["titles"]["highlight_title"]
-    - mailmagazine_title   =tooltip_data["titles"]["mailmagazine_title"]
-    - socialpromotion_title=tooltip_data["titles"]["socialpromotion_title"]
-    - creator_15           =tooltip_data["explains"]["creator_15"]
-    - creator_30           =tooltip_data["explains"]["creator_30"]
-    - creator_50           =tooltip_data["explains"]["creator_50"]
-    - copyright            =tooltip_data["explains"]["copyright"]
-    - repay                =tooltip_data["explains"]["repay"]
-    - highlight            =tooltip_data["explains"]["highlight"]
-    - mailmagazine         =tooltip_data["explains"]["mailmagazine"]
-    - socialpromotion      =tooltip_data["explains"]["socialpromotion"]
-
-    .input-area.select-plan
-      %h5 お好みの料金プランはどれですか？ ＊
-      .plan-select#prize_pattern1
-        %table
-          %label
-            %h4 most popular !!
-          %tr
-            %td= radio_button_tag(:plan1, 1)+'スタートアッププラン'
-            %td= radio_button_tag(:plan1, 2, true)+'ベーシックプラン'
-            %td= radio_button_tag(:plan1, 3)+'プレミアムプラン'
-          %tr
-            %td 
-              %h3賞金 ¥20,000 
-              %h5（決済手数料9%含む）
-              %h5{:style=>'text-align:center;'}＋
-              %h3掲載フィー ¥2,500
-            %td 
-              %h3賞金  ¥30,000 
-              %h5（決済手数料9%含む）
-              %h5{:style=>'text-align:center;'}＋
-              %h3掲載フィー  ¥3,000
-            %td 
-              %h3賞金  ¥50,000 
-              %h5（決済手数料9%含む）
-              %h5{:style=>'text-align:center;'}＋
-              %h3掲載フィー  ¥4,000
-          %tr
-            %td
-              #{creator_title}
-              %br
-              15人 
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
-            %td
-              #{creator_title}
-              %br
-              30人 
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_30}" }
-            %td
-              #{creator_title}
-              %br
-              50人 
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_50}" }
-          %tr
-            - 3.times do
-              %td
-                #{copyright_title}
-                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" }
-          %tr
-            %td 
-            -2.times do
-              %td
-                #{repay_title}
-                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" }
-          %tr
-            %td 
-            -2.times do
-              %td
-                #{highlight_title}
-                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" }
-          %tr
-            %td 
-            %td
-            %td
-              #{mailmagazine_title}  
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" }
-          %tr
-            %td 
-            %td 
-            %td
-              #{socialpromotion_title}  
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" }
-      .plan-select#prize_pattern2
-        %table
-          %label
-            %h4 most popular !!
-          %tr
-            %td= radio_button_tag(:plan2, 1)+'スタートアッププラン'
-            %td= radio_button_tag(:plan2, 2, true)+'ベーシックプラン'
-            %td= radio_button_tag(:plan2, 3)+'プレミアムプラン'
-          %tr
-            %td 
-              %h3賞金  ¥35,000 
-              %h5（決済手数料9%含む）
-              %h5{:style=>'text-align:center;'}＋
-              %h3掲載フィー  ¥4,000
-            %td 
-              %h3賞金  ¥50,000 
-              %h5（決済手数料9%含む）
-              %h5{:style=>'text-align:center;'}＋
-              %h3掲載フィー  ¥5,000
-            %td 
-              %h3賞金  ¥65,000 
-              %h5（決済手数料9%含む）
-              %h5{:style=>'text-align:center;'}＋
-              %h3掲載フィー  ¥5,500
-          %tr
-            %td
-              #{creator_title}
-              %br
-              15人 
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
-            %td
-              #{creator_title}
-              %br
-              30人 
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
-            %td
-              #{creator_title}
-              %br
-              50人 
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
-          %tr
-            - 3.times do
-              %td
-                #{copyright_title}
-                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" }
-          %tr
-            %td 
-            -2.times do
-              %td
-                #{repay_title}
-                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" }
-          %tr
-            %td 
-            -2.times do
-              %td
-                #{highlight_title}
-                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" }
-          %tr
-            %td 
-            %td
-            %td
-              #{mailmagazine_title}  
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" }
-          %tr
-            %td 
-            %td 
-            %td
-              #{socialpromotion_title}  
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" }
-      .plan-select#prize_pattern3
-        %table
-          %label
-            %h4 most popular !!
-          %tr
-            %td= radio_button_tag(:plan3, 1)+'スタートアッププラン'
-            %td= radio_button_tag(:plan3, 2, true)+'ベーシックプラン'
-            %td= radio_button_tag(:plan3, 3)+'プレミアムプラン'
-          %tr
-            %td 
-              %h3賞金  ¥15,000 
-              %h5（決済手数料9%含む）
-              %h5{:style=>'text-align:center;'}＋
-              %h3掲載フィー  ¥1,800
-            %td 
-              %h3賞金  ¥20,000 
-              %h5（決済手数料9%含む）
-              %h5{:style=>'text-align:center;'}＋
-              %h3掲載フィー  ¥2,000
-            %td 
-              %h3賞金  ¥35,000 
-              %h5（決済手数料9%含む）
-              %h5{:style=>'text-align:center;'}＋
-              %h3掲載フィー  ¥3,000
-          %tr
-            %td
-              #{creator_title}
-              %br
-              15人 
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
-            %td
-              #{creator_title}
-              %br
-              30人 
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
-            %td
-              #{creator_title}
-              %br
-              50人 
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
-          %tr
-            - 3.times do
-              %td
-                #{copyright_title}
-                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" }
-          %tr
-            %td 
-            -2.times do
-              %td
-                #{repay_title}
-                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" }
-          %tr
-            %td 
-            -2.times do
-              %td
-                #{highlight_title}
-                %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" }
-          %tr
-            %td 
-            %td
-            %td
-              #{mailmagazine_title}  
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" }
-          %tr
-            %td 
-            %td 
-            %td
-              #{socialpromotion_title}  
-              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" }
-
-    .input-area
-      %h5 公開範囲はどうしますか？
-      #scope
-        %table
-          %tr
-            %td= radio_button_tag(:scope, 1, true)+'標準設定'
-            %td= radio_button_tag(:scope, 1,)+'クローズ設定'
-            %td= radio_button_tag(:scope, 1,)+'シークレット設定'
-          %tr
-            %td
-              %h3{:style=>'text-align:center;'} Free
-            %td
-              %h3{:style=>'text-align:center;'} +¥2,000
-            %td
-              %h3{:style=>'text-align:center;'} +¥5,000
-          %tr
-            %td= 'すべてのユーザーに公開'
-            %td= '非会員ユーザーには非公開'
-            %td= '非会員ユーザーには非公開'
-          %tr
-            %td
-            %td= '閲覧するには秘密保持へ同意が必要'
-            %td= '閲覧するには秘密保持へ同意が必要'
-          %tr
-            %td
-            %td
-            %td= 'デザインは締切まで完全非公開'
-
-    .input-area
-      %h5 オプションは必要ですか？
-      #option
-        %table
-          %tr
-            %td= check_box_tag(:option, 1)+'早期終了オプション'
-            %td= check_box_tag(:option, 1)+'急募オプション'
-          %tr
-            %td
-              %h3{:style=>'text-align:center;'} +¥2,000
-            %td
-              %h3{:style=>'text-align:center;'} +¥3,000
-          %tr
-            %td= '終了時刻前に募集を締め切ることができる'
-            %td= '急募ステイタスが表示される'
-          %tr
-            %td= 'レスポンスの早いクリエイターが集まることが期待されます'
-            %td= 'トップページに表示される'
-          %tr
-            %td
-            %td= '開始3日間で100のデザインが応募されることが期待されます'
-    - if signed_in
-      %a.btn-area.btn.btn-inverse{:href => '/mock/job_post_2'}= '次へ'
-    - else
-      %a.btn-area.btn.btn-inverse{:'data-controls-modal'=>'postLoginModal',:'data-backdrop'=>'true'} 次へ
-  .sidebar-wrap.right
-    .explanation-area
-    .yourchoice-area
-    %h3 Your Choice
-    .cart-area.well
-      %h4ロゴデザイン
+    %li.active 1. カテゴリ/プラン選択
+    %span.divider ｜
+    %li 2. 依頼内容の入力
+    %span.divider ｜
+    %li 3. 依頼内容の確認
+    %span.divider ｜
+    %li 4. 支払方法の選択
+    %span.divider ｜
+    %li 5.支払内容の確認
+    %span.divider ｜
+    %li 6.完了
+  %h3 1. カテゴリ/プラン選択
+  .input-area
+    %h5 あなたはどのデザインが必要ですか？ ＊
+    .select-category
       %table.table
         %tr
+          %td.category-name= radio_button_tag( :category, "1_1", true )+' ロゴデザイン'
+          %td.prize ¥20,000~
+          %td.category-name= radio_button_tag( :category, "3_1" )+' 名刺デザイン'
+          %td.prize ¥15,000~
+        %tr
+          %td.category-name= radio_button_tag( :category, "1_2")+' イラストレーション'
+          %td.prize  ¥20,000~
+          %td.category-name= radio_button_tag( :category, "3_2" )+' ブックカバー'
+          %td.prize  ¥15,000~
+        %tr
+          %td.category-name= radio_button_tag( :category, "2_1")+' 書道'
+          %td.prize  ¥35,000~
+          %td.category-name= radio_button_tag( :category, "3_3" )+' バナー'
+          %td.prize  ¥15,000~
+        %tr
+          %td.category-name= radio_button_tag( :category, "1_3")+' iPhoneアプリアイコン'
+          %td.prize  ¥20,000~
+          %td.category-name= radio_button_tag( :category, "1_4" )+' その他'
+          %td.prize  ¥20,000~
+    
+  - tooltip_data = Mock::Tooltip.tooltip_read
+  - creator_title        =tooltip_data["titles"]["creator_title"]
+  - copyright_title      =tooltip_data["titles"]["copyright_title"]
+  - repay_title          =tooltip_data["titles"]["repay_title"]
+  - highlight_title      =tooltip_data["titles"]["highlight_title"]
+  - mailmagazine_title   =tooltip_data["titles"]["mailmagazine_title"]
+  - socialpromotion_title=tooltip_data["titles"]["socialpromotion_title"]
+  - creator_15           =tooltip_data["explains"]["creator_15"]
+  - creator_30           =tooltip_data["explains"]["creator_30"]
+  - creator_50           =tooltip_data["explains"]["creator_50"]
+  - copyright            =tooltip_data["explains"]["copyright"]
+  - repay                =tooltip_data["explains"]["repay"]
+  - highlight            =tooltip_data["explains"]["highlight"]
+  - mailmagazine         =tooltip_data["explains"]["mailmagazine"]
+  - socialpromotion      =tooltip_data["explains"]["socialpromotion"]
+
+  .input-area.select-plan
+    %h5 ご希望の料金プランはどれですか？ ＊
+    .plan-select#prize_pattern1
+      %table
+        %label
+          %h4 most popular !!
+        %tr
+          %td= radio_button_tag(:plan1, 1)+'スタートアッププラン'
+          %td= radio_button_tag(:plan1, 2, true)+'ベーシックプラン'
+          %td= radio_button_tag(:plan1, 3)+'プレミアムプラン'
+        %tr
+          %td 
+            %h3報酬 ¥20,000 
+            %h5{:style=>'text-align:center;'}＋
+            %h3掲載手数料 ¥2,500
+          %td 
+            %h3報酬  ¥30,000 
+            %h5{:style=>'text-align:center;'}＋
+            %h3掲載手数料  ¥3,000
+          %td 
+            %h3報酬  ¥50,000 
+            %h5{:style=>'text-align:center;'}＋
+            %h3掲載手数料  ¥4,000
+        %tr
           %td
-            ='ベーシックプラン'
+            #{creator_title}
             %br
-            ='（決済手数料含む）'
-          %td ¥30,000 
+            15人 
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+          %td
+            #{creator_title}
+            %br
+            30人 
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_30}" }
+          %td
+            #{creator_title}
+            %br
+            50人 
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_50}" }
         %tr
-          %td 掲載フィー
-          %td ¥3,000 
+          - 3.times do
+            %td
+              #{copyright_title}
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" }
         %tr
-          %td シークレット設定
-          %td ¥5,000
+          %td 
+          -2.times do
+            %td
+              #{repay_title}
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" }
+        %tr
+          %td 
+          -2.times do
+            %td
+              #{highlight_title}
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" }
+        %tr
+          %td 
+          %td
+          %td
+            #{mailmagazine_title}  
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" }
+        %tr
+          %td 
+          %td 
+          %td
+            #{socialpromotion_title}  
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" }
+    .plan-select#prize_pattern2
+      %table
+        %label
+          %h4 most popular !!
+        %tr
+          %td= radio_button_tag(:plan2, 1)+'スタートアッププラン'
+          %td= radio_button_tag(:plan2, 2, true)+'ベーシックプラン'
+          %td= radio_button_tag(:plan2, 3)+'プレミアムプラン'
+        %tr
+          %td 
+            %h3報酬  ¥35,000 
+            %h5{:style=>'text-align:center;'}＋
+            %h3掲載手数料  ¥4,000
+          %td 
+            %h3報酬  ¥50,000 
+            %h5{:style=>'text-align:center;'}＋
+            %h3掲載手数料  ¥5,000
+          %td 
+            %h3報酬  ¥65,000 
+            %h5{:style=>'text-align:center;'}＋
+            %h3掲載手数料  ¥5,500
+        %tr
+          %td
+            #{creator_title}
+            %br
+            15人 
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+          %td
+            #{creator_title}
+            %br
+            30人 
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+          %td
+            #{creator_title}
+            %br
+            50人 
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+        %tr
+          - 3.times do
+            %td
+              #{copyright_title}
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" }
+        %tr
+          %td 
+          -2.times do
+            %td
+              #{repay_title}
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" }
+        %tr
+          %td 
+          -2.times do
+            %td
+              #{highlight_title}
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" }
+        %tr
+          %td 
+          %td
+          %td
+            #{mailmagazine_title}  
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" }
+        %tr
+          %td 
+          %td 
+          %td
+            #{socialpromotion_title}  
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" }
+    .plan-select#prize_pattern3
+      %table
+        %label
+          %h4 most popular !!
+        %tr
+          %td= radio_button_tag(:plan3, 1)+'スタートアッププラン'
+          %td= radio_button_tag(:plan3, 2, true)+'ベーシックプラン'
+          %td= radio_button_tag(:plan3, 3)+'プレミアムプラン'
+        %tr
+          %td 
+            %h3報酬  ¥15,000 
+            %h5{:style=>'text-align:center;'}＋
+            %h3掲載手数料  ¥1,800
+          %td 
+            %h3報酬  ¥20,000 
+            %h5{:style=>'text-align:center;'}＋
+            %h3掲載手数料  ¥2,000
+          %td 
+            %h3報酬  ¥35,000 
+            %h5{:style=>'text-align:center;'}＋
+            %h3掲載手数料  ¥3,000
+        %tr
+          %td
+            #{creator_title}
+            %br
+            15人 
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+          %td
+            #{creator_title}
+            %br
+            30人 
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+          %td
+            #{creator_title}
+            %br
+            50人 
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{creator_title}",:'data-content'=>"#{creator_15}" }
+        %tr
+          - 3.times do
+            %td
+              #{copyright_title}
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{copyright_title}",:'data-content'=>"#{copyright}" }
+        %tr
+          %td 
+          -2.times do
+            %td
+              #{repay_title}
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{repay_title}",:'data-content'=>"#{repay}" }
+        %tr
+          %td 
+          -2.times do
+            %td
+              #{highlight_title}
+              %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{highlight_title}",:'data-content'=>"#{highlight}" }
+        %tr
+          %td 
+          %td
+          %td
+            #{mailmagazine_title}  
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{mailmagazine_title}",:'data-content'=>"#{mailmagazine}" }
+        %tr
+          %td 
+          %td 
+          %td
+            #{socialpromotion_title}  
+            %div.explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{socialpromotion_title}",:'data-content'=>"#{socialpromotion}" }
+
+  .input-area
+    %h5 公開範囲はどうしますか？
+    #scope
+      %table
+        %tr
+          %td= radio_button_tag(:scope, 1, true)+'標準設定'
+          %td= radio_button_tag(:scope, 1,)+'クローズ設定'
+          %td= radio_button_tag(:scope, 1,)+'シークレット設定'
+        %tr
+          %td
+            %h3{:style=>'text-align:center;'} Free
+          %td
+            %h3{:style=>'text-align:center;'} +¥2,000
+          %td
+            %h3{:style=>'text-align:center;'} +¥5,000
+        %tr
+          %td= 'すべてのユーザーに公開'
+          %td= '非会員ユーザーには非公開'
+          %td= '非会員ユーザーには非公開'
+        %tr
+          %td
+          %td= '閲覧するには秘密保持契約に同意が必要'
+          %td= '閲覧するには秘密保持契約に同意が必要'
+        %tr
+          %td
+          %td
+          %td= 'デザインは締切まで完全非公開'
+
+  .input-area
+    %h5 オプションは必要ですか？
+    #option
+      %table
+        %tr
+          %td= check_box_tag(:option, 1)+'早期終了オプション'
+          %td= check_box_tag(:option, 1)+'急募オプション'
+        %tr
+          %td
+            %h3{:style=>'text-align:center;'} +¥2,000
+          %td
+            %h3{:style=>'text-align:center;'} +¥3,000
+        %tr
+          %td= '終了時刻前に募集を締め切ることができる'
+          %td= '急募ステイタスが表示される'
+        %tr
+          %td= 'レスポンスの早いクリエイターが集まることが期待されます'
+          %td= 'トップページに表示される'
+        %tr
+          %td
+          %td= '開始3日間で100のデザインが応募されることが期待されます'
+  .input-area.showcost-area
+    .cart-area.right
+      %pre トータルコスト 
+      %table.table
+        %tr
+          %td ロゴデザイン依頼コスト
+          %td ¥33,000 
+        %tr
+          %td クレジットカード／ペイパル手数料
+          %td ¥1,260 
         %tr
           %td 合計
-          %td ¥38,000
+          %td ¥34,260
+    .clear
+  .btn-area
+    %a.previous.btn.btn-inverse{:href => '/mock/top'}= 'キャンセル'
+    - if signed_in
+      %a.next.btn.btn-inverse{:href => '/mock/job_post_2'}= '依頼内容の入力へ進む'
+    - else
+      %a.next.btn.btn-inverse{:'data-controls-modal'=>'postLoginModal',:'data-backdrop'=>'true'} 依頼内容の入力へ進む 

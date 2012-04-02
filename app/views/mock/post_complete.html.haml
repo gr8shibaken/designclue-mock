@@ -1,0 +1,21 @@
+= content_for :head do
+  %meta{:'http-equiv'=>"refresh", :content=>"5 ; URL=/mock/mypage?category=contest"}
+  = stylesheet_link_tag "/stylesheets/post_complete.css"
+
+.wrap
+  %ul.breadcrumb
+    %li 1. カテゴリ/プラン選択
+    %span.divider ｜
+    %li 2. 依頼内容の入力
+    %span.divider ｜
+    %li 3. 依頼内容の確認
+    %span.divider ｜
+    %li 4. 支払方法の選択
+    %span.divider ｜
+    %li 5.支払内容の確認
+    %span.divider ｜
+    %li.active 6.完了
+  .message-area
+    %h3 依頼・決済が完了しました。
+    %br
+    %a{:href=>"/mock/p"} コンテスト管理ページへ（5秒後に自動遷移します）

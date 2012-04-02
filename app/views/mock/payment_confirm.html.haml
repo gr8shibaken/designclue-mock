@@ -1,0 +1,54 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/payment_confirm.css"
+
+.wrap
+  %ul.breadcrumb
+    %li 1. カテゴリ/プラン選択
+    %span.divider ｜
+    %li 2. 依頼内容の入力
+    %span.divider ｜
+    %li 3. 依頼内容の確認
+    %span.divider ｜
+    %li 4. 支払方法の選択
+    %span.divider ｜
+    %li 5.支払内容の確認
+    %span.divider ｜
+    %li.active 6.完了
+
+  %h3 5.支払い内容の確認
+  .content-wrap
+    .plan-area
+      %h3 トータルコスト
+      %table.table
+        %tr
+          %td.index
+            %b ロゴデザイン依頼コスト
+          %td ¥33,000
+        %tr
+          %td.index
+            %b ペイパル手数料
+          %td ¥12,600
+        %tr
+          %td.index
+            %b トータルコスト
+          %td ¥34,260
+    .clear
+  .content-wrap
+    .detail-area
+      %h3 決済方法 
+      %table.table
+        %tr
+          %td.index
+            %b Paypal
+          %td
+        %tr
+          %td.index
+            %b メールアドレス
+          %td kensuke@gmail.com
+        %tr
+          %td.index
+            %b パスワード
+          %td ****************
+  .btn-area
+    %a.previous.btn.btn-inverse{:href => '/mock/payment'}= '戻る'
+    %a.next.btn.btn-inverse{:href => '/mock/post_complete'}= '完了する'

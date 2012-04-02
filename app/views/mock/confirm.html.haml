@@ -1,106 +1,105 @@
 = content_for :head do
   = stylesheet_link_tag "/stylesheets/confirm.css"
 
-.container-fluid
-  .span
-    %ul.breadcrumb
-      %li
-        1. カテゴリ/プラン選択
-        %span.divider ｜
-      %li 
-        2. コンテスト情報入力
-        %span.divider ｜
-      %li.active 
-        3. 内容確認
-        %span.divider ｜
-      %li
-        4. 決済
+.wrap
+  %ul.breadcrumb
+    %li 1. カテゴリ/プラン選択
+    %span.divider ｜
+    %li 2. 依頼内容の入力
+    %span.divider ｜
+    %li.active 3. 依頼内容の確認
+    %span.divider ｜
+    %li 4. 支払方法の選択
+    %span.divider ｜
+    %li 5.支払内容の確認
+    %span.divider ｜
+    %li 6.完了
 
-    %h3 内容確認
-    .tab-content
-      .tab-pane#english
-      .tab-pane.active#japanese
-        %table.table.table-striped
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b カテゴリ
-            %td ロゴデザイン
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b プラン名 
-            %td ベーシックプラン
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b オプション 
-            %td シークレットオプション
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b ロゴ表記名
-            %td Campfire
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b サブ表記名
-            %td Micro Patron Platform
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b 募集期間 
-            %td 10日間（2012年　3月　15日　18：53）
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b インダストリー 
-            %td ウェブコンテンツ
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b 用途
-            %td Web,Online
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b 納品フォーマット
-            %td PSD, AI, JPG
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b 主なカラー
-            %td レッド、イエロー
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b 好みのパーツ
-            %td 炎
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b イメージメーター
-            %td
-              =image_tag '/images/mock/image-meter/image-meter.jpg'
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b ロゴタイプ
-            %td
-              .logo-type.text-center.left
-                .image
-                  =image_tag '/images/mock/logo-type/web2.0.jpg', :size=>'120x120'
-                .description
-                  %span Web2.0
-              .logo-type.text-center.left
-                .image
-                  =image_tag '/images/mock/logo-type/picturemark.jpg', :size=>'120x120'
-                .description
-                  %span ピクチャーマーク
-              .clear
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b お気に入りロゴ
-            %td
-              - array = [1,2,3,4,5,6,7,8].sample(3)
-              =image_tag "/images/mock/logo/logo#{array[0]}.jpg", :size=>'120x120', :class=>'flyer'
-              =image_tag "/images/mock/logo/logo#{array[1]}.jpg", :size=>'120x120', :class=>'flyer'
-              =image_tag "/images/mock/logo/logo#{array[2]}.jpg", :size=>'120x120', :class=>'flyer'
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b 参照URL
-            %td www.kickstarter.com
-          %tr
-            %td{:style => 'width: 180px;'}
-              %b 補足説明
-            %td 
-    .btn-area
-      %a.previous.btn.btn-inverse{:href => '/mock/job_post_2'}= '戻る'
-      %a.next.btn.btn-inverse{:href => '/mock/payment'}= '決済へ'
+  %h3 3.依頼内容の確認
+  .content-wrap
+    .plan-area
+      %h3 カテゴリ／プラン
+      %table.table
+        %tr
+          %td ロゴデザイン
+        %tr
+          %td ベーシックプラン
+        %tr
+          %td シークレット設定
+    .clear
+  .content-wrap
+    .detail-area
+      %h3 依頼内容
+      %table.table
+        %tr
+          %td#index
+            %b ロゴ表記名
+          %td Campfire
+        %tr
+          %td#index
+            %b サブタイトル
+          %td Micro Patron Platform
+        %tr
+          %td#index
+            %b 募集期間 
+          %td 10日間（2012年　4月　15日　18：53）
+        %tr
+          %td#index
+            %b 業種 
+          %td ウェブコンテンツ
+        %tr
+          %td#index
+            %b 用途
+          %td Web,Online
+        %tr
+          %td#index
+            %b 納品フォーマット
+          %td PSD, AI, JPG
+        %tr
+          %td#index
+            %b コーポレートカラー
+          %td レッド、イエロー
+        %tr
+          %td#index
+            %b 象徴するオブジェクト
+          %td 炎
+        %tr
+          %td#index
+            %b イメージメーター
+          %td
+            .image{:style=>"width:400px;"}=image_tag '/images/mock/image-meter/image-meter.jpg'
+        %tr
+          %td#index
+            %b ロゴタイプ
+          %td
+        %tr
+          %td#index
+            %b ロゴスタイル
+          %td
+            .left
+              .image
+                =image_tag '/images/mock/logo-type/web2.0.jpg', :size=>'120x120'
+              %span Web2.0
+            .left
+              .image
+                =image_tag '/images/mock/logo-type/picturemark.jpg', :size=>'120x120'
+              %span ピクチャーマーク
+            .clear
+        %tr
+          %td#index
+            %b お気に入りロゴ
+          %td
+            - array = [1,2,3,4,5,6,7,8].sample(2)
+            =image_tag "/images/mock/logo/logo#{array[0]}.jpg", :size=>'120x120', :class=>'flyer'
+            =image_tag "/images/mock/logo/logo#{array[1]}.jpg", :size=>'120x120', :class=>'flyer'
+        %tr
+          %td#index
+            %b 参照URL
+          %td www.kickstarter.com
+        %tr
+          %td#index
+            %b 補足説明
+          %td 
+  .btn-area
+    %a.previous.btn.btn-inverse{:href => '/mock/job_post_2'}= '戻る'
+    %a.next.btn.btn-inverse{:href => '/mock/payment'}= '支払方法の選択へ進む'

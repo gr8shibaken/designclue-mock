@@ -1,5 +1,4 @@
 = content_for :head do
-  = javascript_include_tag '/javascripts/lib/jquery-plugin/jqModal.js'
   = stylesheet_link_tag "/stylesheets/job_post_2.css"
 
   :javascript
@@ -10,22 +9,20 @@
 
 .wrap
   %ul.breadcrumb
-    %li
-      1. カテゴリ/プラン選択
-      %span.divider ｜
-    %li.active 
-      2. コンテスト情報入力
-      %span.divider ｜
-    %li 
-      3. 内容確認
-      %span.divider ｜
-    %li
-      4. 決済
+    %li 1. カテゴリ/プラン選択
+    %span.divider ｜
+    %li.active 2. 依頼内容の入力
+    %span.divider ｜
+    %li 3. 依頼内容の確認
+    %span.divider ｜
+    %li 4. 支払方法の選択
+    %span.divider ｜
+    %li 5.支払内容の確認
+    %span.divider ｜
+    %li 6.完了
 
-  .content-wrap.left
-    %h3
-      2. コンテスト情報入力
-
+  %h3 2. コンテスト情報入力
+  .content-wrap
     %form
       %fieldset
         .form-vertical   
@@ -35,7 +32,7 @@
               %input{:type=>'text', :style => 'width:400px', :placeholder => "例：designclue"}   
 
           .input-area
-            %h5 ロゴにキャッチコピーやサブ名称を入れる場合はご記入ください
+            %h5 キャッチコピーやスローガンなどサブタイトルを入れる場合はご記入ください。
             .subname-select
               %input{:type=>'text', :style => 'width:400px', :placeholder => "例：Cross Border Communications for Your Business"}   
 
@@ -43,24 +40,23 @@
             %h5 募集期間は何日間ですか？ ＊
             .timelimit-select
               %select{:style => 'width:200px'}
-                %option ------------ 
+                %option 10days
                 %option 2days
                 %option 3days
                 %option 4days
                 %option 5days
                 %option 7days
-                %option 10days
                 %option 13days
                 %option 15days
-              %span= "終了日時: #{Time.now.strftime("%m")}月#{Time.now.strftime("%d")}日#{Time.now.strftime("%H")}時#{Time.now.strftime("%M")}分" 
+              %span= "終了時刻: #{Time.now.strftime("%m")}月#{Time.now.strftime("%d")}日#{Time.now.strftime("%H")}時#{Time.now.strftime("%M")}分" 
          
           .input-area
             %h5 あなたのビジネスは何ですか？ ＊ 
             .industry-select
               .industry1
-                業種1
+                ジャンル
               .industry2
-                業種2
+                詳細
               .form-inline
                 %select{:style => 'width:250px'}
                   %option ------------ 
@@ -103,11 +99,11 @@
             .form-vertical
               %h5 利用用途は何ですか？ ＊
               .purpose-select
-                %label.radio= radio_button_tag( :category, "1", true )+'web, online' 
-                %label.radio= radio_button_tag( :category, "1")+'Printing' 
-                %label.radio= radio_button_tag( :category, "1")+'グッズ、パッケージ'
-                %label.radio= radio_button_tag( :category, "1")+'看板'
-                %label.radio= radio_button_tag( :category, "1")+'その他'
+                %div= check_box_tag( :category, "1")+' オンライン' 
+                %div= check_box_tag( :category, "1")+' 印刷物' 
+                %div= check_box_tag( :category, "1")+' グッズ、パッケージ'
+                %div= check_box_tag( :category, "1")+' 看板'
+                %div= check_box_tag( :category, "1")+' その他'
           
           - tooltip_data = Mock::Tooltip.tooltip_read
           - openformat_title  =tooltip_data["titles"]["openformat_title"]
@@ -180,11 +176,12 @@
                 .clear
           
           .input-area
-            %h5 デザインの主な色は何色ですか？ ＊
+            %h5 コーポレートカラーは何色ですか？ ＊
             .color-select
-              = radio_button_tag(:color_select, 1, true)
-              代表的な色から選ぶ
-              .selectsample
+              .selectsample.left{:style=>"margin-right:60px;"}
+                = radio_button_tag(:color_select, 1, true)
+                代表的な色から選ぶ
+                %div
                 - 3.times do
                   %select{:style => 'width:200px'}
                     %option ------------ 
@@ -198,25 +195,24 @@
                     %option ホワイト
                     %option ブラック
                   %br
-              = radio_button_tag(:color_select, 1)
-              詳細な色を設定する
-              .freeinput
-                - 3.times do
-                  .form-inline
-                    %i.left= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
-                    %label #
-                    %input{:type=>'text',:style=>'width:100px; margin-bottom:5px;',:placeholder=>"cccc00"}   
-          
+              .freeinput.left
+                = radio_button_tag(:color_select, 1)
+                詳細な色を設定する
+                .form-inline
+                  %a.left{:href=>"#"}= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
+                  %label #
+                  %input{:type=>'text',:style=>'width:100px; margin-bottom:5px;',:placeholder=>"cccc00"}   
+              .clear 
           .input-area
-            %h5 できれば入れて欲しいパーツ・モノは何ですか？ ＊
+            %h5 象徴的なオブジェクトが必要な場合はご記入ください。
             .parts-select
               %form.form-inline
-                %input{:type=>'text', :style => 'width:150px', :placeholder => "炎" }   
-                %input{:type=>'text', :style => 'width:150px', :placeholder => "翼" }   
-                %input{:type=>'text', :style => 'width:150px', :placeholder => "サイコロ" }   
+                %input{:type=>'text', :style => 'width:150px', :placeholder => "例：炎" }   
+            %div※デザイナーの制作ツールにより納品するフォーマットが異なります。
+            %div※フォーマット・選択したフォーマット数による価格の変動はありません。
 
           .input-area
-            %h5 イメージメーターで表現してください。（これを見てデザイナーはあなたの好みを分析します。） ＊ 
+            %h5 あなたのイメージをイメージメーターで表現してください。
             %table
               %tr
                 %td 男性的 
@@ -224,34 +220,47 @@
                   %input{:type=>'range', :style => 'width:200px'}   
                   女性的 
               %tr
-                %td イノベーティブ
+                %td 四角っぽい
                 %td.form-inline
                   %input{:type=>'range', :style => 'width:200px'}   
-                  コンサバティブ
+                  丸っぽい
               %tr
                 %td シンプル
                 %td.form-inline
                   %input{:type=>'range', :style => 'width:200px'}   
-                  複合的 
+                  複雑
               %tr
-                %td 単色
+                %td ポップ
                 %td.form-inline
                   %input{:type=>'range', :style => 'width:200px'}   
-                  カラフル
+                  シック
               %tr
-                %td ヤング
+                %td 平面的
                 %td.form-inline
                   %input{:type=>'range', :style => 'width:200px'}   
-                  オールド
-              %tr
-                %td 高級
-                %td.form-inline
-                  %input{:type=>'range', :style => 'width:200px'}   
-                  日常
+                  立体的
           
           .input-area
+            %h5 希望するロゴのタイプを選択してください。＊
+            .logotype-select-area
+              %table
+                %tr
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/textual.gif', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    テキスト 
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/illustrative.gif', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    複合マーク
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/iconic.gif', :size => '100x100'
+                    = check_box_tag( :sample, 1 )
+                    シンボル
+
+          .input-area
             %h5 どのような系統のロゴが良いですか？ ＊
-            .logo-select-area
+            .logostyle-select-area
               %table
                 %tr
                   %td
@@ -291,8 +300,8 @@
           .input-area
             %h5 お気に入りのデザインがあればファイルを添付してください
     
-            .clipping-area
-              %a.image.design-upload{:style=>'width:150px;',:onClick => "$('#designfile').click();"}
+            .clipping-area#clipping
+              %a.image.design-upload{:href=>"#clipping",:style=>'width:150px;',:onClick => "$('#designfile').click();"}
                 = image_tag '/images/mock/upload-button/upload_file.png', :size => '100x100'
           
           .input-area
@@ -304,10 +313,6 @@
             %h5 補足説明が必要な場合は記載してください
             %textarea{:style => 'width:500px'}   
 
-    .btn-area
-      %a.previous.btn.btn-inverse{:href => '/mock/job_post_1'}= '戻る'
-      %a.next.btn.btn-inverse{:href => '/mock/confirm'}= '確認へ'
-    
-  .sidebar-wrap.right
-    .explanation-area
-
+  .btn-area
+    %a.previous.btn.btn-inverse{:href => '/mock/job_post_1'}= '戻る'
+    %a.next.btn.btn-inverse{:href => '/mock/confirm'}= '確認へ進む'

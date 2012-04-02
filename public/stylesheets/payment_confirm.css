@@ -1,7 +1,7 @@
 .wrap {
   margin: auto;
   width: 800px;
-  height: 1300px;
+  height: 500px;
 }
 .span ul li {
   color: darkgray;
@@ -22,7 +22,7 @@
   margin-left: 50px;
   width: 550px;
 }
-#index {
+.index {
   width: 180px;
 }
 .btn-area{

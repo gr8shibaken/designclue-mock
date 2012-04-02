@@ -16,6 +16,8 @@ Designclue::Application.routes.draw do
     get 'job_post_2'
     get 'confirm'
     get 'payment'
+    get 'payment_confirm'
+    get 'post_complete'
     get 'designer_index'
     get 'designer_detail'
     get 'job_application'

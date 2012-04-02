@@ -1,6 +1,7 @@
 .wrap {
-  width: 950px;
-  height: 1200px;
+  margin: auto;
+  width: 800px;
+  height: 1000px;
 }
 .wrap ul li {
   color: darkgray;
@@ -8,72 +9,62 @@
 .wrap ul li.active{
   color: dodgerblue;
 }
-.content-wrap {
-  margin-right: 10px;
-}
-.content-wrap .checkout-area{
+.select-checkout{
   background-color:whitesmoke;
   border: solid 1px #CCC;
-  padding-top: 10px;
-  padding-left: 30px;
-  width: 600px;
-  height: 650px;
+  padding: 20px 0 20px 30px;
 }
-.content-wrap .agreement-area{
+.checkout-pattern {
+  margin-right: 40px;
+}
+.checkout-pattern .image{
+  width: 75px;
+  height: 75px;
+  margin: 5px;
+  float: left;
+}
+.paypal-information{
+  background-color:whitesmoke;
+  border: solid 1px #CCC;
+  margin-top: 10px;
+  padding: 20px 0 20px 30px;
+}
+#paypal-area{
+ display: block;
+}
+#creditcard-area{
+ display: none;
+}
+.card-information{
+  background-color:whitesmoke;
+  border: solid 1px #CCC;
+  margin-top: 10px;
+  padding: 20px 0 20px 30px;
+  display: hidden;
+}
+.agreement-area{
   background-color:whitesmoke;
   border: solid 1px #CCC;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-top: 10px;
   padding-left: 30px;
-  width: 600px;
   height: 300px;
 }
-.content-wrap .agreement-area .description{
+.agreement-area .description{
   overflow: scroll;
-  width: 570px;
+  width: 730px;
   height: 200px;
   margin-top:10px;
   margin-bottom:10px;
   background-color: white;
   border: solid 1px #CCC;
 } 
-.sidebar-wrap {
-  border: solid 1px #CCC;
-  padding: 10px;
-  width: 250px;
-  height: 965px;
-}
-.paypal {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.paypal h4{
-  text-align: left;
-  margin-top: -1.4em;
-  margin-left: 3.5em;
-}
-.paypal .icon{
-  position: absolute;
-  margin-top: -1.7em;
-  margin-left: 1.5em;
-}
-.creditcard {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.creditcard h4{
-  text-align: left;
-  margin-top: -1.4em;
-  margin-left: 3.5em;
-}
-.creditcard i{
-  position: absolute;
-  margin-top: -1.7em;
-  margin-left: 1.5em;
-}
 .input-area {
-  margin-top: 20px;
+  margin-top: 10px;
+}
+.btn-area{
+  margin-top: 10px;
 }
 .btn-area .previous{
   margin-left: 180px;

@@ -1,6 +1,7 @@
 .wrap {
-  width: 1000px;
-  height: 1850px;
+  margin: auto;
+  width: 800px;
+  height: 2000px;
 }
 .wrap ul li {
   color: darkgray;
@@ -8,34 +9,22 @@
 .wrap ul li.active{
   color: dodgerblue;
 }
-.content-wrap {
-  border: solid 1px #CCC;
-  padding: 10px;
-  width: 650px;
-  height: 1750px;
-}
-.sidebar-wrap {
-  border: solid 1px #CCC;
-  padding: 10px;
-  width: 290px;
-  height: 1750px;
-}
 .input-area {
-  margin-top: 30px;
+  margin-top: 10px;
+  padding: 10px;
+  border: solid 1px #CCC;
 }
 .select-category table{
   margin: 5px;
-  width: 600px;
-}
-.select-category td{
+  width: 750px;
 }
 .select-category .category-name{
   padding: 10px;
-  width: 180px;
+  width: 80px;
 }
 .select-category .prize{
   padding: 10px;
-  width: 80px;
+  width: 50px;
 }
 #prize_pattern1 {
   display: block;
@@ -57,13 +46,13 @@
   empty-cells: hide;
 }
 .plan-select table td{
-  width: 160px;
+  width: 200px;
   border: 1px solid #CCC;
   height: 30px;
   padding: 15px;
 }
 .plan-select label{
-  margin-left: 260px;
+  margin-left: 320px;
 }
 #scope table{
   table-layout: fixed;
@@ -72,12 +61,10 @@
   empty-cells: hide;
 }
 #scope td{
-  width: 160px;
+  width: 200px;
   border: 1px solid #CCC;
   height: 30px;
   padding: 15px;
-}
-#option {
 }
 #option table{
   table-layout: fixed;
@@ -86,24 +73,21 @@
   empty-cells: hide;
 }
 #option td{
-  width: 160px;
+  width: 200px;
   border: 1px solid #CCC;
   height: 30px;
   padding: 15px;
 }
 .btn-area{
-  margin-left: 580px;
+  margin-top: 10px;
 }
-.explanation-area {
-  margin-top: 300px;
-  margin-left: 5px;
-  width: 280px;
+.btn-area .previous{
+  margin-left: 180px;
 }
-.yourchoice-area {
-  margin-top: 1400px;
-  margin-left: 5px;
+.btn-area .next{
+  margin-left: 80px;
 }
 .cart-area {
   margin-left: 5px;
-  width: 240px;
+  width: 440px;
 }
