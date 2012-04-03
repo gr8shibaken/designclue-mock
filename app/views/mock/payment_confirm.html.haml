@@ -11,22 +11,22 @@
     %span.divider ｜
     %li 4. 支払方法の選択
     %span.divider ｜
-    %li 5.支払内容の確認
+    %li.active 5.支払内容の確認
     %span.divider ｜
-    %li.active 6.完了
+    %li 6.完了
 
   %h3 5.支払い内容の確認
   .content-wrap
     .plan-area
-      %h3 トータルコスト
-      %table.table
+      %h5 トータルコスト
+      %table.table{:style=>"margin-left:50px;"}
         %tr
           %td.index
             %b ロゴデザイン依頼コスト
           %td ¥33,000
         %tr
           %td.index
-            %b ペイパル手数料
+            %b Paypal手数料
           %td ¥12,600
         %tr
           %td.index
@@ -35,8 +35,8 @@
     .clear
   .content-wrap
     .detail-area
-      %h3 決済方法 
-      %table.table
+      %h5 決済方法 
+      %table.table{:style=>"margin-left:50px;"}
         %tr
           %td.index
             %b Paypal
@@ -51,4 +51,4 @@
           %td ****************
   .btn-area
     %a.previous.btn.btn-inverse{:href => '/mock/payment'}= '戻る'
-    %a.next.btn.btn-inverse{:href => '/mock/post_complete'}= '完了する'
+    %a.next.btn.btn-inverse.right{:href => '/mock/post_complete'}= '完了する'

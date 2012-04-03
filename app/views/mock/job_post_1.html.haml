@@ -60,9 +60,9 @@
           %td.category-name= radio_button_tag( :category, "3_2" )+' ブックカバー'
           %td.prize  ¥15,000~
         %tr
-          %td.category-name= radio_button_tag( :category, "2_1")+' 書道'
+          %td.category-name= radio_button_tag( :category, "2_1")+' フライヤー'
           %td.prize  ¥35,000~
-          %td.category-name= radio_button_tag( :category, "3_3" )+' バナー'
+          %td.category-name= radio_button_tag( :category, "3_3" )+' 書道'
           %td.prize  ¥15,000~
         %tr
           %td.category-name= radio_button_tag( :category, "1_3")+' iPhoneアプリアイコン'
@@ -337,9 +337,9 @@
           %td
           %td= '開始3日間で100のデザインが応募されることが期待されます'
   .input-area.showcost-area
-    .cart-area.right
-      %pre トータルコスト 
-      %table.table
+    .cart-area
+      %h5 トータルコスト 
+      %table.table{:style=>"margin-left:150px;"}
         %tr
           %td ロゴデザイン依頼コスト
           %td ¥33,000 
@@ -347,12 +347,14 @@
           %td クレジットカード／ペイパル手数料
           %td ¥1,260 
         %tr
-          %td 合計
-          %td ¥34,260
+          %td
+            %b 合計
+          %td
+            %b ¥34,260
     .clear
   .btn-area
     %a.previous.btn.btn-inverse{:href => '/mock/top'}= 'キャンセル'
     - if signed_in
-      %a.next.btn.btn-inverse{:href => '/mock/job_post_2'}= '依頼内容の入力へ進む'
+      %a.next.btn.btn-inverse.right{:href => '/mock/job_post_2'}= '依頼内容の入力へ進む'
     - else
-      %a.next.btn.btn-inverse{:'data-controls-modal'=>'postLoginModal',:'data-backdrop'=>'true'} 依頼内容の入力へ進む 
+      %a.next.btn.btn-inverse.right{:'data-controls-modal'=>'postLoginModal',:'data-backdrop'=>'true'} 依頼内容の入力へ進む 

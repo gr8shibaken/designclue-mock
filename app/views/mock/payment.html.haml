@@ -30,20 +30,24 @@
     %span.divider ｜
     %li 6.完了
 
-  %h3 決済方法を選択してください
-  %h4.well トータルコスト ¥46,200
+  %h3 4.支払方法の選択
+  .well
+    %div.left
+      %h4 トータルコスト
+    %div.left{:style=>"margin-left:200px;"}
+      %h4 ¥46,200
   .select-checkout
     %p
       %b 決済方法の選択
+    .checkout-pattern.left
+      .radio#paypal= radio_button_tag( :checkout, "3", true )+"Paypal"
+      .image= image_tag "/images/mock/payment/paypal.jpg"
     .checkout-pattern.left
       .radio#visa=radio_button_tag( :checkout, "1")+"Visa"
       .image= image_tag "/images/mock/payment/visa.jpg"
     .checkout-pattern.left
       .radio#mastercard= radio_button_tag( :checkout, "2")+"Mastercard"
       .image= image_tag "/images/mock/payment/master.jpg"
-    .checkout-pattern.left
-      .radio#paypal= radio_button_tag( :checkout, "3", true )+"Paypal"
-      .image= image_tag "/images/mock/payment/paypal.jpg"
     .clear
   .paypal-information#paypal-area
     %p
@@ -101,5 +105,5 @@
     = check_box_tag( :sample, 1 )+' 同意する'
   .btn-area
     %a.previous.btn.btn-inverse{:href => '/mock/top'}= 'キャンセル'
-    %a.next.btn.btn-inverse{:href => '/mock/payment_confirm'}= '支払方法の決定へ進む'
+    %a.next.btn.btn-inverse.right{:href => '/mock/payment_confirm'}= '支払方法の決定へ進む'
   .sidebar-wrap.left

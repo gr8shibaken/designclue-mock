@@ -18,19 +18,25 @@
   %h3 3.依頼内容の確認
   .content-wrap
     .plan-area
-      %h3 カテゴリ／プラン
-      %table.table
+      %h5 カテゴリ／プラン
+      %table.table{:style=>"margin-left:50px;"}
         %tr
+          %td#index
+            %b カテゴリ
           %td ロゴデザイン
         %tr
+          %td#index
+            %b プラン
           %td ベーシックプラン
         %tr
+          %td#index
+            %b 公開設定
           %td シークレット設定
     .clear
   .content-wrap
     .detail-area
-      %h3 依頼内容
-      %table.table
+      %h5 依頼内容
+      %table.table{:style=>"margin-left:50px;"}
         %tr
           %td#index
             %b ロゴ表記名
@@ -72,15 +78,18 @@
           %td#index
             %b ロゴタイプ
           %td
+            .image
+              =image_tag '/images/mock/logo-type/textual.gif', :size=>'120x120'
+            %span テキスト
         %tr
           %td#index
             %b ロゴスタイル
           %td
             .left
               .image
-                =image_tag '/images/mock/logo-type/web2.0.jpg', :size=>'120x120'
-              %span Web2.0
-            .left
+                =image_tag '/images/mock/logo-type/brush.jpg', :size=>'120x120'
+              %span 筆文字 
+            .left{:style=>"margin-left:10px;"}
               .image
                 =image_tag '/images/mock/logo-type/picturemark.jpg', :size=>'120x120'
               %span ピクチャーマーク
@@ -98,8 +107,8 @@
           %td www.kickstarter.com
         %tr
           %td#index
-            %b 補足説明
+            %b 自由記入欄 
           %td 
   .btn-area
     %a.previous.btn.btn-inverse{:href => '/mock/job_post_2'}= '戻る'
-    %a.next.btn.btn-inverse{:href => '/mock/payment'}= '支払方法の選択へ進む'
+    %a.next.btn.btn-inverse.right{:href => '/mock/payment'}= '支払方法の選択へ進む'

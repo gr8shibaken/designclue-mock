@@ -10,12 +10,14 @@
   color: dodgerblue;
 }
 .select-checkout{
+  /*
   background-color:whitesmoke;
+*/
   border: solid 1px #CCC;
-  padding: 20px 0 20px 30px;
+  padding: 20px 0 20px 10px;
 }
 .checkout-pattern {
-  margin-right: 40px;
+  margin-left: 40px;
 }
 .checkout-pattern .image{
   width: 75px;
@@ -24,10 +26,9 @@
   float: left;
 }
 .paypal-information{
-  background-color:whitesmoke;
   border: solid 1px #CCC;
   margin-top: 10px;
-  padding: 20px 0 20px 30px;
+  padding: 20px 0 20px 10px;
 }
 #paypal-area{
  display: block;
@@ -36,10 +37,9 @@
  display: none;
 }
 .card-information{
-  background-color:whitesmoke;
   border: solid 1px #CCC;
   margin-top: 10px;
-  padding: 20px 0 20px 30px;
+  padding: 20px 0 20px 10px;
   display: hidden;
 }
 .agreement-area{
@@ -62,13 +62,14 @@
 } 
 .input-area {
   margin-top: 10px;
+  margin-left: 30px;
 }
 .btn-area{
   margin-top: 10px;
 }
 .btn-area .previous{
-  margin-left: 180px;
+  margin-left: 150px;
 }
 .btn-area .next{
-  margin-left: 80px;
+  margin-right: 150px;
 }

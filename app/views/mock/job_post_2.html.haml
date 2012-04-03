@@ -1,11 +1,19 @@
 = content_for :head do
+  = javascript_include_tag '/javascripts/lib/jquery-plugin/jqModal.js'
   = stylesheet_link_tag "/stylesheets/job_post_2.css"
+  = stylesheet_link_tag "/stylesheets/jqModal.css"
 
   :javascript
     $(function() {
       $(".explain-popover").popover({
       });
     }); 
+    $(function() {  
+      $('#dialog').jqm({ modal: true });    
+    });
+
+#dialog.jqmWindow
+  %a.jqmClose.right{:href => "#"}= image_tag "/images/mock/color-picker/colorpic.png", :size => '500x500'
 
 .wrap
   %ul.breadcrumb
@@ -32,7 +40,7 @@
               %input{:type=>'text', :style => 'width:400px', :placeholder => "例：designclue"}   
 
           .input-area
-            %h5 キャッチコピーやスローガンなどサブタイトルを入れる場合はご記入ください。
+            %h5 キャッチコピーやスローガンなどサブタイトルを入れる場合はご記入ください
             .subname-select
               %input{:type=>'text', :style => 'width:400px', :placeholder => "例：Cross Border Communications for Your Business"}   
 
@@ -127,7 +135,7 @@
           - pdf_explain       =tooltip_data["explains"]["pdf_explain"]
           - other_explain     =tooltip_data["explains"]["other_explain"]
           .input-area
-            %h5 希望する納品フォーマットを選んでください。 ＊
+            %h5 希望する納品フォーマットを選んでください ＊
             %table.table-bordered.table-striped.format-select
               %tr
                 %th.explain-popover{:rel=>'popover',:'data-title'=>"#{openformat_title}",:'data-content'=>"#{openformat_explain}" }
@@ -174,6 +182,8 @@
                 %td
                 %td
                 .clear
+            %div※デザイナーの制作ツールにより納品するフォーマットが異なります。
+            %div※フォーマット・選択したフォーマット数による価格の変動はありません。
           
           .input-area
             %h5 コーポレートカラーは何色ですか？ ＊
@@ -198,21 +208,20 @@
               .freeinput.left
                 = radio_button_tag(:color_select, 1)
                 詳細な色を設定する
-                .form-inline
-                  %a.left{:href=>"#"}= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
-                  %label #
-                  %input{:type=>'text',:style=>'width:100px; margin-bottom:5px;',:placeholder=>"cccc00"}   
+                -3.times do
+                  .form-inline
+                    %a.jqModal.left{:href=>"#"}= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
+                    %label #
+                    %input{:type=>'text',:style=>'width:100px; margin-bottom:5px;',:placeholder=>"cccc00"}   
               .clear 
           .input-area
-            %h5 象徴的なオブジェクトが必要な場合はご記入ください。
+            %h5 象徴的なオブジェクトが必要な場合はご記入ください
             .parts-select
               %form.form-inline
                 %input{:type=>'text', :style => 'width:150px', :placeholder => "例：炎" }   
-            %div※デザイナーの制作ツールにより納品するフォーマットが異なります。
-            %div※フォーマット・選択したフォーマット数による価格の変動はありません。
 
           .input-area
-            %h5 あなたのイメージをイメージメーターで表現してください。
+            %h5 あなたのイメージをイメージメーターで表現してください
             %table
               %tr
                 %td 男性的 
@@ -241,7 +250,7 @@
                   立体的
           
           .input-area
-            %h5 希望するロゴのタイプを選択してください。＊
+            %h5 希望するロゴのタイプを選択してください＊
             .logotype-select-area
               %table
                 %tr
@@ -301,8 +310,10 @@
             %h5 お気に入りのデザインがあればファイルを添付してください
     
             .clipping-area#clipping
-              %a.image.design-upload{:href=>"#clipping",:style=>'width:150px;',:onClick => "$('#designfile').click();"}
-                = image_tag '/images/mock/upload-button/upload_file.png', :size => '100x100'
+              -3.times do
+                .inline
+                %a.image.design-upload{:href=>"#clipping",:style=>'width:150px;',:onClick => "$('#designfile').click();"}
+                  = image_tag '/images/mock/upload-button/upload_file.png', :size => '100x100'
           
           .input-area
             %h5 参照すべきURLがありますか？（自社サイトや競合サイトなど） 
@@ -310,9 +321,9 @@
               %input{:type=>'text', :style => 'width:300px', :placeholder => "http://"}   
           
           .input-area
-            %h5 補足説明が必要な場合は記載してください
+            %h5 自由記入欄
             %textarea{:style => 'width:500px'}   
 
   .btn-area
     %a.previous.btn.btn-inverse{:href => '/mock/job_post_1'}= '戻る'
-    %a.next.btn.btn-inverse{:href => '/mock/confirm'}= '確認へ進む'
+    %a.next.btn.btn-inverse.right{:href => '/mock/confirm'}= '確認へ進む'

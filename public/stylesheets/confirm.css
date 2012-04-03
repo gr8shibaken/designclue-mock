@@ -3,10 +3,10 @@
   width: 800px;
   height: 1300px;
 }
-.span ul li {
+.wrap ul li {
   color: darkgray;
 }
-.span ul li.active{
+.wrap ul li.active{
   color: dodgerblue;
 }
 .content-wrap{
@@ -15,12 +15,12 @@
   border: solid 1px #CCC;
 }
 .plan-area {
-  margin-left: 50px;
-  width: 550px;
+  margin-left: 10px;
+  width: 650px;
 }
 .detail-area {
-  margin-left: 50px;
-  width: 550px;
+  margin-left: 10px;
+  width: 650px;
 }
 #index {
   width: 180px;
@@ -29,8 +29,8 @@
   margin-top: 10px;
 }
 .btn-area .previous{
-  margin-left: 180px;
+  margin-left: 150px;
 }
 .btn-area .next{
-  margin-left: 80px;
+  margin-right: 150px;
 }
