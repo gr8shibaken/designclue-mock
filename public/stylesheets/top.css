@@ -82,7 +82,7 @@ hr {
   float: left;
 }
 .contest-lane .contents{
-  margin: 5px;
+  margin-left: 100px;
   border: 1px solid #fff;
 }
 .contest-lane .contents .lane{
