@@ -1,0 +1,8 @@
+%h1 Confirm 
+
+
+=form_for @contest do |f|
+  = render :partial=>'confirmform', :locals => {:f => f}
+/= render 'confirmform'
+
+= link_to 'Back', contests_path

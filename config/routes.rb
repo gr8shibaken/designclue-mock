@@ -1,4 +1,12 @@
 Designclue::Application.routes.draw do
+  resources :contests , :only=> %w[index show create new destroy] do
+    collection do
+      get 'selectplan'
+      post 'inputdetail'
+      post 'confirm'
+    end
+  end
+
   resources :users
 
   root :to => 'sessions#new'

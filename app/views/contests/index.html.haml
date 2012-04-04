@@ -1,0 +1,109 @@
+%h1 Listing contests
+
+%table
+  %tr
+    %th 
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+
+  - @contests.each do |contest|
+    %tr
+      %td= contest.category
+      %td= contest.plan
+      %td= contest.option_earlyend
+      %td= contest.option_urgent
+      %td= contest.open
+      %td= contest.name
+      %td= contest.subname
+      %td= contest.end_time
+      %td= contest.industry_1
+      %td= contest.industry_2
+      %td= contest.usage_web
+      %td= contest.usage_print
+      %td= contest.usage_package
+      %td= contest.usage_signboard
+      %td= contest.usage_other
+      %td= contest.format_psd
+      %td= contest.format_eps
+      %td= contest.format_ai
+      %td= contest.format_indesign
+      %td= contest.format_jpg
+      %td= contest.format_gif
+      %td= contest.format_png
+      %td= contest.format_pdf
+      %td= contest.format_other
+      %td= contest.color
+      %td= contest.parts
+      %td= contest.logotype_iconic
+      %td= contest.logotype_illustrative
+      %td= contest.logotype_textual
+      %td= contest.logostyle_abstruct
+      %td= contest.logostyle_brush
+      %td= contest.logostyle_character
+      %td= contest.logostyle_emblem
+      %td= contest.logostyle_letterform
+      %td= contest.logostyle_picturemark
+      %td= contest.logostyle_web20
+      %td= contest.logostyle_wordmark
+      %td= contest.favorite_1
+      %td= contest.favorite_2
+      %td= contest.favorite_3
+      %td= contest.reference_url
+      %td= contest.description
+      %td= contest.image_meter_1
+      %td= contest.image_meter_2
+      %td= contest.image_meter_3
+      %td= contest.image_meter_4
+      %td= contest.image_meter_5
+      %td= link_to 'Show', contest
+      %td= link_to 'Edit', edit_contest_path(contest)
+      %td= link_to 'Destroy', contest, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+/= link_to 'New Contest', confirm_contests_path
+= link_to 'New Contest', selectplan_contests_path
+/= link_to 'New Contest', contests_path
+/= link_to 'New Contest', new_contest_path

@@ -1,0 +1,102 @@
+-if @contest.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@contest.errors.count, "error")} prohibited this contest from being saved:"
+    %ul
+      - @contest.errors.full_messages.each do |msg|
+        %li= msg
+
+.field
+  = f.label :category
+  = f.select :category, @category,{:include_blank=>'-------'}
+  = f.label :plan
+  = f.select :plan, @plan,{:include_blank=>'basic'}
+  = f.label :option
+  = f.select :option, @option,{:include_blank=>'-------'}
+  = f.label :open
+  = f.select :open, @open,{:include_blank=>'standard'}
+  = f.label :name
+  = f.text_field :name
+  = f.label :subname
+  = f.text_field :subname
+  = f.label :end_time
+  = f.select :end_time, @endtime,{:include_blank=>'10'}
+  = f.label :industry_1
+  = f.select :industry_1, ['a','b','c'],{:include_blank=>'-------'}
+  = f.label :industry_2
+  = f.select :industry_2, ['a','b','c'],{:include_blank=>'-------'}
+  = f.label :usage_web
+  = f.check_box :usage_web
+  = f.label :usage_print
+  = f.check_box :usage_print
+  = f.label :usage_package
+  = f.check_box :usage_package
+  = f.label :usage_signboard
+  = f.check_box :usage_signboard
+  = f.label :usage_other
+  = f.check_box :usage_other
+  = f.label :format_psd
+  = f.check_box :format_psd
+  = f.label :format_eps
+  = f.check_box :format_eps
+  = f.label :format_ai
+  = f.check_box :format_ai
+  = f.label :format_indesign
+  = f.check_box :format_indesign
+  = f.label :format_jpg
+  = f.check_box :format_jpg
+  = f.label :format_gif
+  = f.check_box :format_gif
+  = f.label :format_png
+  = f.check_box :format_png
+  = f.label :format_pdf
+  = f.check_box :format_pdf
+  = f.label :format_other
+  = f.check_box :format_other
+  = f.label :color
+  = f.text_field :color
+  = f.label :parts
+  = f.text_field :parts
+  = f.label :image_meter_1
+  = f.range_field :image_meter_1
+  = f.label :image_meter_2
+  = f.range_field :image_meter_2
+  = f.label :image_meter_3
+  = f.range_field :image_meter_3
+  = f.label :image_meter_4
+  = f.range_field :image_meter_4
+  = f.label :image_meter_5
+  = f.range_field :image_meter_5
+  = f.label :logotype_iconic
+  = f.check_box :logotype_iconic
+  = f.label :logotype_illustrative
+  = f.check_box :logotype_illustrative
+  = f.label :logotype_textual
+  = f.check_box :logotype_textual
+  = f.label :logostyle_abstruct
+  = f.check_box :logostyle_abstruct
+  = f.label :logostyle_brush
+  = f.check_box :logostyle_brush
+  = f.label :logostyle_character
+  = f.check_box :logostyle_character
+  = f.label :logostyle_emblem
+  = f.check_box :logostyle_emblem
+  = f.label :logostyle_letterform
+  = f.check_box :logostyle_letterform
+  = f.label :logostyle_picturemark
+  = f.check_box :logostyle_picturemark
+  = f.label :logostyle_web20
+  = f.check_box :logostyle_web20
+  = f.label :logostyle_wordmark
+  = f.check_box :logostyle_wordmark
+  = f.label :favorite_1
+  = f.file_field :favorite_1
+  = f.label :favorite_2
+  = f.file_field :favorite_2
+  = f.label :favorite_3
+  = f.file_field :favorite_3
+  = f.label :reference_url
+  = f.url_field :reference_url
+  = f.label :description
+  = f.text_area :description,{:rows=>3}
+.actions
+  = f.submit 'Save'

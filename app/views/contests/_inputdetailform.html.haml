@@ -1,0 +1,125 @@
+-if @contest.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@contest.errors.count, "error")} prohibited this contest from being saved:"
+    %ul
+      - @contest.errors.full_messages.each do |msg|
+        %li= msg
+
+#dialog.jqmWindow
+  %a.jqmClose.right{:href => "#"}= image_tag "/images/mock/color-picker/colorpic.png", :size => '500x500'
+
+.wrap
+  %ul.breadcrumb
+    %li 1. カテゴリ/プラン選択
+    %span.divider ｜
+    %li.active 2. 依頼内容の入力
+    %span.divider ｜
+    %li 3. 依頼内容の確認
+    %span.divider ｜
+    %li 4. 支払方法の選択
+    %span.divider ｜
+    %li 5.支払内容の確認
+    %span.divider ｜
+    %li 6.完了
+
+  %h3 2. コンテスト情報入力
+  = form_for(@contest,:url=>confirm_contests_path)do |f|
+    .content-wrap
+      .field
+        = f.hidden_field :category, :value=>@tmp_contest.category
+        = f.hidden_field :plan, :value=>@tmp_contest.plan
+        = f.hidden_field :option_earlyend, :value=>@tmp_contest.option_earlyend
+        = f.hidden_field :option_urgent, :value=>@tmp_contest.option_urgent
+        = f.hidden_field :open, :value=>@tmp_contest.open
+        .form-vertical   
+          .input-area
+            %h5 ロゴの表記名は何ですか？ ＊
+            .logoname-select
+              = f.text_field :name, {:placeholder => "例：designclue"}
+          .input-area
+            %h5 キャッチコピーやスローガンなどサブタイトルを入れる場合はご記入ください
+            .subname-select
+              = f.text_field :subname, {:placeholder => "例：Cross Border Communications for Your Business"}
+        = f.label :end_time
+        = f.select :end_time, @endtime,{:include_blank=>'10'}
+        = f.label :industry_1
+        = f.select :industry_1, ['a','b','c'],{:include_blank=>'-------'}
+        = f.label :industry_2
+        = f.select :industry_2, ['a','b','c'],{:include_blank=>'-------'}
+        = f.label :usage_web
+        = f.check_box :usage_web
+        = f.label :usage_print
+        = f.check_box :usage_print
+        = f.label :usage_package
+        = f.check_box :usage_package
+        = f.label :usage_signboard
+        = f.check_box :usage_signboard
+        = f.label :usage_other
+        = f.check_box :usage_other
+        = f.label :format_psd
+        = f.check_box :format_psd
+        = f.label :format_eps
+        = f.check_box :format_eps
+        = f.label :format_ai
+        = f.check_box :format_ai
+        = f.label :format_indesign
+        = f.check_box :format_indesign
+        = f.label :format_jpg
+        = f.check_box :format_jpg
+        = f.label :format_gif
+        = f.check_box :format_gif
+        = f.label :format_png
+        = f.check_box :format_png
+        = f.label :format_pdf
+        = f.check_box :format_pdf
+        = f.label :format_other
+        = f.check_box :format_other
+        = f.label :color
+        = f.text_field :color
+        = f.label :parts
+        = f.text_field :parts
+        = f.label :image_meter_1
+        = f.range_field :image_meter_1
+        = f.label :image_meter_2
+        = f.range_field :image_meter_2
+        = f.label :image_meter_3
+        = f.range_field :image_meter_3
+        = f.label :image_meter_4
+        = f.range_field :image_meter_4
+        = f.label :image_meter_5
+        = f.range_field :image_meter_5
+        = f.label :logotype_iconic
+        = f.check_box :logotype_iconic
+        = f.label :logotype_illustrative
+        = f.check_box :logotype_illustrative
+        = f.label :logotype_textual
+        = f.check_box :logotype_textual
+        = f.label :logostyle_abstruct
+        = f.check_box :logostyle_abstruct
+        = f.label :logostyle_brush
+        = f.check_box :logostyle_brush
+        = f.label :logostyle_character
+        = f.check_box :logostyle_character
+        = f.label :logostyle_emblem
+        = f.check_box :logostyle_emblem
+        = f.label :logostyle_letterform
+        = f.check_box :logostyle_letterform
+        = f.label :logostyle_picturemark
+        = f.check_box :logostyle_picturemark
+        = f.label :logostyle_web20
+        = f.check_box :logostyle_web20
+        = f.label :logostyle_wordmark
+        = f.check_box :logostyle_wordmark
+        = f.label :favorite_1
+        = f.file_field :favorite_1
+        = f.label :favorite_2
+        = f.file_field :favorite_2
+        = f.label :favorite_3
+        = f.file_field :favorite_3
+        = f.label :reference_url
+        = f.url_field :reference_url
+        = f.label :description
+        = f.text_area :description,{:rows=>3}
+    .btn-area
+      .actions
+        = f.submit 'Save'

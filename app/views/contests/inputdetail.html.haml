@@ -1,0 +1,15 @@
+= content_for :head do
+  = javascript_include_tag '/javascripts/lib/jquery-plugin/jqModal.js'
+  = stylesheet_link_tag "/stylesheets/job_post_2.css"
+  = stylesheet_link_tag "/stylesheets/jqModal.css"
+
+  :javascript
+    $(function() {
+      $(".explain-popover").popover({
+      });
+    }); 
+    $(function() {  
+      $('#dialog').jqm({ modal: true });    
+    });
+
+= render 'inputdetailform'

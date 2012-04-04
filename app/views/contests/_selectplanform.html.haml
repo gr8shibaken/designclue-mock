@@ -1,0 +1,49 @@
+-if @contest.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@contest.errors.count, "error")} prohibited this contest from being saved:"
+    %ul
+      - @contest.errors.full_messages.each do |msg|
+        %li= msg
+.wrap
+  %ul.breadcrumb
+    %li.active 1. カテゴリ/プラン選択
+    %span.divider ｜
+    %li 2. 依頼内容の入力
+    %span.divider ｜
+    %li 3. 依頼内容の確認
+    %span.divider ｜
+    %li 4. 支払方法の選択
+    %span.divider ｜
+    %li 5.支払内容の確認
+    %span.divider ｜
+    %li 6.完了
+  = form_for(@contest, :url=>inputdetail_contests_path)do |f|
+    .field
+      %h3 1. カテゴリ/プラン選択
+      .input-area
+        %h5 あなたはどのデザインが必要ですか？ ＊
+        = f.radio_button(:category, 'logo')+' ロゴデザイン'
+        = f.radio_button(:category, 'namecard')+' 名刺デザイン'
+        = f.radio_button(:category, 'illustration')+' イラストレーション'
+        = f.radio_button(:category, 'bookcover')+' ブックカバー'
+        = f.radio_button(:category, 'flyer')+' フライヤー'
+        = f.radio_button(:category, 'brush')+' 書道'
+        = f.radio_button(:category, 'iphone-icon')+' iphoneアプリアイコン'
+        = f.radio_button(:category, 'other')+' その他'
+      .input-area.select-plan
+        %h5 ご希望の料金プランはどれですか？ ＊
+        = f.radio_button(:plan, '1-1')+' startup'
+        = f.radio_button(:plan, '1-2')+' basic'
+        = f.radio_button(:plan, '1-3')+' premium'
+      .input-area
+        %h5 公開範囲はどうしますか？
+        = f.radio_button(:open, 1)+' standard'
+        = f.radio_button(:open, 2)+' close'
+        = f.radio_button(:open, 3)+' secret'
+      .input-area
+        %h5 オプションは必要ですか？
+        = f.check_box(:option_earlyend)+' early-end'
+        = f.check_box(:option_urgent)+' urgent'
+    .btn-area
+      .actions
+        = f.submit '依頼内容の入力へ進む'

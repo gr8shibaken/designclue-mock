@@ -1,0 +1,202 @@
+/= form_for @contest do |f|
+-if @contest.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@contest.errors.count, "error")} prohibited this contest from being saved:"
+    %ul
+      - @contest.errors.full_messages.each do |msg|
+        %li= msg
+
+%p#notice= notice
+
+%p
+  %b category:
+  = @tmp_contest.category
+%p
+  %b plan:
+  = @tmp_contest.plan
+%p
+  %b option_earlyend:
+  = @tmp_contest.option_earlyend
+%p
+  %b option_urgent:
+  = @tmp_contest.option_urgent
+%p
+  %b open:
+  = @tmp_contest.open
+%p
+  %b name:
+  = @tmp_contest.name
+%p
+  %b subname:
+  = @tmp_contest.subname
+%p
+  %b end_time:
+  = @tmp_contest.end_time
+%p
+  %b industry_1:
+  = @tmp_contest.industry_1
+%p
+  %b industry_2:
+  = @tmp_contest.industry_2
+%p
+  %b usage_web:
+  = @tmp_contest.usage_web
+%p
+  %b usage_print:
+  = @tmp_contest.usage_print
+%p
+  %b usage_package:
+  = @tmp_contest.usage_package
+%p
+  %b usage_signboard:
+  = @tmp_contest.usage_signboard
+%p
+  %b usage_other:
+  = @tmp_contest.usage_other
+%p
+  %b open:
+  = @tmp_contest.format_psd
+%p
+  %b open:
+  = @tmp_contest.format_eps
+%p
+  %b open:
+  = @tmp_contest.format_ai
+%p
+  %b open:
+  = @tmp_contest.format_indesign
+%p
+  %b open:
+  = @tmp_contest.format_jpg
+%p
+  %b open:
+  = @tmp_contest.format_gif
+%p
+  %b open:
+  = @tmp_contest.format_png
+%p
+  %b open:
+  = @tmp_contest.format_pdf
+%p
+  %b open:
+  = @tmp_contest.format_other
+%p
+  %b open:
+  = @tmp_contest.color
+%p
+  %b open:
+  = @tmp_contest.parts
+%p
+  %b open:
+  = @tmp_contest.image_meter_1
+%p
+  %b open:
+  = @tmp_contest.image_meter_2
+%p
+  %b open:
+  = @tmp_contest.image_meter_3
+%p
+  %b open:
+  = @tmp_contest.image_meter_4
+%p
+  %b open:
+  = @tmp_contest.image_meter_5
+%p
+  %b open:
+  = @tmp_contest.logotype_iconic
+%p
+  %b open:
+  = @tmp_contest.logotype_illustrative
+%p
+  %b open:
+  = @tmp_contest.logotype_textual
+%p
+  %b logostyle_abstruct:
+  = @tmp_contest.logostyle_abstruct
+%p
+  %b logostyle_brush:
+  = @tmp_contest.logostyle_brush
+%p
+  %b logostyle_character:
+  = @tmp_contest.logostyle_character
+%p
+  %b logostyle_emblem:
+  = @tmp_contest.logostyle_emblem
+%p
+  %b logostyle_letterform:
+  = @tmp_contest.logostyle_letterform
+%p
+  %b logostyle_picturemark:
+  = @tmp_contest.logostyle_picturemark
+%p
+  %b logostyle_web20:
+  = @tmp_contest.logostyle_web20
+%p
+  %b logostyle_wordmark:
+  = @tmp_contest.logostyle_wordmark
+%p
+  %b favorite_1:
+  = @tmp_contest.favorite_1
+%p
+  %b favorite_2:
+  = @tmp_contest.favorite_2
+%p
+  %b favorite_3:
+  = @tmp_contest.favorite_3
+%p
+  %b reference_url:
+  = @tmp_contest.reference_url
+%p
+  %b description:
+  = @tmp_contest.description
+
+  .field
+    = f.hidden_field :category, :value=>@tmp_contest.category
+    = f.hidden_field :plan, :value=>@tmp_contest.plan
+    = f.hidden_field :option_earlyend, :value=>@tmp_contest.option_earlyend
+    = f.hidden_field :option_urgent, :value=>@tmp_contest.option_urgent
+    = f.hidden_field :open, :value=>@tmp_contest.open
+    = f.hidden_field :name, :value=>@tmp_contest.name
+    = f.hidden_field :subname, :value=>@tmp_contest.subname
+    = f.hidden_field :end_time, :value=>@tmp_contest.end_time
+    = f.hidden_field :industry_1, :value=>@tmp_contest.industry_1
+    = f.hidden_field :industry_2, :value=>@tmp_contest.industry_2
+    = f.hidden_field :usage_web, :value=>@tmp_contest.usage_web
+    = f.hidden_field :usage_print, :value=>@tmp_contest.usage_print
+    = f.hidden_field :usage_package, :value=>@tmp_contest.usage_package
+    = f.hidden_field :usage_signboard, :value=>@tmp_contest.usage_signboard
+    = f.hidden_field :usage_other, :value=>@tmp_contest.usage_other
+    = f.hidden_field :format_psd, :value=>@tmp_contest.format_psd
+    = f.hidden_field :format_eps, :value=>@tmp_contest.format_eps
+    = f.hidden_field :format_ai, :value=>@tmp_contest.format_ai
+    = f.hidden_field :format_indesign, :value=>@tmp_contest.format_indesign
+    = f.hidden_field :format_jpg, :value=>@tmp_contest.format_jpg
+    = f.hidden_field :format_gif, :value=>@tmp_contest.format_gif
+    = f.hidden_field :format_png, :value=>@tmp_contest.format_png
+    = f.hidden_field :format_pdf, :value=>@tmp_contest.format_pdf
+    = f.hidden_field :format_other, :value=>@tmp_contest.format_other
+    = f.hidden_field :color, :value=>@tmp_contest.color
+    = f.hidden_field :parts, :value=>@tmp_contest.parts
+    = f.hidden_field :logotype_iconic, :value=>@tmp_contest.logotype_iconic
+    = f.hidden_field :logotype_illustrative, :value=>@tmp_contest.logotype_illustrative
+    = f.hidden_field :logotype_textual, :value=>@tmp_contest.logotype_textual
+    = f.hidden_field :logostyle_abstruct, :value=>@tmp_contest.logostyle_abstruct
+    = f.hidden_field :logostyle_brush, :value=>@tmp_contest.logostyle_brush
+    = f.hidden_field :logostyle_character, :value=>@tmp_contest.logostyle_character
+    = f.hidden_field :logostyle_emblem, :value=>@tmp_contest.logostyle_emblem
+    = f.hidden_field :logostyle_letterform, :value=>@tmp_contest.logostyle_letterform
+    = f.hidden_field :logostyle_picturemark, :value=>@tmp_contest.logostyle_picturemark
+    = f.hidden_field :logostyle_web20, :value=>@tmp_contest.logostyle_web20
+    = f.hidden_field :logostyle_wordmark, :value=>@tmp_contest.logostyle_wordmark
+    = f.hidden_field :favorite_1, :value=>@tmp_contest.favorite_1
+    = f.hidden_field :favorite_2, :value=>@tmp_contest.favorite_2
+    = f.hidden_field :favorite_3, :value=>@tmp_contest.favorite_3
+    = f.hidden_field :reference_url, :value=>@tmp_contest.reference_url
+    = f.hidden_field :description, :value=>@tmp_contest.description
+    = f.hidden_field :image_meter_1, :value=>@tmp_contest.image_meter_1
+    = f.hidden_field :image_meter_2, :value=>@tmp_contest.image_meter_2
+    = f.hidden_field :image_meter_3, :value=>@tmp_contest.image_meter_3
+    = f.hidden_field :image_meter_4, :value=>@tmp_contest.image_meter_4
+    = f.hidden_field :image_meter_5, :value=>@tmp_contest.image_meter_5
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,34 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/job_post_1.css"
+
+  :javascript
+    $(function() {
+      $('[id^="category_1"]').click(function(){
+        $("#prize_pattern1").css("display", "block");
+        $('#prize_pattern2').css("display", "none");
+        $('#prize_pattern3').css("display", "none");
+      });
+    }); 
+
+    $(function() {
+      $('[id^="category_2"]').click(function(){
+        $("#prize_pattern2").css("display", "block");
+        $('#prize_pattern1').css("display", "none");
+        $('#prize_pattern3').css("display", "none");
+      });
+    }); 
+
+    $(function() {
+      $('[id^="category_3"]').click(function(){
+        $("#prize_pattern3").css("display", "block");
+        $('#prize_pattern1').css("display", "none");
+        $('#prize_pattern2').css("display", "none");
+      });
+    }); 
+    
+    $(function() {
+      $(".explain-popover").popover({
+      });
+    });
+    
+= render 'selectplanform'
