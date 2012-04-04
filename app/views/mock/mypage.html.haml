@@ -12,6 +12,17 @@
         $(targetList).addClass('active');
       }
     });
+    $(function() {
+      $('[id="show-manager"]').click(function(){
+        $("#contest-manager").css("display", "block");
+        $("#contest-index").css("display", "none");
+      });
+      $('[id="show-index"]').click(function(){
+        $("#contest-manager").css("display", "none");
+        $("#contest-index").css("display", "block");
+      });
+    }); 
+
 .left{:style=>'width:170px;'}
   %div{:style=>'margin-bottom:20px;'}
     %h3 My Page
@@ -119,7 +130,7 @@
     .tab-pane#contest
       %div{:style=>'margin:9px 0px 20px 0px;'}
         %h4 コンテスト管理
-      %div
+      %div#contest-index
         %table.table.table-striped.custom
           %tr
             %th 
@@ -130,19 +141,91 @@
             %th 期日
             %th ステータス
             %th
+          %tr
+            %td
+            %td= link_to "Campfire ウェブコンテンツ"
+            %td ロゴ
+            %td 0
+            %td ¥30,000
+            %td 2012/04/21
+            %td 開催中
+            %td
+              %a.btn#show-manager 管理ページ
+          %tr
+            %td
+              %i.icon-remove
+            %td= link_to "Campfire ウェブコンテンツ"
+            %td ロゴ
+            %td 0
+            %td ¥20,000
+            %td 2012/04/01
+            %td 一時保存
+            %td
+              %a.btn 編集
           - Mock::Contest.all.each_with_index do |contest,index|
-            %tr
-              %td
-                %i.icon-remove
-              %td{:style=>'width:240px;'}= link_to contest.title, "/mock/job_detail?id=#{contest.id}"
-              %td ロゴ
-              %td= contest.design
-              %td= "¥#{contest.price}"
-              %td= "12/#{4-index}/10"
-              %td= "#{index == 0 ? '開催中' : '終了'}"
-              %td
-                %a.btn 編集
-            
+            /%tr
+            /  %td
+            /  %td{:style=>'width:200px;'}= link_to contest.title, "/mock/job_detail?id=#{contest.id}"
+            /  %td ロゴ
+            /  %td= contest.design
+            /  %td= "¥#{contest.price}"
+            /  %td= "12/#{4-index}/10"
+            /  %td= "#{index == 0 ? '開催中' : '終了'}"
+            /  %td
+            /    %a.btn 編集
+      %div#contest-manager
+        %table.table.table-striped.custom
+          %tr
+            %th ステータス
+            %th デザイナー数
+            %th デザイン数
+            %th 招待数
+            %th リミット
+            %th 支払状況
+            %th
+          %tr
+            %td 開催中
+            %td 0
+            %td 0
+            %td 20
+            %td 2012/04/21
+            %td 返金保証あり
+            %td 
+              %a.btn#show-index 一覧へ 
+        %table.table.table-striped.custom
+          %tr
+            %th 管理ツール
+            %th
+          %tr
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/edit.png", :size=>'30x30'
+              = '依頼の編集／ファイルアップロード'
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/extend.png", :size=>'30x30'
+              = 'リミットを延期する'
+          %tr
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/view.png", :size=>'30x30'
+              = '依頼を見る'
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/increase.png", :size=>'30x30'
+              = '報酬を上げる'
+          %tr
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/update.png", :size=>'30x30'
+              = '追記を書く'
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/voting.png", :size=>'30x30'
+              = 'デザインを決定する'
+          %tr
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/question.png", :size=>'30x30'
+              = 'designclueに質問する'
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/refund.png", :size=>'30x30'
+              = '返金申請をする'
+        
+
     .tab-pane#design
       %div{:style=>'margin:9px 0px 20px 0px;'}
         %h4 デザイン管理
