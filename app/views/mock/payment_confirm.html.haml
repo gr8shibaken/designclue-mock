@@ -50,5 +50,6 @@
             %b パスワード
           %td ****************
   .btn-area
-    %a.previous.btn.btn-inverse{:href => '/mock/payment'}= '戻る'
+    .previous.btn.btn-inverse
+      %a=link_to_function '戻る', 'history.back()'
     %a.next.btn.btn-inverse.right{:href => '/mock/post_complete'}= '完了する'

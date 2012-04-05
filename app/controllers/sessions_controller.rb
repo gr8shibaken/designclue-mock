@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       if params[:callback] == 'post'
-        redirect_to mock_job_post_2_path
+        redirect_to selectplan_contests_path
+#        redirect_to mock_job_post_2_path
       else
         redirect_to mock_top_path
       end

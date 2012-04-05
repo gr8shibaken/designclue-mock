@@ -50,7 +50,7 @@
   - designer = Mock::Designer.all.sample(1).first
   %div{:style=>'margin-top:7px;'}
     .left
-      - if signed_in && current_user.type == "client"
+      - if signed_in && current_user.usertype == "client"
         %a.btn.btn-warning#feedbackbtn
           %b
             フィードバックを入れる

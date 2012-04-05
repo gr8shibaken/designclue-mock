@@ -8,6 +8,28 @@
 #dialog.jqmWindow
   %a.jqmClose.right{:href => "#"}= image_tag "/images/mock/color-picker/colorpic.png", :size => '500x500'
 
+- tooltip_data = Mock::Tooltip.tooltip_read
+- openformat_title  =tooltip_data["titles"]["openformat_title"]
+- psd_title         =tooltip_data["titles"]["psd_title"]
+- eps_title         =tooltip_data["titles"]["eps_title"]
+- ai_title          =tooltip_data["titles"]["ai_title"]
+- indesign_title    =tooltip_data["titles"]["indesign_title"]
+- jpg_title         =tooltip_data["titles"]["jpg_title"]
+- gif_title         =tooltip_data["titles"]["gif_title"]
+- png_title         =tooltip_data["titles"]["png_title"]
+- pdf_title         =tooltip_data["titles"]["pdf_title"]
+- other_title       =tooltip_data["titles"]["other_title"]
+- openformat_explain=tooltip_data["explains"]["other_explain"]
+- psd_explain       =tooltip_data["explains"]["psd_explain"]
+- eps_explain       =tooltip_data["explains"]["eps_explain"]
+- ai_explain        =tooltip_data["explains"]["ai_explain"]
+- indesign_explain  =tooltip_data["explains"]["indesign_explain"]
+- jpg_explain       =tooltip_data["explains"]["jpg_explain"]
+- gif_explain       =tooltip_data["explains"]["gif_explain"]
+- png_explain       =tooltip_data["explains"]["png_explain"]
+- pdf_explain       =tooltip_data["explains"]["pdf_explain"]
+- other_explain     =tooltip_data["explains"]["other_explain"]
+
 .wrap
   %ul.breadcrumb
     %li 1. カテゴリ/プラン選択
@@ -25,101 +47,222 @@
   %h3 2. コンテスト情報入力
   = form_for(@contest,:url=>confirm_contests_path)do |f|
     .content-wrap
-      .field
-        = f.hidden_field :category, :value=>@tmp_contest.category
-        = f.hidden_field :plan, :value=>@tmp_contest.plan
-        = f.hidden_field :option_earlyend, :value=>@tmp_contest.option_earlyend
-        = f.hidden_field :option_urgent, :value=>@tmp_contest.option_urgent
-        = f.hidden_field :open, :value=>@tmp_contest.open
-        .form-vertical   
+      = f.hidden_field :category, :value=>@tmp_contest.category
+      = f.hidden_field :plan, :value=>@tmp_contest.plan
+      = f.hidden_field :option_earlyend, :value=>@tmp_contest.option_earlyend
+      = f.hidden_field :option_urgent, :value=>@tmp_contest.option_urgent
+      = f.hidden_field :open, :value=>@tmp_contest.open
+      .form-vertical   
+        .input-area
+          %h5 ロゴの表記名は何ですか？ ＊
+          .logoname-select
+            = f.text_field( :name, {:placeholder => "例：designclue", :size=>"50"})
+        .input-area
+          %h5 キャッチコピーやスローガンなどサブタイトルを入れる場合はご記入ください
+          .subname-select
+            = f.text_field :subname, {:placeholder => "例：Cross Border Communications for Your Business", :size=>"80"}
+        .input-area
+          %h5 募集期間は何日間ですか？ ＊
+          .timelimit-select
+            = f.select(:end_time, @endtime,{:include_blank=>'10'},{:style=>"width:80px;"})+' 日間'
+        .input-area
+          %h5 あなたのビジネスは何ですか？ ＊ 
+          .industry-select
+            .industry1
+              ジャンル
+            .industry2
+              詳細
+            .form-inline
+              = f.select :industry_1, ['自営業','非営利団体','情報通信業','ソフトウェア業','その他'],{:include_blank=>'-------'},{:style=>"width:250px;"}
+              = f.label '>'
+              = f.select :industry_2, ['ソーシャルゲーム開発/提供','スマートフォンアプリ開発/提供','その他'],{:include_blank=>'-------'},{:style=>"width:250px;"}
+        .input-area
+          .form-vertical
+            %h5 利用用途は何ですか？ ＊
+            .purpose-select
+              %div= f.check_box(:usage_web)+' web'
+              %div= f.check_box(:usage_print)+' 印刷物'
+              %div= f.check_box(:usage_package)+' グッズ、パッケージ'
+              %div= f.check_box(:usage_signboard)+' 看板'
+              %div= f.check_box(:usage_other)+' その他'
+        .input-area
+          %h5 希望する納品フォーマットを選んでください ＊
+          %table.table-bordered.table-striped.format-select
+            %tr
+              %th.explain-popover{:rel=>'popover',:'data-title'=>"#{openformat_title}",:'data-content'=>"#{openformat_explain}" }
+                = "#{openformat_title}"
+              %th Online
+              %th Print
+              %th Others
+            %tr
+              %td
+                = f.check_box(:format_psd)+"#{psd_title}"
+                .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{psd_title}",:'data-content'=>"#{psd_explain}" }
+              %td
+                = f.check_box(:format_jpg)+"#{jpg_title}"
+                .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{jpg_title}",:'data-content'=>"#{jpg_explain}" }
+              %td
+                = f.check_box(:format_pdf)+"#{pdf_title}"
+                .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{pdf_title}",:'data-content'=>"#{pdf_explain}" }
+              %td
+                = f.check_box(:format_other)+"#{other_title}"
+                .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{other_title}",:'data-content'=>"#{other_explain}" }
+            %tr
+              %td
+                = f.check_box(:format_eps)+"#{eps_title}"
+                .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{eps_title}",:'data-content'=>"#{eps_explain}" }
+              %td
+                = f.check_box(:format_gif)+"#{gif_title}"
+                .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{gif_title}",:'data-content'=>"#{gif_explain}" }
+              %td
+              %td
+            %tr
+              %td
+                = f.check_box(:format_ai)+"#{ai_title}"
+                .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{ai_title}",:'data-content'=>"#{ai_explain}" }
+              %td
+                = f.check_box(:format_png)+"#{png_title}"
+                .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{png_title}",:'data-content'=>"#{png_explain}" }
+              %td
+              %td
+            %tr
+              %td
+                = f.check_box(:format_indesign)+"#{indesign_title}"
+                .explain-popover.icon-question-sign{:rel=>'popover',:'data-title'=>"#{indesign_title}",:'data-content'=>"#{indesign_explain}" }
+              %td
+              %td
+              %td
+              .clear
+          %div※デザイナーの制作ツールにより納品するフォーマットが異なります。
+          %div※フォーマット・選択したフォーマット数による価格の変動はありません。
+        .input-area
+          %h5 コーポレートカラーは何色ですか？ ＊
+          .color-select
+            .selectsample.left{:style=>"margin-right:60px;"}
+              = radio_button_tag(:color_pattern, 1, true)
+              代表的な色から選ぶ
+              %div
+              - 3.times do
+                =f.select(:color,['レッド','オレンジ','イエロー','グリーン','ブルー','パープル','ブラウン','ホワイト','ブラック'],{:include_blank=>'-------'})
+                %br
+            .freeinput.left
+              = radio_button_tag(:color_code, 1)
+              詳細な色を設定する
+              -3.times do
+                .form-inline
+                  %a.jqModal.left{:href=>"#"}= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
+                  %label #
+                  = f.text_field(:color,:placeholder=>"cccc00")
+                .clear
+            .clear 
           .input-area
-            %h5 ロゴの表記名は何ですか？ ＊
-            .logoname-select
-              = f.text_field :name, {:placeholder => "例：designclue"}
+            %h5 象徴的なオブジェクトが必要な場合はご記入ください
+            .parts-select
+              = f.text_field :parts,:placeholder => "例：炎"
           .input-area
-            %h5 キャッチコピーやスローガンなどサブタイトルを入れる場合はご記入ください
-            .subname-select
-              = f.text_field :subname, {:placeholder => "例：Cross Border Communications for Your Business"}
-        = f.label :end_time
-        = f.select :end_time, @endtime,{:include_blank=>'10'}
-        = f.label :industry_1
-        = f.select :industry_1, ['a','b','c'],{:include_blank=>'-------'}
-        = f.label :industry_2
-        = f.select :industry_2, ['a','b','c'],{:include_blank=>'-------'}
-        = f.label :usage_web
-        = f.check_box :usage_web
-        = f.label :usage_print
-        = f.check_box :usage_print
-        = f.label :usage_package
-        = f.check_box :usage_package
-        = f.label :usage_signboard
-        = f.check_box :usage_signboard
-        = f.label :usage_other
-        = f.check_box :usage_other
-        = f.label :format_psd
-        = f.check_box :format_psd
-        = f.label :format_eps
-        = f.check_box :format_eps
-        = f.label :format_ai
-        = f.check_box :format_ai
-        = f.label :format_indesign
-        = f.check_box :format_indesign
-        = f.label :format_jpg
-        = f.check_box :format_jpg
-        = f.label :format_gif
-        = f.check_box :format_gif
-        = f.label :format_png
-        = f.check_box :format_png
-        = f.label :format_pdf
-        = f.check_box :format_pdf
-        = f.label :format_other
-        = f.check_box :format_other
-        = f.label :color
-        = f.text_field :color
-        = f.label :parts
-        = f.text_field :parts
-        = f.label :image_meter_1
-        = f.range_field :image_meter_1
-        = f.label :image_meter_2
-        = f.range_field :image_meter_2
-        = f.label :image_meter_3
-        = f.range_field :image_meter_3
-        = f.label :image_meter_4
-        = f.range_field :image_meter_4
-        = f.label :image_meter_5
-        = f.range_field :image_meter_5
-        = f.label :logotype_iconic
-        = f.check_box :logotype_iconic
-        = f.label :logotype_illustrative
-        = f.check_box :logotype_illustrative
-        = f.label :logotype_textual
-        = f.check_box :logotype_textual
-        = f.label :logostyle_abstruct
-        = f.check_box :logostyle_abstruct
-        = f.label :logostyle_brush
-        = f.check_box :logostyle_brush
-        = f.label :logostyle_character
-        = f.check_box :logostyle_character
-        = f.label :logostyle_emblem
-        = f.check_box :logostyle_emblem
-        = f.label :logostyle_letterform
-        = f.check_box :logostyle_letterform
-        = f.label :logostyle_picturemark
-        = f.check_box :logostyle_picturemark
-        = f.label :logostyle_web20
-        = f.check_box :logostyle_web20
-        = f.label :logostyle_wordmark
-        = f.check_box :logostyle_wordmark
-        = f.label :favorite_1
-        = f.file_field :favorite_1
-        = f.label :favorite_2
-        = f.file_field :favorite_2
-        = f.label :favorite_3
-        = f.file_field :favorite_3
-        = f.label :reference_url
-        = f.url_field :reference_url
-        = f.label :description
-        = f.text_area :description,{:rows=>3}
+            %h5 あなたのイメージをイメージメーターで表現してください
+            %table
+              %tr
+                %td 男性的 
+                %td.form-inline
+                  = f.range_field :image_meter_1
+                  女性的 
+              %tr
+                %td 四角っぽい
+                %td.form-inline
+                  = f.range_field :image_meter_2
+                  丸っぽい
+              %tr
+                %td シンプル
+                %td.form-inline
+                  = f.range_field :image_meter_3
+                  複雑
+              %tr
+                %td ポップ
+                %td.form-inline
+                  = f.range_field :image_meter_4
+                  シック
+              %tr
+                %td 平面的
+                %td.form-inline
+                  = f.range_field :image_meter_5
+                  立体的
+          .input-area
+            %h5 希望するロゴのタイプを選択してください＊
+            .logotype-select-area
+              %table
+                %tr
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/textual.gif', :size => '100x100'
+                    = f.check_box :logotype_textual
+                    テキスト 
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/illustrative.gif', :size => '100x100'
+                    = f.check_box :logotype_illustrative
+                    複合マーク
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/iconic.gif', :size => '100x100'
+                    = f.check_box :logotype_iconic
+                    シンボル
+
+          .input-area
+            %h5 どのような系統のロゴが良いですか？ ＊
+            .logostyle-select-area
+              %table
+                %tr
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/wordmark.jpg', :size => '100x100'
+                    = f.check_box :logostyle_wordmark
+                    ワードマーク 
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/picturemark.jpg', :size => '100x100'
+                    = f.check_box :logostyle_picturemark
+                    ピクチャーマーク
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/abstruct.jpg', :size => '100x100'
+                    = f.check_box :logostyle_abstruct
+                    抽象スタイル
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/letterform.jpg', :size => '100x100'
+                    = f.check_box :logostyle_letterform
+                    頭文字マーク
+                %tr
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/emblem.jpg', :size => '100x100'
+                    = f.check_box :logostyle_emblem
+                    エンブレム
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/character.jpg', :size => '100x100'
+                    = f.check_box :logostyle_character
+                    キャラクター
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/brush.jpg', :size => '100x100'
+                    = f.check_box :logostyle_brush
+                    筆文字スタイル
+                  %td
+                    %p.image= image_tag '/images/mock/logo-type/Web2.0.jpg', :size => '100x100'
+                    = f.check_box :logostyle_web20
+                    web2.0スタイル
+          .input-area
+            %h5 お気に入りのデザインがあればファイルを添付してください
+            .clipping-area#clipping
+              .form-inline
+                = f.file_field :favorite_1
+              .form-inline
+                = f.file_field :favorite_2
+              .form-inline
+                = f.file_field :favorite_3
+          .input-area
+            %h5 参照すべきURLがありますか？（自社サイトや競合サイトなど） 
+            .URL-select
+              = f.url_field :reference_url, :placeholder => "http://"
+          
+          .input-area
+            %h5 自由記入欄
+            = f.text_area :description,{:rows=>3,:cols=>60}
+
     .btn-area
+      .previous.btn.btn-inverse
+        %a=link_to_function '戻る', 'history.back()'
+      %a.next.right= f.submit '確認へ進む'
       .actions
-        = f.submit 'Save'

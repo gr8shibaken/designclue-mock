@@ -8,148 +8,203 @@
 
 %p#notice= notice
 
-%p
-  %b category:
-  = @tmp_contest.category
-%p
-  %b plan:
-  = @tmp_contest.plan
-%p
-  %b option_earlyend:
-  = @tmp_contest.option_earlyend
-%p
-  %b option_urgent:
-  = @tmp_contest.option_urgent
-%p
-  %b open:
-  = @tmp_contest.open
-%p
-  %b name:
-  = @tmp_contest.name
-%p
-  %b subname:
-  = @tmp_contest.subname
-%p
-  %b end_time:
-  = @tmp_contest.end_time
-%p
-  %b industry_1:
-  = @tmp_contest.industry_1
-%p
-  %b industry_2:
-  = @tmp_contest.industry_2
-%p
-  %b usage_web:
-  = @tmp_contest.usage_web
-%p
-  %b usage_print:
-  = @tmp_contest.usage_print
-%p
-  %b usage_package:
-  = @tmp_contest.usage_package
-%p
-  %b usage_signboard:
-  = @tmp_contest.usage_signboard
-%p
-  %b usage_other:
-  = @tmp_contest.usage_other
-%p
-  %b open:
-  = @tmp_contest.format_psd
-%p
-  %b open:
-  = @tmp_contest.format_eps
-%p
-  %b open:
-  = @tmp_contest.format_ai
-%p
-  %b open:
-  = @tmp_contest.format_indesign
-%p
-  %b open:
-  = @tmp_contest.format_jpg
-%p
-  %b open:
-  = @tmp_contest.format_gif
-%p
-  %b open:
-  = @tmp_contest.format_png
-%p
-  %b open:
-  = @tmp_contest.format_pdf
-%p
-  %b open:
-  = @tmp_contest.format_other
-%p
-  %b open:
-  = @tmp_contest.color
-%p
-  %b open:
-  = @tmp_contest.parts
-%p
-  %b open:
-  = @tmp_contest.image_meter_1
-%p
-  %b open:
-  = @tmp_contest.image_meter_2
-%p
-  %b open:
-  = @tmp_contest.image_meter_3
-%p
-  %b open:
-  = @tmp_contest.image_meter_4
-%p
-  %b open:
-  = @tmp_contest.image_meter_5
-%p
-  %b open:
-  = @tmp_contest.logotype_iconic
-%p
-  %b open:
-  = @tmp_contest.logotype_illustrative
-%p
-  %b open:
-  = @tmp_contest.logotype_textual
-%p
-  %b logostyle_abstruct:
-  = @tmp_contest.logostyle_abstruct
-%p
-  %b logostyle_brush:
-  = @tmp_contest.logostyle_brush
-%p
-  %b logostyle_character:
-  = @tmp_contest.logostyle_character
-%p
-  %b logostyle_emblem:
-  = @tmp_contest.logostyle_emblem
-%p
-  %b logostyle_letterform:
-  = @tmp_contest.logostyle_letterform
-%p
-  %b logostyle_picturemark:
-  = @tmp_contest.logostyle_picturemark
-%p
-  %b logostyle_web20:
-  = @tmp_contest.logostyle_web20
-%p
-  %b logostyle_wordmark:
-  = @tmp_contest.logostyle_wordmark
-%p
-  %b favorite_1:
-  = @tmp_contest.favorite_1
-%p
-  %b favorite_2:
-  = @tmp_contest.favorite_2
-%p
-  %b favorite_3:
-  = @tmp_contest.favorite_3
-%p
-  %b reference_url:
-  = @tmp_contest.reference_url
-%p
-  %b description:
-  = @tmp_contest.description
+.wrap
+  %ul.breadcrumb
+    %li 1. カテゴリ/プラン選択
+    %span.divider ｜
+    %li 2. 依頼内容の入力
+    %span.divider ｜
+    %li.active 3. 依頼内容の確認
+    %span.divider ｜
+    %li 4. 支払方法の選択
+    %span.divider ｜
+    %li 5.支払内容の確認
+    %span.divider ｜
+    %li 6.完了
 
+
+
+  %h3 3.依頼内容の確認
+  .content-wrap
+    .plan-area
+      %h5 カテゴリ／プラン
+      %table.table{:style=>"margin-left:50px;"}
+        %tr
+          %td#index
+            %b カテゴリ
+          %td= @tmp_contest.category
+        %tr
+          %td#index
+            %b プラン
+          %td= @plan[@tmp_contest.plan]
+        %tr
+          %td#index
+            %b オプション 
+          %td
+            -if @tmp_contest.option_earlyend 
+              earlyend
+            -if @tmp_contest.option_urgent 
+              urgent
+        %tr
+          %td#index
+            %b 公開設定
+          %td
+            = @open[@tmp_contest.open]
+    .clear
+  .content-wrap
+    .detail-area
+      %h5 依頼内容
+      %table.table{:style=>"margin-left:50px;"}
+        %tr
+          %td#index
+            %b ロゴ表記名
+          %td= @tmp_contest.name
+        %tr
+          %td#index
+            %b サブタイトル
+          %td= @tmp_contest.subname
+        %tr
+          %td#index
+            %b 募集期間 
+          %td
+            = @tmp_contest.end_time
+            日間
+        %tr
+          %td#index
+            %b 業種 
+          %td
+            = @tmp_contest.industry_1
+            = @tmp_contest.industry_2
+        %tr
+          %td#index
+            %b 用途
+          %td
+            -if @tmp_contest.usage_web
+              web,
+            -if @tmp_contest.usage_print
+              print,
+            -if @tmp_contest.usage_package
+              package,
+            -if @tmp_contest.usage_signboard
+              signboard,
+            -if @tmp_contest.usage_other
+              other
+        %tr
+          %td#index
+            %b 納品フォーマット
+          %td
+            -if @tmp_contest.format_psd
+              psd,
+            -if @tmp_contest.format_ai
+              ai,
+            -if @tmp_contest.format_jpg
+              jpg,
+            -if @tmp_contest.format_png
+              png,
+            -if @tmp_contest.format_other
+              other,
+            -if @tmp_contest.format_eps
+              eps,
+            -if @tmp_contest.format_indesign
+              indesign,
+            -if @tmp_contest.format_gif
+              gif,
+            -if @tmp_contest.format_pdf
+              pdf
+        %tr
+          %td#index
+            %b コーポレートカラー
+          %td= @tmp_contest.color
+        %tr
+          %td#index
+            %b 象徴するオブジェクト
+          %td= @tmp_contest.parts
+        %tr
+          %td#index
+            %b イメージメーター
+          %td
+            /= @tmp_contest.image_meter_1
+            /= @tmp_contest.image_meter_2
+            /= @tmp_contest.image_meter_3
+            /= @tmp_contest.image_meter_4
+            /= @tmp_contest.image_meter_5
+        %tr
+          %td#index
+            %b ロゴタイプ
+          %td
+            -if @tmp_contest.logotype_iconic
+              .left
+                .image
+                  =image_tag '/images/mock/logo-type/iconic.gif', :size=>'80x80'
+                %span シンボル
+            -if @tmp_contest.logotype_illustrative
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/illustrative.gif', :size=>'80x80'
+                %span 複合マーク
+            -if @tmp_contest.logotype_textual
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/textual.gif', :size=>'80x80'
+                %span テキスト
+        %tr
+          %td#index
+            %b ロゴスタイル
+          %td
+            -if @tmp_contest.logostyle_abstruct
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/abstruct.jpg', :size=>'80x80'
+                %span 抽象スタイル 
+            -if @tmp_contest.logostyle_brush
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/brush.jpg', :size=>'80x80'
+                %span 筆文字 
+            -if @tmp_contest.logostyle_character
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/character.jpg', :size=>'80x80'
+                %span キャラクター
+            -if @tmp_contest.logostyle_emblem
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/emblem.jpg', :size=>'80x80'
+                %span エムブレム
+            -if @tmp_contest.logostyle_letterform
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/letterform.jpg', :size=>'80x80'
+                %span 頭文字 
+            -if @tmp_contest.logostyle_picturemark
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/picturemark.jpg', :size=>'80x80'
+                %span ピクチャー
+            -if @tmp_contest.logostyle_wordmark
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/wordmark.jpg', :size=>'80x80'
+                %span ワードマーク
+            -if @tmp_contest.logostyle_web20
+              .left{:style=>"margin-left:10px;"}
+                .image
+                  =image_tag '/images/mock/logo-type/web2.0.jpg', :size=>'80x80'
+                %span web2.0スタイル
+              .clear
+
+        %tr
+          %td#index
+            %b お気に入りロゴ
+          %td
+        %tr
+          %td#index
+            %b 参照URL
+          %td= @tmp_contest.reference_url
+        %tr
+          %td#index
+            %b 自由記入欄 
+          %td= @tmp_contest.description
   .field
     = f.hidden_field :category, :value=>@tmp_contest.category
     = f.hidden_field :plan, :value=>@tmp_contest.plan
@@ -198,5 +253,7 @@
     = f.hidden_field :image_meter_3, :value=>@tmp_contest.image_meter_3
     = f.hidden_field :image_meter_4, :value=>@tmp_contest.image_meter_4
     = f.hidden_field :image_meter_5, :value=>@tmp_contest.image_meter_5
-  .actions
-    = f.submit 'Save'
+  .btn-area
+    .previous.btn.btn-inverse
+      %a=link_to_function '戻る', 'history.back()'
+    %a.next.right= f.submit '支払方法の選択へ進む'

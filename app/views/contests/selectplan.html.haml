@@ -3,7 +3,7 @@
 
   :javascript
     $(function() {
-      $('[id^="category_1"]').click(function(){
+      $("#contest_category_namecard,#contest_category_bookcover,#contest_category_brush").click(function(){
         $("#prize_pattern1").css("display", "block");
         $('#prize_pattern2').css("display", "none");
         $('#prize_pattern3').css("display", "none");
@@ -11,7 +11,7 @@
     }); 
 
     $(function() {
-      $('[id^="category_2"]').click(function(){
+      $("#contest_category_logo,#contest_category_illustration,#contest_category_iphone-icon,#contest_category_other").click(function(){
         $("#prize_pattern2").css("display", "block");
         $('#prize_pattern1').css("display", "none");
         $('#prize_pattern3').css("display", "none");
@@ -19,7 +19,7 @@
     }); 
 
     $(function() {
-      $('[id^="category_3"]').click(function(){
+      $("#contest_category_flyer").click(function(){
         $("#prize_pattern3").css("display", "block");
         $('#prize_pattern1').css("display", "none");
         $('#prize_pattern2').css("display", "none");

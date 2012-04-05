@@ -1,5 +1,5 @@
 Designclue::Application.routes.draw do
-  resources :contests , :only=> %w[index show create new destroy] do
+  resources :contests , :only=> %w[index show create new destroy edit] do
     collection do
       get 'selectplan'
       post 'inputdetail'

@@ -104,6 +104,7 @@
       = file.close
     = check_box_tag( :sample, 1 )+' 同意する'
   .btn-area
-    %a.previous.btn.btn-inverse{:href => '/mock/top'}= 'キャンセル'
+    .previous.btn.btn-inverse
+      %a=link_to_function '戻る', 'history.back()'
     %a.next.btn.btn-inverse.right{:href => '/mock/payment_confirm'}= '支払方法の決定へ進む'
   .sidebar-wrap.left

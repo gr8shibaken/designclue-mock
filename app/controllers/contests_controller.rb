@@ -63,6 +63,10 @@ class ContestsController < ApplicationController
     @contest = Contest.new
     @tmp_contest = Contest.new(params[:contest])
     @category = ['logo','namecard','illustration', 'bookcover', 'flyer', 'brush', 'iphone-icon', 'other']
+
+    @plan={'1-1'=>'startup','1-2'=>'basic','1-3'=>'premium','2-1'=>'startup','2-2'=>'basic','2-3'=>'premium','3-1'=>'startup','3-2'=>'basic','3-3'=>'premium'}
+    @open={1=>'standard',2=>'close',3=>'secret'}
+
     respond_to do |format|
       format.html 
       format.json { render json: @contest }
@@ -86,8 +90,10 @@ class ContestsController < ApplicationController
 
     respond_to do |format|
       if @contest.save
-        format.html { redirect_to @contest, notice: 'Contest was successfully created.' }
-        format.json { render json: @contest, status: :created, location: @contest }
+        format.html { redirect_to mock_payment_url, notice: 'Contest was successfully created.' }
+#      if @contest.save
+#        format.html { redirect_to @contest, notice: 'Contest was successfully created.' }
+#        format.json { render json: @contest, status: :created, location: @contest }
       else
         format.html { render action: "new" }
         format.json { render json: @contest.errors, status: :unprocessable_entity }

@@ -72,7 +72,7 @@
       %span= link_to '仕事を探す', mock_job_index_path
       %span= link_to 'デザイナーを探す', mock_designer_index_path 
     #link-container.left
-      %a.btn.btn-danger{:href=> '/mock/job_post_1'}
+      %a.btn.btn-danger{:href=> '/contests/selectplan'}
         %b デザインを依頼する
 .header-space
 - if @navigation && !signed_in
@@ -96,7 +96,7 @@
                   %span{:style=>'font-size:13pt;'} コンテスト
               .button-area.text-center
                 .text-center
-                  %a.btn.btn-danger{:style=>'width:220px;font-size:13pt;',:href=> '/mock/job_post_1'}
+                  %a.btn.btn-danger{:style=>'width:220px;font-size:13pt;',:href=> '/contests/selectplan'}
                     %b デザインを依頼する
                   &nbsp;&nbsp;&nbsp;&nbsp;
                   %a.btn.btn-info{:style=>'width:220px;font-size:13pt;'}

@@ -1,8 +1,8 @@
-%h1 Confirm 
-
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/confirm.css"
 
 =form_for @contest do |f|
   = render :partial=>'confirmform', :locals => {:f => f}
 /= render 'confirmform'
 
-= link_to 'Back', contests_path
+/= link_to 'Back', contests_path
