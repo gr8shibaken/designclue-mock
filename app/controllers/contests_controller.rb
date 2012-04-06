@@ -64,7 +64,7 @@ class ContestsController < ApplicationController
     @tmp_contest = Contest.new(params[:contest])
     @category = ['logo','namecard','illustration', 'bookcover', 'flyer', 'brush', 'iphone-icon', 'other']
 
-    @plan={'1-1'=>'startup','1-2'=>'basic','1-3'=>'premium','2-1'=>'startup','2-2'=>'basic','2-3'=>'premium','3-1'=>'startup','3-2'=>'basic','3-3'=>'premium'}
+    @plan_data = Mock::Plan.plan_read
     @open={1=>'standard',2=>'close',3=>'secret'}
 
     respond_to do |format|

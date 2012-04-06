@@ -8,6 +8,9 @@
 
 %p#notice= notice
 
+- category={'logo'=>'ロゴデザイン','namecard'=>'名刺デザイン','illustration'=>'イラストレーション', 'bookcover'=>'ブックカバー', 'flyer'=>'フライヤー', 'brush'=>'書道', 'iphone-icon'=>'iphoneアプリアイコン', 'other'=>'その他'}
+- open={1=>'標準',2=>'クローズ',3=>'シークレット'}
+
 .wrap
   %ul.breadcrumb
     %li 1. カテゴリ/プラン選択
@@ -22,8 +25,6 @@
     %span.divider ｜
     %li 6.完了
 
-
-
   %h3 3.依頼内容の確認
   .content-wrap
     .plan-area
@@ -32,24 +33,24 @@
         %tr
           %td#index
             %b カテゴリ
-          %td= @tmp_contest.category
+          %td= category[@tmp_contest.category]
         %tr
           %td#index
             %b プラン
-          %td= @plan[@tmp_contest.plan]
+          %td= @plan_data[@tmp_contest.plan]['name']
         %tr
           %td#index
             %b オプション 
           %td
             -if @tmp_contest.option_earlyend 
-              earlyend
+              早期終了
             -if @tmp_contest.option_urgent 
-              urgent
+              急募
         %tr
           %td#index
             %b 公開設定
           %td
-            = @open[@tmp_contest.open]
+            = open[@tmp_contest.open]
     .clear
   .content-wrap
     .detail-area

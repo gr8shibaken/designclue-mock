@@ -30,6 +30,10 @@
 - pdf_explain       =tooltip_data["explains"]["pdf_explain"]
 - other_explain     =tooltip_data["explains"]["other_explain"]
 
+- industry1=['自営業','非営利団体','情報通信業','ソフトウェア業','インターネット附随サービス業','音楽・映像情報制作','サービス業','エンターテイメント業','アパレル業','卸売業/小売業','教育業','士業','不動産業','飲食店業','宿泊業','金融業/保険業']
+- industry2=[' ソーシャルゲーム開発/提供',' フューチャーフォンアプリ開発/提供',' スマートフォンアプリ開発/提供',' ソフトウェア開発/提供',' ホームページ制作',' ポータルサイト運営',' コンテンツプロバイダー',' ウェブコンテンツ',' クラウドサービス',' インターネット通信販売',' インターネット決済',' セキュリティサービス',' 広告販売販売']
+
+
 .wrap
   %ul.breadcrumb
     %li 1. カテゴリ/プラン選択
@@ -73,9 +77,9 @@
             .industry2
               詳細
             .form-inline
-              = f.select :industry_1, ['自営業','非営利団体','情報通信業','ソフトウェア業','その他'],{:include_blank=>'-------'},{:style=>"width:250px;"}
+              = f.select :industry_1, industry1,{:include_blank=>'-------'},{:style=>"width:250px;"}
               = f.label '>'
-              = f.select :industry_2, ['ソーシャルゲーム開発/提供','スマートフォンアプリ開発/提供','その他'],{:include_blank=>'-------'},{:style=>"width:250px;"}
+              = f.select :industry_2, industry2,{:include_blank=>'-------'},{:style=>"width:250px;"}
         .input-area
           .form-vertical
             %h5 利用用途は何ですか？ ＊
