@@ -68,7 +68,7 @@
         .input-area
           %h5 募集期間は何日間ですか？ ＊
           .timelimit-select
-            = f.select(:end_time, @endtime,{:include_blank=>'10'},{:style=>"width:80px;"})+' 日間'
+            = f.select(:term, @endtime,{:include_blank=>'10'},{:style=>"width:80px;"})+' 日間'
         .input-area
           %h5 あなたのビジネスは何ですか？ ＊ 
           .industry-select
@@ -143,21 +143,33 @@
           %h5 コーポレートカラーは何色ですか？ ＊
           .color-select
             .selectsample.left{:style=>"margin-right:60px;"}
-              = radio_button_tag(:color_pattern, 1, true)
+              = f.radio_button :color,'pattern', {:checked=>true}
               代表的な色から選ぶ
               %div
-              - 3.times do
-                =f.select(:color,['レッド','オレンジ','イエロー','グリーン','ブルー','パープル','ブラウン','ホワイト','ブラック'],{:include_blank=>'-------'})
+                =f.select(:colorpattern_1,['レッド','オレンジ','イエロー','グリーン','ブルー','パープル','ブラウン','ホワイト','ブラック'],{:include_blank=>'-------'})
+                %br
+                =f.select(:colorpattern_2,['レッド','オレンジ','イエロー','グリーン','ブルー','パープル','ブラウン','ホワイト','ブラック'],{:include_blank=>'-------'})
+                %br
+                =f.select(:colorpattern_3,['レッド','オレンジ','イエロー','グリーン','ブルー','パープル','ブラウン','ホワイト','ブラック'],{:include_blank=>'-------'})
                 %br
             .freeinput.left
-              = radio_button_tag(:color_code, 1)
+              = f.radio_button :color,'code'
               詳細な色を設定する
-              -3.times do
-                .form-inline
-                  %a.jqModal.left{:href=>"#"}= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
-                  %label #
-                  = f.text_field(:color,:placeholder=>"cccc00")
-                .clear
+              .form-inline
+                %a.jqModal.left{:href=>"#"}= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
+                %label #
+                = f.text_field(:colorcode_1,:placeholder=>"cccc00")
+              .clear
+              .form-inline
+                %a.jqModal.left{:href=>"#"}= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
+                %label #
+                = f.text_field(:colorcode_2,:placeholder=>"cccc00")
+              .clear
+              .form-inline
+                %a.jqModal.left{:href=>"#"}= image_tag "/images/mock/color-picker/colorsample.png", :size => '25x25'
+                %label #
+                = f.text_field(:colorcode_3,:placeholder=>"cccc00")
+              .clear
             .clear 
           .input-area
             %h5 象徴的なオブジェクトが必要な場合はご記入ください

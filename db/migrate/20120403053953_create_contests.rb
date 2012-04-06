@@ -1,13 +1,17 @@
 class CreateContests < ActiveRecord::Migration
   def change
     create_table :contests do |t|
+      t.string :title
+      t.integer :status
       t.string :category
       t.string :plan
       t.boolean :option_earlyend
       t.boolean :option_urgent
       t.integer :open
+      t.string :totalcost
       t.string :name
       t.string :subname
+      t.integer :term
       t.datetime :end_time
       t.string :industry_1
       t.string :industry_2
@@ -26,6 +30,12 @@ class CreateContests < ActiveRecord::Migration
       t.boolean :format_pdf
       t.boolean :format_other
       t.string :color
+      t.string :colorpattern_1
+      t.string :colorpattern_2
+      t.string :colorpattern_3
+      t.string :colorcode_1
+      t.string :colorcode_2
+      t.string :colorcode_3
       t.string :parts
       t.boolean :logotype_iconic
       t.boolean :logotype_illustrative

@@ -1,0 +1,6 @@
+earlyend:
+ name: '早期終了オプション'
+ fee: 2000
+urgent:
+ name: '急募オプション'
+ fee: 3000

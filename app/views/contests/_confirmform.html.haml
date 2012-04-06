@@ -68,7 +68,7 @@
           %td#index
             %b 募集期間 
           %td
-            = @tmp_contest.end_time
+            = @tmp_contest.term
             日間
         %tr
           %td#index
@@ -115,7 +115,15 @@
         %tr
           %td#index
             %b コーポレートカラー
-          %td= @tmp_contest.color
+          %td
+            -if @tmp_contest.color=='pattern'
+              = @tmp_contest.colorpattern_1
+              = @tmp_contest.colorpattern_2
+              = @tmp_contest.colorpattern_3
+            -else
+              = @tmp_contest.colorcode_1
+              = @tmp_contest.colorcode_2
+              = @tmp_contest.colorcode_3
         %tr
           %td#index
             %b 象徴するオブジェクト
@@ -214,7 +222,7 @@
     = f.hidden_field :open, :value=>@tmp_contest.open
     = f.hidden_field :name, :value=>@tmp_contest.name
     = f.hidden_field :subname, :value=>@tmp_contest.subname
-    = f.hidden_field :end_time, :value=>@tmp_contest.end_time
+    = f.hidden_field :term, :value=>@tmp_contest.term
     = f.hidden_field :industry_1, :value=>@tmp_contest.industry_1
     = f.hidden_field :industry_2, :value=>@tmp_contest.industry_2
     = f.hidden_field :usage_web, :value=>@tmp_contest.usage_web
@@ -232,6 +240,12 @@
     = f.hidden_field :format_pdf, :value=>@tmp_contest.format_pdf
     = f.hidden_field :format_other, :value=>@tmp_contest.format_other
     = f.hidden_field :color, :value=>@tmp_contest.color
+    = f.hidden_field :colorpattern_1, :value=>@tmp_contest.colorpattern_1
+    = f.hidden_field :colorpattern_2, :value=>@tmp_contest.colorpattern_2
+    = f.hidden_field :colorpattern_3, :value=>@tmp_contest.colorpattern_3
+    = f.hidden_field :colorcode_1, :value=>@tmp_contest.colorcode_1
+    = f.hidden_field :colorcode_2, :value=>@tmp_contest.colorcode_2
+    = f.hidden_field :colorcode_3, :value=>@tmp_contest.colorcode_3
     = f.hidden_field :parts, :value=>@tmp_contest.parts
     = f.hidden_field :logotype_iconic, :value=>@tmp_contest.logotype_iconic
     = f.hidden_field :logotype_illustrative, :value=>@tmp_contest.logotype_illustrative
