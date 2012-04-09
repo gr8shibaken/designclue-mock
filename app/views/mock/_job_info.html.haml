@@ -24,7 +24,7 @@
         %span{:style=>'color:red;font-size:14pt;'}= "#{@contest.time}時間"
       .clear
   .right
-    - if !signed_in or current_user.type == 'creator' 
+    - if !signed_in or current_user.usertype == 'creator' 
       %div
         %a.btn.btn-warning{:style=>'width:150px;',:onClick => "$('#designfile').click();"}
           %b.design-upload + デザインを投稿

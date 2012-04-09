@@ -12,11 +12,13 @@
     %h3 Sign in
   .modal-body{:style=>'margin-bottom:10px;'} 
     %a#signupBtn.btn.btn-primary.pull-right{:href=>'/users/new'} 新規アカウントを作成
+    %br
     %input#postUserName.span3{:type=>'text',:placeholder=>'UserName'}
     %br
+    %a.pull-right{:href=>'#'}=image_tag '/images/mock/icon/signinwithfacebook_btn.png', :size=>'170x100'
     %input.span3{:type=>'text',:placeholder=>'PassWord'}
     %br
-    .pull-left= check_box_tag(:option, 1)+'パスワードを保存する'
+    .pull-left= check_box_tag(:pw, 1)+'パスワードを保存する'
   .modal-footer
     .left
       %a#postLoginBtn.btn.btn-primary ログイン

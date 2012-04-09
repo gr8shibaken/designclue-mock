@@ -7,7 +7,9 @@ Designclue::Application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users do
+    get 'mypage'
+  end
 
   root :to => 'sessions#new'
   

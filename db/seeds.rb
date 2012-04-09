@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.delete_all
+User.connection.execute("delete from sqlite_sequence where name='users'")
 User.create(
   :username => 'shibata',
   :password => 'shibata',
@@ -17,4 +19,13 @@ User.create(
   :password => 'joe',
   :email => 'joe@purplecow.com',
   :usertype => 'creator'
+)
+
+Contest.delete_all
+Contest.connection.execute("delete from sqlite_sequence where name='contests'")
+Contest.create(
+  :user_id => 1,
+  :category => 'test',
+  :name => 'sample',
+  :industry_1 => 'industry'
 )

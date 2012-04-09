@@ -2,7 +2,6 @@
   = stylesheet_link_tag "/stylesheets/users.css"
 .wrap
   %p#notice= notice
-
   %table.table
     %tr
       %td{:width=>150} アカウントタイプ：
@@ -27,5 +26,10 @@
       %td= @user.firstname
   %h4 世界中にデザインを募集しよう！！ 
   .btn-area
-    %a.btn.btn-info{:href=>'/mock/job_post_1'}='デザインを依頼する'
-    %a.btn.btn-info{:href=>'/mock/designer_index'}='クリエイターを探す'
+    -if signed_in && @user.usertype=='client'
+      %a.btn.btn-info{:href=>'/contests/selectplan'}='デザインを依頼する'
+      %a.btn.btn-info{:href=>'/mock/designer_index'}='クリエイターを探す'
+    -elsif signed_in && @user.usertype=='creator'
+      %a.btn.btn-info{:href=>'/mock/job_index'}='募集中のコンテストを探す'
+    -else
+

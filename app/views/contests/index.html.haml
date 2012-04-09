@@ -2,8 +2,11 @@
 
 %table
   %tr
-    %th 
-    %th
+    %th user_id
+    %th title
+    %th status
+    %th category
+    %th plan
     %th
     %th
     %th
@@ -50,6 +53,9 @@
 
   - @contests.each do |contest|
     %tr
+      %td= contest.user_id
+      %td= contest.title
+      %td= contest.status
       %td= contest.category
       %td= contest.plan
       %td= contest.option_earlyend

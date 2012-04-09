@@ -8,8 +8,7 @@
 
 %p#notice= notice
 
-- category={'logo'=>'ロゴデザイン','namecard'=>'名刺デザイン','illustration'=>'イラストレーション', 'bookcover'=>'ブックカバー', 'flyer'=>'フライヤー', 'brush'=>'書道', 'iphone-icon'=>'iphoneアプリアイコン', 'other'=>'その他'}
-- open={1=>'標準',2=>'クローズ',3=>'シークレット'}
+/- open={1=>'標準',2=>'クローズ',3=>'シークレット'}
 
 .wrap
   %ul.breadcrumb
@@ -33,11 +32,12 @@
         %tr
           %td#index
             %b カテゴリ
-          %td= category[@tmp_contest.category]
+          %td= get_category_name[@tmp_contest.category]
         %tr
           %td#index
             %b プラン
-          %td= @plan_data[@tmp_contest.plan]['name']
+          %td= get_plan_detail[@tmp_contest.plan][:name]
+          /%td= @plan_data[@tmp_contest.plan]['name']
         %tr
           %td#index
             %b オプション 
@@ -50,7 +50,7 @@
           %td#index
             %b 公開設定
           %td
-            = open[@tmp_contest.open]
+            = get_open_detail[@tmp_contest.open][:name]
     .clear
   .content-wrap
     .detail-area
@@ -215,6 +215,9 @@
             %b 自由記入欄 
           %td= @tmp_contest.description
   .field
+    = f.hidden_field :user_id, :value=>current_user.id
+    = f.hidden_field :title, :value=>@tmp_contest.industry_1+get_category_name[@tmp_contest.category]+'デザイン'
+    = f.hidden_field :status, :value=>2
     = f.hidden_field :category, :value=>@tmp_contest.category
     = f.hidden_field :plan, :value=>@tmp_contest.plan
     = f.hidden_field :option_earlyend, :value=>@tmp_contest.option_earlyend

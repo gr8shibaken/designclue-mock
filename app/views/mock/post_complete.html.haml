@@ -1,5 +1,5 @@
 = content_for :head do
-  %meta{:'http-equiv'=>"refresh", :content=>"5 ; URL=/mock/mypage?category=contest"}
+  %meta{:'http-equiv'=>"refresh", :content=>"5 ; URL=/users/#{current_user.id}/mypage?category=contest"}
   = stylesheet_link_tag "/stylesheets/post_complete.css"
 
 .wrap
@@ -18,4 +18,4 @@
   .message-area
     %h3 依頼・決済が完了しました。
     %br
-    %a{:href=>"/mock/p"} コンテスト管理ページへ（5秒後に自動遷移します）
+    %a{:href=>"/users/#{current_user.id}/mypage?category=contest"} コンテスト管理ページへ（5秒後に自動遷移します）

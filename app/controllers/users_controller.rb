@@ -22,6 +22,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def mypage
+    @user = User.find(current_user.id)
+    @category = params[:category]
+    @contests = @user.contests
+
+    respond_to do |format|
+      format.html 
+      format.json { render :json => @user }
+    end
+  end
+
   # GET /users/new
   # GET /users/new.json
   def new
@@ -45,6 +56,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id]=@user.id
         format.html { redirect_to @user, :notice => 'ユーザー登録が完了しました。' }
         format.json { render :json => @user, :status => :created, :location => @user }
       else

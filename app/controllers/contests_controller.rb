@@ -23,11 +23,6 @@ class ContestsController < ApplicationController
 
   def new
     @contest = Contest.new
-    @category = ['logo','namecard','illustration', 'bookcover', 'flyer', 'brush', 'iphone-icon', 'other']
-    @plan = {"basic"=>1,"startup"=>2,"premium"=>3}
-    @open = {"close"=>1,"secret"=>2}
-    @option = {"early-end"=>1,"urgent"=>2}
-    @endtime = ['2','3','4','5','7','13','15']
 
     respond_to do |format|
       format.html 
@@ -37,10 +32,10 @@ class ContestsController < ApplicationController
 
   def selectplan
     @contest = Contest.new
-    @category = ['logo','namecard','illustration', 'bookcover', 'flyer', 'brush', 'iphone-icon', 'other']
-    @plan = {"basic"=>1,"startup"=>2,"premium"=>3}
-    @open = {"close"=>1,"secret"=>2}
-    @option = {"early-end"=>1,"urgent"=>2}
+#   @category = ['logo','namecard','illustration', 'bookcover', 'flyer', 'brush', 'iphone-icon', 'other']
+#   @plan = {"basic"=>1,"startup"=>2,"premium"=>3}
+#   @open = {"close"=>1,"secret"=>2}
+#   @option = {"early-end"=>1,"urgent"=>2}
 
     respond_to do |format|
       format.html 
@@ -51,7 +46,7 @@ class ContestsController < ApplicationController
   def inputdetail
     @contest = Contest.new
     @tmp_contest = Contest.new(params[:contest])
-    @endtime = ['2','3','4','5','7','13','15']
+    @days = ['2','3','4','5','7','10','13','15']
     if @tmp_contest
       render :action => 'inputdetail'
     else
@@ -62,20 +57,14 @@ class ContestsController < ApplicationController
   def confirm
     @contest = Contest.new
     @tmp_contest = Contest.new(params[:contest])
-    @category = ['logo','namecard','illustration', 'bookcover', 'flyer', 'brush', 'iphone-icon', 'other']
-
-    @plan_data = Mock::Plan.plan_read
-    @open={1=>'standard',2=>'close',3=>'secret'}
+#   @category = ['logo','namecard','illustration', 'bookcover', 'flyer', 'brush', 'iphone-icon', 'other']
+#   @plan_data = Mock::Plan.plan_read
+#   @open={1=>'standard',2=>'close',3=>'secret'}
 
     respond_to do |format|
       format.html 
       format.json { render json: @contest }
     end
-#    if @tmp_contest
-#      render :action => 'confirm'
-#    else
-#      render :action => 'selectplan'
-#    end
   end
 
   # GET /contests/1/edit

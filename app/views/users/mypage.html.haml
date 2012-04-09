@@ -1,0 +1,243 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/mypage.css"
+  :javascript
+    $(document).ready(function(){
+      if ("#{@category}" == "") {
+        $('#infomation').addClass('active');
+        $('#infomation-li').addClass('active');
+      } else {
+        var target = '#'+"#{@category}";
+        var targetList = target+'-li'
+        $(target).addClass('active');
+        $(targetList).addClass('active');
+      }
+    });
+    $(function() {
+      $('[id="show-manager"]').click(function(){
+        $("#contest-manager").css("display", "block");
+        $("#contest-index").css("display", "none");
+      });
+      $('[id="show-index"]').click(function(){
+        $("#contest-manager").css("display", "none");
+        $("#contest-index").css("display", "block");
+      });
+    }); 
+
+.left{:style=>'width:170px;'}
+  %div{:style=>'margin-bottom:20px;'}
+    %h3 My Page
+  %ul.nav.nav-tabs.nav-stacked
+    %li#infomation-li
+      %a{:href=>'#infomation', :'data-toggle'=> 'tab'}
+        %i.icon-info-sign
+        %span{:style=>'margin-left:3px;'}お知らせ
+    %li#message-li
+      %a{:href=>'#message', :'data-toggle'=> 'tab'}
+        %i.icon-envelope
+        %span{:style=>'margin-left:3px;'}メッセージ
+    %li#contest-li
+      %a{:href=>'#contest', :'data-toggle'=> 'tab'}
+        %i.icon-list-alt
+        %span{:style=>'margin-left:3px;'}コンテスト管理
+    %li#design-li
+      %a{:href=>'#design', :'data-toggle'=> 'tab'}
+        %i.icon-picture
+        %span{:style=>'margin-left:3px;'}デザイン管理
+    %li#profile-li
+      %a{:href=>'#profile', :'data-toggle'=> 'tab'}
+        %i.icon-user
+        %span{:style=>'margin-left:3px;'}プロフィール
+    %li#favorite-li
+      %a{:href=>'#favorite', :'data-toggle'=> 'tab'}
+        %i.icon-heart
+        %span{:style=>'margin-left:3px;'}お気に入り
+
+.left{:style=>'width:740px;margin-left:30px;'}
+  .tab-content
+    .tab-pane#infomation
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 お知らせ
+      %div
+        %table.table.table-striped.custom
+          %tr
+            %th 種類
+            %th 差出人
+            %th タイトル
+          %tr
+            %td
+              .left{:style=>'width:20px;'}
+                %i.icon-flag
+              .left
+                メッセージ
+              .clear
+            %td Designclue
+            %td
+              コンテストを開催してみませんか？
+          %tr
+            %td
+              .left{:style=>'width:20px;'}
+                &nbsp;
+              .left
+                メッセージ
+              .clear
+            %td Designclue
+            %td ご登録ありがとうございます        
+    .tab-pane#message
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 メッセージ
+      %div
+        %table.table.table-striped.custom
+          %tr
+            %th 日付
+            %th 差出人
+            %th タイトル
+          %tr
+            %td　12/03/12
+            %td Designclue
+            %td
+              コンテストを開催してみませんか？
+          %tr
+            %td　12/03/12
+            %td Designclue
+            %td ご登録ありがとうございます
+    .tab-pane#contest
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 コンテスト管理
+      %div#contest-index
+        %table.table.table-striped.custom
+          %tr
+            %th 
+            %th{:style=>"width:180px;"} タイトル
+            %th{:style=>"width:80px;"} カテゴリ
+            %th デザイン数
+            %th 賞金
+            %th{:style=>"width:70px;"} 期日
+            %th ステータス
+            %th
+          - @contests.reverse_each do |contest|
+            %tr
+              %td
+              %td=contest.title
+              %td=get_category_name[contest.category]
+              %td
+              %td=get_plan_prize[contest.plan].to_s+'円'
+              %td=contest.term.to_i.days.since(contest.created_at).in_time_zone("Tokyo").to_s(:db)
+              %td=get_status_name[contest.status]
+              %td
+                %a.btn#show-manager 管理ページ
+
+      %div#contest-manager
+        %table.table.table-striped.custom
+          %tr
+            %th ステータス
+            %th デザイナー数
+            %th デザイン数
+            %th 招待数
+            %th リミット
+            %th 支払状況
+            %th
+          %tr
+            %td
+            %td
+            %td
+            %td
+            %td
+            %td
+            %td 
+              %a.btn#show-index 一覧へ 
+        %table.table.table-striped.custom
+          %tr
+            %th 管理ツール
+            %th
+          %tr
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/edit.png", :size=>'30x30'
+              = '依頼の編集／ファイルアップロード'
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/extend.png", :size=>'30x30'
+              = 'リミットを延期する'
+          %tr
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/view.png", :size=>'30x30'
+              = '依頼を見る'
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/increase.png", :size=>'30x30'
+              = '報酬を上げる'
+          %tr
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/update.png", :size=>'30x30'
+              = '追記を書く'
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/voting.png", :size=>'30x30'
+              = 'デザインを決定する'
+          %tr
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/question.png", :size=>'30x30'
+              = 'designclueに質問する'
+            %td
+              %a{:href=>''}= image_tag "/images/mock/mypage/icon/refund.png", :size=>'30x30'
+              = '返金申請をする'
+        
+
+    .tab-pane#design
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 デザイン管理
+      %div
+        - works = Mock::Work.all.sample(5)
+        %table.table.table-striped.custom
+          %tr
+            %th 
+            %th ID #
+            %th ステータス
+            %th デザイナー
+            %th 次のステップ
+          - works.each_with_index do |work,index|
+            %tr
+              %td{:style=>'width:60px;'}
+                %a{:href=>"/mock/job_application?id=#{work.id}"}
+                  = image_tag "/images/mock/contests/#{work.id}-square.jpg", :size=>'50x50'
+              %td{:style=>'vertical-align:middle;'}= "##{rand(40)+1}"
+              %td{:style=>'vertical-align:middle;'}
+                - if index == 0
+                  完了
+                - elsif index == 1
+                  なし
+                - else
+                  残り2
+              %td{:style=>'vertical-align:middle;'}
+                - designer = Mock::Designer.all.sample(1).first
+                =link_to designer.name, "/mock/designer_detail?id=#{designer.id}"
+              %td{:style=>'vertical-align:middle;'}
+                - if index == 0
+                  = "-"
+                - else
+                  %a.btn Request
+    .tab-pane#profile
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 プロフィール
+          
+        %table.table
+          %tr
+            %td{:width=>150} アカウントタイプ：
+            %td= @user.usertype
+          %tr
+            %td ユーザー名:
+            %td= @user.username
+          %tr
+            %td パスワード:
+            %td= @user.password
+          %tr
+            %td メールアドレス:
+            %td= @user.email
+          %tr
+            %td 国籍:
+            %td= @user.nationality
+          %tr
+            %td 姓:
+            %td= @user.lastname
+          %tr
+            %td 名:
+            %td= @user.firstname
+    .tab-pane#favorite      
+      %div{:style=>'margin:9px 0px 20px 0px;'}
+        %h4 お気に入り
