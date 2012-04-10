@@ -1,5 +1,5 @@
 - id: 1
-  title: "Keynoter Webサービス"
+  title: "Keynoter"
   category: 1
   price: "30,000"
   time: "1"
@@ -20,7 +20,7 @@
   design: 53
   designer: 12
 - id: 2
-  title: "Electro Pop Party ナイトイベント"
+  title: "Electro Pop Party"
   category: 4
   price: "35,000"
   time: "3"
@@ -41,7 +41,7 @@
   design: 46
   designer: 18
 - id: 3
-  title: "Velo City Night カフェ"
+  title: "Velo City Night"
   category: 1
   price: "50,000"
   time: "5"
@@ -62,7 +62,7 @@
   design: 79
   designer: 22
 - id: 4
-  title: "NSF　サッカーチーム"
+  title: "NSF"
   category: 1
   price: "50,000"
   time: "10"
@@ -83,7 +83,7 @@
   design: 38
   designer: 9
 - id: 5
-  title: "Vietham Baguetteria 飲食店"
+  title: "Vietham Baguetteria"
   category: 1
   price: "50,000"
   time: "12"
@@ -104,7 +104,7 @@
   design: 57
   designer: 13
 - id: 6
-  title: "oftal medic 医院"
+  title: "oftal medic"
   category: 1
   price: "30,000"
   time: "20"

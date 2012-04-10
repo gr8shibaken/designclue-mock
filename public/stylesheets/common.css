@@ -25,8 +25,14 @@ footer {
 .text-center{
   text-align:center;
 }
+.font15 {
+  font-size: 15pt;
+}
 .font14 {
   font-size: 14pt;
+}
+.font13 {
+  font-size: 13pt;
 }
 .font12 {
   font-size: 12pt;
