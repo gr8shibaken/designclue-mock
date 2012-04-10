@@ -30,4 +30,59 @@
       $(".explain-popover").popover({
       });
     });
+
+    $(function () {
+      arrplan = new Array();
+      arropen = new Array();
+      arrplan["1-1"]=15000+1800;
+      arrplan["1-2"]=20000+2000;
+      arrplan["1-3"]=35000+3000;
+      arrplan["2-1"]=20000+2500;
+      arrplan["2-2"]=30000+3000;
+      arrplan["2-3"]=50000+4000;
+      arrplan["3-1"]=35000+4000;
+      arrplan["3-2"]=50000+5000;
+      arrplan["3-3"]=65000+5500;
+      arropen[1]=0;
+      arropen[2]=2000;
+      arropen[3]=5000;
+      $(".input-area").click(function(){
+        var total=0;
+        var plan = document.getElementsByName("contest[plan]");
+        var open = document.getElementsByName("contest[open]");
+        var earlyend = document.getElementsByName("contest[option_earlyend]");
+        var urgent = document.getElementsByName("contest[option_urgent]");
+        for(i=0; i<plan.length; i++){
+          if(plan[i].checked){
+            var plancost = arrplan[plan[i].value];
+            total += plancost;
+            $("#cost").text(total);
+            $("#total").text(total+1260)
+          }
+        }
+        for(i=0; i<open.length; i++){
+          if(open[i].checked){
+            var opencost = arropen[open[i].value];
+            total += opencost;
+            $("#cost").text(total);
+            $("#total").text(total+1260)
+          }
+        }
+        for(i=0; i<earlyend.length; i++){
+          if(earlyend[i].checked){
+            total += 2000;
+            $("#cost").text(total);
+            $("#total").text(total+1260)
+          }
+        }
+        for(i=0; i<urgent.length; i++){
+          if(urgent[i].checked){
+            total += 3000;
+            $("#cost").text(total);
+            $("#total").text(total+1260)
+          }
+        }
+      });
+    });
+
 = render 'selectplanform'
