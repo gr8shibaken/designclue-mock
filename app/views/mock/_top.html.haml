@@ -1,17 +1,6 @@
 = content_for :head do
   = javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js'
   = stylesheet_link_tag "/stylesheets/top.css"
-
-  - 6.times do |id|
-    :javascript
-      $(function() {
-        $("#posts#{id+1}").jCarouselLite({
-          btnNext: "#next#{id+1}",
-          btnPrev: "#prev#{id+1}",
-          visible: 5,
-          scroll:5
-        });
-      });
 .categories-container
   %h3 人気カテゴリー
   .categories
@@ -29,71 +18,46 @@
           %div{:style=>'color:#08C;'}= "¥#{category.price}〜"
     .clear
 %br
-%h3 開催中のコンテスト
-%div
-  .contest-title.contest-header コンテストタイトル
-  .contest-client.contest-header クライアント
-  .contest-category.contest-header カテゴリー
-  .contest-design.contest-header デザイン数
-  .contest-time.contest-header 残り時間
-  .contest-prize.contest-header 賞金
-  .contest-status.contest-header ステータス
-  .clear
-- if @posted
-  .contest-lane
-    - contest = Mock::Contest.find(1)
-    .label-area
-    .main-area
-      .header
-        .contest-title.contest-detail
-          %a.title Campfire ウェブコンテンツ ロゴデザイン 
-        .contest-client.contest-detail
-          .left kensuke shibata
-          .left= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
-          .clear
-        .contest-category.contest-detail
-          %span ロゴ
-        .contest-design.contest-detail
-          %span 0
-        .contest-time.contest-detail.remain-time
-          %span 1時間
-        .contest-prize.contest-detail
-          %span　¥30,000
-        .contest-status.contest-detail
-          = image_tag "/images/mock/contest-type/_12d_icon_manymore.png", :size => '20x20'
-      .contents
-        .lane
-        .clear
-  %hr
-- 6.times do |id|
-  .contest-lane
+%h3 募集中のコンテスト
+%div{:style=>'margin-left:30px;'}
+  - 6.times do |id|
     - contest = Mock::Contest.find(id+1)
-    .header
-      .contest-title.contest-detail
-        %span= link_to contest.title, mock_job_detail_path(:id => id+1)
-      .contest-client.contest-detail
-        .left{:style=>'width:110px;text-align:center;'}= contest.client
-        .right{:style=>'width:25px;'}= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '20x20',:align => 'bottom'
+    - i = rand(contest.logo)
+    .left{:style => 'margin:20px; width:256px; height:330px;'}
+      %div{:style=>'border: 1px solid #CCC;'}
+        = link_to mock_job_detail_path(:id => id+1) do
+          = image_tag "/images/mock/contests/#{id+1}-#{i+1}.jpg", :size => '252x189'
+      %div{:style => 'border: 2px solid #08C; padding:10px;'}
+        %div
+          %span= "Contest#"+(id+1).to_s
+        .font10{:style=>'font-weight:bold;'}
+          = link_to "#{contest.title}#{Mock::Category.find(contest.category).name}", mock_job_detail_path(:id => id+1)
+        .right
+          .right= image_tag "/images/mock/flag/#{contest.flag}.png",:size => '18x18',:align => 'bottom'
+          .right{:style=>'margin-right:10px;'}= contest.client
+          .clear
         .clear
-      .contest-category.contest-detail
-        %a{:href => "/mock/job_index?category=#{contest.category}"}= Mock::Category.find(contest.category).name
-      .contest-design.contest-detail
-        %span= contest.design
-      .contest-time.contest-detail.remain-time
-        %span= "#{contest.time}時間"
-      .contest-prize.contest-detail
-        %span= contest.price
-      .contest-status.contest-detail
-        = image_tag "/images/mock/contest-type/_12d_icon_#{contest.id.even? ? 'manymore' : 'private'}.png", :size => '20x20'
-    .contents
-      .lane
-        %i.icon-chevron-left.left{:id => "prev#{id+1}"}
-        .posts.left{:id => "posts#{id+1}"}
-          %ul
-            - contest.logo.times do |i|
-              %li
-                %a{:href=>"/mock/job_application?id=#{id+1}-#{i+1}"}
-                  = image_tag "/images/mock/contests/#{id+1}-#{i+1}-square.jpg", :size => '98x98', :alt => ''
-        %i.icon-chevron-right.left{:id => "next#{id+1}"}
-      .clear
-  %hr
+        %div
+          .left= image_tag '/images/mock/icon/money.png', :size=>'25x25'
+          .left{:style=>'margin:5px 0px 0px 5px;'}= "¥#{contest.price}"
+          .clear
+        %div
+          %span デザインエントリー数
+          %span &nbsp;
+          %span= contest.design
+      %div{:style=>'position:relative; top:-155px; left: 145px; z-index:1; width:150px;'}
+        %div
+          = image_tag '/images/mock/icon/time-back.png', :style=>'height:50px;'
+        %div{:style=>'position:relative; z-index:3; top: -37px; left: 23px;'}
+          %div{:style=>'color:white;'}
+            %span あと
+            %span.font11= contest.time
+            %span 時間
+.clear
+%div{:style=>'text-align:center;margin-bottom:15px;'}
+  - 5.times do |i|
+    %span= link_to i+1, '#'
+    %span= "|"
+  %span= link_to '>', '#'
+  %span &nbsp;
+  %span= link_to '>>>', '#'

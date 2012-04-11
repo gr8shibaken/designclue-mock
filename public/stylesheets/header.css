@@ -10,15 +10,8 @@
   text-decoration: none;
 }
 #search-area {
-  width: 300px;
-  height: 22px;
-  margin: 9px 0px;
-}
-#search-area input {
-  height: 16px;
-  margin: 0px;
-  padding: 3px 5px;
-  background: #CCC;
+  min-width: 300px;
+  height: 40px;
 }
 #user-area {
   width: 300px;
@@ -61,13 +54,17 @@
   color: white;
 }
 
-#info-nav li {
+.initial-navigation-back {
+  position: absolute;
+  height: 230px;
+  width: 100%;  
+  z-index: 1;
+}
+.initial-navigation-container {
+  position: absolute;
   width: 100%;
   height: 230px;
-}
-
-#info-nav .info-container {
-  padding: 20px 0px 10px 0px;
+  z-index: 2;
 }
 
 .header-space {

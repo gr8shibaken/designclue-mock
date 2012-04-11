@@ -1,7 +1,6 @@
 hr {
   border-top:1px solid #BBB;
 }
-
 .categories {
   width: 700px;
   margin: auto;
@@ -14,7 +13,6 @@ hr {
   height: 80px;
   border: 2px solid #08C;
 }
-
 .categories .category .title {
   font-size: 11pt;
   font-weight: bold;
@@ -27,85 +25,6 @@ hr {
   text-align: center;
   float: left;
 }
-
 .order-button {
   width: 140px;
-}
-.contest-lane {
-  padding-bottom: 0px;
-}
-.contest-header {
-  background: #BBB;
-  margin: 5px 3px 0px 3px;
-  height: 20px;
-  text-align: center;
-  font-weight: bold;
-  padding: 3px;
-}
-.contest-detail {
-  background: #DDD;
-  margin: 0px 3px;
-  vertical-align: middle;
-  height: 20px;
-  padding: 3px;
-  text-align: center;
-}
-.contest-title {
-  width: 260px;
-  float: left;
-}
-.contest-client {
-  width: 135px;
-  float: left;
-}
-.contest-category {
-  float: left;
-  width: 135px;
-}
-.contest-design {
-  width: 75px;
-  float: left;
-}
-.contest-time {
-  width: 75px;
-  float: left;  
-}
-.remain-time{
-  color: red;
-}
-.contest-prize {
-  width: 75px;
-  float: left;
-}
-.contest-status {
-  width: 75px;
-  float: left;
-}
-.contest-lane .contents{
-  margin-left: 100px;
-  border: 1px solid #fff;
-}
-.contest-lane .contents .lane{
-  margin-top: 50px;
-}
-.contest-lane .contents #button-container{
-  width: 99px;
-  height: 99px;
-  vertical-align: center;
-}
-.contest-lane .contents #button-container a{
-  line-height: 100px;
-  text-align: center;
-}
-.contest-lane .contents i{
-  margin-top: 40px;
-}
-.posts li {
-  width: 127px;
-  height: 100px;
-}
-.posts li img {
-  display:block;
-  margin:auto;
-  border: 1px solid #CCC;
 }
