@@ -26,8 +26,8 @@
   .right
     - if !signed_in or current_user.usertype == 'creator' 
       %div
-        %a.btn.btn-warning{:style=>'width:150px;',:onClick => "$('#designfile').click();"}
-          %b.design-upload + デザインを投稿
+        %a.btn.btn-warning{:href=>'/mock/design_post/',:style=>'width:150px;'}
+          %b + デザインを投稿
     %div{:style=>'margin-top:5px;'}
       %a.btn{:style=>'width:150px;'}
         ウォッチリストに追加

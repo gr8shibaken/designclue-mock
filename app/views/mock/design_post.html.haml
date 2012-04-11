@@ -1,0 +1,31 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/design_post.css"
+
+.wrap
+  %div
+    %h4=current_user.username+'さん'
+  .upload-area
+    .title
+      %h4 デザインの投稿
+    .description
+      %p
+        %b ファイルアップロード (JPG/PNG)
+      %p=file_field_tag(:file);
+      %p
+        %b 作品説明
+      %p=text_area_tag(:description,'',{:cols=>60,:rows=>5});
+  .agreement-area
+    .title
+      %h4 投稿の前に
+    .description
+      %p
+        DesignClueの
+        %a{:href=>'#'} 利用規約
+        と
+        %a{:href=>'#'} プライバシーポリシーに
+      %p
+        = check_box_tag( :sample, 1 )+' 同意します'
+  .btn-area
+    .previous.btn.btn-inverse
+      %a=link_to_function 'キャンセル', 'history.back()'
+    %a.next.btn.btn-inverse.right{:href => "/mock/mypage?category=myworks"}= '投稿する'

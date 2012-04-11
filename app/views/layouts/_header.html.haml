@@ -73,7 +73,7 @@
       %span= link_to '仕事を探す', mock_job_index_path
       %span= link_to 'デザイナーを探す', mock_designer_index_path 
     #link-container.left
-      -if signed_in && current_user.usertype='creator'
+      -if signed_in && current_user.usertype=='creator'
         %a.btn.btn-danger{:href=> '/mock/job_index'}
           %b 募集中のコンテストを探す
       -else

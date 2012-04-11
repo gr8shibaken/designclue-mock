@@ -36,6 +36,7 @@ Designclue::Application.routes.draw do
     get 'how_it_works'
     get 'userguide_1'
     get 'userguide_2'
+    get 'design_post'
   end
 
 end

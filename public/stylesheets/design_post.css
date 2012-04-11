@@ -1,0 +1,35 @@
+.wrap {
+  margin: auto;
+  width: 600px;
+  height: 600px;
+}
+.upload-area{
+  border: solid 1px #CCC;
+  margin: 10px 0 0 0;
+}
+.title{
+  border-bottom: solid 1px #CCC;
+  background-color:whitesmoke;
+  padding: 5px 0 5px 5px;
+}
+.description{
+  margin: 10px 0 0 10px;
+}
+.agreement-area{
+  border: solid 1px #CCC;
+  margin: 10px 0 0 0;
+  height: 120px;
+}
+.input-area {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+.btn-area{
+  margin-top: 10px;
+}
+.btn-area .previous{
+  margin-left: 150px;
+}
+.btn-area .next{
+  margin-right: 150px;
+}

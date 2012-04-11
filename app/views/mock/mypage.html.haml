@@ -35,44 +35,26 @@
       %a{:href=>'#message', :'data-toggle'=> 'tab'}
         %i.icon-envelope
         %span{:style=>'margin-left:3px;'}メッセージ
-    - if current_user.usertype == 'client'
-      %li#contest-li
-        %a{:href=>'#contest', :'data-toggle'=> 'tab'}
-          %i.icon-list-alt
-          %span{:style=>'margin-left:3px;'}コンテスト管理
-      %li#design-li
-        %a{:href=>'#design', :'data-toggle'=> 'tab'}
-          %i.icon-picture
-          %span{:style=>'margin-left:3px;'}デザイン管理
-      %li#profile-li
-        %a{:href=>'#profile', :'data-toggle'=> 'tab'}
-          %i.icon-user
-          %span{:style=>'margin-left:3px;'}プロフィール
-      %li#favorite-li
-        %a{:href=>'#favorite', :'data-toggle'=> 'tab'}
-          %i.icon-heart
-          %span{:style=>'margin-left:3px;'}お気に入り
-    - else
-      %li#myworks-li
-        %a{:href=>'#myworks', :'data-toggle'=> 'tab'}
-          %i.icon-pencil
-          %span{:style=>'margin-left:3px;'}マイワークス
-      %li#portfolio-li
-        %a{:href=>'#portfolio', :'data-toggle'=> 'tab'}
-          %i.icon-list-alt
-          %span{:style=>'margin-left:3px;'}ポートフォリオ
-      %li#profile-li
-        %a{:href=>'#profile', :'data-toggle'=> 'tab'}
-          %i.icon-user
-          %span{:style=>'margin-left:3px;'}プロフィール
-      %li#watchlist-li
-        %a{:href=>'#watchlist', :'data-toggle'=> 'tab'}
-          %i.icon-time
-          %span{:style=>'margin-left:3px;'}ウォッチリスト
-      %li#favorite-li
-        %a{:href=>'#favorite', :'data-toggle'=> 'tab'}
-          %i.icon-heart
-          %span{:style=>'margin-left:3px;'}お気に入り
+    %li#myworks-li
+      %a{:href=>'#myworks', :'data-toggle'=> 'tab'}
+        %i.icon-pencil
+        %span{:style=>'margin-left:3px;'}マイワークス
+    %li#portfolio-li
+      %a{:href=>'#portfolio', :'data-toggle'=> 'tab'}
+        %i.icon-list-alt
+        %span{:style=>'margin-left:3px;'}ポートフォリオ
+    %li#profile-li
+      %a{:href=>'#profile', :'data-toggle'=> 'tab'}
+        %i.icon-user
+        %span{:style=>'margin-left:3px;'}プロフィール
+    %li#watchlist-li
+      %a{:href=>'#watchlist', :'data-toggle'=> 'tab'}
+        %i.icon-time
+        %span{:style=>'margin-left:3px;'}ウォッチリスト
+    %li#favorite-li
+      %a{:href=>'#favorite', :'data-toggle'=> 'tab'}
+        %i.icon-heart
+        %span{:style=>'margin-left:3px;'}お気に入り
 .left{:style=>'width:740px;margin-left:30px;'}
   .tab-content
     .tab-pane#infomation
@@ -92,11 +74,7 @@
                 メッセージ
               .clear
             %td Designclue
-            %td
-              - if current_user.usertype == 'client'
-                コンテストを開催してみませんか？
-              - else
-                デザインを投稿してみませんか？
+            %td デザインを投稿してみませんか？
           %tr
             %td
               .left{:style=>'width:20px;'}
@@ -118,147 +96,11 @@
           %tr
             %td　12/03/12
             %td Designclue
-            %td
-              - if current_user.usertype == 'client'
-                コンテストを開催してみませんか？
-              - else
-                デザインを投稿してみませんか？
+            %td デザインを投稿してみませんか？
           %tr
             %td　12/03/12
             %td Designclue
             %td ご登録ありがとうございます
-    .tab-pane#contest
-      %div{:style=>'margin:9px 0px 20px 0px;'}
-        %h4 コンテスト管理
-      %div#contest-index
-        %table.table.table-striped.custom
-          %tr
-            %th 
-            %th タイトル
-            %th カテゴリ
-            %th デザイン数
-            %th 賞金
-            %th 期日
-            %th ステータス
-            %th
-          %tr
-            %td
-            %td= link_to "Campfire ウェブコンテンツ"
-            %td ロゴ
-            %td 0
-            %td ¥30,000
-            %td 2012/04/21
-            %td 開催中
-            %td
-              %a.btn#show-manager 管理ページ
-          %tr
-            %td
-              %i.icon-remove
-            %td= link_to "Campfire ウェブコンテンツ"
-            %td ロゴ
-            %td 0
-            %td ¥20,000
-            %td 2012/04/01
-            %td 一時保存
-            %td
-              %a.btn 編集
-          - Mock::Contest.all.each_with_index do |contest,index|
-            /%tr
-            /  %td
-            /  %td{:style=>'width:200px;'}= link_to contest.title, "/mock/job_detail?id=#{contest.id}"
-            /  %td ロゴ
-            /  %td= contest.design
-            /  %td= "¥#{contest.price}"
-            /  %td= "12/#{4-index}/10"
-            /  %td= "#{index == 0 ? '開催中' : '終了'}"
-            /  %td
-            /    %a.btn 編集
-      %div#contest-manager
-        %table.table.table-striped.custom
-          %tr
-            %th ステータス
-            %th デザイナー数
-            %th デザイン数
-            %th 招待数
-            %th リミット
-            %th 支払状況
-            %th
-          %tr
-            %td 開催中
-            %td 0
-            %td 0
-            %td 20
-            %td 2012/04/21
-            %td 返金保証あり
-            %td 
-              %a.btn#show-index 一覧へ 
-        %table.table.table-striped.custom
-          %tr
-            %th 管理ツール
-            %th
-          %tr
-            %td
-              %a{:href=>''}= image_tag "/images/mock/mypage/icon/edit.png", :size=>'30x30'
-              = '依頼の編集／ファイルアップロード'
-            %td
-              %a{:href=>''}= image_tag "/images/mock/mypage/icon/extend.png", :size=>'30x30'
-              = 'リミットを延期する'
-          %tr
-            %td
-              %a{:href=>''}= image_tag "/images/mock/mypage/icon/view.png", :size=>'30x30'
-              = '依頼を見る'
-            %td
-              %a{:href=>''}= image_tag "/images/mock/mypage/icon/increase.png", :size=>'30x30'
-              = '報酬を上げる'
-          %tr
-            %td
-              %a{:href=>''}= image_tag "/images/mock/mypage/icon/update.png", :size=>'30x30'
-              = '追記を書く'
-            %td
-              %a{:href=>''}= image_tag "/images/mock/mypage/icon/voting.png", :size=>'30x30'
-              = 'デザインを決定する'
-          %tr
-            %td
-              %a{:href=>''}= image_tag "/images/mock/mypage/icon/question.png", :size=>'30x30'
-              = 'designclueに質問する'
-            %td
-              %a{:href=>''}= image_tag "/images/mock/mypage/icon/refund.png", :size=>'30x30'
-              = '返金申請をする'
-        
-
-    .tab-pane#design
-      %div{:style=>'margin:9px 0px 20px 0px;'}
-        %h4 デザイン管理
-      %div
-        - works = Mock::Work.all.sample(5)
-        %table.table.table-striped.custom
-          %tr
-            %th 
-            %th ID #
-            %th ステータス
-            %th デザイナー
-            %th 次のステップ
-          - works.each_with_index do |work,index|
-            %tr
-              %td{:style=>'width:60px;'}
-                %a{:href=>"/mock/job_application?id=#{work.id}"}
-                  = image_tag "/images/mock/contests/#{work.id}-square.jpg", :size=>'50x50'
-              %td{:style=>'vertical-align:middle;'}= "##{rand(40)+1}"
-              %td{:style=>'vertical-align:middle;'}
-                - if index == 0
-                  完了
-                - elsif index == 1
-                  なし
-                - else
-                  残り2
-              %td{:style=>'vertical-align:middle;'}
-                - designer = Mock::Designer.all.sample(1).first
-                =link_to designer.name, "/mock/designer_detail?id=#{designer.id}"
-              %td{:style=>'vertical-align:middle;'}
-                - if index == 0
-                  = "-"
-                - else
-                  %a.btn Request
     .tab-pane#profile
       %div{:style=>'margin:9px 0px 20px 0px;'}
         %h4 プロフィール
@@ -268,62 +110,70 @@
     .tab-pane#myworks
       .category-title
         %h4 マイワークス
+
+        %table.table.table-striped{:style=>'width:700px;'}
+          - 3.times do |i|
+            %tr
+              %td{:style=>'width:250px;'}
+                %p
+                  %a{:href=>"/mock/job_detail?id=#{i+1}"} keynoter webサービス ロゴデザイン
+                %p ステイタス：開催中
+                %p 期限：2012年4月15日
+                %p 報酬：¥50,000
+                %p 招待：なし
+                %p
+                  %a.btn.btn-warning{:href=>'/mock/design_post/'} デザインを投稿する
+              %td{:style=>'width:150px;'}
+                %a.sample-work
+                  = image_tag "/images/mock/contests/#{i+1}-1-square.jpg"
+              %td{:style=>'padding-left:40px;'}
+                %p="design ID : ##{i+90}"
+                %p
+                  %a{:href=>'#'} 追記する／更新する
+                %p
+                  %a{:href=>'#'} 作品を取り消す
+                %p
+                  %a{:href=>'#'} ベクターデータを添付する
+
+    .tab-pane#portfolio
+      .category-title
+        %h4 ポートフォリオ
       .category-content
         %div.tabbable
           %ul.nav.nav-tabs
             %li.active
-              %a{:href=>'#contest_index','data-toggle'=>'tab'}= "マイコンテスト"
+              %a{:href=>'#portfolio_tab','data-toggle'=>'tab'}= "ポートフォリオ"
             %li
-              %a{:href=>'#design_index','data-toggle'=>'tab'}= "マイデザイン"
+              %a{:href=>'#invisiblework_tab','data-toggle'=>'tab'}= "非表示作品"
           .tab-content
-            .tab-pane.wrap.active#contest_index
-              %h5 参加コンテスト
-              %table.table.table-striped{:style=>'width:700px;'}
-                %tr
-                  %th{:colspan=>'2',:style=>'text-align:center;'} コンテスト名 
-                  %th{:width=>190,:style=>'text-align:center;'} 作品 No.
-                  %th{:width=>190,:style=>'text-align:center;'} ステータス 
-                - 5.times do |i|
+            .tab-pane.wrap.active#portfolio_tab
+              %a.image.design-upload{:href=>"#clipping",:onClick => "$('#designfile').click();"}
+                .btn.btn-info{:style=>'width:150px;margin: 0 0 20px; 20px;'}="+upload file"
+                /image_tag '/images/mock/upload-button/upload_file.png', :size => '150x100'
+              %table
+                -5.times do |i|
                   %tr
-                    %td{:style=>'text-align:center;'}
-                      %a.sample-work
-                        = image_tag "/images/mock/contests/#{i+1}-1-square.jpg"
-                    %td{:style=>'text-align:center;vertical-align:middle;'} Logo Webサービス PurpleCow
-                    %td{:style=>'text-align:center;vertical-align:middle;'}
-                      =link_to '#12', '#'
-                      =link_to '#13', '#'
-                      =link_to '#14', '#'
-                    %td{:style=>'text-align:center;vertical-align:middle;'}
-                      - if i<2
-                        = '募集中（残り3時間）'
-                      - else
-                        = '終了'
-              .text-center{:style=>'margin:20px 0px 20px'}
-                =link_to '<', '#', :style=>'margin: 0px 5px;'
-                - 13.times do |i|
-                  =link_to i+1, '#', :style=>'margin: 0px 5px;'
-                =link_to '>', '#', :style=>'margin: 0px 5px;'
-            .tab-pane.wrap#design_index
-              %h5 投稿したデザイン
+                    %td.sample-work{:style=>'width:120px;'}= image_tag "/images/mock/contests/#{i+2}-1-square.jpg"
+                    %td
+                      %p.btn
+                        %i.icon-arrow-up
+                      %p.btn
+                        %i.icon-arrow-down
+                      %p.btn 削除する
+            .tab-pane.wrap#invisiblework_tab
               - @works.each do |work|
                 .design.left
                   .thumbnail-work
                     %a{:href=>"/mock/job_application?id=#{work.id}"}
                       = image_tag "/images/mock/contests/#{work.id}-square.jpg"
-                    = check_box_tag(:open,1,true)+"公開する"
+                  .btn="ポートフォリオに追加"
               .clear
               .text-center{:style=>'margin:20px 0px 20px'}
                 =link_to '<', '#', :style=>'margin: 0px 5px;'
                 - 13.times do |i|
                   =link_to i+1, '#', :style=>'margin: 0px 5px;'
                 =link_to '>', '#', :style=>'margin: 0px 5px;'
-              .btn{:style=>'margin-left:530px;'}
-                公開設定を保存する
 
-    .tab-pane#portfolio
-      .category-title
-        %h4 ポートフォリオ
-      .category-content
     .tab-pane#watchlist
       .category-title
         %h4 ウォッチリスト
