@@ -21,6 +21,18 @@
         $("#contest-manager").css("display", "none");
         $("#contest-index").css("display", "block");
       });
+    });
+    $(function() {
+      $('[id="show-thread-1"]').click(function(){
+        $("#message-index").css("display", "none");
+        $("#message-thread-1").css("display", "block");
+        $("#message-thread-2").css("display", "none");
+      });
+      $('[class="show-index"]').click(function(){
+        $("#message-index").css("display", "block");
+        $("#message-thread-1").css("display", "none");
+        $("#message-thread-2").css("display", "none");
+      });
     }); 
 
 .left{:style=>'width:170px;'}
@@ -85,7 +97,7 @@
     .tab-pane#message
       %div{:style=>'margin:9px 0px 20px 0px;'}
         %h4 メッセージ
-      %div
+      %div#message-index
         %table.table.table-striped.custom
           %tr
             %th 日付
@@ -93,13 +105,27 @@
             %th タイトル
           %tr
             %td　12/03/12
-            %td Designclue
+            %td Joe
             %td
-              コンテストを開催してみませんか？
-          %tr
-            %td　12/03/12
-            %td Designclue
-            %td ご登録ありがとうございます
+              %a{:href=>'#',:id=>'show-thread-1'} design#32 "keynoter ロゴデザイン"
+      .thread-area
+        #message-thread-1
+          %table.table
+            %tr
+              %td 2012/03/12
+              %td Joe
+              %td 背景の色は青と赤どちらがよろしいでしょうか？
+            %tr
+              %td 2012/03/13
+              %td shibata
+              %td 赤でお願いします。
+          .reply-area
+            %h5 返信内容
+            =text_area_tag(:reply,'',{:cols=>80,:rows=>5})
+          .btn 返信
+          .btn
+            .show-index 戻る
+        #message-thread-2
     .tab-pane#contest
       %div{:style=>'margin:9px 0px 20px 0px;'}
         %h4 コンテスト管理

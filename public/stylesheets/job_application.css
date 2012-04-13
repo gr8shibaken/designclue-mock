@@ -14,20 +14,20 @@
 }
 
 #application {
-  width: 570px;
+  width: 500px;
   float: left;
   margin-right: 30px;
 }
 #feedback-index {
-  width: 340px;
+  width: 410px;
   float: left;
 }
 i{
   margin:160px 10px 0px 10px;
 }
 #product {
-  width: 502px;
-  height: 377px;
+  width: 432px;
+  height: 337px;
   position: relative;
 }
 
@@ -116,4 +116,33 @@ i{
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
+}
+.rating-area{
+  /*
+  border: 1px solid #CCC;
+*/
+  margin: 5px 0 10px 0;
+  padding: 0 5px 5px 5px;
+}
+.contest-lane .header{
+  margin-top: 10px;
+}
+.contest-lane .contents{
+  margin: 5px;
+  border: 1px solid #fff;
+}
+.contest-lane .contents .lane{
+  margin-top: 10px;
+}
+.contest-lane .contents i{
+  margin-top: 40px;
+}
+.posts li {
+  width: 127px;
+  height: 100px;
+}
+.posts li img {
+  display:block;
+  margin:auto;
+  border: 1px solid #CCC;
 }

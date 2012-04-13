@@ -12,6 +12,7 @@
         $(targetList).addClass('active');
       }
     });
+
     $(function() {
       $('[id="show-manager"]').click(function(){
         $("#contest-manager").css("display", "block");
@@ -22,6 +23,53 @@
         $("#contest-index").css("display", "block");
       });
     }); 
+
+    $(function() {
+      $('[id="show-thread-1"]').click(function(){
+        $("#message-index").css("display", "none");
+        $("#message-thread-1").css("display", "block");
+        $("#message-thread-2").css("display", "none");
+      });
+      $('[class="show-index"]').click(function(){
+        $("#message-index").css("display", "block");
+        $("#message-thread-1").css("display", "none");
+        $("#message-thread-2").css("display", "none");
+      });
+    });
+    
+    $(function() {
+      $('[id="filter-all"]').click(function(){
+        $('[id="message-1"]').css("display", "");
+        $('[id="feedback-1"]').css("display", "");
+        $('[id="invite-1"]').css("display", "");
+        $('[id="payment-1"]').css("display", "");
+      });
+      $('[id="filter-message"]').click(function(){
+        $('[id="message-1"]').css("display", "");
+        $('[id="feedback-1"]').css("display", "none");
+        $('[id="invite-1"]').css("display", "none");
+        $('[id="payment-1"]').css("display", "none");
+      });
+      $('[id="filter-feedback"]').click(function(){
+        $('[id="message-1"]').css("display", "none");
+        $('[id="feedback-1"]').css("display", "");
+        $('[id="invite-1"]').css("display", "none");
+        $('[id="payment-1"]').css("display", "none");
+      });
+      $('[id="filter-invite"]').click(function(){
+        $('[id="message-1"]').css("display", "none");
+        $('[id="feedback-1"]').css("display", "none");
+        $('[id="invite-1"]').css("display", "");
+        $('[id="payment-1"]').css("display", "none");
+      });
+      $('[id="filter-payment"]').click(function(){
+        $('[id="message-1"]').css("display", "none");
+        $('[id="feedback-1"]').css("display", "none");
+        $('[id="invite-1"]').css("display", "none");
+        $('[id="payment-1"]').css("display", "");
+      });
+    }); 
+
 
 .left{:style=>'width:170px;'}
   %div{:style=>'margin-bottom:20px;'}
@@ -60,34 +108,43 @@
     .tab-pane#infomation
       %div{:style=>'margin:9px 0px 20px 0px;'}
         %h4 お知らせ
-      %div
-        %table.table.table-striped.custom
-          %tr
-            %th 種類
-            %th 差出人
-            %th タイトル
-          %tr
-            %td
-              .left{:style=>'width:20px;'}
-                %i.icon-flag
-              .left
-                メッセージ
-              .clear
-            %td Designclue
-            %td デザインを投稿してみませんか？
-          %tr
-            %td
-              .left{:style=>'width:20px;'}
-                &nbsp;
-              .left
-                メッセージ
-              .clear
-            %td Designclue
-            %td ご登録ありがとうございます        
+      .filtercategory
+        .btn.btn-info#filter-all{:style=>"margin-left:8px;"} ALL
+        .btn.btn-info#filter-message{:style=>"margin-left:8px;"} メッセージ
+        .btn.btn-info#filter-feedback{:style=>"margin-left:8px;"} フィードバック 
+        .btn.btn-info#filter-invite{:style=>"margin-left:8px;"} インヴァイト
+        .btn.btn-info#filter-payment{:style=>"margin-left:8px;"} ペイメント
+      %table.table.table-striped.custom
+        %tr
+          %th
+          %th{:style=>"width:100px;"} 種類
+          %th{:style=>"width:120px;"} 差出人
+          %th{:style=>"width:200px;"} 内容
+        %tr#message-1
+          %td{:style=>"width:20px;"}
+            %i.icon-flag
+          %td メッセージ
+          %td hideki yamamoto
+          %td デザインを投稿してみませんか？
+        %tr#feedback-1
+          %td{:style=>"width:20px;"}
+          %td フィードバック
+          %td kensuke shibata
+          %td デザインを投稿してみませんか？
+        %tr#invite-1
+          %td{:style=>"width:20px;"}
+          %td インヴァイト
+          %td kensuke shibata
+          %td デザインを投稿してみませんか？
+        %tr#payment-1
+          %td{:style=>"width:20px;"}
+          %td ペイメント
+          %td Designclue
+          %td ご登録ありがとうございます        
     .tab-pane#message
       %div{:style=>'margin:9px 0px 20px 0px;'}
         %h4 メッセージ
-      %div
+      %div#message-index
         %table.table.table-striped.custom
           %tr
             %th 日付
@@ -95,12 +152,26 @@
             %th タイトル
           %tr
             %td　12/03/12
-            %td Designclue
-            %td デザインを投稿してみませんか？
-          %tr
-            %td　12/03/12
-            %td Designclue
-            %td ご登録ありがとうございます
+            %td Shibata
+            %td
+              %a{:href=>'#',:id=>'show-thread-1'} design#32 "keynoter ロゴデザイン"
+      .thread-area
+        #message-thread-1
+          %table.table
+            %tr
+              %td 2012/03/12
+              %td Joe
+              %td 背景の色は青と赤どちらがよろしいでしょうか？
+            %tr
+              %td 2012/03/13
+              %td shibata
+              %td 赤でお願いします。
+          .reply-area
+            %h5 返信内容
+            =text_area_tag(:reply,'',{:cols=>80,:rows=>5})
+          .btn 返信
+          .btn
+            .show-index 戻る
     .tab-pane#profile
       %div{:style=>'margin:9px 0px 20px 0px;'}
         %h4 プロフィール
@@ -148,18 +219,24 @@
           .tab-content
             .tab-pane.wrap.active#portfolio_tab
               %a.image.design-upload{:href=>"#clipping",:onClick => "$('#designfile').click();"}
-                .btn.btn-info{:style=>'width:150px;margin: 0 0 20px; 20px;'}="+upload file"
-                /image_tag '/images/mock/upload-button/upload_file.png', :size => '150x100'
-              %table
-                -5.times do |i|
-                  %tr
-                    %td.sample-work{:style=>'width:120px;'}= image_tag "/images/mock/contests/#{i+2}-1-square.jpg"
-                    %td
-                      %p.btn
-                        %i.icon-arrow-up
-                      %p.btn
-                        %i.icon-arrow-down
-                      %p.btn 削除する
+              .btn.btn-info{:style=>'width:150px;margin: 0 0 20px; 20px;'}="+upload file"
+              /image_tag '/images/mock/upload-button/upload_file.png', :size => '150x100'
+              .operation-area
+                %table
+                  -5.times do |i|
+                    %tr
+                      %td
+                        .sample-work{:style=>'width:120px;'}= image_tag "/images/mock/contests/#{i+2}-1-square.jpg"
+                      %td{:style=>'width:30px;padding: 0 5px 0 5px;'}
+                        -unless i==0
+                          .btn
+                            %i.icon-arrow-up
+                        -unless i==4
+                          .btn{:style=>'margin-top:5px;'}
+                            %i.icon-arrow-down
+                      %td
+                        -if i>1
+                          .btn 非表示にする
             .tab-pane.wrap#invisiblework_tab
               - @works.each do |work|
                 .design.left

@@ -16,8 +16,22 @@ table.custom {
 #myworks table td{
   border-bottom: 1px solid #CCC;
 }
+.filtercategory{
+  margin: 0 0 10px 20px;
+}
+#message-1{
+}
+#feedback-1{
+}
+#invite-1{
+}
+#payment-1{
+}
+#information table td{
+  width:150px;
+}
 .sample-work {
-  margin: 5px;
+  margin: 3px;
   border: 1px solid #CCC;
 /*
   float: left;
@@ -42,4 +56,9 @@ table.custom {
 #contest-manager{
   display: none;
 }
-
+#message-thread-1{
+  display:none;
+}
+#message-thread-2{
+  display:none;
+}

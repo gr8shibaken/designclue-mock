@@ -1,5 +1,6 @@
 = content_for :head do
   = stylesheet_link_tag "/stylesheets/job_application.css"
+  /= javascript_include_tag '/javascripts/lib/jquery-plugin/jcarousellite_1.0.1.min.js' 
   :javascript
       $(function() {
         $("#feedbackbtn").click(function(){
@@ -20,7 +21,14 @@
           $("#feedbackDialog").hide("slow");
         });
       });
-
+      $(function() {
+        $("#posts1").jCarouselLite({
+          btnNext: "#next_sample",
+          btnPrev: "#prev_sample",
+          visible: 4,
+          scroll:4
+        });
+      });
 #contest-info
   %div
     .left.space.font12{:style=>'padding-top:7px;'}
@@ -49,11 +57,6 @@
 #application
   - designer = Mock::Designer.all.sample(1).first
   %div{:style=>'margin-top:7px;'}
-    .left
-      - if signed_in && current_user.usertype == "client"
-        %a.btn.btn-warning#feedbackbtn
-          %b
-            フィードバックを入れる
     .right{:style=>'margin-top:10px;'}
       .left デザイン#
       .left{:style=>'margin-right:10px;'}= @current
@@ -100,26 +103,59 @@
         22人がFavoriteに入れました
     .clear
 #feedback-index  
-  %p
-    %h4 フィードバック
-  %div{:style=>"margin-left:10px;"}  
-    %table.table.table-striped
-      - feedbacks = Mock::Feedback.all.sample(5)
-      - feedbacks.each_with_index do |feedback,index|
-        %tr
-          %td="2012.3.#{14+index}"
-          %td="クライアントは#{feedback.description}と言いました。"
-      %tr#feedbackadd{:style=>'display:none;'}
-        %td 2012.3.19
-        %td#feedbackaddDetail
-        / = "クライアントは#{Mock::Feedback.all.sample(1).first.description}と言いました。"
+  .left
+    - if signed_in && current_user.usertype == "client"
+      %a.btn.btn-warning#feedbackbtn
+        %b
+          フィードバックを入れる
+  .clear
   %p
     %h4 評価
-  %div{:style=>"margin-left:10px;"}
-    - 5.times do |i|
-      %a{:href=>'#'}
-        = image_tag "http://www.setrating.com/images/star1.png"
-    / %script{:type=>"text/javascript", :src=>"http://SetRating.com/SetRating.js"}
-    /     %script{:type=>"text/javascript"}
-    /       SetRatingWidget("star")   
+  .rating-area
+    -rate=['クリエイティビティー','クオリティー','フォント','カラー']
+    %table
+      -4.times do |i|
+        %tr{:style=>"margin-left:10px;"}
+          %td{:style=>"width:150px;"}=rate[i]
+          - 5.times do
+            %td
+              %a{:href=>'#'}= image_tag "http://www.setrating.com/images/star1.png"
+  %p
+    %h4 フィードバック/コメント
+  %div{:style=>"margin-left:10px;"}  
+    %table.table.table-striped
+      /- feedbacks = Mock::Feedback.all.sample(5)
+      /- feedbacks.each_with_index do |feedback,index|
+      %tr
+        %td="2012.4.05"
+        %td=designer.name
+        %td="宇宙をイメージしてデザインしました。"
+      %tr#feedbackadd{:style=>'display:none;'}
+        %td="2012.4.15"
+        -if signed_in
+          %td=current_user.username
+        -else
+          %td
+        %td#feedbackaddDetail
 .clear
+
+%hr
+.contest-lane
+  - contest = Mock::Contest.find(1)
+  .header
+    .left{:style=>"margin-left:60px;"}
+      %h4=contest.title+"ロゴコンテスト　すべてのデザイン"
+    .left{:style=>"margin-left:150px;"} page 1/7
+    .clear
+  .contents
+    .lane
+      %i.icon-chevron-left.left{:id => "prev_sample"}
+      .posts.left{:id => "posts1"}
+        %ul
+          - contest.logo.times do |i|
+            %li
+              %a{:href=>"/mock/job_application?id=#{1}-#{i+1}"}
+                = image_tag "/images/mock/contests/#{1}-#{i+1}-square.jpg", :size => '98x98', :alt => ''
+      %i.icon-chevron-right.left{:id => "next_sample"}
+    .clear
+%hr

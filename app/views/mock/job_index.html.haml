@@ -36,97 +36,67 @@
   /             = image_tag "/images/mock/contests/#{image}-square.jpg", :size => '98x98', :alt => ''
   /   %i.icon-chevron-right.left#next1
   /   .clear
-.sidebar
+.search-area
   %h4.content-title 条件検索
-  %form
-    .condition
-      .head
-        ▼ キーワード
-      .contents{:style=>'display:block;'}
-        %input.span3{:type=>'text'}
-    .condition
-      .head
-        ▼ カテゴリ
-      .contents
-        %select
-          %option カテゴリ1
-          %option カテゴリ2
-          %option　カテゴリ3
-    .condition
-      .head
-        ▼ インダストリー
-      .contents
-        %select
-          %option インダストリー1
-          %option インダストリー2
-          %option　インダストリー3
-    .condition
-      .head
-        ▼ 賞金
-      .contents
-        ¥&nbsp;
-        %input{:type=>'text', :style=> 'width:70px;'}
-        &nbsp;〜&nbsp;
-        %input{:type=>'text', :style=> 'width:70px;'}
-    .condition
-      .head
-        ▼ ロゴタイプ
-      .contents
-        %table.logo-select-area
-          %tr
-            %td
-              %p.image= image_tag '/images/mock/logo-type/abstruct.png', :size => '100x100'
-              = check_box_tag( :sample, 1 )
-              アブストラクト
-            %td
-              %p.image= image_tag '/images/mock/logo-type/brush.png', :size => '100x100'
-              = check_box_tag( :sample, 1 )
-              筆文字
-          %tr
-            %td
-              %p.image= image_tag '/images/mock/logo-type/character.png', :size => '100x100'
-              = check_box_tag( :sample, 1 )
-              キャラクター
-            %td
-              %p.image= image_tag '/images/mock/logo-type/emblem.png', :size => '100x100'
-              = check_box_tag( :sample, 1 )
-              エンブレム
-          %tr
-            %td
-              %p.image= image_tag '/images/mock/logo-type/letterform.png', :size => '100x100'
-              %br
-              = check_box_tag( :sample, 1 )
-              レターフォーム
-            %td
-              %p.image= image_tag '/images/mock/logo-type/picturemark.png', :size => '100x100'
-              %br
-              = check_box_tag( :sample, 1 )
-              ピクチャーマーク
-          %tr
-            %td
-              %p.image= image_tag '/images/mock/logo-type/wordmark.png', :size => '100x100'
-              = check_box_tag( :sample, 1 )
-              ワードマーク
-    .right
-      %a.btn.btn-info
-        検索
+  -categoryselect=['all','iphoneアイコン','webサイトデザイン','スマートフォンサイトデザイン','名刺デザイン','フライヤー','Tシャツデザイン']
+  -limitselect=['all','24時間以内','3日以内','7日以内','10日以内','3日以上','7日以上','10日以上']
+  -nationalityselect=['all','米国','日本','韓国','イギリス','フランス','イタリア','ドイツ']
+  .search-detail
+    %table
+      %tr
+        %td{:style=>'width:80px;'}
+          %b報酬
+        %td{:style=>'width:350px;'}
+          ¥
+          =text_field_tag(:prize)
+          =select_tag(:range,options_for_select(['以上','以下']))
+        %td{:style=>'width:80px;'}
+          %bカテゴリー
+        %td{:style=>'width:350px;'}
+          =select_tag(:category,options_for_select(categoryselect))
+      %tr
+        %td
+        %td
+          =check_box_tag(:repay)+'返金保証未選択コンテストのみ'
+        %td
+          %b残り時間
+        %td
+          =select_tag(:category,options_for_select(limitselect))
+      %tr
+        %td
+          %bステイタス
+        %td
+          =check_box_tag(:status)+'募集中'
+          =check_box_tag(:status)+'決定中'
+          =check_box_tag(:status)+'終了'
+        %td
+          %bキーワード
+        %td
+          =text_field_tag(:keyword)
+      %tr
+        %td
+          %b国籍
+        %td
+          =select_tag(:nationality,options_for_select(nationalityselect))
+        %td
+        %td
+          .btn.btn-info
+            検索
 .content-wrap
   %h4.content-title= "#{@category ? @category.name : '全ての'}コンテスト一覧"
   %table.table.table-striped.text-center
     %tbody
       %tr.center
-        %th{:style=>'text-align:center;width:210px;'} タイトル
-        %th{:style=>'text-align:center;'} クライアント
-        %th{:style=>'text-align:center;'} 残り時間
-        %th{:style=>'text-align:center;'} デザイン数
-        %th{:style=>'text-align:center;'} 賞金
         %th{:style=>'text-align:center;'} ステータス
+        %th{:style=>'text-align:center;width:210px;'} タイトル
+        %th{:style=>'text-align:center;'} デザイン数
+        %th{:style=>'text-align:center;'} 残り時間
+        %th{:style=>'text-align:center;'} 報酬 
       - contests.each_with_index do |contest,index|
         %tr
+          %td.status{:style=>'text-align:center;'}='募集中'
           %td{:style=>'text-align:center;'}= link_to contest.title , mock_job_detail_path(:id => contest.id)
-          %td{:style=>'text-align:center;'}= contest.client
           %td{:style=>'text-align:center;'}= "#{contest.time}時間"
           %td{:style=>'text-align:center;'}= contest.design 
           %td{:style=>'text-align:center;'}= "¥#{contest.price}"
-          %td.status{:style=>'text-align:center;'}= image_tag "/images/mock/contest-type/_12d_icon_#{index.even? ? 'manymore' : 'private'}.png", :size => '20x20'
 .clear
