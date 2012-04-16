@@ -2,7 +2,8 @@ class ContestsController < ApplicationController
   # GET /contests
   # GET /contests.json
   def index
-    @contests = Contest.all
+    @user = User.find(current_user.id)
+    @contests = @user.contests
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,9 @@ class ContestsController < ApplicationController
   # GET /contests/1
   # GET /contests/1.json
   def show
-    @contest = Contest.find(params[:id])
+    @user = User.find(current_user.id)
+    @contests = @user.contests
+    @contest = @contests.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -70,6 +73,7 @@ class ContestsController < ApplicationController
   # GET /contests/1/edit
   def edit
     @contest = Contest.find(params[:id])
+    @days = ['2','3','4','5','7','10','13','15']
   end
 
   # POST /contests
@@ -97,7 +101,8 @@ class ContestsController < ApplicationController
 
     respond_to do |format|
       if @contest.update_attributes(params[:contest])
-        format.html { redirect_to @contest, notice: 'Contest was successfully updated.' }
+        #format.html { redirect_to @contest, notice: 'Contest was successfully updated.' }
+        format.html { redirect_to user_contest_path(current_user.id), notice: 'Contest was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -116,5 +121,15 @@ class ContestsController < ApplicationController
       format.html { redirect_to contests_url }
       format.json { head :no_content }
     end
+  end
+  def add_comment
+    @contest = Contest.find(params[:contest_id])
+  end
+  def update_prize
+    @contest = Contest.find(params[:contest_id])
+  end
+  def update_endtime
+    @contest = Contest.find(params[:contest_id])
+
   end
 end

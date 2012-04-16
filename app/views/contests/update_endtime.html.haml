@@ -1,0 +1,22 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/update_endtime.css"
+
+.wrap
+  %h3 リミットを延長する
+  .content-wrap
+    %p
+      %b="コンテスト##{@contest.id}：#{@contest.title}"
+    %p
+      %b="現在のリミット：#{@contest.term.to_i.days.since(@contest.created_at).in_time_zone("Tokyo").to_s(:db)}"
+    .input-area
+      %p どのくらい期間を延長しますか
+      %p=select_tag(:term,options_for_select([1,2,3,4,5]),{:style=>'width:100px;'})+' days'
+    .input-area
+      %p 延期理由
+      %p=text_area_tag(:reason,'',{:cols=>80,:rows=>5})
+
+  .btn-area
+    .previous.btn.btn-inverse
+      %a=link_to_function '戻る', 'history.back()'
+    .next.btn.btn-inverse.right
+      %a=link_to '決定する', user_contest_path(current_user.id,@contest.id),{:confirm=>'本当によろしいですか?'}

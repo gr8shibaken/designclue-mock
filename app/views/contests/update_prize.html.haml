@@ -1,0 +1,39 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/update_prize.css"
+
+.wrap
+  %h3 報酬を上げる
+  .content-wrap
+    .well
+      ※現在の報酬を下回る変更はできません。
+    .input-area
+      %table
+        %tr
+          %th{:style=>"width:250px;"} 新たな報酬
+          %th 現在の報酬
+        %tr
+          %td
+            １位 ¥
+            =text_field_tag(:rank1)
+          %td
+            １位 ¥
+            =get_plan_prize[@contest.plan]
+        %tr
+          %td
+            ２位 ¥
+            =text_field_tag(:rank1)
+          %td
+            ２位 ¥0
+        %tr
+          %td
+            ３位 ¥
+            =text_field_tag(:rank1)
+          %td
+            ３位 ¥0
+
+
+  .btn-area
+    .previous.btn.btn-inverse
+      %a=link_to_function '戻る', 'history.back()'
+    .next.btn.btn-inverse.right
+      %a=link_to '決済へ進む', mock_payment_path

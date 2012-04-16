@@ -1,0 +1,22 @@
+.wrap {
+  margin: auto;
+  width: 800px;
+  height: 1300px;
+}
+.content-wrap{
+  margin: 10px 0 10px 0;
+  padding: 10px 0 0 10px;
+  border: solid 1px #CCC;
+}
+.input-area{
+  margin: 20px 0 10px 10px;
+}
+.btn-area{
+  margin-top: 10px;
+}
+.btn-area .previous{
+  margin-left: 150px;
+}
+.btn-area .next{
+  margin-right: 250px;
+}

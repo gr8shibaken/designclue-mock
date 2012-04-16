@@ -25,7 +25,9 @@ Contest.delete_all
 #Contest.connection.execute("delete from sqlite_sequence where name='contests'")
 Contest.create(
   :user_id => 1,
-  :category => 'test',
+  :plan => '1-1',
+  :category => 'flyer',
   :name => 'sample',
+  :title => 'dummy contest!',
   :industry_1 => 'industry'
 )

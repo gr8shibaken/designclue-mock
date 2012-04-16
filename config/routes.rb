@@ -1,5 +1,5 @@
 Designclue::Application.routes.draw do
-  resources :contests , :only=> %w[index show create new destroy edit] do
+  resources :contests , :only=> %w[create new update] do
     collection do
       get 'selectplan'
       post 'inputdetail'
@@ -9,6 +9,11 @@ Designclue::Application.routes.draw do
 
   resources :users do
     get 'mypage'
+    resources :contests, :only=> %w[index show edit destroy] do
+      get 'update_endtime'
+      get 'update_prize'
+      get 'add_comment'
+    end
   end
 
   root :to => 'sessions#new'

@@ -1,5 +1,87 @@
-%p#notice= notice
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/mypage.css"
+.left{:style=>'width:170px;'}
+  %div{:style=>'margin-bottom:20px;'}
+    %h3 My Page
+  %ul.nav.nav-tabs.nav-stacked
+    %li#infomation-li
+      %a{:href=>"/users/#{@user.id}/mypage?category=infomation"}
+        %i.icon-info-sign
+        %span{:style=>'margin-left:3px;'}お知らせ
+    %li#message-li
+      %a{:href=>"/users/#{@user.id}/mypage?category=message"}
+        %i.icon-envelope
+        %span{:style=>'margin-left:3px;'}メッセージ
+    %li#contest-li
+      %a{:href=>"/users/#{@user.id}/mypage?category=contest"}
+        %i.icon-list-alt
+        %span{:style=>'margin-left:3px;'}コンテスト管理
+    %li#design-li
+      %a{:href=>"/users/#{@user.id}/mypage?category=design"}
+        %i.icon-picture
+        %span{:style=>'margin-left:3px;'}デザイン管理
+    %li#profile-li
+      %a{:href=>"/users/#{@user.id}/mypage?category=profile"}
+        %i.icon-user
+        %span{:style=>'margin-left:3px;'}プロフィール
+    %li#favorite-li
+      %a{:href=>"/users/#{@user.id}/mypage?category=favorite"}
+        %i.icon-heart
+        %span{:style=>'margin-left:3px;'}お気に入り
 
-= link_to 'Edit', edit_contest_path(@contest)
-\|
-= link_to 'Back', contests_path
+.left{:style=>'width:740px;margin-left:30px;'}
+  %div{:style=>'margin:9px 0px 20px 0px;'}
+    %h4 コンテスト詳細
+  %div
+    %table.table.table-striped.custom
+      %tr
+        %th ステータス
+        %th デザイナー数
+        %th デザイン数
+        %th 招待数
+        %th リミット
+        %th 支払状況
+        %th
+      %tr
+        %td=get_status_name[@contest.status]
+        %td 0
+        %td 0
+        %td 0
+        %td=@contest.term.to_i.days.since(@contest.created_at).in_time_zone("Tokyo").to_s(:db)
+        %td
+        %td 
+          %a.btn{:href=>"/users/#{@user.id}/mypage?category=contest"} 一覧へ 
+    %table.table.table-striped.custom
+      %tr
+        %th 管理ツール
+        %th
+      %tr
+        %td
+          %a{:href=>"/users/#{@user.id}/contests/#{@contest.id}/edit"}= image_tag "/images/mock/mypage/icon/edit.png", :size=>'30x30'
+          = '依頼の編集／ファイルアップロード'
+        %td
+          %a{:href=>"/users/#{@user.id}/contests/#{@contest.id}/update_endtime"}= image_tag "/images/mock/mypage/icon/extend.png", :size=>'30x30'
+          = 'リミットを延期する'
+      %tr
+        %td
+          %a{:href=>''}= image_tag "/images/mock/mypage/icon/view.png", :size=>'30x30'
+          = '依頼を見る'
+        %td
+          %a{:href=>"/users/#{@user.id}/contests/#{@contest.id}/update_prize"}= image_tag "/images/mock/mypage/icon/increase.png", :size=>'30x30'
+          = '報酬を上げる'
+      %tr
+        %td
+          %a{:href=>"/users/#{@user.id}/contests/#{@contest.id}/add_comment"}= image_tag "/images/mock/mypage/icon/update.png", :size=>'30x30'
+          = '追記する'
+        %td
+          %a{:href=>''}= image_tag "/images/mock/mypage/icon/voting.png", :size=>'30x30'
+          = 'デザインを決定する'
+      %tr
+        %td
+          %a{:href=>''}= image_tag "/images/mock/mypage/icon/question.png", :size=>'30x30'
+          = 'designclueに質問する'
+        %td
+          %a{:href=>''}= image_tag "/images/mock/mypage/icon/refund.png", :size=>'30x30'
+          = '返金申請をする'
+
+

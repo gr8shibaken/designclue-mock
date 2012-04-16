@@ -1,7 +1,13 @@
-%h1 Editing contest
+= content_for :head do
+  = javascript_include_tag '/javascripts/lib/jquery-plugin/jqModal.js'
+  = stylesheet_link_tag "/stylesheets/job_post_2.css"
+  = stylesheet_link_tag "/stylesheets/jqModal.css"
 
-= render 'form'
+= form_for @contest do |f|
+  = render :partial=>'form', :locals => {:f => f}
+/= render 'form'
 
-= link_to 'Show', @contest
-\|
-= link_to 'Back', contests_path
+/= link_to 'Show', @contest
+/\|
+/= link_to 'Back', contests_path
+

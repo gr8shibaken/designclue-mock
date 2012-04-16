@@ -13,16 +13,6 @@
       }
     });
     $(function() {
-      $('[id="show-manager"]').click(function(){
-        $("#contest-manager").css("display", "block");
-        $("#contest-index").css("display", "none");
-      });
-      $('[id="show-index"]').click(function(){
-        $("#contest-manager").css("display", "none");
-        $("#contest-index").css("display", "block");
-      });
-    });
-    $(function() {
       $('[id="show-thread-1"]').click(function(){
         $("#message-index").css("display", "none");
         $("#message-thread-1").css("display", "block");
@@ -34,7 +24,18 @@
         $("#message-thread-2").css("display", "none");
       });
     }); 
-
+    /*
+    $(function() {
+      $('[id="show-manager"]').click(function(){
+        $("#contest-manager").css("display", "block");
+        $("#contest-index").css("display", "none");
+      });
+      $('[id="show-index"]').click(function(){
+        $("#contest-manager").css("display", "none");
+        $("#contest-index").css("display", "block");
+      });
+    });
+    */  
 .left{:style=>'width:170px;'}
   %div{:style=>'margin-bottom:20px;'}
     %h3 My Page
@@ -150,7 +151,8 @@
               %td=contest.term.to_i.days.since(contest.created_at).in_time_zone("Tokyo").to_s(:db)
               %td=get_status_name[contest.status]
               %td
-                %a.btn#show-manager 管理ページ
+                %a.btn#show-manager{:href=>"/users/#{@user.id}/contests/#{contest.id}"} 管理ページ
+                /%a.btn#show-manager 管理ページ
 
       %div#contest-manager
         %table.table.table-striped.custom

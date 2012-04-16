@@ -1,0 +1,18 @@
+= content_for :head do
+  = stylesheet_link_tag "/stylesheets/add_comment.css"
+
+.wrap
+  %h3 依頼内容に追記する
+  .content-wrap
+    %p
+      %b="コンテスト##{@contest.id}：#{@contest.title}"
+    .input-area
+      %p 追記内容
+      %p=text_area_tag(:reason,'',{:cols=>80,:rows=>5})
+
+  .btn-area
+    .previous.btn.btn-inverse
+      %a=link_to_function '戻る', 'history.back()'
+    .next.btn.btn-inverse.right
+      %a=link_to '決定する', user_contest_path(current_user.id,@contest.id),{:confirm=>'本当によろしいですか?'}
+
