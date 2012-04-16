@@ -27,6 +27,7 @@ Contest.create(
   :user_id => 1,
   :plan => '1-1',
   :category => 'flyer',
+  :open => 1,
   :name => 'sample',
   :title => 'dummy contest!',
   :industry_1 => 'industry'
